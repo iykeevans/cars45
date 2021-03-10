@@ -1,0 +1,114 @@
+@import "./variable.scss";
+
+.jumbotron {
+    border-radius: 0 !important;
+    padding: 0 !important;
+    position: relative;
+    margin-bottom: 0;
+    .owl-theme .owl-nav.disabled + .owl-dots {
+        position: absolute;
+        bottom: 60px;
+        right: 0;
+        width: 100%;
+    }
+    .owl-theme .owl-dots .owl-dot span {
+        width: 5px;
+        height: 5px;
+        margin: 5px 7px;
+        background: #68fef7;
+        border-radius: 100%;
+    }
+    .owl-theme .owl-dots .owl-dot.active span,
+    .owl-theme .owl-dots .owl-dot:hover span {
+        background: #ffffff;
+    }
+    .item {
+        position: relative;
+    }
+    .banner-text {
+        position: absolute;
+        padding-left: 230px;
+        height: 100%;
+        top: 80px;
+        bottom: 0;
+    }
+    .banner-text h1 {
+        color: $cr-white;
+    }
+    .banner-bottom-container {
+        border: solid 1px $cr-dark;
+        padding-top: 10px;
+        color: $cr-orange;
+        background-color: $cr-dark;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+    .banner-bottom {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        // top: 0;
+        z-index: 1000;
+    }
+    .btn-danger {
+        background-color: $cr-red;
+        color: $cr-white;
+        border-color: $cr-red;
+        border-radius: 0;
+        display: inline-block;
+        height: 25px;
+        // line-height: 50px;
+        letter-spacing: 3px;
+        font-size: 14px;
+        font-weight: 600;
+        position: fixed;
+        right: 13px;
+        top: 250px;
+        bottom: 0;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        -webkit-transform: rotate(-90deg);
+        transform-origin: right;
+        // width: 150px;
+        padding-bottom: 20px;
+        z-index: 1000;
+        padding-left: 30px;
+        padding-right: 30px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+}
+.section2 {
+    padding-top: 20px;
+    .car-option img {
+        width: 90px;
+        height: 40px;
+        align-self: center;
+    }
+    .car-option {
+        height: 85px;
+        border-radius: 10px;
+        border: solid 1px $cr-white;
+        background-color: $cr-white;
+        padding: 10px;
+        cursor: pointer;
+    }
+    .car-option p {
+        margin-bottom: 0;
+        margin-top: 5px;
+        align-self: flex-end;
+        font-size: 14px;
+    }
+    .message {
+        padding: 10px 10px;
+        border-radius: 100%;
+    }
+    .message img {
+        width: 30px;
+        // height: 20px;
+    }
+}

@@ -1,4 +1,4 @@
-@import "./assets/scss/variable.scss";
+@import "./asset/scss/variable.scss";
 
 .dark-color {
     color: $cr-dark !important;
@@ -25,7 +25,7 @@
     color: $cr-darkgrey !important;
 }
 .white-color {
-    color: $cr-tealgreen !important;
+    color: $cr-white !important;
 }
 
 .dark-background {
@@ -53,7 +53,7 @@
     background-color: $cr-darkgrey !important;
 }
 .white-background {
-    background-color: $cr-tealgreen !important;
+    background-color: $cr-white !important;
 }
 .logo {
     width: 190px;

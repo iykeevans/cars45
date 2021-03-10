@@ -18,10 +18,10 @@ export default function (ComposedComponent) {
 
         render() {
             return (
-                <div className="admin freelancer">
+                <div>
                     <Header />
 
-                    <div className="main">
+                    <div>
                         <ComposedComponent {...this.props} />
                     </div>
 
