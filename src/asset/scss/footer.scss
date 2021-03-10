@@ -1,6 +1,15 @@
 @import "./variable.scss";
 
 .footer-one {
+    @media (min-width: 1200px) {
+        .container,
+        .container-lg,
+        .container-md,
+        .container-sm,
+        .container-xl {
+            max-width: 1250px;
+        }
+    }
     .footer-menu {
         padding-top: 30px;
         padding-bottom: 30px;
