@@ -1,0 +1,51 @@
+@import "./variable.scss";
+
+@media (min-width: 1300px) {
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl {
+        max-width: 1250px;
+    }
+}
+
+.logo-img {
+    width: 300px;
+}
+.bordered {
+    border: solid 1px $cr-dark;
+    padding: 30px 0px;
+    background-color: $cr-grey;
+}
+.bordered p {
+    color: #7b7a7a;
+    margin-left: 120px;
+    margin-right: 120px;
+}
+.category {
+    display: flex;
+    border: solid 1px $cr-tealgreen;
+    border-radius: 2px;
+    padding-left: 40px;
+    margin-bottom: 20px;
+    background-color: $cr-white;
+    height: 60px;
+    margin-left: 120px;
+    margin-right: 120px;
+}
+.category p {
+    align-self: center;
+    margin-bottom: 0;
+    margin-left: 20px !important;
+}
+.bordered .btn-link img {
+    width: 20px;
+}
+.bordered .btn-link {
+    border-radius: 100%;
+    background-color: #10cac1;
+    padding: 18px 20px;
+    margin-right: 30px;
+    margin-top: 80px;
+}

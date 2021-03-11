@@ -462,3 +462,85 @@
         text-align: center;
     }
 }
+.modal {
+    .btn-link {
+        box-shadow: none !important;
+    }
+    .close {
+        width: 40px;
+    }
+    .modal-body {
+        padding-top: 5px;
+        width: 580px;
+    }
+    .logo {
+        margin-left: 20px;
+    }
+    .question {
+        padding-left: 110px;
+        padding-right: 110px;
+        border-bottom: solid 1px $cr-darkgrey;
+        margin-top: 20px;
+    }
+    .question p {
+        color: $cr-darkgrey;
+    }
+    h3 {
+        color: #9f9b9b;
+        font-weight: 400;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    .btn-success {
+        border-color: $cr-tealgreen;
+        background-color: $cr-tealgreen;
+        padding: 10px 40px;
+        width: 400px;
+        margin-bottom: 30px;
+    }
+    .btn-success:hover {
+        border-color: $cr-tealgreen;
+        background-color: rgba(33, 183, 172, 0.9);
+        padding: 10px 40px;
+        width: 400px;
+        margin-bottom: 30px;
+    }
+    .btn-success:focus {
+        border-color: $cr-tealgreen;
+        background-color: rgba(33, 183, 172, 1) !important;
+        padding: 10px 40px;
+        width: 400px;
+        margin-bottom: 30px;
+        box-shadow: none !important;
+    }
+    .btn-outline-secondary {
+        border-color: #75787a;
+        width: 400px;
+        color: #75787a;
+        padding: 10px 40px;
+        margin-bottom: 30px;
+    }
+    .btn-outline-secondary:hover {
+        border-color: #75787a;
+        width: 400px;
+        color: #ffffff;
+        background-color: #75787a;
+        box-shadow: none;
+    }
+    .btn-outline-secondary:focus {
+        border-color: #75787a;
+        width: 400px;
+        color: #75787a;
+        background-color: transparent;
+        box-shadow: none !important;
+    }
+    .modal-content {
+        width: inherit !important;
+    }
+    .modal-dialog {
+        max-width: 580px;
+    }
+}
+.modal-open .modal {
+    backdrop-filter: blur(5px);
+}

@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom'
 import '../../asset/scss/home.scss'
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
@@ -9,6 +8,9 @@ import InputRange from 'react-input-range';
 
 
 const Home = (props) => {
+    React.useEffect(() => {
+        document.getElementById('open-modal').click()
+    })
 
     const [value, setValue] = React.useState({ min: 0, max: 0 })
     const responsive = {
@@ -55,6 +57,8 @@ const Home = (props) => {
     }
     return (
         <div>
+            {/* dynamic modal buttons */}
+            <button data-target="#popup-modal" className="d-none" id="open-modal" data-toggle="modal">open modal</button>
             <div className="jumbotron">
 
                 <OwlCarousel
@@ -120,7 +124,7 @@ const Home = (props) => {
                 </div>
 
 
-                <button className="btn btn-danger">Feedback</button>
+                <button className="btn btn-danger" onClick={() => props.history.push('/feedback')}>Feedback</button>
 
             </div>
 
@@ -665,6 +669,58 @@ const Home = (props) => {
                     </div>
                 </div>
             </div>
+
+
+            {/* Modal */}
+            <div>
+                <div className="modal fade" id="popup-modal" tabIndex={-1} aria-labelledby="popup" aria-hidden="true">
+                    <div className="modal-dialog modal-dialog-centered">
+                        <div className="modal-content">
+                            {/* <div className="modal-header">
+                                <h5 className="modal-title" id="popup"><img src="/assets/icons/Cars45logo.svg" alt="logo" /></h5>
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div> */}
+                            <div className="modal-body">
+                                <div className="row mt-2">
+                                    <div className="col-md-10 text-center">
+                                        <img className="logo" src="/assets/icons/Cars45logo.svg" alt="logo" />
+                                    </div>
+                                    <div className="col-md-2 text-right">
+                                        <button className="btn btn-link">
+                                            <img className="close" data-dismiss="modal" src="/assets/icons/close.svg" alt="close" />
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div className="row pb-5 pl-5 pr-5">
+                                    <div className="col-md-12 text-center">
+                                        <div className="question">
+                                            <p>Can we ask you a few questions to make car45.com better</p>
+                                        </div>
+
+                                        <h3>It'll take 3 minutes</h3>
+                                        <div>
+                                            <button className="btn btn-success">YES, I'LL ANSWER NOW</button>
+                                        </div>
+                                        <div>
+                                            <button className="btn btn-success">Sure, But When I'm Done</button>
+                                        </div>
+                                        <div>
+                                            <button className="btn btn-outline-secondary">NO THANKS</button>
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
         </div>
     )

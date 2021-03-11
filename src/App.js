@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.scss'
 
 import HomeLayout from './components/layouts/home-layout';
+import Feedback from './components/pages/feedback'
 
 const Home = React.lazy(() => import('./components/pages/home'));
 
@@ -16,8 +17,9 @@ const App = () => {
       <React.Suspense fallback={loading()}>
         <Switch>
           <Route exact path="/" component={HomeLayout(Home)} />
+          <Route exact path="/feedback" component={Feedback} />
 
-          {/* <Route component={Home} /> */}
+          <Route component={HomeLayout(Home)} />
         </Switch>
       </React.Suspense>
     </BrowserRouter>
