@@ -1,10 +1,10 @@
 import React from 'react';
-import '../../asset/scss/feedback.scss'
+import '../../asset/scss/feedback.scss';
 
-const Feedback = () => {
+const Feedback = (props) => {
 
     return (
-        <div style={{ backgroundColor: "#C7C5C5" }}>
+        <div className="feedback" style={{ backgroundColor: "#C7C5C5" }}>
             <div className="container" style={{ backgroundColor: "#ffffff", paddingLeft: '100px', paddingRight: '100px' }}>
                 <div className="row" style={{ height: '100vh' }}>
                     <div className="col-md-12 mx-auto my-auto bordered" >
@@ -13,10 +13,10 @@ const Feedback = () => {
                             <img className="logo-img" src="/assets/icons/Cars45logo.svg" alt="logo" />
                         </div>
                         <p>Select a category</p>
-                        <div className="category">
+                        <div className="category" onClick={() => props.history.push('/feedback/website')}>
                             <p>Website Feedback</p>
                         </div>
-                        <div className="category">
+                        <div className="category" onClick={() => props.history.push('/feedback/center')}>
                             <p>Cars45 Center Feedback</p>
                         </div>
 
@@ -31,4 +31,4 @@ const Feedback = () => {
     )
 }
 
-export default Feedback
+export default Feedback;
