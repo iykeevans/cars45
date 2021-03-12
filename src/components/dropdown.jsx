@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../asset/scss/dropdown.scss';
 
 
 const Dropdown = (props) => {
@@ -9,11 +9,9 @@ const Dropdown = (props) => {
 
 
     return (
-        <div>
+        <div className="dropdown-component">
             <div className="dropdown">
-                <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Model
-  </button>
+                <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{props.name} <img src="/assets/icons/caretdown-withbackground@2x.png" alt=".." /></button>
                 <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <div className="row">
                         <div className="col-md-2">
