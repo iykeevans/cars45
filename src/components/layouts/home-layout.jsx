@@ -1,12 +1,14 @@
 import React from 'react';
 import Header from '../header-one';
+import HeaderTwo from '../header-two';
 import Footer from '../footer-one';
+import FooterTwo from '../footer-two';
 
 export default function (ComposedComponent) {
     return class HomeLayout extends React.PureComponent {
         _isMounted = false
         componentDidMount() {
-
+            console.log(this.props.location)
         }
         componentWillUnmount() {
 
@@ -19,13 +21,13 @@ export default function (ComposedComponent) {
         render() {
             return (
                 <div>
-                    <Header />
+                    {this.props.location.pathname === '/buy' ? <HeaderTwo /> : <Header />}
 
                     <div>
                         <ComposedComponent {...this.props} />
                     </div>
 
-                    <Footer />
+                    {this.props.location.pathname === '/buy' ? <FooterTwo /> : <Footer />}
 
                 </div >
 

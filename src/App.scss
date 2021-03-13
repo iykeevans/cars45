@@ -27,6 +27,9 @@
 .white-color {
     color: $cr-white !important;
 }
+.teal-color {
+    color: $cr-tealgreen !important;
+}
 
 .dark-background {
     background-color: $cr-dark !important;
@@ -55,6 +58,9 @@
 .white-background {
     background-color: $cr-white !important;
 }
+.teal-background {
+    background-color: $cr-tealgreen !important;
+}
 .logo {
     width: 190px;
 }
@@ -64,13 +70,4 @@
     border-color: $cr-tealgreen !important;
     color: $cr-white !important;
     padding: 5px 25px;
-}
-@media (min-width: 1200px) {
-    .container,
-    .container-lg,
-    .container-md,
-    .container-sm,
-    .container-xl {
-        max-width: 1250px;
-    }
 }

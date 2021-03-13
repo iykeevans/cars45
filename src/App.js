@@ -3,11 +3,16 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.scss'
 
 import HomeLayout from './components/layouts/home-layout';
+import Home from './components/pages/home';
+import Feedback from './components/pages/feedback';
+import WebsiteFeedback from './components/pages/website-feedback';
+import CenterFeedback from './components/pages/center-feedback';
 
-const Home = React.lazy(() => import('./components/pages/home'));
 const SellCar = React.lazy(() => import('./components/pages/sell-car'));
 const SwapCar = React.lazy(() => import('./components/pages/swap-car'));
 const Servicing = React.lazy(() => import('./components/pages/servicing'));
+
+const Buy = React.lazy(() => import('./components/pages/buy'));
 
 
 const loading = () => <div className="row" style={{ height: '100vh' }}><div className="col-md-3 text-center mx-auto my-auto">Loading...</div></div>;
@@ -22,8 +27,12 @@ const App = () => {
           <Route exact path="/sell" component={HomeLayout(SellCar)} />
           <Route exact path="/swap" component={HomeLayout(SwapCar)} />
           <Route exact path="/service" component={HomeLayout(Servicing)} />
+          <Route exact path="/feedback" component={Feedback} />
+          <Route exact path="/feedback/website" component={WebsiteFeedback} />
+          <Route exact path="/feedback/center" component={CenterFeedback} />
+          <Route exact path="/buy" component={HomeLayout(Buy)} />
 
-          {/* <Route component={Home} /> */}
+          <Route component={HomeLayout(Home)} />
         </Switch>
       </React.Suspense>
     </BrowserRouter>

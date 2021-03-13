@@ -1,0 +1,54 @@
+@import "./variable.scss";
+
+.dropdown-component {
+.dropdown-toggle {
+    padding: 0 !important;
+    background: transparent;
+    border: none;
+    color: $cr-dark;
+}
+.dropdown-toggle img {
+    width: 13px;
+    margin-left: 5px;
+}
+.btn-secondary:hover {
+    background: transparent !important;
+    border-color: none !important;
+    color: $cr-tealgreen;
+}
+.btn-secondary:focus {
+    background: transparent !important;
+    border-color: none !important;
+    box-shadow: none !important;
+    color: $cr-tealgreen !important;
+}
+.show > .btn-secondary.dropdown-toggle {
+    background: transparent !important;
+    border-color: none !important;
+    box-shadow: none !important;
+    color: $cr-tealgreen !important;
+}
+.dropdown-toggle::after {
+    display: none;
+}
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    float: left;
+    height: 400px;
+    overflow: scroll;
+    min-width: 53.6rem !important;
+    padding: 0.5rem 0;
+    margin: 0.125rem 0 0;
+    font-size: 1rem;
+    color: #212529;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
+}
+.dropdown-menu.show {
+    left: -202px !important;
+}
+}
+

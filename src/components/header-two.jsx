@@ -44,7 +44,7 @@ const HeaderTwo = (props) => {
                         <div className="collapse navbar-collapse" id="navbarNavDropdown">
                             <ul className="navbar-nav">
                                 <li className="nav-item">
-                                    <NavLink exact className="nav-link" activeClassName="nav-active" to="/">Buy a Car <span className="sr-only">(current)</span></NavLink>
+                                    <NavLink exact className="nav-link" activeClassName="nav-active" to="/buy">Buy a Car <span className="sr-only">(current)</span></NavLink>
                                 </li>
                                 <li className="nav-item">
                                     <NavLink className="nav-link" activeClassName="nav-active" to="/sell">Sell a Car</NavLink>
