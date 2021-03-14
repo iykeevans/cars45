@@ -40,9 +40,9 @@ const App = () => {
           <Route exact path="/feedback/website" component={WebsiteFeedback} />
           <Route exact path="/feedback/center" component={CenterFeedback} />
           <Route exact path="/buy" component={HomeLayout(Buy)} />
-          <Route exact path="/buyused" component={HomeLayout(BuyUsedCar)} />
-          <Route exact path="/partnership" component={HomeLayout(Partnership)} />
-          <Route exact path="/dealership" component={HomeLayout(Dealership)} />
+          <Route exact path="/check" component={HomeLayout(BuyUsedCar)} />
+          <Route exact path="/corporate" component={HomeLayout(Partnership)} />
+          <Route exact path="/franchise" component={HomeLayout(Dealership)} />
 
           <Route component={HomeLayout(Home)} />
         </Switch>
