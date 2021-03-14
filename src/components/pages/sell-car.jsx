@@ -9,9 +9,9 @@ import Security from "../security";
 const Sell_car = (props) => {
   return (
     <div className="sell-car">
-      <Hero_layout bg="/assets/images/car_sell.svg" />
+      <Hero_layout bg="/assets/images/car_sell.webp" />
       <div className="text-area container pb-5  ">
-        <div className="heading mb-5 text-center">
+        <div className="heading mb-5 mt-5 mt-lg-0 text-center">
           Sell your car without stress
         </div>
         <form className=" col-lg-7 d-flex flex-column">

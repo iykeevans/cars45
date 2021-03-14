@@ -13,7 +13,10 @@ const SwapCar = React.lazy(() => import('./components/pages/swap-car'));
 const Servicing = React.lazy(() => import('./components/pages/servicing'));
 const BuyUsedCar = React.lazy(() => import('./components/pages/usedcar'));
 const Partnership = React.lazy(() => import('./components/pages/partnership'));
-const Dealer = React.lazy(() => import('./components/pages/dealer'));
+const Dealership = React.lazy(() => import('./components/pages/dealership'));
+const About = React.lazy(() => import('./components/pages/about'));
+const Dealer = React.lazy(() => import('./components/pages/become-a-dealer'));
+const Import = React.lazy(() => import('./components/pages/import-car'));
 
 const Buy = React.lazy(() => import('./components/pages/buy'));
 
@@ -30,13 +33,16 @@ const App = () => {
           <Route exact path="/sell" component={HomeLayout(SellCar)} />
           <Route exact path="/swap" component={HomeLayout(SwapCar)} />
           <Route exact path="/service" component={HomeLayout(Servicing)} />
+          <Route exact path="/about" component={HomeLayout(About)} />
+          <Route exact path="/dealer" component={HomeLayout(Dealer)} />
+          <Route exact path="/import" component={HomeLayout(Import)} />
           <Route exact path="/feedback" component={Feedback} />
           <Route exact path="/feedback/website" component={WebsiteFeedback} />
           <Route exact path="/feedback/center" component={CenterFeedback} />
           <Route exact path="/buy" component={HomeLayout(Buy)} />
           <Route exact path="/buyused" component={HomeLayout(BuyUsedCar)} />
           <Route exact path="/partnership" component={HomeLayout(Partnership)} />
-          <Route exact path="/dealer" component={HomeLayout(Dealer)} />
+          <Route exact path="/dealership" component={HomeLayout(Dealership)} />
 
           <Route component={HomeLayout(Home)} />
         </Switch>

@@ -81,27 +81,46 @@ const Sell_car = (props) => {
           </div>
         </div>
         <div className="brand container ">
-          <div className="heading mb-5">
-          We service most makes and models
+          <div className="heading mb-5">We service most makes and models</div>
+          <div className="d-flex justify-content-center container-fluid">
+            <img
+              src="/assets/images/car-logo.svg"
+              alt="car logo"
+              className="mr-2"
+            />
           </div>
-          <div className="d-flex justify-content-center">
-                    <img
-                      src="/assets/images/car-logo.svg"
-                      alt="check box"
-                      className="mr-2"
-                    />
-                  </div>
         </div>
       </div>
       <div className="faq-section">
-        <div className="heading">
-        Frequently Asked Questions
+        <div className="heading">Frequently Asked Questions</div>
+        <div className="container bg-green  p-5 d-flex">
+          <div className="col-8">
+            <div className="border">
+              <div className="title">
+                Where can I find the nearest GoMechanic45 workshop from my
+                location?
+              </div>
+              <div className="comment">
+                Our growing network of workshops currently provide coverage to
+                the Mainland and Island areas of Lagos, Port Harcourt, Abuja and
+                several major towns and cities across Nigeria.
+              </div>
+            </div>
+          </div>
+          <div className="col-4 green text-white p-5">
+            <p>Need an attractive service plan for a fleet of cars?</p>
+            <p className="mt-5"> Let our experts tailor a plan for you.</p>
+            <div className="bg-orange">
+              <div className="img">
+                <img
+                  src="/assets/images/phone-call.svg"
+                  alt="car logo"
+                  className="mr-2"
+                />
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="container bg-green">
-
-
-        </div>
-
       </div>
       <Security />
       <Chat />
