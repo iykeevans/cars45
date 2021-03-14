@@ -1,13 +1,14 @@
-.hero{
-height: 55vh;
-background-repeat: no-repeat;
-// width: 100%;
-// background-size: auto;
-// background-position: center;
+@import "./_variable.scss";
 
--webkit-background-size: cover;
--moz-background-size: cover;
--o-background-size: cover;
-background-size: cover;
+.hero {
+  height: 55vh;
+  background-repeat: no-repeat !important;
+  // width: 100%;
+  // background-size: auto;
+  // background-position: center;
 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }

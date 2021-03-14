@@ -1,0 +1,84 @@
+@import "./_variable.scss";
+
+.buying-a-used-car {
+    width: 100%;
+    height: auto;
+    margin-bottom: 5em;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("../background-images/used-carr.jpg") center no-repeat;
+    background-size: cover;
+  
+    .container {
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: $cr-white;
+      padding: 10% 0;
+      width: 70%;
+      height: 100%;
+      text-align: center;
+    }
+  
+    .header {
+      color: $cr-yellow;
+      font-size: 4.5em;
+      font-weight: bolder;
+    }
+  
+    .buy-info{
+        margin:2em auto;
+    }
+  
+    .score{
+        width:auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        font-size: 1em;
+    }
+  
+    .score .score-check{
+        margin-right:0.5em;
+        height: 100%;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+  
+        .score-img{margin-right:0.2em;}
+    }
+  
+    .buying-input {
+      width: 90%;
+      height: 3em;
+      margin:2em auto;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: stretch;
+    }
+  
+    input {
+      border-radius: 0.5em 0 0 0.5em;
+      flex:1;
+      border: 0;
+      padding: 0.5em 1em;
+      outline: none;
+  }
+  
+  .buying-input button {
+      width: 3em;
+      min-width: 1em;
+      border: 0;
+      padding:0.5em;
+      border-radius: 0 0.5em 0.5em 0;
+      color: $cr-white;
+      background-color: $cr-orange;
+      outline: none;
+  
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  

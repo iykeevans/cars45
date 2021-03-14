@@ -11,6 +11,9 @@ import CenterFeedback from './components/pages/center-feedback';
 const SellCar = React.lazy(() => import('./components/pages/sell-car'));
 const SwapCar = React.lazy(() => import('./components/pages/swap-car'));
 const Servicing = React.lazy(() => import('./components/pages/servicing'));
+const BuyUsedCar = React.lazy(() => import('./components/pages/usedcar'));
+const Partnership = React.lazy(() => import('./components/pages/partnership'));
+const Dealer = React.lazy(() => import('./components/pages/dealer'));
 
 const Buy = React.lazy(() => import('./components/pages/buy'));
 
@@ -31,6 +34,9 @@ const App = () => {
           <Route exact path="/feedback/website" component={WebsiteFeedback} />
           <Route exact path="/feedback/center" component={CenterFeedback} />
           <Route exact path="/buy" component={HomeLayout(Buy)} />
+          <Route exact path="/buyused" component={HomeLayout(BuyUsedCar)} />
+          <Route exact path="/partnership" component={HomeLayout(Partnership)} />
+          <Route exact path="/dealer" component={HomeLayout(Dealer)} />
 
           <Route component={HomeLayout(Home)} />
         </Switch>
