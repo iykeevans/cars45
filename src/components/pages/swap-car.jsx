@@ -9,7 +9,7 @@ import Security from "../security";
 const Sell_car = (props) => {
   return (
     <div className="swap-car">
-      <Hero_layout bg="/assets/images/car_swap.svg" />
+      <Hero_layout bg="/assets/images/car_swap.webp" />
       <div className="text-area container pb-5  ">
         <form className=" col-lg-7 d-flex flex-column mt-5">
           <select name="brand" id="brand" className="form-control">

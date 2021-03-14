@@ -17,7 +17,7 @@ const Import_car = () => {
             <div className="card  ml-lg-auto mr-lg-5">
               <div className="top">
                 <img
-                  src="/assets/images/clean-car.svg"
+                  src="/assets/images/clean-car.webp"
                   alt="car"
                   className="mr-3"
                 />
@@ -41,7 +41,7 @@ const Import_car = () => {
             <div className="card  ml-lg-5">
               <div className="top">
                 <img
-                  src="/assets/images/salvage-car.svg"
+                  src="/assets/images/salvage-car.webp"
                   alt="car"
                   className="mr-3"
                 />
