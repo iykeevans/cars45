@@ -165,27 +165,27 @@ const Buy = (props) => {
                     <div className="row">
                         <div className="col">
 
-                            <Carlist />
+                            <Carlist {...props} />
                         </div>
 
                         <div className="col">
 
-                            <Carlist />
+                            <Carlist {...props} />
                         </div>
 
                         <div className="col">
 
-                            <Carlist />
+                            <Carlist {...props} />
                         </div>
 
                         <div className="col">
 
-                            <Carlist />
+                            <Carlist {...props} />
                         </div>
 
                         <div className="col">
 
-                            <Carlist />
+                            <Carlist {...props} />
                         </div>
                     </div>
 

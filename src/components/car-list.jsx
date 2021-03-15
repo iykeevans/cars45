@@ -10,7 +10,7 @@ const Carlist = (props) => {
 
     return (
         <div className="listing">
-            <div className="card" >
+            <div className="card" onClick={() => props.history.push('/buy/car/2')}>
                 <img src="/assets/images/carlistimg-demo@2x.png" className="card-img-top" alt="..." />
                 <div className="card-body">
                     <div className="row border-bottom">

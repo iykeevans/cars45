@@ -8,7 +8,7 @@ export default function (ComposedComponent) {
     return class HomeLayout extends React.PureComponent {
         _isMounted = false
         componentDidMount() {
-            console.log(this.props.location)
+            // console.log(this.props)
         }
         componentWillUnmount() {
 

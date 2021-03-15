@@ -1,0 +1,167 @@
+@import "./variable.scss";
+.car-details {
+    .col-md-3.title-container {
+        max-width: 28% !important;
+        padding-left: 0;
+    }
+    .title {
+        color: #090808;
+        font-weight: 400;
+    }
+    .slick-dots li {
+        position: relative;
+        display: inline-block;
+        width: 70px !important;
+        height: 50px !important;
+    }
+    .car-container {
+        background-color: $cr-grey;
+        overflow-x: hidden;
+        border: solid 1px $cr-darkgrey;
+        padding: 20px;
+    }
+    .slick-slide img {
+        width: 100%;
+    }
+
+    .slick-dots {
+        position: relative !important;
+        bottom: 0px;
+        top: 5px;
+        display: inline-flex !important;
+        // width: 100%;
+        overflow: scroll !important;
+        padding: 0;
+        // padding-left: 30px;
+        // padding-right: 10px;
+        margin: 0;
+        margin-left: 20px;
+        text-align: left !important;
+    }
+    .slick-dots::-webkit-scrollbar {
+        display: none;
+    }
+    ul.slick-dots.slick-thumb {
+        width: 560px !important;
+        margin-right: 90px !important;
+    }
+
+    // ul.slick-dots.slick-thumb img {
+    //     margin-left: -30px !important;
+    //     // animation: slide infinite 3s alternate;
+    //     // margin-right: -170px !important;
+    //     // margin-right: 20px;
+    // }
+    // .slick-active .slideClass7 {
+    //     margin-left: -70px;
+    //     // margin-right: 70px;
+    // }
+    // ul.slick-dots.slick-thumb {
+    //     // margin-left: -70px;
+    //     // padding-left: 20px;
+    //     // overflow: hidden !important;
+    // }
+    // @keyframes slide {
+    //     0% {
+    //         margin-left: 0px;
+    //     }
+    //     // 50% {
+    //     //     margin-left: -100px;
+    //     // }
+    //     100% {
+    //         margin-left: -200px;
+    //     }
+    // }
+    // .slick-dots img {
+    //     margin-right:300px;
+    //     overflow: scroll !important;
+    //     transition: 1s;
+    //     right: 180px;
+    // }
+    .slick-active a img {
+        border: solid 1.5px $cr-tealgreen;
+        padding: 1.5px;
+    }
+    .slick-current {
+        border: none !important;
+    }
+    .slick-next {
+        // border: solid;
+        width: 100px !important;
+        height: 100px !important;
+        background-image: url(../background-images/slider-arrow-right.svg) !important;
+        background-repeat: no-repeat !important;
+        background-size: contain !important;
+        right: -50px !important;
+        opacity: 0.9 !important;
+    }
+    .slick-next:hover {
+        // border: solid;
+        width: 100px !important;
+        height: 100px !important;
+        background-image: url(../background-images/slider-arrow-right.svg) !important;
+        background-repeat: no-repeat !important;
+        background-size: contain !important;
+        right: -50px !important;
+        opacity: 1 !important;
+    }
+    .slick-next:before {
+        content: "" !important;
+    }
+    .slick-prev {
+        // border: solid;
+        width: 100px !important;
+        height: 100px !important;
+        background-image: url(../background-images/slider-arrow-left.svg) !important;
+        background-repeat: no-repeat !important;
+        background-size: contain !important;
+        left: 0px !important;
+        opacity: 0.9 !important;
+        z-index: 1000 !important;
+    }
+    .slick-prev:hover {
+        // border: solid;
+        width: 100px !important;
+        height: 100px !important;
+        background-image: url(../background-images/slider-arrow-left.svg) !important;
+        background-repeat: no-repeat !important;
+        background-size: contain !important;
+        right: 0px !important;
+        opacity: 1 !important;
+        z-index: 1000 !important;
+    }
+    .slick-prev:before {
+        content: "" !important;
+    }
+    .prev-button-container {
+        position: relative;
+        // height: 100%;
+    }
+    .prev-button {
+        position: absolute;
+        z-index: 1000;
+        // top: 0;
+        bottom: 0;
+        left: 0;
+        padding-left: 0;
+    }
+    .next-button-container {
+        position: relative;
+    }
+    .next-button {
+        position: absolute;
+        z-index: 1000;
+        bottom: 0;
+        right: 0;
+    }
+    .btn-link {
+        box-shadow: none !important;
+        background-color: $cr-grey;
+    }
+    .prev-button img {
+        width: 10px;
+    }
+    .next-button img {
+        width: 10px;
+    }
+}
