@@ -17,6 +17,7 @@ const Dealership = React.lazy(() => import('./components/pages/dealership'));
 const About = React.lazy(() => import('./components/pages/about'));
 const Dealer = React.lazy(() => import('./components/pages/become-a-dealer'));
 const Import = React.lazy(() => import('./components/pages/import-car'));
+const Autoprenuer = React.lazy(() => import('./components/pages/autopreneur'));
 
 const Buy = React.lazy(() => import('./components/pages/buy'));
 
@@ -43,6 +44,7 @@ const App = () => {
           <Route exact path="/check" component={HomeLayout(BuyUsedCar)} />
           <Route exact path="/corporate" component={HomeLayout(Partnership)} />
           <Route exact path="/franchise" component={HomeLayout(Dealership)} />
+          <Route exact path="/autopreneur" component={HomeLayout(Autoprenuer)} />
 
           <Route component={HomeLayout(Home)} />
         </Switch>

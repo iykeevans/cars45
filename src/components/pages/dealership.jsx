@@ -113,7 +113,10 @@ export default function Dealer() {
         <div className="color-footer"></div>
       </div>
       <div className="deal-contact-details">
+        <div className="deal-contact-security">
+        <img src="/assets/icons/security.svg" alt="security" className="mr-2" /> 
         <p>warning Cars45 is committed to keeping your information safe</p>
+        </div>
         <div className="contact-line"></div>
         <h1>Contact Team F.A.S.T</h1>
         <p><strong>To Join our Dealer Program</strong> <br />
