@@ -1,0 +1,130 @@
+@import "_variable.scss";
+
+.partnership{
+    width: 100%;
+    height: 55vh;
+    margin-bottom: 5em;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("../background-images/partnership.jpg") center no-repeat;
+    background-size: cover;
+    background-clip: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .header{
+        color:$cr-darkgreen;
+    }
+}
+
+.content-header{
+    text-align: center;
+    color:$cr-darkgrey;
+}
+
+.content-container{
+    width:80%;
+    margin:auto;
+    font-weight: bolder;
+}
+
+.partnership-items{
+    display: flex;
+    width:100%;
+    height: 100%;
+    padding: 5%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.partnership-card{
+    width: 31%;
+    min-width:15em ;
+    height:auto;
+    margin:1em 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    
+    .partnership-card-intro{
+        min-height: 100%;
+        height: 11em;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: center;
+        
+    }
+
+    img{
+        width: 6em;
+        height: 6em;
+        margin: 0;
+    }
+
+    h5{
+        color:$cr-darkgreen;
+        margin:1em 0 0.5em 0;
+    }
+    p{
+        color:$cr-darkgrey;
+        text-align: center;
+    }
+}
+
+.partnership-contact{
+    display: flex;
+    flex-direction: column;;
+    justify-content: center;
+    align-items: center;
+    width:80%;
+    margin:auto auto 5em auto;
+}
+
+.patrnership-contact-person{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    padding:1em;
+    width:auto;
+    margin:auto;
+
+    img{
+        width:5em;
+        height: 5em;
+        border-radius: 100%;
+    }
+}
+
+.line{
+    width:70%;
+    height: 1em;
+    border:0;
+    border-bottom: 0.2em;
+    border-color: $cr-grey;
+    border-style: solid;
+    margin:3em auto;
+}
+
+.sub-line{
+    height: 5em;
+    width: 1em;
+    margin:auto 1em;
+    border:0;
+    border-left: 0.2em;
+    border-style: solid;
+    border-color:$cr-grey;
+}
+
+.partnership-contact-user{
+    p,a{
+        line-height: 0;
+        margin-top:0.2em;
+    }
+    a{
+        color:$cr-darkgrey;
+    }
+}

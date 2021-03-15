@@ -1,5 +1,8 @@
 @import "./variable.scss";
 .listing {
+    flex-shrink: 0;
+    margin-right:0.8em;
+    
     .card {
         width: 210px !important;
         overflow: hidden !important;

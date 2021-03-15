@@ -1,6 +1,7 @@
 @import "./variable.scss";
 
 .footer-one {
+    overflow-x: hidden;
     @media (min-width: 1200px) {
         .container,
         .container-lg,

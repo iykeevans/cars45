@@ -1,0 +1,239 @@
+@import "_variable.scss";
+
+.dealer-container {
+  width: 100%;
+  height: auto;
+}
+
+.dealer-banner {
+  width: 100%;
+  height: 60vh;
+  position: relative;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("../background-images/dealer.jpg") center center no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .header {
+    color: $cr-white;
+    position: absolute;
+    bottom: 4em;
+    z-index: 1;
+    font-weight: bolder;
+    text-align: center;
+    color: $cr-white;
+  }
+}
+
+.dealer-intro {
+  background-color: fade-out($cr-tealgreen, 0.7);
+  width: 100%;
+  padding: 5% 10%;
+  color: $cr-darkgrey;
+  text-align: center;
+}
+
+.dealer-commitment {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  padding: 2em 15%;
+
+  .motivation {
+    background-color: fade-out($cr-tealgreen, 0.5);
+    padding: 1em;
+    margin: 2em auto;
+  }
+
+  p {
+    color: $cr-darkgrey;
+  }
+
+  .line {
+    width: 100%;
+    height: 0.1em;
+    margin: 1em 0 2.5em;
+    background-color: $cr-darkgrey;
+  }
+}
+
+.dealer-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-wrap: wrap;
+
+  .dealer-red {
+    background-color: $cr-red;
+  }
+
+  .dealer-orange {
+    background-color: $cr-orange;
+  }
+
+  .dealer-goals {
+    width: 45%;
+    margin: 2.5%;
+    text-align: left;
+    padding: 1em;
+
+    h6,
+    .points > li {
+      color: $cr-white;
+    //   display: inline-block;
+    }
+
+    .points{
+        list-style: none;
+        padding: 0;
+    }
+    .points li::before{
+        content: "\2713";
+        margin-right: 0.5em;
+    }
+  }
+}
+
+.dealer-points {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  //   padding:10%;
+  width: 70%;
+  margin: 2.5em auto;
+
+  .dealer-point-meet {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .dealer-point-container {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    .dealer-point-box {
+      width: 6em;
+      height: 7em;
+      border: 1px solid $cr-darkgrey;
+      font-size: 0.7em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .dealer-point-line {
+      height: 2em;
+      width: 0.1em;
+      background-color: $cr-darkgrey;
+    }
+  }
+
+  .dealer-point-statement {
+    width: 100%;
+    padding: 1.5em 1em;
+    color: $cr-white;
+    background-color: fade-out($cr-tealgreen, 0.1);
+  }
+}
+
+.dealer-journey {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: fade-out($cr-tealgreen, 0.7);
+  width: 100%;
+  padding: 5% 10%;
+
+  ul {
+    list-style: none;
+  }
+
+  ul li::before {
+    content: "";
+    background: $cr-orange;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    height:1em;
+    border-radius: 100%;
+    margin:0.5em 1em 0;
+  }
+}
+
+.dealer-form-field{
+    width: 100%;
+    position: relative;
+}
+
+.dealer-form{
+    width: 80%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    margin:auto;
+    background-color: $cr-grey;
+    padding:3% 10% 5%;
+    z-index: 3;
+
+    h4{
+        color:$cr-tealgreen;
+        margin:1.5em auto;
+    }
+
+    input{
+        border:1px solid fade-out($cr-tealgreen,0.7);
+        width:65%;
+        padding:1.5em 3em;
+        margin-bottom: 1.5em;
+    }
+
+    button{
+        width: max-content;
+        padding:0.5em 3.5em;
+        border:0;
+        color:$cr-dark;
+        background-color: $cr-orange;
+    }
+
+}
+.color-footer{
+    position:absolute;
+    bottom:0;
+    z-index:-1;
+    width:100%;
+    height:50%;
+    background-color: $cr-tealgreen;
+}
+
+
+.deal-contact-details{
+  width:100%;
+  background-color: $cr-tealgreen;
+  padding:2% 10%;
+  text-align: center;
+  color: $cr-white;
+  
+  .deal-contact-security{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+    .contact-line{
+        width:100%;
+        height: 0.1em;
+        background-color: $cr-white;
+        margin:1.5em auto;
+    }
+}
