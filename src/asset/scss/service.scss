@@ -2,7 +2,7 @@
   .hero {
     background-image: url("../background-images/servicing.webp");
     background-repeat: no-repeat;
-    height: 55vh;
+    height: 65vh;
     width: 100%;
     padding: 0;
     .overley {
@@ -12,13 +12,14 @@
       padding-top: 3em;
       form {
         margin-top: 3em !important;
-        margin-left: 3em;
+        // margin-left: 3em;
         background-color: #ffff;
         border-radius: 5px;
         border: 1px solid #707070;
         .heading {
           text-align: center;
-          font: normal normal medium 20px/40px Roboto;
+          font: normal normal medium 13px/40px Roboto;
+          font-size: 13px;
           letter-spacing: 0.4px;
           color: #222121;
           font-weight: bold;
@@ -27,7 +28,7 @@
         select {
           border: 1px solid #707070;
           text-align: center;
-          font: normal normal 300 20px/40px Roboto;
+          font: normal normal 300 18px/40px Roboto;
           letter-spacing: 0.4px;
           color: #75787a;
         }
@@ -55,12 +56,13 @@
       letter-spacing: 1.2px;
       color: #ffffff;
       text-align: center;
+      line-height: 1em;
       padding: 2em 0;
     }
     .card {
       padding: 0;
       color: #222121;
-      width: 280px;
+      width: 250px;
       box-shadow: 5px 5px 8px #00000029;
       .top {
         background-color: #e4e4e4;
@@ -80,11 +82,12 @@
   .advantage {
     margin-top: 4em;
     background-color: #222121;
-    padding: 5em;
+    padding: 5em 0;
     .heading {
       font: normal normal normal 40px/20px Roboto;
       letter-spacing: 1.2px;
       color: #ffffff;
+      line-height: 1em;
       text-align: center;
     }
     .card {
@@ -92,7 +95,7 @@
       border: 1px solid #707070;
       background-color: #e4e4e4;
       padding: 3em 2em;
-      width: 320px;
+      width: 290px;
       line-height: 1.5em;
       .top {
         background: #ffffff 0% 0% no-repeat padding-box;
@@ -119,6 +122,7 @@
       font: normal normal normal 40px/20px Roboto;
       letter-spacing: 1.2px;
       color: #ed1f26;
+      line-height: 1em;
     }
     .container-fluid {
       width: 100%;
@@ -136,19 +140,41 @@
       letter-spacing: 1.2px;
       color: #ed1f26;
       text-align: center;
+      line-height: 1em;
       margin-bottom: 1em;
     }
     .bg-green {
       background: #8aeee6 0% 0% no-repeat padding-box;
-      
+      .accordion{
+
+          .title{
+            background: #D9D5D5 0% 0% no-repeat padding-box;
+            border: 1px solid #707070;
+            cursor: pointer;
+            .img{
+                height: 20px;
+                width: 20px;
+                // margin-top: 1em;
+                img{
+                  object-fit: cover;
+                  width: 100%;
+                 
+                }
+              }
+          }
+          .comment{
+            background: #EFEEEE 0% 0% no-repeat padding-box;
+            border: 1px solid #707070;
+          }
+      }
       .green {
         background: #02796f 0% 0% no-repeat padding-box;
-        height: 300px;
+        // height: 300px;
         .bg-orange {
           background: #e76161 0% 0% no-repeat padding-box;
           width: 100%;
           .img{
-            margin-top: 3em;
+            margin-top: auto;
             height: 50px;
             width: 50px;
             img{

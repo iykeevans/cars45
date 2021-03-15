@@ -45,7 +45,7 @@ export const advantage = [
     },
 
 ]
-export const faq = [
+export const faqs = [
     {
 
         title: "Where can I find the nearest GoMechanic45 workshop from my location?",

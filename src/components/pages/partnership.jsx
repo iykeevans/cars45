@@ -7,7 +7,7 @@ export default function Partnership() {
   return (
     <div className="">
       <div className="hero  partnership">
-        <h1 className="header">Let's Partner With You</h1>
+        <h1 className="header text-center">Let's Partner With You</h1>
       </div>
       <div className="content-container">
         <h3 className="content-header">We offer the following services for a corporate or business lead</h3>
