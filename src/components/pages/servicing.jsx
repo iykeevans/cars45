@@ -3,7 +3,8 @@ import React from "react";
 import "../../asset/scss/service.scss";
 import Chat from "../chat";
 import Security from "../security";
-import { services, advantage, faq } from "../../asset/data/service";
+import { services, advantage, faqs } from "../../asset/data/service";
+import Accordion from "../faq-accordion"
 
 const Sell_car = (props) => {
   return (
@@ -11,7 +12,7 @@ const Sell_car = (props) => {
       <div className="container">
         <div className="hero ">
           <div className="overley">
-            <form className=" col-lg-3 d-flex flex-column p-4">
+            <form className=" col-12 col-lg-3 d-flex flex-column p-4 ml-lg-5">
               <div className="heading mb-4">
                 The Best Car Service Awaits You
               </div>
@@ -30,9 +31,9 @@ const Sell_car = (props) => {
         </div>
         <div className="service-section">
           <div className="heading">SERVICES</div>
-          <div className="d-flex justify-content-around">
+          <div className="d-flex justify-content-around flex-column flex-lg-row">
             {services.map((service, index) => (
-              <div className="card  " key={index}>
+              <div className="card mb-5 mx-auto" key={index}>
                 <div className="top">
                   <img src={service.image} alt="services" />
                 </div>
@@ -57,10 +58,10 @@ const Sell_car = (props) => {
         </div>
         <div className="advantage">
           <div className="heading mb-5">The Gomechanic45 Advantage</div>
-          <div className="d-flex justify-content-around mt-5">
+          <div className="d-flex justify-content-around mt-5 flex-column flex-lg-row">
             {advantage.map((adv, index) => (
-              <div className="card ">
-                <div className="top d-flex flex-column align-items-center">
+              <div className="card mb-5 mx-auto" key={index}>
+                <div className="top d-flex flex-column align-items-center  ">
                   <div className="ing">
                     <img src={adv.image} alt="check box" className="mr-2" />
                   </div>
@@ -93,28 +94,23 @@ const Sell_car = (props) => {
       </div>
       <div className="faq-section">
         <div className="heading">Frequently Asked Questions</div>
-        <div className="container bg-green  p-5 d-flex">
-          <div className="col-8">
-            <div className="border">
-              <div className="title">
-                Where can I find the nearest GoMechanic45 workshop from my
-                location?
-              </div>
-              <div className="comment">
-                Our growing network of workshops currently provide coverage to
-                the Mainland and Island areas of Lagos, Port Harcourt, Abuja and
-                several major towns and cities across Nigeria.
-              </div>
-            </div>
+        <div className="container bg-green  py-5 px-lg-5 d-flex flex-column flex-lg-row">
+          <div className="col-lg-8">
+            {
+              faqs.map((faq, index)=>(
+                <Accordion faq={faq} index={index}/>
+
+              ))
+            }
           </div>
-          <div className="col-4 green text-white p-5">
+          <div className="col-lg-4 green text-white p-5 mb-4 d-flex flex-column">
             <p>Need an attractive service plan for a fleet of cars?</p>
-            <p className="mt-5"> Let our experts tailor a plan for you.</p>
-            <div className="bg-orange">
+            <p className="mt-5 mb-5"> Let our experts tailor a plan for you.</p>
+            <div className="bg-orange mt-auto">
               <div className="img">
                 <img
                   src="/assets/images/phone-call.svg"
-                  alt="car logo"
+                  alt="mobile call"
                   className="mr-2"
                 />
               </div>

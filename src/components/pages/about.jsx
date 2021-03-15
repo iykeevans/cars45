@@ -7,12 +7,11 @@ import Hero_layout from "../layouts/hero-layout";
 const About = () => {
   return (
     <div className="about">
-              <div className="hero ">
+              <div className="hero d-none d-lg-block ">
           <div className="overley">
 
           </div>
         </div>
-      {/* <Hero_layout bg="/assets/images/car-about-us.png" /> */}
       <div className="container mt-5">
         <div className="heading">About Us</div>
         <p>
