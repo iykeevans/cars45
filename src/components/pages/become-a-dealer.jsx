@@ -10,7 +10,7 @@ const Dealer = (props) => {
   return (
     <div className="dealer">
       <Hero_layout bg="/assets/images/become-a-dealer.webp" />
-      <div className="text-area container pb-5 zindex-tooltip ">
+      <div className="text-area container pb-5  ">
         <div className="heading mb-4 text-center">Become a Dealer</div>
         <div className="text">Get access to our inventory today!</div>
         <div className="container quality pt-5 pz-0">
@@ -58,7 +58,7 @@ const Dealer = (props) => {
                   className="mx-auto"
                 />
 
-                <div className="d-flex mx-auto mb-2">
+                <div className="d-flex flex-column flex-lg-row mx-auto mb-2 mt-2">
                   <a
                     href="https://play.google.com/store/apps"
                     target="_blank"
@@ -67,7 +67,7 @@ const Dealer = (props) => {
                     <img
                       src="/assets/images/google-play.svg"
                       alt="google play store"
-                      className="mr-3"
+                      className="mr-3 mb-4 mb-lg-0 mt-3 mt-lg-0"
                     />
                   </a>
                   <a
@@ -150,7 +150,7 @@ const Dealer = (props) => {
               </div>
             </div>
           </div>
-          <form className=" col-lg-7 d-flex flex-column pb-0 mb-0">
+          <form className=" col-lg-7 d-flex flex-column p-5 ">
             <div className="heading">Please fill in your details</div>
 
             <input
