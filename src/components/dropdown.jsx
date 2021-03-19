@@ -1,5 +1,5 @@
 import React from 'react';
-import '../asset/scss/dropdown.scss';
+
 
 
 const Dropdown = (props) => {

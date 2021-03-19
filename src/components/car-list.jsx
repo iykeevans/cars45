@@ -1,5 +1,5 @@
 import React from 'react';
-import '../asset/scss/list.scss'
+// import '../asset/scss/list.scss'
 
 
 

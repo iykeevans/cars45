@@ -1,7 +1,7 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom'
-import '../asset/scss/footer.scss'
-
+// import { NavLink, Link } from 'react-router-dom'
+// import '../asset/scss/footer.scss'
+import Link from 'next/link'
 const Home = (props) => {
 
     return (
@@ -16,19 +16,19 @@ const Home = (props) => {
                         <div className="col-md-3">
                             <ul>
                                 <li>
-                                    <Link to="/">About Us</Link>
+                                    <Link href="/"><a>About Us</a></Link>
                                 </li>
                                 <li>
-                                    <Link to="/">Contact Us</Link>
+                                    <Link href="/"><a>Contact Us</a></Link>
                                 </li>
                                 <li>
-                                    <Link to="/">Our Services</Link>
+                                    <Link href="/"><a>Our Services</a></Link>
                                 </li>
                                 <li>
-                                    <Link to="/">Careers</Link>
+                                    <Link href="/"><a>Careers</a></Link>
                                 </li>
                                 <li>
-                                    <Link to="/">Blog</Link>
+                                    <Link href="/"><a>Blog</a></Link>
                                 </li>
                             </ul>
                         </div>
@@ -36,19 +36,19 @@ const Home = (props) => {
                         <div className="col-md-3">
                             <ul>
                                 <li>
-                                    <Link to="/">Inspection Centers</Link>
+                                    <Link href="/"><a>Inspection Centers</a></Link>
                                 </li>
                                 <li>
-                                    <Link to="/">Auction Locations</Link>
+                                    <Link href="/"><a>Auction Locations</a></Link>
                                 </li>
                                 <li>
-                                    <Link to="/">Required Documents</Link>
+                                    <Link href="/"><a>Required Documents</a></Link>
                                 </li>
                                 <li>
-                                    <Link to="/">Common Questions</Link>
+                                    <Link href="/"><a>Common Questions</a></Link>
                                 </li>
                                 <li>
-                                    <Link to="/">Background Check</Link>
+                                    <Link href="/"><a>Background Check</a></Link>
                                 </li>
                             </ul>
                         </div>
@@ -71,10 +71,10 @@ const Home = (props) => {
                         <div className="col-md-6">
                             <ul>
                                 <li>
-                                    <Link to="/">Terms & Conditions</Link>
+                                    <Link href="/"><a>Terms & Conditions</a></Link>
                                 </li>
                                 <li>
-                                    <Link to="/">Privacy</Link>
+                                    <Link href="/"><a>Privacy</a></Link>
                                 </li>
                             </ul>
                         </div>

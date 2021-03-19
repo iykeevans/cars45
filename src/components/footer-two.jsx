@@ -1,6 +1,7 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom'
-import '../asset/scss/footer.scss'
+// import { NavLink, Link } from 'react-router-dom'
+import Link from 'next/link'
+// import '../asset/scss/footer.scss'
 
 
 const FooterTwo = (props) => {
@@ -15,22 +16,22 @@ const FooterTwo = (props) => {
                             <div className="col-md-7">
                                 <div className="row">
                                     <div className="col-md-2">
-                                        <Link to="/">About Us</Link>
+                                        <Link href="/">About Us</Link>
                                     </div>
                                     <div className="col-md-2">
-                                        <Link to="/">Terms Of Use</Link>
+                                        <Link href="/">Terms Of Use</Link>
                                     </div>
                                     <div className="col-md-2">
-                                        <Link to="/">Privacy Policy</Link>
+                                        <Link href="/">Privacy Policy</Link>
                                     </div>
                                     <div className="col-md-1">
-                                        <Link to="/">FAQs</Link>
+                                        <Link href="/">FAQs</Link>
                                     </div>
                                     <div className="col-md-2">
-                                        <Link to="/">Financing</Link>
+                                        <Link href="/">Financing</Link>
                                     </div>
                                     <div className="col-md-3">
-                                        <Link to="/">Become A Franchise</Link>
+                                        <Link href="/">Become A Franchise</Link>
                                     </div>
                                 </div>
 
@@ -103,10 +104,10 @@ const FooterTwo = (props) => {
                             <div className="col-md-6">
                                 <ul>
                                     <li>
-                                        <Link to="/">Terms & Conditions</Link>
+                                        <Link href="/">Terms & Conditions</Link>
                                     </li>
                                     <li>
-                                        <Link to="/">Privacy</Link>
+                                        <Link href="/">Privacy</Link>
                                     </li>
                                 </ul>
                             </div>

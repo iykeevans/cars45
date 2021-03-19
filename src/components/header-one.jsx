@@ -1,6 +1,7 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom'
-import '../asset/scss/header.scss'
+// import { NavLink, Link } from 'react-router-dom'
+import Link from 'next/link'
+// import '../asset/scss/header.scss'
 
 const HeaderOne = (props) => {
 
@@ -39,41 +40,41 @@ const HeaderOne = (props) => {
                     <div className="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <NavLink exact className="nav-link" activeClassName="nav-active" to="/buy">Buy a Car <span className="sr-only">(current)</span></NavLink>
+                                <Link exact className="nav-link" activeClassName="nav-active" href="/buy"><a>Buy a Car <span className="sr-only">(current)</span></a></Link>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" activeClassName="nav-active" to="/sell">Sell a Car</NavLink>
+                                <Link className="nav-link" activeClassName="nav-active" href="/sell"><a>Sell a Car</a></Link>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" activeClassName="nav-active" to="/swap">Swap Cars</NavLink>
+                                <Link className="nav-link" activeClassName="nav-active" href="/swap"><a>Swap Cars</a></Link>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" activeClassName="nav-active" to="/loan">Car Loan</NavLink>
+                                <Link className="nav-link" activeClassName="nav-active" href="/loan"><a>Car Loan</a></Link>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" activeClassName="nav-active" to="/franchise">Become a Franchise</NavLink>
+                                <Link className="nav-link" activeClassName="nav-active" href="/franchise"><a>Become a Franchise</a></Link>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" activeClassName="nav-active" to="/corporate">Corporate Service</NavLink>
+                                <Link className="nav-link" activeClassName="nav-active" href="/corporate"><a>Corporate Service</a></Link>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" activeClassName="nav-active" to="/import">Import</NavLink>
+                                <Link className="nav-link" activeClassName="nav-active" href="/import"><a>Import</a></Link>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" activeClassName="nav-active" to="/referral">Referral Program</NavLink>
+                                <Link className="nav-link" activeClassName="nav-active" href="/referral"><a>Referral Program</a></Link>
                             </li>
                             <li className="nav-item dropdown">
                                 <button className="nav-link dropdown-toggle btn btn-outline-secondary" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Other Services</button>
                                 <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <NavLink className="dropdown-item" to="/about">About Us</NavLink>
+                                    <Link className="dropdown-item" href="/about"><a>About Us</a></Link>
                                     <div className="dropdown-divider" />
-                                    <NavLink className="dropdown-item" to="/check">Background Check</NavLink>
+                                    <Link className="dropdown-item" href="/check"><a>Background Check</a></Link>
                                     <div className="dropdown-divider" />
-                                    <NavLink className="dropdown-item" to="/dealer">Become A Dealer</NavLink>
+                                    <Link className="dropdown-item" href="/dealer"><a>Become A Dealer</a></Link>
                                     <div className="dropdown-divider" />
-                                    <NavLink className="dropdown-item" to="/iaas">Inspection As A Service</NavLink>
+                                    <Link className="dropdown-item" href="/iaas"><a>Inspection As A Service</a></Link>
                                     <div className="dropdown-divider" />
-                                    <NavLink className="dropdown-item" to="/preorder">Preorder a Car</NavLink>
+                                    <Link className="dropdown-item" href="/preorder"><a>Preorder a Car</a></Link>
                                 </div>
                             </li>
                         </ul>

@@ -1,7 +1,7 @@
 import React from "react";
-import { NavLink, Link } from "react-router-dom";
+// import { NavLink, Link } from "react-router-dom";
 
-import "../asset/scss/security.scss";
+// import "../asset/scss/security.scss";
 
 
 const Sell_car = (props) => {

@@ -1,0 +1,15 @@
+@import "./_variable.scss";
+
+.hero {
+  height: 55vh;
+  background-repeat: no-repeat !important;
+  background-image: url("/assets/icons/search.svg");
+  // width: 100%;
+  // background-size: auto;
+  // background-position: center;
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

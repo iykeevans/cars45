@@ -1,5 +1,5 @@
 import React from 'react';
-import '../asset/scss/car-overview.scss'
+
 
 
 const Carfeatures = (props) => {

@@ -20,19 +20,26 @@ export default function (ComposedComponent) {
 
         render() {
             return (
-                <div>
-                    {this.props.location.pathname === '/buy' ? <HeaderTwo /> : <Header />}
-
-                    <div>
-                        <ComposedComponent {...this.props} />
-                    </div>
-
-                    {this.props.location.pathname === '/buy' ? <FooterTwo /> : <Footer />}
-
-                </div >
-
-
+                <>
+                <Header />
+                <ComposedComponent {...this.props} />
+                <Footer />
+                </>
             )
+            // return (
+            //     <div>
+            //         {this.props.location.pathname === '/buy' ? <HeaderTwo /> : <Header />}
+
+            //         <div>
+            //             <ComposedComponent {...this.props} />
+            //         </div>
+
+            //         {this.props.location.pathname === '/buy' ? <FooterTwo /> : <Footer />}
+
+            //     </div >
+
+
+            // )
         }
     }
 }

@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import "../asset/scss/faq-accordion.scss";
+
 
 const Chat = ({faq, index}) => {
   const [showQues, setShowQues]= useState(true)

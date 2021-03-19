@@ -1,13 +1,10 @@
 import React from 'react';
-import '../asset/scss/car-overview.scss'
 
 
 const Carinspection = (props) => {
     React.useEffect(() => {
 
     })
-
-
     return (
 
         <div className="car-overview">
