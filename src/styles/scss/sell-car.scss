@@ -1,6 +1,18 @@
 .sell-car {
   position: relative;
   width: 100%;
+  .hero {
+    background-image: url("/assets/images/car_sell.webp");
+    background-repeat: no-repeat;
+    height: 55vh;
+    width: 100%;
+    padding: 0;
+    .overley {
+      height: 100%;
+      width: 100%;
+      background-color: rgba(15, 202, 193, 0.3);
+    }
+  }
   .text-area {
     margin: 0 auto;
     margin-top: -400px;

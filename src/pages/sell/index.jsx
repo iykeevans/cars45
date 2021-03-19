@@ -1,15 +1,15 @@
 import React from "react";
 
 import Chat from "../../components/chat";
-import Hero_layout from "../../components/layouts/hero-layout";
 import Security from "../../components/security";
 import HomeLayout from "../../components/layouts/home-layout"
-// import car from "../../../public/assets/"
+
 
 const Sell_car = (props) => {
   return (
     <div className="sell-car">
-      <Hero_layout bg="../../../public/assets/images/car_sell.webp" />
+      <div className="hero ">
+        </div>
       <div className="text-area container pb-5  ">
         <div className="heading mb-5 mt-5 mt-lg-0 text-center">
           Sell your car without stress

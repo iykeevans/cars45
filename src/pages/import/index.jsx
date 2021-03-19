@@ -1,8 +1,8 @@
 import React from "react";
 
-import "../../asset/scss/import-car.scss";
-import Security from "../security";
 
+import Security from "../../components/security";
+import HomeLayout from "../../components/layouts/home-layout"
 const Import_car = () => {
   return (
     <div className="import-car">
@@ -98,4 +98,4 @@ const Import_car = () => {
   );
 };
 
-export default Import_car;
+export default HomeLayout(Import_car);

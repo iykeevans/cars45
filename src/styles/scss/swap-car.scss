@@ -1,6 +1,14 @@
 .swap-car {
   position: relative;
   width: 100%;
+  .hero {
+    background-image: url("/assets/images/car_swap.webp");
+    background-repeat: no-repeat;
+    height: 55vh;
+    width: 100%;
+    padding: 0;
+
+  }
   .text-area {
     margin: 0 auto;
     margin-top: -270px;

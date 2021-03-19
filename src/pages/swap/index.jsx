@@ -3,7 +3,6 @@ import React from "react";
 
 
 import Chat from "../../components/chat";
-import Hero_layout from "../../components/layouts/hero-layout";
 import Security from "../../components/security";
 import HomeLayout from "../../components/layouts/home-layout"
 
@@ -13,7 +12,8 @@ const Sell_car = (props) => {
 {
   
     <div className="swap-car">
-      <Hero_layout bg="/assets/images/car_swap.webp" />
+      <div className="hero">
+      </div>
       <div className="text-area container pb-5  ">
         <form className=" col-lg-7 d-flex flex-column mt-5">
           <select name="brand" id="brand" className="form-control">

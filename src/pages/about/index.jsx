@@ -1,16 +1,14 @@
 import React from "react";
-import HomeLayout from "../../components/layouts/home-layout"
+import HomeLayout from "../../components/layouts/home-layout";
 
 import Hero_layout from "../../components/layouts/hero-layout";
 
 const About = () => {
   return (
     <div className="about">
-              <div className="hero d-none d-lg-block ">
-          <div className="overley">
-
-          </div>
-        </div>
+      <div className="hero d-none d-lg-block ">
+        <div className="overley"></div>
+      </div>
       <div className="container mt-5">
         <div className="heading">About Us</div>
         <p>
@@ -33,7 +31,6 @@ const About = () => {
           <li>Twitter: @cars45ng</li>
           <li>Instagram: @cars45ng</li>
         </ul>
-        
       </div>
     </div>
   );
