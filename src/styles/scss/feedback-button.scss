@@ -1,0 +1,35 @@
+@import "./variable.scss";
+
+.feedback-button {
+    .btn-danger {
+        background-color: $cr-red;
+        color: $cr-white;
+        border-color: $cr-red;
+        border-radius: 0;
+        display: inline-block;
+        height: 25px;
+        // line-height: 50px;
+        letter-spacing: 3px;
+        font-size: 14px;
+        font-weight: 600;
+        position: fixed;
+        right: 13px;
+        top: 250px;
+        bottom: 0;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        -webkit-transform: rotate(-90deg);
+        transform-origin: right;
+        // width: 150px;
+        padding-bottom: 20px;
+        z-index: 1000;
+        padding-left: 30px;
+        padding-right: 30px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+}

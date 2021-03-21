@@ -1,5 +1,5 @@
 import React from 'react';
-// import '../asset/scss/list.scss'
+import { useRouter } from 'next/router'
 
 
 
@@ -7,10 +7,10 @@ const Carlist = (props) => {
     React.useEffect(() => {
 
     })
-
+    const router = useRouter()
     return (
         <div className="listing">
-            <div className="card" onClick={() => props.history.push('/buy/car/2')}>
+            <div className="card" onClick={() => router.push('/buy/car/2')}>
                 <img src="/assets/images/carlistimg-demo@2x.png" className="card-img-top" alt="..." />
                 <div className="card-body">
                     <div className="row border-bottom">

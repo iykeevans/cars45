@@ -1,0 +1,122 @@
+@import "./variable.scss";
+
+.loan {
+    .jumbotron {
+        background-image: url("/assets/images/loan-bg.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 550px;
+        display: flex;
+        justify-content: center;
+        .banner-container {
+            align-self: center;
+        }
+        .banner-container h1 {
+            color: $cr-white;
+            text-shadow: 2px 2px rgba(34, 33, 33, 0.3);
+            font-weight: 700;
+        }
+    }
+    .overview {
+        margin-top: -100px;
+        margin-bottom: 50px;
+
+        .overview-container {
+            border: solid 1px $cr-orange;
+            border-radius: 5px;
+            padding: 20px 70px;
+            background-color: $cr-white;
+            box-shadow: 1px 1px 8px -3px rgba(0, 0, 0, 0.75);
+            -webkit-box-shadow: 1px 1px 8px -3px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 1px 1px 8px -3px rgba(0, 0, 0, 0.75);
+
+            .section1 h1 {
+                margin-bottom: 30px;
+                color: $cr-darker;
+                font-weight: 700;
+            }
+            .section1 p {
+                margin-bottom: 40px;
+                color: $cr-darker;
+                font-size: 18px;
+            }
+            .section2 {
+                background-color: $cr-grey;
+                margin-left: -70px;
+                margin-right: -70px;
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+            .section2 h1 {
+                margin-top: 30px;
+                margin-bottom: 30px;
+                color: $cr-darker;
+                font-weight: 700;
+            }
+            .section2 p {
+                margin-bottom: 30px;
+                color: $cr-darker;
+                font-size: 18px;
+            }
+
+            .section3 {
+                margin-right: -125px;
+            }
+            .section3 .steps-bg {
+                margin-left: -55px;
+                background-image: url("/assets/images/criteria.png");
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .section3 .steps {
+                padding: 30px;
+                padding-bottom: 20px;
+                padding-right: 0 !important;
+                background-color: #fad8de;
+            }
+            .section3 .steps ol {
+                padding-left: 10px !important;
+            }
+            .section3 .steps li {
+                margin-bottom: 20px;
+                color: $cr-darker;
+                font-size: 18px;
+            }
+            .section3 .steps p {
+                color: $cr-darker;
+                font-size: 18px;
+            }
+            .benefits h2 {
+                margin-top: 30px;
+                margin-bottom: 30px;
+                color: $cr-darker;
+                font-weight: 700;
+            }
+            .purchase {
+                width: 150px;
+            }
+            .low-interest {
+                width: 100px;
+            }
+            .benefit-container {
+                display: flex;
+                margin-top: 20px;
+            }
+            .benefit-container img {
+                width: 30px;
+                margin-top: -20px;
+                margin-right: 20px;
+            }
+
+            .benefit-container p {
+                color: $cr-darkgrey;
+                font-size: 18px;
+            }
+            .btn-secondary {
+                padding: 10px 35px;
+                font-weight: 600;
+            }
+        }
+    }
+}

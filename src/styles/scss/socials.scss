@@ -1,0 +1,37 @@
+@import "./variable.scss";
+
+.socials {
+    .fixed-socials {
+        display: inline-block;
+        height: 25px;
+        position: fixed;
+        right: 0px;
+        top: 260px;
+        bottom: 0;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        // -moz-transform: rotate(-90deg);
+        // -ms-transform: rotate(-90deg);
+        // -o-transform: rotate(-90deg);
+        // -webkit-transform: rotate(-90deg);
+        transform-origin: right;
+        // width: 150px;
+        padding-bottom: 20px;
+        z-index: 1000;
+    }
+    .btn-link {
+        border-bottom: solid 1px rgba(112, 112, 112, 0.3);
+        border-radius: 0;
+        background-color: $cr-white;
+        box-shadow: none !important;
+    }
+    .btn-link img {
+        width: 15px;
+    }
+    .fb {
+        width: 12px !important;
+        margin-left: 1px;
+        margin-right: 2px;
+    }
+}

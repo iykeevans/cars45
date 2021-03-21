@@ -1,0 +1,190 @@
+.service {
+  .hero {
+    background-image: url("/assets/images/servicing.webp");
+    background-repeat: no-repeat;
+    height: 65vh;
+    width: 100%;
+    padding: 0;
+    .overley {
+      height: 100%;
+      width: 100%;
+      background-color: rgba(228, 54, 59, 0.7);
+      padding-top: 3em;
+      form {
+        margin-top: 3em !important;
+        // margin-left: 3em;
+        background-color: #ffff;
+        border-radius: 5px;
+        border: 1px solid #707070;
+        .heading {
+          text-align: center;
+          font: normal normal medium 13px/40px Roboto;
+          font-size: 13px;
+          letter-spacing: 0.4px;
+          color: #222121;
+          font-weight: bold;
+        }
+        input,
+        select {
+          border: 1px solid #707070;
+          text-align: center;
+          font: normal normal 300 18px/40px Roboto;
+          letter-spacing: 0.4px;
+          color: #75787a;
+        }
+        button {
+          background: #21b7ac 0% 0% no-repeat padding-box;
+          border-radius: 4px;
+          text-align: center;
+          font: normal normal normal 18px/20px Roboto;
+          letter-spacing: 0.5px;
+          color: #ffffff;
+          border: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0.7em 0;
+        }
+      }
+    }
+  }
+  .service-section {
+    background-color: #10cac1;
+    padding-bottom: 4em;
+    .heading {
+      font: normal normal normal 40px/20px Roboto;
+      letter-spacing: 1.2px;
+      color: #ffffff;
+      text-align: center;
+      line-height: 1em;
+      padding: 2em 0;
+    }
+    .card {
+      padding: 0;
+      color: #222121;
+      width: 250px;
+      box-shadow: 5px 5px 8px #00000029;
+      .top {
+        background-color: #e4e4e4;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .card-body {
+        .title {
+          font-weight: bold;
+          margin-bottom: 2em;
+        }
+      }
+    }
+  }
+  .advantage {
+    margin-top: 4em;
+    background-color: #222121;
+    padding: 5em 0;
+    .heading {
+      font: normal normal normal 40px/20px Roboto;
+      letter-spacing: 1.2px;
+      color: #ffffff;
+      line-height: 1em;
+      text-align: center;
+    }
+    .card {
+      box-shadow: 5px 5px 8px #00000029;
+      border: 1px solid #707070;
+      background-color: #e4e4e4;
+      padding: 3em 2em;
+      width: 290px;
+      line-height: 1.5em;
+      .top {
+        background: #ffffff 0% 0% no-repeat padding-box;
+        border: 1px solid #707070;
+        border-radius: 25px;
+        width: 180px;
+        height: 180px !important;
+        padding: 1em;
+        margin: 0 auto;
+      }
+      .body {
+        margin-top: 2em;
+        line-height: 1.5em;
+        .title {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  .brand {
+    margin-top: 7em;
+    text-align: center;
+    .heading {
+      font: normal normal normal 40px/20px Roboto;
+      letter-spacing: 1.2px;
+      color: #ed1f26;
+      line-height: 1em;
+    }
+    .container-fluid {
+      width: 100%;
+      img {
+        object-fit: cover;
+        width: 100%;
+      }
+    }
+  }
+  .faq-section {
+    background: #e4e4e4 0% 0% no-repeat padding-box;
+    padding: 5em 0;
+    .heading {
+      font: normal normal normal 40px/20px Roboto;
+      letter-spacing: 1.2px;
+      color: #ed1f26;
+      text-align: center;
+      line-height: 1em;
+      margin-bottom: 1em;
+    }
+    .bg-green {
+      background: #8aeee6 0% 0% no-repeat padding-box;
+      .accordion{
+
+          .title{
+            background: #D9D5D5 0% 0% no-repeat padding-box;
+            border: 1px solid #707070;
+            cursor: pointer;
+            .img{
+                height: 20px;
+                width: 20px;
+                // margin-top: 1em;
+                img{
+                  object-fit: cover;
+                  width: 100%;
+                 
+                }
+              }
+          }
+          .comment{
+            background: #EFEEEE 0% 0% no-repeat padding-box;
+            border: 1px solid #707070;
+          }
+      }
+      .green {
+        background: #02796f 0% 0% no-repeat padding-box;
+        // height: 300px;
+        .bg-orange {
+          background: #e76161 0% 0% no-repeat padding-box;
+          width: 100%;
+          .img{
+            margin-top: auto;
+            height: 50px;
+            width: 50px;
+            img{
+              object-fit: cover;
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

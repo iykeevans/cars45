@@ -1,0 +1,115 @@
+@import "./variable.scss";
+
+.budget {
+    @media (min-width: 1300px) {
+        .container,
+        .container-lg,
+        .container-md,
+        .container-sm,
+        .container-xl {
+            max-width: 1200px;
+        }
+    }
+    .container {
+        padding-left: 50px;
+        padding-right: 70px;
+        padding-top: 30px;
+    }
+    background-color: #d3d5d3;
+    padding-top: 30px;
+    padding-bottom: 50px;
+    h1 {
+        font-weight: 700;
+        color: $cr-dark;
+        margin-bottom: 0px;
+    }
+    .budget-container {
+        border: solid 1px $cr-darkgrey;
+        background-color: $cr-white;
+        padding-top: 50px;
+        padding-bottom: 10px;
+    }
+    .budget-category {
+        border: solid 1px $cr-darkgrey;
+        padding: 12px 25px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        margin-left: 60px;
+        margin-right: 60px;
+    }
+    .budget-category:hover {
+        box-shadow: 1px 1px 8px -3px rgba(0, 0, 0, 0.75);
+        -webkit-box-shadow: 1px 1px 8px -3px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 1px 1px 8px -3px rgba(0, 0, 0, 0.75);
+    }
+    .budget-category:active {
+        background-color: $cr-grey;
+        box-shadow: 1px 1px 8px -3px rgba(0, 0, 0, 0.75);
+        -webkit-box-shadow: 1px 1px 8px -3px rgba(0, 0, 0, 0.35);
+        -moz-box-shadow: 1px 1px 8px -3px rgba(0, 0, 0, 0.35);
+    }
+
+    .budget-category p {
+        margin-bottom: 0;
+        margin-left: 10px;
+        font-weight: 700;
+    }
+    .budget-category img {
+        width: 25px;
+    }
+    .info {
+        margin-top: 20px;
+    }
+    .info h4 {
+        font-weight: 800;
+        margin-bottom: 15px;
+    }
+    .info p {
+        padding-left: 120px;
+        padding-right: 120px;
+        color: $cr-darkgrey;
+        font-weight: 500;
+    }
+    .input-range__track {
+        background-color: $cr-grey;
+    }
+    .input-range__label--min,
+    .input-range__label--max {
+        display: none;
+    }
+    .input-range__slider {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background: $cr-white;
+        border: 1px solid $cr-white;
+        border-radius: 100%;
+        cursor: pointer;
+        display: block;
+        height: 25px;
+        margin-left: -0.5rem;
+        margin-top: -0.9rem;
+        top: 50%;
+        width: 25px;
+        box-shadow: 1px 1px 8px -3px rgba(0, 0, 0, 0.75);
+        -webkit-box-shadow: 1px 1px 8px -3px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 1px 1px 8px -3px rgba(0, 0, 0, 0.75);
+    }
+    .input-range__track--active {
+        background-color: $cr-orange !important;
+    }
+    .form-inline .form-control {
+        width: 350px !important;
+        background-color: $cr-grey;
+        border-color: $cr-grey;
+        box-shadow: none !important;
+    }
+    .teal-background {
+        padding-left: 20px;
+        padding-right: 20px;
+        border-color: $cr-tealgreen;
+    }
+    .btn-primary:focus {
+        border-color: $cr-tealgreen !important;
+    }
+}

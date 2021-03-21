@@ -1,0 +1,74 @@
+@import "./variable.scss";
+
+.brand-new-brand {
+    .heading h5 {
+        color: $cr-tealgreen;
+        margin-top: 40px;
+    }
+    .border-bottom.heading {
+        border-bottom-color: $cr-grey;
+    }
+    .filters {
+        padding-top: 35px;
+        padding-bottom: 30px;
+    }
+    .filters label {
+        color: $cr-darkgrey;
+    }
+    .filters .form-control {
+        border-color: $cr-darkgrey;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+        background-repeat: no-repeat;
+        background-position-x: 95%;
+        background-position-y: 7px;
+        // width: 80%;
+    }
+    .filter .border-bottom {
+        border-bottom-color: $cr-grey;
+    }
+    .list {
+        .list-container {
+            border: solid 1px $cr-darkgrey;
+            box-shadow: 1px 1px 8px -3px rgba(0, 0, 0, 0.75);
+            -webkit-box-shadow: 1px 1px 8px -3px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 1px 1px 8px -3px rgba(0, 0, 0, 0.75);
+            padding: 20px 10px;
+            border-radius: 5px;
+        }
+        .list-container img {
+            width: 250px;
+            height: 200px;
+        }
+        .list-container .name {
+            color: $cr-tealgreen;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+        .list-container .price {
+            color: $cr-dark;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        .list-container .price span {
+            color: #7b7a7a !important;
+            font-weight: 600 !important;
+            margin-right: 10px;
+        }
+    }
+    .related {
+        margin-top: 50px;
+        .related-head {
+            color: $cr-tealgreen;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        li a {
+            color: $cr-darkgrey;
+        }
+    }
+}
