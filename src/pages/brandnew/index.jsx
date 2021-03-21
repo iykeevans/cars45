@@ -29,35 +29,35 @@ const Brandnew = (props) => {
                     </div>
                     <div className="row brand-row">
                         <Link href={`/brandnew/toyota`} className="col">
-                            <a>
+                            <a  className="col">
                             <div className="brand-container">
                                 <img src="/assets/icons/toyota.svg" alt="toyota" />
                             </div>
                         </a>
                         </Link>
                         <Link href={`/brandnew/toyota`} className="col">
-                            <a>
+                            <a  className="col">
                             <div className="brand-container">
                                 <img src="/assets/icons/ford.svg" alt="ford" />
                             </div>
                         </a>
                         </Link>
                         <Link href={`/brandnew/toyota`} className="col">
-                            <a>
+                            <a  className="col">
                             <div className="brand-container">
                                 <img src="/assets/icons/honda.svg" alt="honda" />
                             </div>
                         </a>
                         </Link>
                         <Link href={`/brandnew/toyota`} className="col">
-                            <a>
+                            <a  className="col">
                             <div className="brand-container">
                                 <img src="/assets/icons/nissan.svg" alt="nissan" />
                             </div>
                         </a>
                         </Link>
                         <Link href={`/brandnew/toyota`} className="col">
-                            <a>
+                            <a  className="col">
                             <div className="brand-container">
                                 <img src="/assets/icons/jeep.svg" alt="jeep" />
                             </div>

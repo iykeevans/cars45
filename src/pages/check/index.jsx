@@ -22,7 +22,7 @@ export default function BuyUsedCar() {
       </div> */}
       <div className="buying-input">
         <input />
-        <button><img src={"/asset/icons/search-icon.svg"} className="" alt="search icon"/></button>
+        <button><img src={"/assets/icons/search-icon.svg"} className="" alt="search icon"/></button>
       </div>
       <p>
         The 17-character VIN can be found either on the body of the vehicle or

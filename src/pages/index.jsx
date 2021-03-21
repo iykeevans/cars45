@@ -57,7 +57,7 @@ const Home = (props) => {
     }
     return (
         <HomeLayout>
-        <div>
+        <div className="home">
             {/* dynamic modal buttons */}
             <button data-target="#popup-modal" className="d-none" id="open-modal" data-toggle="modal">open modal</button>
             <div className="jumbotron">
@@ -73,7 +73,7 @@ const Home = (props) => {
                     <div className='item'>
                         <div className="banner-text">
                             <div className="row">
-                                <div className="col-md-6">
+                                <div className="col-md-6 mx-auto">
                                     <h1>Selling, buying and swapping cars has never been this easy</h1>
                                 </div>
                             </div>
@@ -84,7 +84,7 @@ const Home = (props) => {
                     <div className='item'>
                         <div className="banner-text">
                             <div className="row">
-                                <div className="col-md-6">
+                                <div className="col-md-6 mx-auto">
                                     <h1>Selling, buying and swapping cars has never been this easy</h1>
                                 </div>
                             </div>
@@ -95,7 +95,7 @@ const Home = (props) => {
                     <div className='item'>
                         <div className="banner-text">
                             <div className="row">
-                                <div className="col-md-6">
+                                <div className="col-md-6 mx-auto">
                                     <h1>Selling, buying and swapping cars has never been this easy</h1>
                                 </div>
                             </div>
@@ -106,7 +106,7 @@ const Home = (props) => {
                     <div className='item'>
                         <div className="banner-text">
                             <div className="row">
-                                <div className="col-md-6">
+                                <div className="col-md-6 mx-auto">
                                     <h1>Selling, buying and swapping cars has never been this easy</h1>
                                 </div>
                             </div>
@@ -118,7 +118,7 @@ const Home = (props) => {
                 </OwlCarousel>
                 <div className="row banner-bottom">
                     <div className="col-md-8 offset-md-2">
-                        <div className="banner-bottom-container text-center">
+                        <div className="banner-bottom-container-home text-center">
                             <h3>UNSURE WHICH VEHICLE YOU ARE LOOKING FOR</h3>
                         </div>
                     </div>
