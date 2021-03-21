@@ -1,5 +1,5 @@
 import React from "react";
-import "../asset/scss/partnership.scss";
+
 
 export default function PartnershipCard({ content, image, title }) {
   return (
