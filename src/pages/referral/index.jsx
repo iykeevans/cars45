@@ -3,7 +3,7 @@ import { auto_slides } from "../../asset/data/service";
 import Carlist from "../../components/car-list";
 import HomeLayout from "../../components/layouts/home-layout"
 
-export default HomeLayout(function Autopreneur() {
+export default function Autopreneur() {
   const ref = useRef();
   const [state, setstate] = useState(auto_slides);
   let [currentSlide, setCurrent] = useState(0);
@@ -38,6 +38,7 @@ export default HomeLayout(function Autopreneur() {
   };
 
   return (
+    <HomeLayout footer="two" >
     <div className="autopreneneur-container">
       {state[currentSlide].element}
       <div className="autopreneneur-carousel">
@@ -68,6 +69,6 @@ export default HomeLayout(function Autopreneur() {
         <h1 onClick={() => slide("next")}>&#x203A;</h1>
       </div>
     </div>
+    </HomeLayout>
   );
 }
-)

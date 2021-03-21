@@ -7,6 +7,7 @@ import HomeLayout from "../../components/layouts/home-layout"
 
 const Sell_car = (props) => {
   return (
+    <HomeLayout >
     <div className="sell-car">
       <div className="hero ">
         </div>
@@ -43,7 +44,8 @@ const Sell_car = (props) => {
       <Security />
       <Chat />
     </div>
+    </HomeLayout>
   );
 };
 
-export default HomeLayout(Sell_car);
+export default Sell_car;

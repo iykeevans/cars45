@@ -6,11 +6,11 @@ import Chat from "../../components/chat";
 import Security from "../../components/security";
 import HomeLayout from "../../components/layouts/home-layout"
 
-const Sell_car = (props) => {
+const Swap_car = (props) => {
   return (
 <>
 {
-  
+  <HomeLayout footer="two">
     <div className="swap-car">
       <div className="hero">
       </div>
@@ -46,9 +46,10 @@ const Sell_car = (props) => {
       <Security />
       <Chat />
     </div>
+    </HomeLayout>
     }
     </>
   );
 };
 
-export default HomeLayout( Sell_car);
+export default Swap_car;

@@ -4,27 +4,17 @@ import HeaderTwo from '../header-two';
 import Footer from '../footer-one';
 import FooterTwo from '../footer-two';
 
-export default function (ComposedComponent) {
-    return class HomeLayout extends React.PureComponent {
-        _isMounted = false
-        componentDidMount() {
-            // console.log(this.props)
-        }
-        componentWillUnmount() {
-
-        }
-        state = {
-
-        }
-
-
-        render() {
+export default function (props) {
+   
             return (
                 <>
-                <Header />
-                <ComposedComponent {...this.props} />
-                <Footer />
+
+                
+                {props.header==="two"?<HeaderTwo />: <Header />}
+                 {props.children} 
+                {props.footer==="two"?<FooterTwo />:<Footer />}
                 </>
+                
             )
             // return (
             //     <div>
@@ -40,6 +30,5 @@ export default function (ComposedComponent) {
 
 
             // )
-        }
-    }
+       
 }

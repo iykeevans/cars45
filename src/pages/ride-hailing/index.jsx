@@ -6,6 +6,7 @@ import HomeLayout from "../../components/layouts/home-layout"
 
 const Ridehailing = (props) => {
     return (
+        <HomeLayout >
         <div className="ride-hailing">
             <div className="jumbotron">
                 <Feedbackbutton {...props} />
@@ -78,7 +79,8 @@ const Ridehailing = (props) => {
                 </div>
             </div>
         </div>
+        </HomeLayout>
     )
 }
 
-export default HomeLayout(Ridehailing);
+export default Ridehailing;

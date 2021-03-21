@@ -5,6 +5,7 @@ import Hero_layout from "../../components/layouts/hero-layout";
 
 const About = () => {
   return (
+    <HomeLayout footer="two" >
     <div className="about">
       <div className="hero d-none d-lg-block ">
         <div className="overley"></div>
@@ -33,7 +34,8 @@ const About = () => {
         </ul>
       </div>
     </div>
+    </HomeLayout>
   );
 };
 
-export default HomeLayout(About);
+export default About;

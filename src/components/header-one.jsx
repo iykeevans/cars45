@@ -7,7 +7,6 @@ const HeaderOne = (props)=>{
 
     const router = useRouter();
     const path = router.pathname
-    console.log({path})
     return (
         <div className="header-one">
             <div className="container">

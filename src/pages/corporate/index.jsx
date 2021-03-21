@@ -8,6 +8,7 @@ import Accordion from "../../components/faq-accordion"
 
 const Corporate = (props) => {
   return (
+    <HomeLayout footer="two" >
     <div className="service">
       <div className="container">
         <div className="hero ">
@@ -121,7 +122,8 @@ const Corporate = (props) => {
       <Security />
       <Chat />
     </div>
+    </HomeLayout>
   );
 };
 
-export default HomeLayout(Corporate);
+export default Corporate;

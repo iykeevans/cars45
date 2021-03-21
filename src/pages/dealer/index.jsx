@@ -5,6 +5,7 @@ import HomeLayout from "../../components/layouts/home-layout"
 
 const Dealer = (props) => {
   return (
+    <HomeLayout footer="two" >
     <div className="dealer">
       <Hero_layout bg="/assets/images/become-a-dealer.webp" />
       <div className="text-area container pb-5  ">
@@ -220,7 +221,8 @@ const Dealer = (props) => {
 
       <Chat />
     </div>
+    </HomeLayout>
   );
 };
 
-export default HomeLayout (Dealer);
+export default Dealer;

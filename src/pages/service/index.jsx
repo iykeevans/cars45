@@ -8,6 +8,7 @@ import Accordion from "../../components/faq-accordion"
 
 const Service = (props) => {
   return (
+    <HomeLayout footer="two" >
     <div className="service">
       <div className="container">
         <div className="hero ">
@@ -121,7 +122,8 @@ const Service = (props) => {
       <Security />
       <Chat />
     </div>
+    </HomeLayout>
   );
 };
 
-export default HomeLayout(Service);
+export default Service;

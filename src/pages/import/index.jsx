@@ -5,6 +5,7 @@ import Security from "../../components/security";
 import HomeLayout from "../../components/layouts/home-layout"
 const Import_car = () => {
   return (
+    <HomeLayout footer="two" >
     <div className="import-car">
       <div className="hero ">
         <div className="overley">
@@ -95,7 +96,8 @@ const Import_car = () => {
 
       <Security />
     </div>
+    </HomeLayout>
   );
 };
 
-export default HomeLayout(Import_car);
+export default Import_car;

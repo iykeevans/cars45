@@ -4,6 +4,7 @@ import HomeLayout from "../../components/layouts/home-layout"
 
 const Brandnewbrand = () => {
     return (
+        <HomeLayout>
         <div className="brand-new-brand">
             <div className="container">
                 <div className="row">
@@ -265,7 +266,8 @@ const Brandnewbrand = () => {
                 </div>
             </div>
         </div>
+        </HomeLayout>
     )
 }
 
-export default HomeLayout(Brandnewbrand);
+export default Brandnewbrand;

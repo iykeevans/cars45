@@ -61,6 +61,7 @@ const Cardetails = (props) => {
     }
 
     return (
+        <HomeLayout footer="two" header="two">
         <div className="car-details mt-3">
             <div className="container">
                 <div className="row">
@@ -271,7 +272,8 @@ const Cardetails = (props) => {
 
             </div>
         </div >
+        </HomeLayout>
     )
 }
 
-export default HomeLayout(Cardetails);
+export default Cardetails;

@@ -31,6 +31,7 @@ const Buy = (props) => {
         }
     };
     return (
+        <HomeLayout footer="two" header="two">
         <div>
             <div className="jumbotron">
 
@@ -291,7 +292,8 @@ const Buy = (props) => {
 
 
         </div >
+        </HomeLayout> 
     )
 }
 
-export default HomeLayout(Buy)
+export default Buy

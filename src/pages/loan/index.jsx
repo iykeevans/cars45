@@ -5,6 +5,7 @@ import HomeLayout from "../../components/layouts/home-layout"
 
 const Loan = (props) => {
     return (
+        <HomeLayout footer="two">
         <div className="loan">
             <div className="jumbotron">
                 <div className="banner-container">
@@ -92,7 +93,8 @@ const Loan = (props) => {
                 </div>
             </div>
         </div>
+        </HomeLayout>
     )
 }
 
-export default HomeLayout(Loan)
+export default Loan

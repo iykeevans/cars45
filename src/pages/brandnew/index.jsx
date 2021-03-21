@@ -12,6 +12,7 @@ const Brandnew = (props) => {
         ele.scrollLeft += 230
     }
     return (
+        <HomeLayout>
         <div className="brandnew">
             <div className="jumbotron">
                 <h1>THE EASIEST WAY TO BUY YOUR NEXT CAR</h1>
@@ -162,7 +163,8 @@ const Brandnew = (props) => {
             </div>
 
         </div>
+        </HomeLayout>
     )
 }
 
-export default HomeLayout(Brandnew);
+export default Brandnew;

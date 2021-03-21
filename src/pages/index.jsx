@@ -56,6 +56,7 @@ const Home = (props) => {
         }
     }
     return (
+        <HomeLayout>
         <div>
             {/* dynamic modal buttons */}
             <button data-target="#popup-modal" className="d-none" id="open-modal" data-toggle="modal">open modal</button>
@@ -723,7 +724,8 @@ const Home = (props) => {
 
 
         </div>
+        </HomeLayout>
     )
 }
 
-export default HomeLayout(Home)
+export default Home

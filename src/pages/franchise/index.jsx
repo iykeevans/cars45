@@ -4,8 +4,9 @@ import Dealergoals from "../../components/dealer-goals";
 import Dealerpoint from "../../components/dealerpoints";
 import HomeLayout from "../../components/layouts/home-layout"
 
-export default HomeLayout(function Dealer() {
+export default function Dealer() {
   return (
+    <HomeLayout footer="two" >
     <div className="dealer-container">
       <div className="dealer-banner">
         {/* <div className="cover"></div>
@@ -127,6 +128,6 @@ export default HomeLayout(function Dealer() {
         franchise@cars45.com</p>
       </div>
     </div>
+    </HomeLayout>
   );
 }
-)
