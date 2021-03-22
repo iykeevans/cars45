@@ -9,6 +9,7 @@
         height: 550px;
         display: flex;
         justify-content: center;
+        position: static;
         .banner-container {
             align-self: center;
         }
@@ -19,7 +20,7 @@
         }
     }
     .overview {
-        margin-top: -100px;
+        margin-top: -200px !important;
         margin-bottom: 50px;
 
         .overview-container {

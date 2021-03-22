@@ -256,8 +256,9 @@
             background: #dbfffd;
             color: $cr-orange;
         }
-        .dropdown-item.active {
-            background: #dbfffd;
+        .dropdown-item.active,
+        .dropdown-item:active {
+            background: #dbfffd !important;
             color: $cr-orange;
         }
     }

@@ -8,7 +8,7 @@ const FooterTwo = (props) => {
 
     return (
         <div>
-            <div className="footer-one">
+            <div className="footer-one border-top">
 
                 <div className="footer-menu">
                     <div className="container">

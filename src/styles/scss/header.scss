@@ -164,9 +164,6 @@
         }
         .nav-active {
             position: relative;
-  
-           
-            
         }
 
         .nav-active::after {
@@ -214,6 +211,20 @@
             // border-bottom: solid 4px $cr-tealgreen;
         }
         .btn-outline-secondary:hover:before {
+            content: "";
+            position: absolute;
+            border-top-left-radius: 600px;
+            border-top-right-radius: 600px;
+            width: 100%;
+            height: 3.5px;
+            top: 27px;
+            bottom: 0px;
+            left: 0;
+            /* margin-left: 10px; */
+            color: $cr-tealgreen;
+            background-color: $cr-tealgreen;
+        }
+        .btn-outline-secondary.current:before {
             content: "";
             position: absolute;
             border-top-left-radius: 600px;
@@ -280,9 +291,9 @@
             background: #dbfffd;
             color: $cr-orange;
         }
-        // .dropdown-item.active {
-        //     background: #dbfffd;
-        //     color: $cr-orange;
-        // }
+        .dropdown-item.active {
+            background: #dbfffd;
+            color: $cr-orange;
+        }
     }
 }

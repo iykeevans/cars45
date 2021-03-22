@@ -1,11 +1,12 @@
 import React from 'react';
-import  Link  from 'next/link'
+import Link from 'next/link'
 import { useRouter } from "next/router";
 
 
 const HeaderTwo = (props) => {
     const router = useRouter();
     const path = router.pathname
+
     return (
         <div>
             <div className="header-one">
@@ -45,64 +46,64 @@ const HeaderTwo = (props) => {
                         <div className="collapse navbar-collapse" id="navbarNavDropdown">
                             <ul className="navbar-nav">
                                 <li className="nav-item">
-                                    <Link className="nav-link" activeClassName="nav-active" href="/brandnew"><a className={path==="/brandnew"?"nav-active nav-link": "nav-link"} >Brand New Cars</a></Link>
+                                    <Link href="/brandnew"><a className={path === "/brandnew" || path === "/brandnew/[brand]" || path === "/brandnew/[brand]/details" ? "nav-active nav-link" : "nav-link"} >Brand New Cars </a></Link>
                                 </li>
                                 <li className="nav-item dropdown">
-                                    <button className="nav-link dropdown-toggle btn btn-outline-secondary used" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Used Cars</button>
+                                    <button className={path === "/buy" || path === "/sell" || path === "/swap" ? "nav-link dropdown-toggle btn btn-outline-secondary current used" : "nav-link dropdown-toggle btn btn-outline-secondary used"} id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Used Cars</button>
                                     <div className="dropdown-menu used-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <Link  href="/buy"><a className="dropdown-item" >Buy</a></Link>
+                                        <Link href="/buy"><a className={path === "/buy" ? "dropdown-item active" : "dropdown-item"}>Buy</a></Link>
                                         <div className="dropdown-divider" />
-                                        <Link  href="/sell"><a className="dropdown-item" >Sell</a></Link>
+                                        <Link href="/sell"><a className={path === "/sell" ? "dropdown-item active" : "dropdown-item"} >Sell</a></Link>
                                         <div className="dropdown-divider" />
-                                        <Link  href="/swap"><a className="dropdown-item" >Swap</a></Link>
+                                        <Link href="/swap"><a className={path === "/swap" ? "dropdown-item active" : "dropdown-item"} >Swap</a></Link>
                                     </div>
                                 </li>
                                 <li className="nav-item dropdown">
-                                    <button className="nav-link dropdown-toggle btn btn-outline-secondary inspection" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Other Services</button>
+                                    <button className="nav-link dropdown-toggle btn btn-outline-secondary inspection" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Inspection Services</button>
                                     <div className="dropdown-menu inspect" aria-labelledby="navbarDropdownMenuLink">
-                                        <Link  href="/ride-hailing"><a className="dropdown-item">Ride Hailing</a></Link>
+                                        <Link href="/ride-hailing"><a className="dropdown-item">Ride Hailing</a></Link>
                                         <div className="dropdown-divider" />
-                                        <Link  href="/private-individual"><a className="dropdown-item">Private/Individual</a></Link>
+                                        <Link href="/private-individual"><a className="dropdown-item">Private/Individual</a></Link>
                                         <div className="dropdown-divider" />
-                                        <Link  href="/premium-inspection"><a className="dropdown-item">Premium Inspection</a></Link>
+                                        <Link href="/premium-inspection"><a className="dropdown-item">Premium Inspection</a></Link>
                                         <div className="dropdown-divider" />
-                                        <Link  href="/valuation"><a className="dropdown-item">Valuation</a></Link>
+                                        <Link href="/valuation"><a className="dropdown-item">Valuation</a></Link>
                                         <div className="dropdown-divider" />
-                                        <Link  href="/due-dilligence"><a className="dropdown-item">Due Dilligence</a></Link>
+                                        <Link href="/due-dilligence"><a className="dropdown-item">Due Dilligence</a></Link>
                                         <div className="dropdown-divider" />
-                                        <Link  href="/all-in-one"><a className="dropdown-item">All-in-one</a></Link>
+                                        <Link href="/all-in-one"><a className="dropdown-item">All-in-one</a></Link>
                                     </div>
                                 </li>
                                 <li className="nav-item">
-                                    <Link href="/loan"><a className={path==="/loan"?"nav-active nav-link": "nav-link"}>Car Loan</a></Link>
+                                    <Link href="/loan"><a className={path === "/loan" ? "nav-active nav-link" : "nav-link"}>Car Loan</a></Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link href="/service"><a className={path==="/service"?"nav-active nav-link": "nav-link"}>Service & Repair</a></Link>
+                                    <Link href="/service"><a className={path === "/service" ? "nav-active nav-link" : "nav-link"}>Service & Repair</a></Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link href="/franchise"><a className={path==="/franchise"?"nav-active nav-link": "nav-link"}>Become a Franshise</a></Link>
+                                    <Link href="/franchise"><a className={path === "/franchise" ? "nav-active nav-link" : "nav-link"}>Become a Franshise</a></Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link href="/corporate"><a className={path==="/corporate"?"nav-active nav-link": "nav-link"}>Corporate Service</a></Link>
+                                    <Link href="/corporate"><a className={path === "/corporate" ? "nav-active nav-link" : "nav-link"}>Corporate Service</a></Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link href="/import"><a className={path==="/import"?"nav-active nav-link": "nav-link"}>Import Cars</a></Link>
+                                    <Link href="/import"><a className={path === "/import" ? "nav-active nav-link" : "nav-link"}>Import Cars</a></Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link href="/referral"><a className={path==="/referral"?"nav-active nav-link": "nav-link"}>Referral Program</a></Link>
+                                    <Link href="/referral"><a className={path === "/referral" ? "nav-active nav-link" : "nav-link"}>Referral Program</a></Link>
                                 </li>
                                 <li className="nav-item dropdown">
                                     <button className="nav-link dropdown-toggle btn btn-outline-secondary" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Other Services</button>
                                     <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <Link className="dropdown-item" href="/about"><a className="dropdown-item">About Us</a></Link>
+                                        <Link className="dropdown-item" href="/about"><a className={path === '/about' ? "dropdown-item active" : "dropdown-item"}>About Us </a></Link>
                                         <div className="dropdown-divider" />
-                                        <Link className="dropdown-item" href="/check"><a className="dropdown-item">Background Check</a></Link>
+                                        <Link className="dropdown-item" href="/check"><a className={path === '/check' ? "dropdown-item active" : "dropdown-item"}>Background Check </a></Link>
                                         <div className="dropdown-divider" />
-                                        <Link className="dropdown-item" href="/dealer"><a className="dropdown-item">Become A Dealer</a></Link>
-                                        <div className="dropdown-divider" />
-                                        <Link className="dropdown-item" href="/iaas"><a className="dropdown-item">Inspection As A Service</a></Link>
-                                        <div className="dropdown-divider" />
-                                        <Link className="dropdown-item" href="/preorder"><a className="dropdown-item">Preorder a Car</a></Link>
+                                        <Link className="dropdown-item" href="/dealer"><a className={path === '/dealer' ? "dropdown-item active" : "dropdown-item"}>Become A Dealer </a></Link>
+                                        {/* <div className="dropdown-divider" />
+                                    <Link className="dropdown-item" href="/iaas"><a className="dropdown-item">Inspection As A Service </a></Link>
+                                    <div className="dropdown-divider" />
+                                    <Link className="dropdown-item" href="/preorder"><a className="dropdown-item">Preorder a Car </a></Link> */}
                                     </div>
                                 </li>
                             </ul>

@@ -1,7 +1,6 @@
 @import "./variable.scss";
 
-.home{
-
+.home {
     .jumbotron {
         border-radius: 0 !important;
         padding: 0 !important;
@@ -9,7 +8,7 @@
         margin-bottom: 0;
         .owl-theme .owl-nav.disabled + .owl-dots {
             position: absolute;
-            bottom: 60px;
+            bottom: 90px;
             right: 0;
             width: 100%;
         }
@@ -151,7 +150,7 @@
             background-color: $cr-orange;
             border-color: $cr-orange;
         }
-    
+
         .input-range__track--active {
             background: $cr-orange;
         }
@@ -400,7 +399,7 @@
             font-size: 10px;
             text-align: center;
         }
-    
+
         .faq2 .col-md-10 {
             background: $cr-dark;
         }
@@ -427,7 +426,7 @@
         .faq .small {
             font-weight: 400;
         }
-    
+
         .faq3 .col-md-10 {
             background: $cr-orange;
         }
