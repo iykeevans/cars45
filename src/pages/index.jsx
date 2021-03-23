@@ -10,6 +10,7 @@ import HomeLayout from "../components/layouts/home-layout"
 const Home = (props) => {
     React.useEffect(() => {
         document.getElementById('open-modal').click()
+        console.log(document.cookie.split(';'))
     })
 
     const [value, setValue] = React.useState({ min: 0, max: 0 })
@@ -685,17 +686,17 @@ const Home = (props) => {
                             </div> */}
                                 <div className="modal-body">
                                     <div className="row mt-2">
-                                        <div className="col-md-10 text-center">
+                                        <div className="col-9 col-md-10 text-center">
                                             <img className="logo" src="/assets/icons/Cars45logo.svg" alt="logo" />
                                         </div>
-                                        <div className="col-md-2 text-right">
+                                        <div className="col-2 col-md-2 text-right">
                                             <button className="btn btn-link">
                                                 <img className="close" data-dismiss="modal" src="/assets/icons/close.svg" alt="close" />
                                             </button>
                                         </div>
                                     </div>
 
-                                    <div className="row pb-5 pl-5 pr-5">
+                                    <div className="row pb-5 pl-2 pl-md-5 pr-2 pr-md-5">
                                         <div className="col-md-12 text-center">
                                             <div className="question">
                                                 <p>Can we ask you a few questions to make car45.com better</p>

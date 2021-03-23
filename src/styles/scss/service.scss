@@ -1,4 +1,4 @@
-.service {
+.servicing {
   .hero {
     background-image: url("/assets/images/servicing.webp");
     background-repeat: no-repeat;
@@ -8,7 +8,7 @@
     .overley {
       height: 100%;
       width: 100%;
-      background-color: rgba(228, 54, 59, 0.7);
+      background-color: rgb(33, 183, 172, 0.7) !important;
       padding-top: 3em;
       form {
         margin-top: 3em !important;
@@ -145,27 +145,25 @@
     }
     .bg-green {
       background: #8aeee6 0% 0% no-repeat padding-box;
-      .accordion{
-
-          .title{
-            background: #D9D5D5 0% 0% no-repeat padding-box;
-            border: 1px solid #707070;
-            cursor: pointer;
-            .img{
-                height: 20px;
-                width: 20px;
-                // margin-top: 1em;
-                img{
-                  object-fit: cover;
-                  width: 100%;
-                 
-                }
-              }
+      .accordion {
+        .title {
+          background: #d9d5d5 0% 0% no-repeat padding-box;
+          border: 1px solid #707070;
+          cursor: pointer;
+          .img {
+            height: 20px;
+            width: 20px;
+            // margin-top: 1em;
+            img {
+              object-fit: cover;
+              width: 100%;
+            }
           }
-          .comment{
-            background: #EFEEEE 0% 0% no-repeat padding-box;
-            border: 1px solid #707070;
-          }
+        }
+        .comment {
+          background: #efeeee 0% 0% no-repeat padding-box;
+          border: 1px solid #707070;
+        }
       }
       .green {
         background: #02796f 0% 0% no-repeat padding-box;
@@ -173,11 +171,11 @@
         .bg-orange {
           background: #e76161 0% 0% no-repeat padding-box;
           width: 100%;
-          .img{
+          .img {
             margin-top: auto;
             height: 50px;
             width: 50px;
-            img{
+            img {
               object-fit: cover;
               width: 100%;
               height: 100%;

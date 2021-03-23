@@ -1,7 +1,9 @@
 import { useState, useRef } from "react";
 import { auto_slides } from "../../asset/data/service";
 import Carlist from "../../components/car-list";
-import HomeLayout from "../../components/layouts/home-layout"
+import HomeLayout from "../../components/layouts/home-layout";
+import Link from 'next/link';
+
 
 export default function Autopreneur() {
   const ref = useRef();
@@ -24,13 +26,13 @@ export default function Autopreneur() {
   };
 
   const slide = (position) => {
-      let left = ref.current.scrollLeft;
-      switch (position) {
+    let left = ref.current.scrollLeft;
+    switch (position) {
       case "next":
-        ref.current.scroll(left+510,0);
+        ref.current.scroll(left + 510, 0);
         return;
       case "prev":
-        ref.current.scroll(left-510,0);
+        ref.current.scroll(left - 510, 0);
         return;
       default:
         return;
@@ -39,36 +41,36 @@ export default function Autopreneur() {
 
   return (
     <HomeLayout footer="two" >
-    <div className="autopreneneur-container">
-      {state[currentSlide].element}
-      <div className="autopreneneur-carousel">
-        {/* <div className="autopreneneur-navigator"> */}
-        <div className="left-slide navigator" onClick={prev}>
-          <h1>&#x2039;</h1>
-        </div>
-        <div className="right-slide navigator" onClick={next}>
-          <h1>&#x203A;</h1>
-        </div>
-        {/* </div> */}
-        <div className="autopreneneur-content">
-          {state[currentSlide].content}
-        </div>
-      </div>
-      <button>Get started</button>
-      <div className="autopreneneur-line"></div>
-      <div className="autopreneneur-rec-carousel">
-        <h1 onClick={() => slide("prev")}>&#x2039;</h1>
-        <div className="autopreneneur-suggestion">
-          <h4>Recommended Marketplace Cars For You</h4>
-          <div ref={ref} className="autopreneneur-recommended">
-            {mock_cars.map((item, index) => (
-              <Carlist key={index} />
-            ))}
+      <div className="autopreneneur-container">
+        {state[currentSlide].element}
+        <div className="autopreneneur-carousel">
+          {/* <div className="autopreneneur-navigator"> */}
+          <div className="left-slide navigator" onClick={prev}>
+            <h1>&#x2039;</h1>
+          </div>
+          <div className="right-slide navigator" onClick={next}>
+            <h1>&#x203A;</h1>
+          </div>
+          {/* </div> */}
+          <div className="autopreneneur-content">
+            {state[currentSlide].content}
           </div>
         </div>
-        <h1 onClick={() => slide("next")}>&#x203A;</h1>
+        <Link href="https://autopreneur.cars45.ng/">Get started</Link>
+        <div className="autopreneneur-line"></div>
+        <div className="autopreneneur-rec-carousel">
+          <h1 onClick={() => slide("prev")}>&#x2039;</h1>
+          <div className="autopreneneur-suggestion">
+            <h4>Recommended Marketplace Cars For You</h4>
+            <div ref={ref} className="autopreneneur-recommended">
+              {mock_cars.map((item, index) => (
+                <Carlist key={index} />
+              ))}
+            </div>
+          </div>
+          <h1 onClick={() => slide("next")}>&#x203A;</h1>
+        </div>
       </div>
-    </div>
     </HomeLayout>
   );
 }

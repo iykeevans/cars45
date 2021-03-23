@@ -543,7 +543,54 @@
             max-width: 580px;
         }
     }
-    .modal-open .modal {
-        backdrop-filter: blur(5px);
+    /* Extra small devices (phones, 600px and down) */
+    @media only screen and (max-width: 600px) {
+        .modal {
+            .modal-content {
+                width: 100% !important;
+            }
+            .modal-body {
+                width: 100%;
+            }
+            .logo {
+                width: 100px;
+                margin-left: 50px;
+            }
+            .close {
+                width: 30px;
+                margin-top: -5px;
+            }
+            .question {
+                padding-left: 0px;
+                padding-right: 0px;
+                border-bottom: solid 1px #707070;
+                margin-top: 20px;
+            }
+            .btn-success {
+                width: 100%;
+            }
+            .btn-outline-secondary {
+                width: 100%;
+            }
+        }
     }
+
+    /* Small devices (portrait tablets and large phones, 600px and up) */
+    @media only screen and (min-width: 600px) {
+    }
+
+    /* Medium devices (landscape tablets, 768px and up) */
+    @media only screen and (min-width: 768px) {
+    }
+
+    /* Large devices (laptops/desktops, 992px and up) */
+    @media only screen and (min-width: 992px) {
+    }
+
+    /* Extra large devices (large laptops and desktops, 1200px and up) */
+    @media only screen and (min-width: 1200px) {
+    }
+}
+.modal-open .modal {
+    backdrop-filter: blur(5px);
 }
