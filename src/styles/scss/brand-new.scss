@@ -136,4 +136,54 @@
             margin-bottom: 0;
         }
     }
+    /* Extra small devices (phones, 600px and down) */
+    @media only screen and (max-width: 600px) {
+        .type .container .btn-link {
+            top: 40%;
+            right: 0;
+            left: 85%;
+        }
+        .jumbotron {
+            background-size: cover;
+            // display: block;
+            height: inherit;
+            padding-bottom: 0;
+            padding-right: 0;
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+        .brands .h-shop {
+            margin-top: 0px;
+        }
+        .brands .brand-container {
+            display: flex;
+            justify-content: center;
+            border: solid 1px #707070;
+            border-radius: 5px;
+            height: 160px;
+            width: 145px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        .brands .see-container {
+            height: 160px;
+            width: 145px;
+        }
+    }
+    /* Small devices (portrait tablets and large phones, 600px and up) */
+    @media only screen and (min-width: 600px) {
+    }
+
+    /* Medium devices (landscape tablets, 768px and up) */
+    @media only screen and (min-width: 768px) {
+    }
+
+    /* Large devices (laptops/desktops, 992px and up) */
+    @media only screen and (min-width: 992px) {
+    }
+
+    /* Extra large devices (large laptops and desktops, 1200px and up) */
+    @media only screen and (min-width: 1200px) {
+    }
 }

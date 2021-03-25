@@ -243,3 +243,47 @@
     margin: 1.5em auto;
   }
 }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .dealer-container {
+    h1 {
+      font-size: 2rem;
+    }
+    .dealer-details {
+      display: block;
+      width: 100%;
+    }
+    .dealer-commitment {
+      padding: 2em 5%;
+    }
+    .dealer-details .dealer-goals {
+      width: 96%;
+      margin: 2.5%;
+      text-align: left;
+      padding: 1em;
+    }
+    .dealer-points {
+      width: 100%;
+    }
+    .dealer-journey {
+      padding: 5% 5%;
+    }
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}

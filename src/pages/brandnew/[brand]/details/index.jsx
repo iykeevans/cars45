@@ -40,7 +40,7 @@ const Brandnewdetails = () => {
                                             <option value="">Year</option>
                                         </select>
                                     </div>
-                                    <div className="col-sm-3">
+                                    <div className="col-sm-3 text-right text-md-left">
                                         <button className="btn btn-secondary teal-button">GO <img src="/assets/icons/arrow-right-white.svg" alt="go" /></button>
                                     </div>
                                 </div>

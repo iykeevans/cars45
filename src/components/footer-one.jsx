@@ -9,11 +9,11 @@ const Home = (props) => {
             <div className="footer-section-one">
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-3">
+                        <div className="col-12 col-md-3">
                             <img className="logo" src="/assets/icons/logo-white.svg" alt="logo" />
                         </div>
 
-                        <div className="col-md-3">
+                        <div className="col-6 col-md-3">
                             <ul>
                                 <li>
                                     <Link href="/"><a>About Us</a></Link>
@@ -33,7 +33,7 @@ const Home = (props) => {
                             </ul>
                         </div>
 
-                        <div className="col-md-3">
+                        <div className="col-6 col-md-3">
                             <ul>
                                 <li>
                                     <Link href="/"><a>Inspection Centers</a></Link>
@@ -53,7 +53,7 @@ const Home = (props) => {
                             </ul>
                         </div>
 
-                        <div className="col-md-3 align-self-center">
+                        <div className="col-12 col-md-3 align-self-center">
                             <div className="socials">
                                 <a href="/facebook.com"><img className="facebook" src="/assets/icons/facebook.svg" alt="facebook" /></a>
                                 <a href="/instagram.com"><img src="/assets/icons/instagram.svg" alt="instagram" /></a>
@@ -78,7 +78,7 @@ const Home = (props) => {
                                 </li>
                             </ul>
                         </div>
-                        <div className="col-md-6 text-right">
+                        <div className="col-md-6 text-center text-md-right">
                             <p>2021Cars45.com. &copy;All rights reserved</p>
                         </div>
                     </div>

@@ -1,12 +1,35 @@
-.security{
-    background-color: #21B7AC;
+.security {
+    background-color: #21b7ac;
     width: 100%;
     font: normal normal normal 20px/30px Roboto;
-letter-spacing: 0.4px;
-color: #FFFFFF;
-display: flex;
-align-items: center;
-justify-content: center;
-padding: .5em 0;
-margin-bottom: 1em;
+    letter-spacing: 0.4px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5em 0;
+    margin-bottom: 1em;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .security {
+        padding: 0.5em 5px;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
 }

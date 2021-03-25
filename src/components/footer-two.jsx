@@ -13,35 +13,35 @@ const FooterTwo = (props) => {
                 <div className="footer-menu">
                     <div className="container">
                         <div className="row">
-                            <div className="col-md-7">
+                            <div className="col-9 col-md-7">
                                 <div className="row">
-                                    <div className="col-md-2">
+                                    <div className="col col-md-2 d-none d-md-block">
                                         <Link href="/">About Us</Link>
                                     </div>
-                                    <div className="col-md-2">
+                                    <div className=" col col-md-2">
                                         <Link href="/">Terms Of Use</Link>
                                     </div>
-                                    <div className="col-md-2">
+                                    <div className="col col-md-2">
                                         <Link href="/">Privacy Policy</Link>
                                     </div>
-                                    <div className="col-md-1">
+                                    <div className="col col-md-1">
                                         <Link href="/">FAQs</Link>
                                     </div>
-                                    <div className="col-md-2">
+                                    <div className="col col-md-2">
                                         <Link href="/">Financing</Link>
                                     </div>
-                                    <div className="col-md-3">
+                                    <div className="col col-md-3 d-none d-md-block">
                                         <Link href="/">Become A Franchise</Link>
                                     </div>
                                 </div>
 
                             </div>
-                            <div className="col-md-5">
+                            <div className="col-1 col-md-5">
                                 <div className="row">
                                     <div className="col-md-6 text-center">
                                         <a href="/">help@car45.com</a>
                                     </div>
-                                    <div className="col-md-6 text-right">
+                                    <div className="col-md-6 text-right d-none d-md-block">
                                         <div className="socials">
                                             <a href="/facebook.com"><img className="facebook" src="/assets/icons/fb.svg" alt="facebook" /></a>
                                             <a href="/instagram.com"><img src="/assets/icons/insta.svg" alt="instagram" /></a>
@@ -111,7 +111,7 @@ const FooterTwo = (props) => {
                                     </li>
                                 </ul>
                             </div>
-                            <div className="col-md-6 text-right">
+                            <div className="col-md-6 text-center text-md-right">
                                 <p>2021Cars45.com. &copy;All rights reserved</p>
                             </div>
                         </div>

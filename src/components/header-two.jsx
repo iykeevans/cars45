@@ -12,7 +12,7 @@ const HeaderTwo = (props) => {
             <div className="header-one">
                 <div className="container">
                     <div className="row justify-content-end">
-                        <div className="col-md-5 search-box">
+                        <div className="col-7 col-md-5 search-box">
                             <div className="input-group mb-3">
                                 <input type="text" className="form-control" placeholder="Search brands, model, year and much more" aria-label="Recipient's username" aria-describedby="button-addon2" />
                                 <div className="input-group-append">
@@ -20,10 +20,10 @@ const HeaderTwo = (props) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-1 hot">
+                        <div className="col-2 col-md-1 hot">
                             <img src="/assets/icons/hotdeals.svg" alt="hot" />
                         </div>
-                        <div className="col-md-1 profile">
+                        <div className="col-3 col-md-1 profile">
                             <div className="btn-group">
                                 <button type="button" className="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="/assets/icons/profile-icon.svg" alt="profile" /></button>
                                 <div className="dropdown-menu">

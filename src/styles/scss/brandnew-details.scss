@@ -230,5 +230,62 @@
                 }
             }
         }
+
+        /* Extra small devices (phones, 600px and down) */
+        @media only screen and (max-width: 600px) {
+            .bread .form-control {
+                margin-bottom: 20px;
+            }
+            .car-details .main-picture {
+                height: 114px;
+                background-size: cover;
+            }
+            .car-details .price-quote {
+                width: 100%;
+                height: 300px;
+                padding: 10px 10px;
+                position: absolute;
+                right: 0px;
+                bottom: 0;
+                top: 100%;
+            }
+            .car-details .main-details {
+                margin-top: 315px;
+            }
+            .car-details .main-details .car-title h1 {
+                font-size: 2rem;
+            }
+            .car-details .nav-tabs .nav-link {
+                padding: 2px 10px !important;
+            }
+            .car-details .main-details .overview h2 {
+                font-size: 1.5rem;
+            }
+            .car-details .main-details .overview img {
+                width: 100%;
+            }
+            .car-details .main-details .spec .spec-overview h2 {
+                font-size: 1.5rem;
+            }
+            .car-details .main-details .spec .buttons .btn-secondary {
+                padding: 5px 10px;
+            }
+        }
+
+        /* Small devices (portrait tablets and large phones, 600px and up) */
+        @media only screen and (min-width: 600px) {
+        }
+
+        /* Medium devices (landscape tablets, 768px and up) */
+        @media only screen and (min-width: 768px) {
+        }
+
+        /* Large devices (laptops/desktops, 992px and up) */
+        @media only screen and (min-width: 992px) {
+        }
+
+        /* Extra large devices (large laptops and desktops, 1200px and up) */
+        @media only screen and (min-width: 1200px) {
+        }
     }
 }

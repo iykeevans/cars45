@@ -343,4 +343,76 @@
             }
         }
     }
+
+    /* Extra small devices (phones, 600px and down) */
+    @media only screen and (max-width: 600px) {
+        .col-md-3.title-container {
+            max-width: 100% !important;
+            padding-left: 0;
+        }
+        .listing .card {
+            width: 283px !important;
+            margin-bottom: 30px;
+        }
+        .recommended .autopreneneur-rec-carousel h1 {
+            font-size: 4em;
+        }
+        .slick-slide img {
+            width: 100%;
+            height: 100%;
+        }
+        .slick-next {
+            width: 100px !important;
+            height: 70px !important;
+            right: -65px !important;
+        }
+        .slick-prev {
+            width: 100px !important;
+            height: 70px !important;
+        }
+        ul.slick-dots.slick-thumb {
+            display: none !important;
+            visibility: none;
+        }
+        .quick-details h5 {
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+        .nav-tabs {
+            margin-left: 0px;
+        }
+        .more-details .nav-tabs .nav-link {
+            font-size: 15px;
+        }
+        .more-details .nav-tabs .nav-link.active {
+            font-size: 15px;
+        }
+        .more-details .border-top {
+            border-top: 1px solid #707070 !important;
+            width: 100%;
+            margin-left: 0 !important;
+        }
+        .next-button-container {
+            display: none !important;
+        }
+        .prev-button-container {
+            display: none !important;
+        }
+    }
+
+    /* Small devices (portrait tablets and large phones, 600px and up) */
+    @media only screen and (min-width: 600px) {
+    }
+
+    /* Medium devices (landscape tablets, 768px and up) */
+    @media only screen and (min-width: 768px) {
+    }
+
+    /* Large devices (laptops/desktops, 992px and up) */
+    @media only screen and (min-width: 992px) {
+    }
+
+    /* Extra large devices (large laptops and desktops, 1200px and up) */
+    @media only screen and (min-width: 1200px) {
+    }
 }

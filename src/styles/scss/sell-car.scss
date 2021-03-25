@@ -20,7 +20,7 @@
       font: normal normal bold 60px/30px Roboto;
       letter-spacing: 1.6px;
       color: #ffffff;
-      
+
       line-height: 1em;
       text-shadow: 0px 3px 6px #00000029;
     }
@@ -51,12 +51,46 @@
         letter-spacing: 0.6px;
         color: #222121;
         border: none;
-        padding: .5em 1em;
+        padding: 0.5em 1em;
         margin: 0 auto;
         margin-bottom: 5em;
       }
-
     }
-}
+  }
 
+  /* Extra small devices (phones, 600px and down) */
+  @media only screen and (max-width: 600px) {
+    .text-area .heading {
+      font-size: 2rem;
+    }
+    .hero {
+      background-size: contain;
+    }
+    .text-area form {
+      background: #eeeeee 0% 0% no-repeat padding-box;
+      border-radius: 10px;
+      padding: 2em;
+      margin: 0 auto;
+      margin-bottom: 5em;
+    }
+    .text-area form button {
+      margin-bottom: 0;
+    }
+  }
+
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+  }
+
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) {
+  }
+
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {
+  }
+
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  @media only screen and (min-width: 1200px) {
+  }
 }

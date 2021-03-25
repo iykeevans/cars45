@@ -14,7 +14,7 @@ const Dropdown = (props) => {
                 <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{props.name} <img src="/assets/icons/caretdown-withbackground@2x.png" alt=".." /></button>
                 <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <div className="row">
-                        <div className="col-md-2">
+                        <div className="col-6 col-md-2">
                             <a className="dropdown-item teal-color" href="#">Toyota</a>
                             <div className="row">
                                 <div className="col-md-12">
@@ -31,7 +31,7 @@ const Dropdown = (props) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-2">
+                        <div className="col-6 col-md-2">
                             <a className="dropdown-item teal-color" href="#">Toyota</a>
                             <div className="row">
                                 <div className="col-md-12">
@@ -48,7 +48,7 @@ const Dropdown = (props) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-2">
+                        <div className="col-6 col-md-2">
                             <a className="dropdown-item teal-color" href="#">Toyota</a>
                             <div className="row">
                                 <div className="col-md-12">
@@ -65,7 +65,7 @@ const Dropdown = (props) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-2">
+                        <div className="col-6 col-md-2">
                             <a className="dropdown-item teal-color" href="#">Toyota</a>
                             <div className="row">
                                 <div className="col-md-12">
@@ -82,7 +82,7 @@ const Dropdown = (props) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-2">
+                        <div className="col-6 col-md-2">
                             <a className="dropdown-item teal-color" href="#">Toyota</a>
                             <div className="row">
                                 <div className="col-md-12">
@@ -99,7 +99,7 @@ const Dropdown = (props) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-2">
+                        <div className="col-6 col-md-2">
                             <a className="dropdown-item teal-color" href="#">Toyota</a>
                             <div className="row">
                                 <div className="col-md-12">
@@ -116,7 +116,7 @@ const Dropdown = (props) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-2">
+                        <div className="col-6 col-md-2">
                             <a className="dropdown-item teal-color" href="#">Toyota</a>
                             <div className="row">
                                 <div className="col-md-12">
@@ -133,7 +133,7 @@ const Dropdown = (props) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-2">
+                        <div className="col-6 col-md-2">
                             <a className="dropdown-item teal-color" href="#">Toyota</a>
                             <div className="row">
                                 <div className="col-md-12">
@@ -150,7 +150,7 @@ const Dropdown = (props) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-2">
+                        <div className="col-6 col-md-2">
                             <a className="dropdown-item teal-color" href="#">Toyota</a>
                             <div className="row">
                                 <div className="col-md-12">

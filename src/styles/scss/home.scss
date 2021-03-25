@@ -28,7 +28,7 @@
         }
         .banner-text {
             position: absolute;
-            padding-left: 230px;
+            // padding-left: 230px;
             height: 100%;
             top: 80px;
             bottom: 0;
@@ -43,7 +43,7 @@
             background-color: $cr-dark;
             border-top-left-radius: 20px;
             border-top-right-radius: 20px;
-            padding: 40px 80px 30px 80px;
+            padding: 20px 80px 20px 80px;
         }
         .banner-bottom {
             position: absolute;
@@ -572,6 +572,115 @@
             .btn-outline-secondary {
                 width: 100%;
             }
+        }
+        .jumbotron .owl-theme .owl-nav.disabled + .owl-dots {
+            bottom: 20px;
+        }
+        .jumbotron .banner-text {
+            top: 0;
+            bottom: 0;
+            padding-left: 0 !important;
+        }
+        .jumbotron .banner-text h1 {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+        .jumbotron .banner-bottom-container-home {
+            margin-left: 20px;
+            padding: 10px 10px 10px 10px;
+        }
+        .jumbotron .banner-bottom-container-home h3 {
+            font-size: 1rem;
+        }
+        .jumbotron .banner-bottom {
+            top: 72%;
+        }
+        .section2 .car-option img {
+            width: 70px;
+        }
+        .section2 .car-option p {
+            font-size: 10px;
+        }
+        .input-range__label--min {
+            display: none;
+        }
+        .input-range__label--max {
+            display: none;
+        }
+        .ranger {
+            margin-top: -20px;
+        }
+        .section3 .section3-title {
+            color: #313030;
+            margin-bottom: 40px;
+            border: solid 1px #21b7ac;
+            padding: 10px 0;
+            font-size: 1.5rem;
+            width: 100%;
+        }
+        .section3 .featured-img {
+            width: 340px;
+        }
+        .section3 .owl-carousel .owl-nav button.owl-prev {
+            margin-right: 20px;
+        }
+        .section3 .owl-carousel .owl-nav button.owl-next {
+            margin-left: 20px;
+        }
+        .section3 .owl-nav {
+            border: solid 1px #222121;
+            margin-left: 30%;
+            margin-right: 30%;
+            border-radius: 30px;
+            padding: 5px 0;
+        }
+        .section4 h1 {
+            font-size: 42px;
+            letter-spacing: 4px;
+            color: #ffffff;
+        }
+        .section5 .img-cont {
+            margin: 0 auto;
+        }
+        .section5 .user-details .name {
+            color: #313030;
+            margin-right: 0px;
+        }
+        .section5 .detail {
+            margin-right: 0px;
+        }
+        .section5 .owl-nav {
+            margin-left: 30%;
+            margin-right: 30%;
+        }
+        .section5 .owl-carousel .owl-nav button.owl-prev {
+            margin-right: 20px;
+        }
+        .section5 .owl-carousel .owl-nav button.owl-next {
+            margin-left: 20px;
+        }
+        .section6 .faq {
+            padding: 0px 0px;
+        }
+        .section6 .faq1 p {
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
+        .section6 .faq1 {
+            font-size: 12px;
+            margin-bottom: 50px;
+        }
+        .section6 .faq2 {
+            font-size: 12px;
+            margin-bottom: 50px;
+        }
+        .section6 .faq3 {
+            font-size: 12px;
+            margin-bottom: 50px;
+        }
+        .section6 .questions {
+            margin-top: 0px;
+            font-size: 14px;
         }
     }
 

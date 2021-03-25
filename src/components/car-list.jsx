@@ -14,24 +14,24 @@ const Carlist = (props) => {
                 <img src="/assets/images/carlistimg-demo@2x.png" className="card-img-top" alt="..." />
                 <div className="card-body">
                     <div className="row border-bottom">
-                        <div className="col-md-8">
+                        <div className="col-8 col-md-8">
                             <p>2010 Honda Accord Crosstour</p>
                         </div>
-                        <div className="col-md-4 text-right">
+                        <div className="col-4 col-md-4 text-right">
                             <img className="inspection-badge" src="/assets/icons/badge-b.svg" alt="B" />
                         </div>
                     </div>
 
                     <div className="row condition text-center">
-                        <div className="col-md-5 text-center pr-0">
+                        <div className="col-5 col-md-5 text-center pr-0">
                             <div className="nigeria">
                                 <p>Nigerian Used</p>
                             </div>
                         </div>
-                        <div className="col-md-2">
+                        <div className="col-2 col-md-2">
                             <div className="vertical-line" />
                         </div>
-                        <div className="col-md-5 text-center pl-0">
+                        <div className="col-5 col-md-5 text-center pl-0">
                             <div className="foreign">
                                 <p>Foreign Used</p>
                             </div>

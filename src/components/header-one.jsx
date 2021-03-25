@@ -10,8 +10,8 @@ const HeaderOne = (props) => {
     return (
         <div className="header-one">
             <div className="container">
-                <div className="row justify-content-end">
-                    <div className="col-4 phone-box">
+                <div className="row justify-content-md-end">
+                    <div className="col-10 col-lg-4 phone-box">
                         <div className="top-phone">
                             <img src="/assets/icons/phone.svg" alt="phone" />
                             <p className="darkgrey-color">+234 818 984 0160</p>
@@ -19,7 +19,7 @@ const HeaderOne = (props) => {
                             <p className="darkgrey-color">+234 818 984 0160</p>
                         </div>
                     </div>
-                    <div className="col-1 profile">
+                    <div className="col-1 col-md-1 profile">
                         <div className="btn-group">
                             <button type="button" className="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="/assets/icons/profile-icon.svg" alt="profile" /></button>
                             <div className="dropdown-menu">

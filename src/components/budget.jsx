@@ -17,43 +17,10 @@ const Budget = () => {
                             <div className="col-md-6 offset-md-3">
                                 <div className="budget-category">
                                     <div className="row">
-                                        <div className="col-md-7 text-right">
-                                            <p>Under ₦500k</p>
-                                        </div>
-                                        <div className="col-md-5 text-right">
-                                            <img src="/assets/icons/budget-arrow.svg" alt="continue" />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="budget-category">
-                                    <div className="row">
-                                        <div className="col-md-7 text-right">
-                                            <p>500k - ₦1m</p>
-                                        </div>
-                                        <div className="col-md-5 text-right">
-                                            <img src="/assets/icons/budget-arrow.svg" alt="continue" />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="budget-category">
-                                    <div className="row">
-                                        <div className="col-md-7 text-right">
-                                            <p>₦1m - ₦2m</p>
-                                        </div>
-                                        <div className="col-md-5 text-right">
-                                            <img src="/assets/icons/budget-arrow.svg" alt="continue" />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="budget-category">
-                                    <div className="row">
-                                        <div className="col-md-7 text-right">
+                                        <div className="col-7 text-right">
                                             <p>₦2m - ₦5m</p>
                                         </div>
-                                        <div className="col-md-5 text-right">
+                                        <div className="col-5 text-right">
                                             <img src="/assets/icons/budget-arrow.svg" alt="continue" />
                                         </div>
                                     </div>
@@ -61,10 +28,54 @@ const Budget = () => {
 
                                 <div className="budget-category">
                                     <div className="row">
-                                        <div className="col-md-7 text-right">
-                                            <p>Above ₦5m</p>
+                                        <div className="col-7 text-right">
+                                            <p>₦5m - ₦10m</p>
                                         </div>
-                                        <div className="col-md-5 text-right">
+                                        <div className="col-5 text-right">
+                                            <img src="/assets/icons/budget-arrow.svg" alt="continue" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="budget-category">
+                                    <div className="row">
+                                        <div className="col-7 text-right">
+                                            <p>₦10m - ₦15m</p>
+                                        </div>
+                                        <div className="col-5 text-right">
+                                            <img src="/assets/icons/budget-arrow.svg" alt="continue" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="budget-category">
+                                    <div className="row">
+                                        <div className="col-7 text-right">
+                                            <p>₦15m - ₦30m</p>
+                                        </div>
+                                        <div className="col-5 text-right">
+                                            <img src="/assets/icons/budget-arrow.svg" alt="continue" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="budget-category">
+                                    <div className="row">
+                                        <div className="col-7 text-right">
+                                            <p>₦30m - ₦50m</p>
+                                        </div>
+                                        <div className="col-5 text-right">
+                                            <img src="/assets/icons/budget-arrow.svg" alt="continue" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="budget-category">
+                                    <div className="row">
+                                        <div className="col-8 col-md-7 text-right">
+                                            <p>₦50m and above</p>
+                                        </div>
+                                        <div className="col-4 col-md-6 text-right">
                                             <img src="/assets/icons/budget-arrow.svg" alt="continue" />
                                         </div>
                                     </div>
