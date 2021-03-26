@@ -34,6 +34,58 @@
     height: 0.1em;
     background-color: $cr-grey;
   }
+  /* Extra small devices (phones, 600px and down) */
+  @media only screen and (max-width: 600px) {
+    .autopreneur-hero h1 {
+      position: absolute;
+      bottom: 45%;
+      font-size: 1.5rem;
+      color: #ffffff;
+    }
+    .autopreneneur-carousel {
+      width: 100%;
+      padding: 10px 50px;
+    }
+    .autopreneneur-carousel .navigator {
+      width: 8em;
+      height: 8em;
+      padding: 3%;
+    }
+    .autopreneneur-carousel .navigator h1 {
+      font-size: 4em;
+      color: #ffffff;
+    }
+    a {
+      width: 80%;
+    }
+    .autopreneneur-rec-carousel {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin: auto;
+    }
+    .listing .card {
+      width: 54% !important;
+      margin-bottom: 30px;
+    }
+  }
+
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+  }
+
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) {
+  }
+
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {
+  }
+
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  @media only screen and (min-width: 1200px) {
+  }
 }
 
 .autopreneur-become {
