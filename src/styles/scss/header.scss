@@ -363,6 +363,64 @@
 
     /* Medium devices (landscape tablets, 768px and up) */
     @media only screen and (min-width: 768px) {
+        .phone-box {
+            max-width: 80% !important;
+        }
+        .top-phone p {
+            font-size: 10px;
+        }
+        .profile .dropdown-menu.show {
+            transform: translate3d(-47px, 46px, 0px) !important;
+            width: 100px !important;
+            padding: 10px 0px !important;
+        }
+        .navbar.bg-light .navbar-brand {
+            margin-right: 0px !important;
+        }
+        .navbar.bg-light .nav-link {
+            border-right: none !important;
+            padding-top: 20px !important;
+            padding-bottom: 5px !important;
+        }
+        .navbar.bg-light .nav-link.dropdown-toggle.used {
+            border-right: none !important;
+        }
+        .navbar.bg-light .nav-link.dropdown-toggle.inspection {
+            border-right: none !important;
+        }
+        .navbar-light .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+        .navbar-light .navbar-toggler {
+            border-radius: 100%;
+            border-color: $cr-dark;
+            padding: 10px 10px;
+            box-shadow: 1px 1px 8px -3px rgba(0, 0, 0, 0.75);
+            -webkit-box-shadow: 1px 1px 8px -3px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 1px 1px 8px -3px rgba(0, 0, 0, 0.75);
+        }
+        .navbar.bg-light .nav-active::after,
+        .navbar.bg-light .nav-link:hover:after {
+            top: 40px;
+            width: 30%;
+        }
+        .navbar.bg-light .show > .btn-outline-secondary.dropdown-toggle:before,
+        .navbar.bg-light .btn-outline-secondary:hover:before,
+        .navbar.bg-light .btn-outline-secondary.current:before {
+            top: 40px;
+        }
+        .navbar.bg-light .dropdown-menu.show {
+            position: absolute;
+            z-index: 1000;
+        }
+        .navbar.bg-light .navbar-brand img {
+            width: 120px;
+        }
+
+        .hot img {
+            width: 50px;
+            margin-top: 15px;
+        }
     }
 
     /* Large devices (laptops/desktops, 992px and up) */

@@ -690,6 +690,39 @@
 
     /* Medium devices (landscape tablets, 768px and up) */
     @media only screen and (min-width: 768px) {
+        .jumbotron .owl-theme .owl-nav.disabled + .owl-dots {
+            bottom: 65px;
+        }
+        .jumbotron .banner-bottom {
+            top: 75%;
+        }
+        .jumbotron .banner-bottom-container-home {
+            padding: 6px 20px 0px 20px;
+        }
+        .jumbotron .banner-text {
+            top: 35px;
+        }
+        .jumbotron .banner-text h1 {
+            font-size: 2rem;
+            text-align: center;
+        }
+        .section2 .car-option {
+            text-align: center;
+        }
+        .section2 .btn-primary {
+            padding: 7px 10px !important;
+        }
+        .section3 .section3-title {
+            width: 100%;
+        }
+        .section3 .owl-nav {
+            margin-left: 35%;
+            margin-right: 35%;
+        }
+        .section5 .owl-nav {
+            margin-left: 35%;
+            margin-right: 35%;
+        }
     }
 
     /* Large devices (laptops/desktops, 992px and up) */

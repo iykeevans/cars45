@@ -35,7 +35,7 @@ const Forms = (props) => {
                 )
             } else if (props.type === 'button') {
                 return (
-                    <button className="btn btn-success btn-block" onClick={(e) => submit(e, props.formError)}>{props.title}</button>
+                    <button className="btn btn-success btn-block" onClick={(e) => submit(e)}>{props.title}</button>
                 )
             }
 

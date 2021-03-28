@@ -17,11 +17,11 @@ const PrivateIndividual = (props) => {
 
                         <div className="row">
                             {/* <div className="col-md-12"> */}
-                            <div className="col-md-4 inspect-img">
+                            <div className="col-md-4 inspect-img d-none d-lg-block">
                                 <img src="/assets/images/inspection.png" alt="inspect" alt="inspect" />
                                 <p>Full inspection to ascertain your car condition</p>
                             </div>
-                            <div className="col-md-8">
+                            <div className="col-lg-8">
                                 <h2 className="inspect-header text-center">Get your car inspected</h2>
                                 <div className="row ml-4 mb-4">
                                     <div className="col-md-2 inspect-info-img">

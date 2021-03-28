@@ -36,7 +36,7 @@ const Home = (props) => {
             items: 1
         },
         600: {
-            items: 1
+            items: 2
         },
         1000: {
             items: 4
@@ -70,14 +70,14 @@ const Home = (props) => {
                         className='owl-theme'
                         margin={10}
                         responsive={responsive}
-                        autoplay
-                        loop
-                        autoplayTimeout={5000}
+                    // autoplay
+                    // loop
+                    // autoplayTimeout={5000}
                     >
                         <div className='item'>
                             <div className="banner-text">
                                 <div className="row">
-                                    <div className="col-10 col-md-6 mx-auto">
+                                    <div className="col-10 col-lg-6 mx-auto">
                                         <h1>Selling, buying and swapping cars has never been this easy</h1>
                                     </div>
                                 </div>
@@ -142,37 +142,37 @@ const Home = (props) => {
                             </div>
                             <div className="col-md-8">
                                 <div className="row mt-3">
-                                    <div className="col-4 mb-3 mb-md-0 col-md-2">
+                                    <div className="col-4 mb-3 mb-lg-0 col-lg-2">
                                         <div className="car-option">
                                             <img src="/assets/icons/suv.svg" alt="suv" />
                                             <p className="text-center dark-color">SUV</p>
                                         </div>
                                     </div>
-                                    <div className="col-4 mb-3 mb-md-0 col-md-2">
+                                    <div className="col-4 mb-3  mb-lg-0 col-lg-2">
                                         <div className="car-option">
                                             <img src="/assets/icons/pickup.svg" alt="pickup," />
                                             <p className="text-center dark-color">PICKUP</p>
                                         </div>
                                     </div>
-                                    <div className="col-4 mb-3 mb-md-0 col-md-2">
+                                    <div className="col-4 mb-3  mb-lg-0 col-lg-2">
                                         <div className="car-option">
                                             <img src="/assets/icons/coupe.svg" alt="coupe" />
                                             <p className="text-center dark-color">COUPE</p>
                                         </div>
                                     </div>
-                                    <div className="col-4 mb-3 mb-md-0 col-md-2">
+                                    <div className="col-4 mb-3  mb-lg-0 col-lg-2">
                                         <div className="car-option">
                                             <img src="/assets/icons/suv.svg" alt="convertible" />
                                             <p className="text-center dark-color">CONVERTIBLE</p>
                                         </div>
                                     </div>
-                                    <div className="col-4 mb-3 mb-md-0 col-md-2">
+                                    <div className="col-4 mb-3  mb-lg-0 col-lg-2">
                                         <div className="car-option">
                                             <img src="/assets/icons/sedan.svg" alt="sedan" />
                                             <p className="text-center dark-color">SEDAN</p>
                                         </div>
                                     </div>
-                                    <div className="col-4 mb-3 mb-md-0 col-md-2">
+                                    <div className="col-4 mb-3  mb-lg-0 col-lg-2">
                                         <div className="car-option">
                                             <img src="/assets/icons/mini.svg" alt="mini" />
                                             <p className="text-center dark-color">MINICAR</p>
@@ -244,8 +244,8 @@ const Home = (props) => {
                                 <div className="form-group col-12 col-md-6">
                                     <div className="row ">
 
-                                        <p className="col-7 text-left text-md-right advance">ADVANCE SEARCH</p>
-                                        <div className="col-sm-5">
+                                        <p className="col-7 col-md-4 col-lg-7 text-left text-lg-right advance">ADVANCE SEARCH</p>
+                                        <div className="col-sm-5 col-md-8 col-lg-5">
                                             {/* <input type="range" class="form-control-range" id="formControlRange" /> */}
                                             <button type="submit" className="btn btn-primary">SEARCH THE VEHICLE <img src="/assets/icons/caret-right.svg" alt="go" /></button>
 
@@ -263,7 +263,7 @@ const Home = (props) => {
                 <div className="section3 grey-background">
                     <div className="container">
                         <div className="row">
-                            <div className="col-md-4 offset-md-4 text-center">
+                            <div className="col-md-6 offset-md-3 col-lg-4 offset-lg-4 text-center">
                                 <h2 className="section3-title">FEATURED CARS</h2>
                             </div>
 
@@ -606,17 +606,17 @@ const Home = (props) => {
                         <div className="col-md-12">
                             <div className="faq">
                                 <div className="row">
-                                    <div className="col-12 col-md-4">
-                                        <div className="row faq1 justify-content-center">
+                                    <div className="col-12 col-md-6 col-lg-4">
+                                        <div className="row faq1 mb-md-5 mb-lg-0 justify-content-center">
                                             <div className="col-10 col-md-10">
                                                 <div className="row">
-                                                    <div className="col-3 col-md-2 align-self-center">
+                                                    <div className="col-3 col-lg-2 align-self-center">
                                                         <div>
                                                             <img src="/assets/icons/searching.svg" alt="search" />
                                                         </div>
 
                                                     </div>
-                                                    <div className="col-9 col-md-10 align-self-center mt-3">
+                                                    <div className="col-9 col-lg-10 align-self-center mt-3">
                                                         <p>ARE YOU LOOKING FOR A CAR?</p>
                                                         <p className="small">Search our inventory with thousands of cars and more cars are adding on a daily basis</p>
                                                     </div>
@@ -627,17 +627,17 @@ const Home = (props) => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="col-12 col-md-4">
+                                    <div className="col-12 col-md-6 col-lg-4">
                                         <div className="row faq2 justify-content-center">
                                             <div className="col-10 col-md-10">
                                                 <div className="row">
-                                                    <div className="col-3 col-md-2 align-self-center">
+                                                    <div className="col-3 col-lg-2 align-self-center">
                                                         <div>
                                                             <img src="/assets/icons/naira.svg" alt="search" />
                                                         </div>
 
                                                     </div>
-                                                    <div className="col-9 col-md-10 align-self-center mt-3">
+                                                    <div className="col-9 col-lg-10 align-self-center mt-3">
                                                         <p>ARE YOU LOOKING FOR A CAR?</p>
                                                         <p className="small">Search our inventory with thousands of cars and more cars are adding on a daily basis</p>
                                                     </div>
@@ -648,17 +648,17 @@ const Home = (props) => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="col-12 col-md-4">
+                                    <div className="col-12 col-md-6 col-lg-4">
                                         <div className="row faq3 justify-content-center">
                                             <div className="col-10 col-md-10">
                                                 <div className="row">
-                                                    <div className="col-3 col-md-2 align-self-center">
+                                                    <div className="col-3 col-lg-2 align-self-center">
                                                         <div>
                                                             <img src="/assets/icons/cycle.svg" alt="search" />
                                                         </div>
 
                                                     </div>
-                                                    <div className="col-9 col-md-10 align-self-center mt-3">
+                                                    <div className="col-9 col-lg-10 align-self-center mt-3">
                                                         <p>ARE YOU LOOKING FOR A CAR?</p>
                                                         <p className="small">Search our inventory with thousands of cars and more cars are adding on a daily basis</p>
                                                     </div>
