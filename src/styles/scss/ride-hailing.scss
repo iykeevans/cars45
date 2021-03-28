@@ -77,8 +77,93 @@
             margin-right: 10px;
         }
     }
+    .modal {
+        .btn-link {
+            box-shadow: none !important;
+        }
+        .close {
+            width: 40px;
+        }
+        .modal-body {
+            padding-top: 5px;
+            width: 580px;
+        }
+        .logo {
+            margin-left: 20px;
+        }
+        .question {
+            padding-left: 110px;
+            padding-right: 110px;
+            border-bottom: solid 1px $cr-darkgrey;
+            margin-top: 20px;
+        }
+        .question p {
+            color: $cr-darkgrey;
+        }
+        h3 {
+            color: #9f9b9b;
+            font-weight: 400;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        .btn-outline-secondary {
+            border-color: #75787a;
+            width: 400px;
+            color: #75787a;
+            padding: 10px 40px;
+            margin-bottom: 30px;
+        }
+        .btn-outline-secondary:hover {
+            border-color: #75787a;
+            width: 400px;
+            color: #ffffff;
+            background-color: #75787a;
+            box-shadow: none;
+        }
+        .btn-outline-secondary:focus {
+            border-color: #75787a;
+            width: 400px;
+            color: #75787a;
+            background-color: transparent;
+            box-shadow: none !important;
+        }
+        .modal-content {
+            width: inherit !important;
+        }
+        .modal-dialog {
+            max-width: 580px;
+        }
+    }
     /* Extra small devices (phones, 600px and down) */
     @media only screen and (max-width: 600px) {
+        .modal {
+            .modal-content {
+                width: 100% !important;
+            }
+            .modal-body {
+                width: 100%;
+            }
+            .logo {
+                width: 100px;
+                margin-left: 50px;
+            }
+            .close {
+                width: 30px;
+                margin-top: -5px;
+            }
+            .question {
+                padding-left: 0px;
+                padding-right: 0px;
+                border-bottom: solid 1px #707070;
+                margin-top: 20px;
+            }
+            .btn-success {
+                width: 100%;
+            }
+            .btn-outline-secondary {
+                width: 100%;
+            }
+        }
         .jumbotron {
             background-size: contain;
             height: 100px;

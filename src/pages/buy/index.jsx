@@ -12,7 +12,6 @@ import Budget from "../../components/budget";
 
 const Buy = (props) => {
     React.useEffect(() => {
-        console.log('checking')
     })
 
     const [value, setValue] = React.useState({ min: 0, max: 0 })

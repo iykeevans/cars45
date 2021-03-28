@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 
 const Feedback = (props) => {
@@ -13,12 +14,17 @@ const Feedback = (props) => {
                             <img className="logo-img" src="/assets/icons/Cars45logo.svg" alt="logo" />
                         </div>
                         <p>Select a category</p>
-                        <div className="category" onClick={() => props.history.push('/feedback/website')}>
-                            <p>Website Feedback</p>
-                        </div>
-                        <div className="category" onClick={() => props.history.push('/feedback/center')}>
-                            <p>Cars45 Center Feedback</p>
-                        </div>
+                        <Link href="/feedback/website">
+                            <div className="category">
+                                <p>Website Feedback</p>
+
+                            </div>
+                        </Link>
+                        <Link className="category" href="/feedback/center">
+                            <div className="category">
+                                <p>Cars45 Center Feedback</p>
+                            </div>
+                        </Link>
 
                         <div className="text-right">
                             <button className="btn btn-link"><img src="/assets/icons/forward.svg" alt="forward" /></button>

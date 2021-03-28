@@ -1,0 +1,64 @@
+@import "./variable.scss";
+.form {
+    .form-control {
+        height: 50px;
+        border-color: $cr-tealgreen;
+    }
+    .form-control:focus {
+        box-shadow: 1px 1px 8px -3px rgba(33, 183, 172, 0.75);
+        -webkit-box-shadow: 1px 1px 8px -3px rgba(33, 183, 172, 0.75);
+        -moz-box-shadow: 1px 1px 8px -3px rgba(33, 183, 172, 0.75);
+    }
+    select.form-control {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+        background-repeat: no-repeat;
+        background-position-x: 95%;
+        background-position-y: 12px;
+    }
+    .css-tj5bde-Svg {
+        visibility: hidden;
+    }
+    .css-tlfecz-indicatorContainer {
+        background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>") !important;
+        background-repeat: no-repeat;
+        background-position-x: 0%;
+        background-position-y: 8px;
+        margin-right: 10px;
+    }
+    .css-1okebmr-indicatorSeparator {
+        display: none;
+    }
+    .css-yk16xz-control {
+        height: 50px;
+        border-color: $cr-tealgreen;
+    }
+    .css-1pahdxg-control {
+        height: 50px;
+        border-color: $cr-tealgreen;
+        box-shadow: none;
+    }
+    .btn-success {
+        border-color: $cr-tealgreen;
+        background-color: $cr-tealgreen;
+        padding: 10px 40px;
+        // width: 400px;
+        margin-bottom: 30px;
+    }
+    .btn-success:hover {
+        border-color: $cr-tealgreen;
+        background-color: rgba(33, 183, 172, 0.9);
+        padding: 10px 40px;
+        // width: 400px;
+        margin-bottom: 30px;
+    }
+    .btn-success:focus {
+        border-color: $cr-tealgreen;
+        background-color: rgba(33, 183, 172, 1) !important;
+        padding: 10px 40px;
+        // width: 400px;
+        margin-bottom: 30px;
+        box-shadow: none !important;
+    }
+}

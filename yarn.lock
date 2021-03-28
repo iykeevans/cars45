@@ -1803,6 +1803,11 @@ react-is@16.13.1, react-is@^16.7.0, react-is@^16.8.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
+react-nextjs-toast@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/react-nextjs-toast/-/react-nextjs-toast-1.2.5.tgz#fa2a6f7415eb1558e4c77fa5d01e20c6ccacf8a0"
+  integrity sha512-N79HUrZIbjyi50FD8w2cqi5qBz6QFX+4ZPHo0wT1w1ZZzLjbrqsxL0SH4Xv4TvXXfZyskADxpvg6lKmXyRZeuA==
+
 react-owl-carousel@^2.3.3:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/react-owl-carousel/-/react-owl-carousel-2.3.3.tgz#bb8e40bfd740f6cda8f712863c3437484737d6c4"

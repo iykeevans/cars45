@@ -10,7 +10,7 @@ import HomeLayout from "../components/layouts/home-layout"
 const Home = (props) => {
     React.useEffect(() => {
         document.getElementById('open-modal').click()
-        console.log(document.cookie.split(';'))
+        // console.log(document.cookie.split(';'))
     })
 
     const [value, setValue] = React.useState({ min: 0, max: 0 })
