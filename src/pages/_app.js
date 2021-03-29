@@ -40,6 +40,7 @@ import "../styles/scss/corporate.scss";
 import "../styles/scss/ride-hailing.scss";
 import "../styles/scss/swap-car.scss";
 import "../styles/scss/usedcar.scss";
+import "../styles/scss/forms.scss";
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
@@ -59,7 +60,7 @@ function MyApp({ Component, pageProps }) {
         integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
         crossOrigin="anonymous"></script>
 
-      <script src="/assets/script.js" type="text/javascript"></script>
+      <script src="/assets/script/script.js" type="text/javascript"></script>
     </Head>
     <Component {...pageProps} />
   </>

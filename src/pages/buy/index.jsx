@@ -13,7 +13,6 @@ import Budget from "../../components/budget";
 
 const Buy = (props) => {
     React.useEffect(() => {
-        console.log('checking')
     })
 
     const [value, setValue] = React.useState({ min: 0, max: 0 })
@@ -92,7 +91,7 @@ const Buy = (props) => {
 
                     </OwlCarousel>
                     <div className="row banner-bottom">
-                        <div className="col-12 col-md-8 offset-md-2">
+                        <div className="col-12 col-lg-8 offset-lg-2">
                             <div className="banner-bottom-container mr-0 mr-md-4 ml-4 ml-md-5">
                                 <div className="row">
                                     <div className="col-md-12 mb-3">
@@ -173,7 +172,7 @@ const Buy = (props) => {
 
                 <div className="car-list">
                     <div className="container">
-                        <div className="row d-none d-md-flex">
+                        <div className="row d-none d-lg-flex">
                             <div className="col">
 
                                 <Carlist {...props} />
@@ -201,28 +200,28 @@ const Buy = (props) => {
                         </div>
 
 
-                        <div className="row d-block d-md-none">
-                            <div className="col-12">
+                        <div className="row d-block d-md-flex d-lg-none">
+                            <div className="col-12 col-md-6 mb-md-3 mb-lg-0">
 
                                 <Carlist {...props} />
                             </div>
 
-                            <div className="col-12">
+                            <div className="col-12 col-md-6 mb-md-3 mb-lg-0">
 
                                 <Carlist {...props} />
                             </div>
 
-                            <div className="col-12">
+                            <div className="col-12 col-md-6 mb-md-3 mb-lg-0">
 
                                 <Carlist {...props} />
                             </div>
 
-                            <div className="col-12">
+                            <div className="col-12 col-md-6 mb-md-3 mb-lg-0">
 
                                 <Carlist {...props} />
                             </div>
 
-                            <div className="col-12">
+                            <div className="col-12 col-md-6 mb-md-3 mb-lg-0">
 
                                 <Carlist {...props} />
                             </div>

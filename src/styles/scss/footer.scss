@@ -150,6 +150,33 @@
 
     /* Medium devices (landscape tablets, 768px and up) */
     @media only screen and (min-width: 768px) {
+        .footer-section-one {
+            padding-top: 20px;
+            padding-bottom: 10px;
+        }
+        .footer-section-one .logo {
+            width: 120px;
+            margin-bottom: 25px;
+        }
+        .footer-section-one .socials {
+            display: flex;
+            justify-content: center;
+        }
+
+        .footer-section-one .info p {
+            color: #ffffff;
+            font-weight: 400;
+            margin-left: 0px;
+        }
+        .footer-section-one .ssl p {
+            color: #ffffff;
+            font-weight: 400;
+            margin-left: 0px;
+            font-size: 14px;
+        }
+        .footer-menu a {
+            font-size: 8px;
+        }
     }
 
     /* Large devices (laptops/desktops, 992px and up) */

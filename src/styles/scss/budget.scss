@@ -147,6 +147,31 @@
 
     /* Medium devices (landscape tablets, 768px and up) */
     @media only screen and (min-width: 768px) {
+        .form-inline .form-control {
+            width: 280px !important;
+        }
+        h1 {
+            font-size: 1.5rem;
+        }
+        .container {
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 30px;
+        }
+        .budget-container {
+            padding-top: 30px;
+            padding-bottom: 10px;
+        }
+        .budget-category {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .info p {
+            padding-left: 20px;
+            padding-right: 20px;
+            color: #707070;
+            font-weight: 500;
+        }
     }
 
     /* Large devices (laptops/desktops, 992px and up) */
