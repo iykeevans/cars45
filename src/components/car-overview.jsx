@@ -2,7 +2,7 @@ import React from 'react';
 
 
 
-const Caroverview = (props) => {
+const Caroverview = ({car}) => {
     React.useEffect(() => {
 
     })
@@ -21,19 +21,19 @@ const Caroverview = (props) => {
                             <div className="col-6 mb-3 mb-sm-0 col-md-2">
                                 <div className="d-flex car-type">
                                     <img src="/assets/icons/car-type.svg" alt="type" />
-                                    <p>SUV</p>
+                                    <p>{car.make}</p>
                                 </div>
                             </div>
                             <div className="col-6 mb-3 mb-sm-0 col-md-2">
                                 <div className="d-flex fuel">
                                     <img src="/assets/icons/fuel.svg" alt="type" />
-                                    <p>Petrol</p>
+                                    <p>{car.fuel}</p>
                                 </div>
                             </div>
                             <div className="col-6 mb-3 mb-sm-0 col-md-2">
                                 <div className="d-flex transmission">
                                     <img src="/assets/icons/transmission.svg" alt="type" />
-                                    <p>Automatic</p>
+                                    <p>{car.fuel}</p>
                                 </div>
                             </div>
                             <div className="col-12 mb-3 mb-sm-0 col-md-3">
@@ -53,7 +53,7 @@ const Caroverview = (props) => {
                                             <p>Make</p>
                                         </div>
                                         <div className="col-6 text-right">
-                                            <p>Honda</p>
+                                            <p>{car.make}</p>
                                         </div>
                                     </div>
 
@@ -62,7 +62,7 @@ const Caroverview = (props) => {
                                             <p>Model</p>
                                         </div>
                                         <div className="col-6 text-right">
-                                            <p>Pilot</p>
+                                            <p>{car.model}</p>
                                         </div>
                                     </div>
 
@@ -71,7 +71,7 @@ const Caroverview = (props) => {
                                             <p>Year</p>
                                         </div>
                                         <div className="col-6 text-right">
-                                            <p>2016</p>
+                                            <p>{car.year}</p>
                                         </div>
                                     </div>
 
@@ -80,7 +80,7 @@ const Caroverview = (props) => {
                                             <p>Mileage</p>
                                         </div>
                                         <div className="col-6 text-right">
-                                            <p>27471</p>
+                                            <p>{car.mileage}</p>
                                         </div>
                                     </div>
 
@@ -89,7 +89,7 @@ const Caroverview = (props) => {
                                             <p>Location</p>
                                         </div>
                                         <div className="col-6 text-right">
-                                            <p>Car45, Porthacourt</p>
+                                            <p>Car45, {car.city}</p>
                                         </div>
                                     </div>
 
@@ -98,7 +98,7 @@ const Caroverview = (props) => {
                                             <p>Transmission</p>
                                         </div>
                                         <div className="col-6 text-right">
-                                            <p>Automatic</p>
+                                            <p>{car.trim}</p>
                                         </div>
                                     </div>
 
@@ -107,7 +107,7 @@ const Caroverview = (props) => {
                                             <p>Selling Condition</p>
                                         </div>
                                         <div className="col-6 text-right">
-                                            <p>Registered</p>
+                                            <p>{car.sellingCondition}</p>
                                         </div>
                                     </div>
 
@@ -116,7 +116,7 @@ const Caroverview = (props) => {
                                             <p>Colour</p>
                                         </div>
                                         <div className="col-6 text-right">
-                                            <p>Black</p>
+                                            <p>{car.color}</p>
                                         </div>
                                     </div>
 

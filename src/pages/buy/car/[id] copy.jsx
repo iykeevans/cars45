@@ -1,45 +1,15 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import Slider from "react-slick";
 import Carlist from "../../../components/car-list";
 import Caroverview from '../../../components/car-overview';
 import Carfeatures from '../../../components/car-features';
 import Carinspection from '../../../components/car-inspection';
 import HomeLayout from "../../../components/layouts/home-layout"
-import { getCall, postCall } from "../../../api/request";
-import endpoints from "../../../api/endPoints";
-import Loading from "../../../components/loadingScreen";
 
 const Cardetails = (props) => {
-    useEffect(() => {
-        // const id = props.id
-         const id = "NG-196632"
+    React.useEffect(() => {
 
-        getSingleCar(id)
-
-    },[])
-    const [carData, setCarData] = useState({});
-    const getSingleCar = (sku) => {
-        // setLoading(true);
-        getCall(`${endpoints.getSingleCar(sku)}`)
-          .then((response) => {
-            const data = response.data;
-            // setLoading(false);
-            if (response.status === 200) {
-            //   setErrorText(data.message);
-            //   setCarYearData(response.data.data);
-              return setCarData(Object.values(response.data.data)[0])
-            } else {
-            //   setshowError(true);
-            //   setErrorText("Oops! something went wrong. keep calm and try again.");
-            }
-          },)
-          .catch((error) => {
-            // setshowError(true);
-            // setLoading(false);
-            // setErrorText("Oops! something went wrong. keep calm and try again.");
-          });
-      };
-
+    })
 
     const mock_cars = Array.from({ length: 10 }, (x) => x);
     const ref = React.useRef();
@@ -89,7 +59,7 @@ const Cardetails = (props) => {
     const next = () => {
         slider.slickNext()
     }
-console.log(carData)
+
     return (
         <HomeLayout footer="two" header="two">
             <div className="car-details mt-3">
@@ -99,23 +69,18 @@ console.log(carData)
                             <div className="col-12 col-md-3 title-container">
                                 <div className="d-flex justify-content-between title">
                                     <p>Home</p>
-                                    <p>{carData?.make}</p>
-                                    <p>{carData?.year} {carData?.make}</p>
+                                    <p>Honda Pilot</p>
+                                    <p>2016 Honda Pilot</p>
                                 </div>
                             </div>
                             <div className="car-container">
                                 <div className="row">
                                     <div className="col-md-7">
                                         <Slider {...settings} ref={c => (slider = c)}>
-                                            {
-                                                carData?.images?.map((img, index)=>(
-
                                             <div>
-                                                <img src={img} />
+                                                <img src="/assets/images/car1.jpeg" />
                                             </div>
-                                                ))
-                                            }
-                                            {/* <div>
+                                            <div>
                                                 <img src="/assets/images/car2.jpeg" />
                                             </div>
                                             <div>
@@ -138,7 +103,7 @@ console.log(carData)
                                             </div>
                                             <div>
                                                 <img src="/assets/images/car8.jpeg" />
-                                            </div> */}
+                                            </div>
 
                                         </Slider>
                                         <div className="prev-button-container">
@@ -152,18 +117,18 @@ console.log(carData)
                                     <div className="col-md-5 quick-details">
                                         <div className="row quick-details-container mt-3">
                                             <div className="col-5 col-md-5 align-self-center">
-                                                <h5>{carData?.year} {carData?.make}</h5>
+                                                <h5>2016 Honda Pilot</h5>
                                             </div>
                                             <div className="col-1 col-md-1 text-right">
                                                 <div className="border-right" />
                                             </div>
                                             <div className="col-5 col-md-5 align-self-center">
-                                                <h5>₦ {carData?.price}</h5>
+                                                <h5>₦ 10,360,000</h5>
                                             </div>
                                         </div>
 
                                         <div className="text-center">
-                                            <p className="simple-details">{carData?.year} {" "} •{carData?.trim} •{carData?.mileage} •₦{carData?.price}</p>
+                                            <p className="simple-details">2016 •automatic •27,471Km •NG-526229</p>
                                         </div>
                                         <div className="recent">
                                             <p>12 buyers have viewed this vehicle in the last 24 hours</p>
@@ -248,7 +213,7 @@ console.log(carData)
 
                                 <div className="tab-content" id="myTabContent">
                                     <div className="tab-pane fade active show" id="details" role="tabpanel" aria-labelledby="details-tab">
-                                        <Caroverview car={carData} />
+                                        <Caroverview {...props} />
 
                                     </div>
 
@@ -258,7 +223,7 @@ console.log(carData)
                                             <div className="container pl-0 pl-md-5 pt-0 pt-md-3">
                                                 <h5 className="overview">Features</h5>
 
-                                                <Carfeatures  car={carData} />
+                                                <Carfeatures  {...props} />
                                             </div>
                                         </div>
                                     </div>
@@ -269,7 +234,7 @@ console.log(carData)
                                     <div className="tab-pane fade" id="inspection" role="tabpanel" aria-labelledby="inspection-tab">
                                         <div className="row">
                                             <div className="col-md-9">
-                                                <Carinspection car={carData} />
+                                                <Carinspection {...props} />
                                             </div>
                                         </div>
 
@@ -310,12 +275,5 @@ console.log(carData)
         </HomeLayout>
     )
 }
-
-
-
-Cardetails.getInitialProps = async ({ query }) => {
-    const {id} = query
-    return {id}
-  }
 
 export default Cardetails;
