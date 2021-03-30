@@ -114,7 +114,7 @@
     }
 
     /* Extra small devices (phones, 600px and down) */
-    @media only screen and (max-width: 600px) {
+    @media screen and (max-width: 576px) {
         .form-inline .form-control {
             width: 280px !important;
         }
@@ -142,11 +142,11 @@
         }
     }
     /* Small devices (portrait tablets and large phones, 600px and up) */
-    @media only screen and (min-width: 600px) {
+    @media screen and (min-device-width: 576px) and (max-device-width: 767px) {
     }
 
     /* Medium devices (landscape tablets, 768px and up) */
-    @media only screen and (min-width: 768px) {
+    @media screen and (min-device-width: 768px) and (max-device-width: 991px) {
         .form-inline .form-control {
             width: 280px !important;
         }
@@ -175,7 +175,7 @@
     }
 
     /* Large devices (laptops/desktops, 992px and up) */
-    @media only screen and (min-width: 992px) {
+    @media screen and (min-device-width: 992px) and (max-device-width: 1199px) {
     }
 
     /* Extra large devices (large laptops and desktops, 1200px and up) */
