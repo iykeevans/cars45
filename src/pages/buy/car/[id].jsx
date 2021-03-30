@@ -11,19 +11,21 @@ import Loading from "../../../components/loadingScreen";
 
 const Cardetails = (props) => {
     useEffect(() => {
-        // const id = props.id
-         const id = "NG-196632"
+        const id = props.id.split("_")[1]
+        //  const id = "NG-196632"
+        console.log(id)
 
         getSingleCar(id)
 
     },[])
     const [carData, setCarData] = useState({});
+    const [loading, setLoading] = useState(false);
     const getSingleCar = (sku) => {
-        // setLoading(true);
+        setLoading(true);
         getCall(`${endpoints.getSingleCar(sku)}`)
           .then((response) => {
             const data = response.data;
-            // setLoading(false);
+            setLoading(false);
             if (response.status === 200) {
             //   setErrorText(data.message);
             //   setCarYearData(response.data.data);
@@ -35,7 +37,7 @@ const Cardetails = (props) => {
           },)
           .catch((error) => {
             // setshowError(true);
-            // setLoading(false);
+            setLoading(false);
             // setErrorText("Oops! something went wrong. keep calm and try again.");
           });
       };
@@ -60,9 +62,10 @@ const Cardetails = (props) => {
 
     const settings = {
         customPaging: function (i) {
+            const images = carData.images
             return (
                 <a>
-                    <img className={`slideClass${i}`} style={{ width: '70px', height: '50px' }} src={`/assets/images/car${i + 1}.jpeg`} />
+                    <img className={`slideClass${i}`} style={{ width: '70px', height: '50px' }} src={`https://buy.cars45.com/image/${images[i].images}`} />
                 </a>
             );
         },
@@ -92,6 +95,7 @@ const Cardetails = (props) => {
 console.log(carData)
     return (
         <HomeLayout footer="two" header="two">
+            {loading&&<Loading/>}
             <div className="car-details mt-3">
                 <div className="container">
                     <div className="row">
@@ -111,34 +115,10 @@ console.log(carData)
                                                 carData?.images?.map((img, index)=>(
 
                                             <div>
-                                                <img src={img} />
+                                                <img src={`https://buy.cars45.com/image/${img.images}`} />
                                             </div>
                                                 ))
                                             }
-                                            {/* <div>
-                                                <img src="/assets/images/car2.jpeg" />
-                                            </div>
-                                            <div>
-                                                <img src="/assets/images/car3.jpeg" />
-                                            </div>
-                                            <div>
-                                                <img src="/assets/images/car4.jpeg" />
-                                            </div>
-                                            <div>
-                                                <img src="/assets/images/car5.jpeg" />
-                                            </div>
-                                            <div>
-                                                <img src="/assets/images/car6.jpeg" />
-                                            </div>
-                                            <div>
-                                                <img src="/assets/images/car7.jpeg" />
-                                            </div>
-                                            <div>
-                                                <img src="/assets/images/car8.jpeg" />
-                                            </div>
-                                            <div>
-                                                <img src="/assets/images/car8.jpeg" />
-                                            </div> */}
 
                                         </Slider>
                                         <div className="prev-button-container">

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 import Chat from "../components/chat";
 import { getCall, postCall } from "../api/request";
 import endpoints from "../api/endPoints";
 import Loading from "../components/loadingScreen";
-import { useRouter } from "next/router";
 
 const OwlCarousel = dynamic(() => import("react-owl-carousel"), { ssr: false });
 import InputRange from "react-input-range";
@@ -12,7 +12,6 @@ import HomeLayout from "../components/layouts/home-layout";
 
 const Home = (props) => {
   const router = useRouter()
-  console.log({router})
   useEffect(() => {
     document.getElementById("open-modal").click();
     console.log(document.cookie.split(";"));

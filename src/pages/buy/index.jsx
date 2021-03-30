@@ -1,22 +1,119 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
-
+import { useRouter } from "next/router";
 const OwlCarousel = dynamic(() => import("react-owl-carousel"), { ssr: false })
 
 import GridDropdown from 'react-grid-dropdown'
 import Dropdown from '../../components/dropdown'
+import MakeDropdown from '../../components/make-dropdown'
 import Carlist from '../../components/car-list';
 import InputRange from 'react-input-range';
 import HomeLayout from "../../components/layouts/home-layout";
 import Budget from "../../components/budget";
+import { getCall, postCall } from "../../api/request";
+import endpoints from "../../api/endPoints";
+import Loading from "../../components/loadingScreen";
 
 
 const Buy = (props) => {
-    React.useEffect(() => {
-    })
+    const [carData, setCarData] = useState({});
+    const [carMakeData, setCarMakeData] = useState([]);
+    const [carModelData, setCarModelData] = useState([]);
+    const [carYearData, setCarYearData] = useState([]);
+    const [carTrimData, setCarTrimData] = useState([]);
+    const [errorText, setErrorText] = useState("");
+    const [showError, setshowError] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const [value, setValue] = useState({ min: 0, max: 0 });
+    const router = useRouter()
 
-    const [value, setValue] = React.useState({ min: 0, max: 0 })
-    // const [activeItem, setActiveItem] = React.useState()
+    useEffect(() => {
+
+      getMakes();
+    }, []);
+  
+    
+    const getMakes = () => {
+        getCall(`${endpoints.getMake}`)
+          .then((response) => {
+            const data = response.data;
+            setLoading(false);
+            if (response.status === 200) {
+              setErrorText(data.message);
+              setCarMakeData(response.data.data);
+            } else {
+              setshowError(true);
+              setErrorText("Oops! something went wrong. keep calm and try again.");
+            }
+          })
+          .catch((error) => {
+            setshowError(true);
+            setLoading(false);
+            setErrorText("Oops! something went wrong. keep calm and try again.");
+          });
+      };
+      const getModel = (make) => {
+        setLoading(true);
+        getCall(`${endpoints.getModel(make)}`)
+          .then((response) => {
+            const data = response.data;
+            setLoading(false);
+            if (response.status === 200) {
+              setErrorText(data.message);
+              setCarModelData(response.data.data);
+            } else {
+              setshowError(true);
+              setErrorText("Oops! something went wrong. keep calm and try again.");
+            }
+          })
+          .catch((error) => {
+            setshowError(true);
+            setLoading(false);
+            setErrorText("Oops! something went wrong. keep calm and try again.");
+          });
+      };
+      const getYear = (make, model) => {
+        setLoading(true);
+        getCall(`${endpoints.getYear(make, model)}`)
+          .then((response) => {
+            const data = response.data;
+            setLoading(false);
+            if (response.status === 200) {
+              setErrorText(data.message);
+              setCarYearData(response.data.data);
+            } else {
+              setshowError(true);
+              setErrorText("Oops! something went wrong. keep calm and try again.");
+            }
+          })
+          .catch((error) => {
+            setshowError(true);
+            setLoading(false);
+            setErrorText("Oops! something went wrong. keep calm and try again.");
+          });
+      };
+      const getTrim = (make, model) => {
+        setLoading(true);
+        getCall(`${endpoints.getTrim(make, model)}`)
+          .then((response) => {
+            const data = response.data;
+            setLoading(false);
+            if (response.status === 200) {
+              setErrorText(data.message);
+              // console.log("")
+              setCarTrimData(response.data.data);
+            } else {
+              setshowError(true);
+              setErrorText("Oops! something went wrong. keep calm and try again.");
+            }
+          })
+          .catch((error) => {
+            setshowError(true);
+            setLoading(false);
+            setErrorText("Oops! something went wrong. keep calm and try again.");
+          });
+      };
+
     const responsive = {
         0: {
             items: 1
@@ -31,6 +128,7 @@ const Buy = (props) => {
             items: 1
         }
     };
+    console.log({carMakeData})
     return (
         <HomeLayout footer="two" header="two">
             <div className="buy">
@@ -106,7 +204,7 @@ const Buy = (props) => {
                                         <p className="teal-color find">Find Cars By:</p>
                                     </div>
                                     <div className="col">
-                                        <Dropdown name={'Make'} />
+                                        <MakeDropdown name={'Make'} data={carMakeData}/>
                                         {/* <GridDropdown
                                         label="Model"
                                         activeItem={activeItem}

@@ -17,9 +17,9 @@ const Carlist = ({ car }) => {
   }
   return (
     <div className="listing mt-5">
-      <div className="card" onClick={() => handleRoute(car.sku) }>
+      <div className="card" onClick={() => handleRoute(`${car.make}_${car.sku}`) }>
         <img
-          src={`http://buy.cars45.com/${car?.image}`}
+          src={`https://buy.cars45.com/image/${car?.image}`}
           className="card-img-top"
           alt="..."
         />
