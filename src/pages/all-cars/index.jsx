@@ -14,10 +14,12 @@ import CarList from "../../components/car-list2";
 
 const Home = (props) => {
   const router = useRouter();
-  console.log("pt", window?.history?.state?.options?.carData);
   useEffect(() => {
     // document.getElementById("open-modal").click();
     // console.log(document.cookie.split(";"));
+    if(!window?.history?.state?.options?.carData){
+      router.push("/")
+    }
     getMakes();
   }, []);
 

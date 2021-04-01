@@ -7,7 +7,7 @@ import Loading from "./loadingScreen";
 const Carlist = ({ car }) => {
   React.useEffect(() => {});
 
-  console.log({ car });
+  
   const router = useRouter()
   const handleRoute = (sku)=>{
     router.push({

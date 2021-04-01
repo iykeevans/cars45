@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import cookie from "js-cookie"
-// import '../../asset/scss/ride-hailing.scss';
+import { useRouter} from "next/router";
 
 import Inputs from "./forms";
 import HomeLayout from "./layouts/home-layout";
@@ -20,8 +20,7 @@ const Booking = (props) => {
   const [errorText, setErrorText] = useState("");
   const [showError, setshowError] = useState(false);
   const [loading, setLoading] = useState(true);
-
-  const [data, setData] = React.useState({
+  const [data, setData] = useState({
     name: "",
     email: "",
     phone: "",
@@ -35,6 +34,7 @@ const Booking = (props) => {
     time: "",
   });
   const [formError, setFormError] = React.useState({});
+  const router = useRouter()
   useEffect(() => {
     getMakes();
   }, []);
@@ -110,14 +110,20 @@ const Booking = (props) => {
           const setData = data.map((item, i) => ({ value: item, label: item }));
           setCarMakeData(setData);
         } else {
-          setshowError(true);
-          setErrorText("Oops! something went wrong. keep calm and try again.");
+          toast.notify("Oops! something went wrong. keep calm and try again.", {
+            duration: 5,
+            title: "Something when wrong",
+            type: "warning",
+          });
         }
       })
       .catch((error) => {
-        setshowError(true);
         setLoading(false);
-        setErrorText("Oops! something went wrong. keep calm and try again.");
+        toast.notify("Oops! something went wrong. keep calm and try again.", {
+          duration: 5,
+          title: "Something when wrong",
+          type: "error",
+        });
       });
   };
   const getModel = (make) => {
@@ -132,14 +138,20 @@ const Booking = (props) => {
           setCarModelData(setData);
           //   setCarModelData(response.data.data);
         } else {
-          setshowError(true);
-          setErrorText("Oops! something went wrong. keep calm and try again.");
+          toast.notify("Oops! something went wrong. keep calm and try again.", {
+            duration: 5,
+            title: "Something when wrong",
+            type: "warning",
+          });
         }
       })
       .catch((error) => {
-        setshowError(true);
         setLoading(false);
-        setErrorText("Oops! something went wrong. keep calm and try again.");
+        toast.notify("Oops! something went wrong. keep calm and try again.", {
+          duration: 5,
+          title: "Something when wrong",
+          type: "error",
+        });
       });
   };
   const getYear = (make, model) => {
@@ -153,14 +165,20 @@ const Booking = (props) => {
           const setData = data.map((item, i) => ({ value: item, label: item }));
           setCarYearData(setData);
         } else {
-          setshowError(true);
-          setErrorText("Oops! something went wrong. keep calm and try again.");
+          toast.notify("Oops! something went wrong. keep calm and try again.", {
+            duration: 5,
+            title: "Something when wrong",
+            type: "warning",
+          });
         }
       })
       .catch((error) => {
-        setshowError(true);
         setLoading(false);
-        setErrorText("Oops! something went wrong. keep calm and try again.");
+        toast.notify("Oops! something went wrong. keep calm and try again.", {
+          duration: 5,
+          title: "Something when wrong",
+          type: "error",
+        });
       });
   };
   const getTrim = (make, model) => {
@@ -175,14 +193,20 @@ const Booking = (props) => {
 
           setCarTrimData(setData);
         } else {
-          setshowError(true);
-          setErrorText("Oops! something went wrong. keep calm and try again.");
+          toast.notify("Oops! something went wrong. keep calm and try again.", {
+            duration: 5,
+            title: "Something when wrong",
+            type: "warning",
+          });
         }
       })
       .catch((error) => {
-        setshowError(true);
         setLoading(false);
-        setErrorText("Oops! something went wrong. keep calm and try again.");
+        toast.notify("Oops! something went wrong. keep calm and try again.", {
+          duration: 5,
+          title: "Something when wrong",
+          type: "error",
+        });
       });
   };
   const getCities = () => {
@@ -197,14 +221,20 @@ const Booking = (props) => {
 
           setCarCitiesData(setData);
         } else {
-          setshowError(true);
-          setErrorText("Oops! something went wrong. keep calm and try again.");
+          toast.notify("Oops! something went wrong. keep calm and try again.", {
+            duration: 5,
+            title: "Something when wrong",
+            type: "warning",
+          });
         }
       })
       .catch((error) => {
-        setshowError(true);
         setLoading(false);
-        setErrorText("Oops! something went wrong. keep calm and try again.");
+        toast.notify("Oops! something went wrong. keep calm and try again.", {
+          duration: 5,
+          title: "Something when wrong",
+          type: "error",
+        });
       });
   };
 
@@ -223,14 +253,20 @@ const Booking = (props) => {
 
           setCarCentreData(setData);
         } else {
-          setshowError(true);
-          setErrorText("Oops! something went wrong. keep calm and try again.");
+          toast.notify("Oops! something went wrong. keep calm and try again.", {
+            duration: 5,
+            title: "Something when wrong",
+            type: "warning",
+          });
         }
       })
       .catch((error) => {
-        setshowError(true);
         setLoading(false);
-        setErrorText("Oops! something went wrong. keep calm and try again.");
+        toast.notify("Oops! something went wrong. keep calm and try again.", {
+          duration: 5,
+          title: "Something when wrong",
+          type: "error",
+        });
       });
   };
 
@@ -255,25 +291,31 @@ const Booking = (props) => {
     setLoading(true);
     postCall(`${endpoints.createBooking}`, data)
       .then((response) => {
-        const data = response.data;
         setLoading(false);
         if (response.status === 200) {
-          const data = response.data.data;
-          const setData = data.map((item, i) => ({
-            value: item.id,
-            label: item.address1,
-          }));
-
-          setCarCentreData(setData);
+          toast.notify("You have successfully booked for Inspection", {
+            duration: 5,
+            title: "Success",
+            type: "success",
+          });
+          setTimeout(()=>{
+            router.reload()
+          },5000)
         } else {
-          setshowError(true);
-          setErrorText("Oops! something went wrong. keep calm and try again.");
+          toast.notify("Oops! something went wrong. keep calm and try again.", {
+            duration: 5,
+            title: "Something when wrong",
+            type: "warning",
+          });
         }
       })
       .catch((error) => {
-        setshowError(true);
         setLoading(false);
-        setErrorText("Oops! something went wrong. keep calm and try again.");
+        toast.notify("Oops! something went wrong. keep calm and try again.", {
+          duration: 5,
+          title: "Something when wrong",
+          type: "error",
+        });
       });
   };
 
@@ -282,25 +324,28 @@ const Booking = (props) => {
      data.user = cookie.get('__exponea_etc__');
     postCall(`${endpoints.createInspection}`, data)
       .then((response) => {
-        const data = response.data;
         setLoading(false);
         if (response.status === 200) {
-          const data = response.data.data;
-          const setData = data.map((item, i) => ({
-            value: item.id,
-            label: item.address1,
-          }));
-
-          setCarCentreData(setData);
+          toast.notify("Thanks, we have received your booking", {
+            duration: 5,
+            title: "Success",
+            type: "success",
+          });
         } else {
-          setshowError(true);
-          setErrorText("Oops! something went wrong. keep calm and try again.");
+          toast.notify("Oops! something went wrong. keep calm and try again.", {
+            duration: 5,
+            title: "Something when wrong",
+            type: "warning",
+          });
         }
       })
       .catch((error) => {
-        setshowError(true);
         setLoading(false);
-        setErrorText("Oops! something went wrong. keep calm and try again.");
+        toast.notify("Oops! something went wrong. keep calm and try again.", {
+          duration: 5,
+          title: "Something when wrong",
+          type: "error",
+        });
       });
   };
 
