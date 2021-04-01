@@ -72,10 +72,10 @@ const Budget = () => {
 
                                 <div className="budget-category">
                                     <div className="row">
-                                        <div className="col-8 col-md-7 text-right">
+                                        <div className="col-8 col-md-8 text-right">
                                             <p>₦50m and above</p>
                                         </div>
-                                        <div className="col-4 col-md-5 text-right">
+                                        <div className="col-4 col-md-4 text-right">
                                             <img src="/assets/icons/budget-arrow.svg" alt="continue" />
                                         </div>
                                     </div>
