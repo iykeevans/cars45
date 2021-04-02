@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import endPoints from "../../api/endPoints";
+import { useRouter } from "next/router";
+
+import { getCall } from "../../api/request";
 
 import Chat from "../../components/chat";
 import Security from "../../components/security";
 import HomeLayout from "../../components/layouts/home-layout";
 import { services, advantage, faqs } from "../../asset/data/service";
 import Accordion from "../../components/faq-accordion";
+import Loading from "../../components/loadingScreen";
 
 const GridBox = styled.div`
   display: grid;
@@ -26,6 +31,9 @@ const Button = styled.button`
 `;
 
 const Service = (props) => {
+  const [loading, setLoading] = useState(true);
+  const [carMakes, setCarMakes] = useState([]);
+  const [carModels, setCarModels] = useState([]);
   const [vehicleMake, setVehicleMake] = useState("");
   const [vehicleModel, setVehicleModel] = useState("");
   const [vehicleFuelType, setVehicleFuelType] = useState("");
@@ -34,13 +42,62 @@ const Service = (props) => {
   const [fluidLeakageStatus, setFluidLeakageStatus] = useState("yes");
   const [smokeStatus, setSmokeStatus] = useState("yes");
 
+  const router = useRouter();
+
+  useEffect(() => {
+    getMakes();
+  }, []);
+
+  useEffect(() => {
+    if (vehicleMake) {
+      getModel(vehicleMake);
+    }
+  }, [vehicleMake]);
+
   const handleCheckService = (event) => {
     event.preventDefault();
-    console.log("I am submitting");
+    const query = {};
+
+    phoneNo && (query.phoneNo = phoneNo.trim());
+    vehicleMake && (query.make = vehicleMake.trim());
+    vehicleModel && (query.model = vehicleModel.trim());
+
+    router.push({
+      pathname: "/service/info",
+      query: { ...query },
+    });
+  };
+
+  const getMakes = () => {
+    getCall(`${endPoints.getMake}`)
+      .then(({ data: response }) => {
+        setCarMakes(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
+  const getModel = (make) => {
+    setLoading(true);
+    getCall(`${endPoints.getModel(make)}`)
+      .then(({ data: response }) => {
+        setLoading(true);
+        setCarModels(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   return (
     <HomeLayout footer="two">
+      {loading && <Loading />}
       <div className="service servicing">
         <div className="container">
           <div className="hero ">
@@ -49,26 +106,38 @@ const Service = (props) => {
                 className=" col-12 col-lg-3 d-flex flex-column p-4 ml-lg-5"
                 onSubmit={handleCheckService}
               >
+                <span className="text-black">{vehicleMake}</span>
                 <div className="heading mb-4">
                   The Best Car Service Awaits You
                 </div>
 
-                <select name="brand" id="brand" className="form-control mb-3">
-                  <option
-                    value={vehicleMake}
-                    onChange={({ target }) => setVehicleMake(target.value)}
-                  >
-                    Select Make
-                  </option>
+                <select
+                  name="brand"
+                  id="brand"
+                  className="form-control mb-3"
+                  onChange={({ target }) => setVehicleMake(target.value)}
+                >
+                  <option value="">Select Make</option>
+                  {carMakes.map((make, index) => (
+                    <option value={make} key={index}>
+                      {make}
+                    </option>
+                  ))}
                 </select>
 
-                <select name="brand" id="brand" className="form-control mb-3">
-                  <option
-                    value={vehicleModel}
-                    onChange={({ target }) => setVehicleModel(target.value)}
-                  >
-                    Select Model
-                  </option>
+                <select
+                  name="brand"
+                  id="brand"
+                  className="form-control mb-3"
+                  disabled={!vehicleMake}
+                  onChange={({ target }) => setVehicleModel(target.value)}
+                >
+                  <option value="">Select Model</option>
+                  {carModels.map((model, index) => (
+                    <option value={model} key={index}>
+                      {model}
+                    </option>
+                  ))}
                 </select>
 
                 <select
