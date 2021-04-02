@@ -147,7 +147,7 @@ export default function BookARepair() {
 
   const getCityLocations = (city) => {
     setLoading(true);
-    getCall(`${endPoints.getCity(city)}`)
+    getCall(`${endPoints.getCenters(city)}`)
       .then(({ data: response }) => setCityLocations(response.data))
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));
@@ -316,7 +316,7 @@ export default function BookARepair() {
                 Choose...
               </option>
               {cityLocations.map((item, index) => (
-                <option key={index} value={location}>
+                <option key={index} value={item.location}>
                   {item.location}
                 </option>
               ))}
@@ -325,7 +325,10 @@ export default function BookARepair() {
             {renderError("location")}
           </div>
 
-          <Button className="text-center rounded align-self-center text-white">
+          <Button
+            className="text-center rounded align-self-center text-white"
+            type="submit"
+          >
             Submit
           </Button>
         </form>
