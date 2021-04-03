@@ -684,6 +684,18 @@
         }
     }
 
+    .page-link {
+        border-color: $cr-dark !important;
+        color: $cr-tealgreen;
+    }
+    .page-item .btn-link {
+        border-radius: 0 !important;
+        text-decoration: none;
+    }
+    .disabled .page-link {
+        border-color: $cr-darkgrey !important;
+    }
+
     /* Small devices (portrait tablets and large phones, 600px and up) */
     @media screen and (min-device-width: 576px) and (max-device-width: 767px) {
     }

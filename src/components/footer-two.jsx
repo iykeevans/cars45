@@ -43,9 +43,9 @@ const FooterTwo = (props) => {
                                     </div>
                                     <div className="col-md-6 text-right d-none d-md-block">
                                         <div className="socials">
-                                            <a href="/facebook.com"><img className="facebook" src="/assets/icons/fb.svg" alt="facebook" /></a>
-                                            <a href="/instagram.com"><img src="/assets/icons/insta.svg" alt="instagram" /></a>
-                                            <a href="/twitter.com"><img src="/assets/icons/tw.svg" alt="twitter" /></a>
+                                            <a href=" http://facebook.com/cars45.NG"><img className="facebook" src="/assets/icons/fb.svg" alt="facebook" /></a>
+                                            <a href="https://www.instagram.com/cars45ng/"><img src="/assets/icons/insta.svg" alt="instagram" /></a>
+                                            <a href="https://twitter.com/cars45ng"><img src="/assets/icons/tw.svg" alt="twitter" /></a>
                                             <a href="/youtube.com"> <img src="/assets/icons/yt.svg" alt="youtube" /></a>
                                         </div>
                                     </div>

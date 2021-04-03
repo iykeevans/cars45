@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
+import Link from 'next/link';
 const OwlCarousel = dynamic(() => import("react-owl-carousel"), { ssr: false })
 
 import GridDropdown from 'react-grid-dropdown'
@@ -13,10 +14,11 @@ import Budget from "../../components/budget";
 import { getCall, postCall } from "../../api/request";
 import endpoints from "../../api/endPoints";
 import Loading from "../../components/loadingScreen";
+import { toast, ToastContainer } from "react-nextjs-toast";
 
 
 const Buy = (props) => {
-    const [carData, setCarData] = useState({});
+    const [carData, setCarData] = useState([]);
     const [carMakeData, setCarMakeData] = useState([]);
     const [carModelData, setCarModelData] = useState([]);
     const [carYearData, setCarYearData] = useState([]);
@@ -25,94 +27,232 @@ const Buy = (props) => {
     const [showError, setshowError] = useState(false);
     const [loading, setLoading] = useState(true);
     const [value, setValue] = useState({ min: 0, max: 0 });
+    const [data, setData] = useState({ make: 'Make' })
     const router = useRouter()
 
     useEffect(() => {
-
-      getMakes();
+        search()
+        getMakes();
     }, []);
-  
-    
+
+
     const getMakes = () => {
         getCall(`${endpoints.getMake}`)
-          .then((response) => {
-            const data = response.data;
-            setLoading(false);
-            if (response.status === 200) {
-              setErrorText(data.message);
-              setCarMakeData(response.data.data);
-            } else {
-              setshowError(true);
-              setErrorText("Oops! something went wrong. keep calm and try again.");
-            }
-          })
-          .catch((error) => {
-            setshowError(true);
-            setLoading(false);
-            setErrorText("Oops! something went wrong. keep calm and try again.");
-          });
-      };
-      const getModel = (make) => {
+            .then((response) => {
+                const data = response.data;
+                setLoading(false);
+                if (response.status === 200) {
+                    setErrorText(data.message);
+                    setCarMakeData(response.data.data);
+                } else {
+                    setshowError(true);
+                    setErrorText("Oops! something went wrong. keep calm and try again.");
+                    toast.notify('Oops! something went wrong. keep calm and try again.', {
+                        duration: 5,
+                        title: "An error occured",
+                        type: "error",
+                    });
+                }
+            })
+            .catch((error) => {
+                setshowError(true);
+                setLoading(false);
+                setErrorText("Oops! something went wrong. keep calm and try again.");
+                toast.notify('Oops! something went wrong. keep calm and try again.', {
+                    duration: 5,
+                    title: "An error occured",
+                    type: "error",
+                });
+            });
+    };
+    const resetSelects = () => {
+        document.getElementById('model').selectedIndex = 0;
+        document.getElementById('year').selectedIndex = 0;
+        document.getElementById('grade').selectedIndex = 0;
+        document.getElementById('trim').selectedIndex = 0;
+    }
+    const getSelectedMake = (make) => {
+        resetSelects()
+        setData({ make })
+        getModel(make)
+        search({ make })
+    }
+    const getModel = (make) => {
         setLoading(true);
         getCall(`${endpoints.getModel(make)}`)
-          .then((response) => {
-            const data = response.data;
-            setLoading(false);
-            if (response.status === 200) {
-              setErrorText(data.message);
-              setCarModelData(response.data.data);
-            } else {
-              setshowError(true);
-              setErrorText("Oops! something went wrong. keep calm and try again.");
-            }
-          })
-          .catch((error) => {
-            setshowError(true);
-            setLoading(false);
-            setErrorText("Oops! something went wrong. keep calm and try again.");
-          });
-      };
-      const getYear = (make, model) => {
+            .then((response) => {
+                const data = response.data;
+                setLoading(false);
+                if (response.status === 200) {
+                    setErrorText(data.message);
+                    setCarModelData(response.data.data);
+
+                } else {
+                    setshowError(true);
+                    setErrorText("Oops! something went wrong. keep calm and try again.");
+                    toast.notify('Oops! something went wrong. keep calm and try again.', {
+                        duration: 5,
+                        title: "An error occured",
+                        type: "error",
+                    });
+                }
+            })
+            .catch((error) => {
+                setshowError(true);
+                setLoading(false);
+                setErrorText("Oops! something went wrong. keep calm and try again.");
+                toast.notify('Oops! something went wrong. keep calm and try again.', {
+                    duration: 5,
+                    title: "An error occured",
+                    type: "error",
+                });
+            });
+    };
+    const setSelectedModel = (model) => {
+        setData({ ...data, model })
+        getYear(data.make, model)
+        getTrim(data.make, model)
+        let dataFilter = {
+            ...data,
+            model
+        }
+        if (dataFilter.make === 'Make') delete dataFilter.make
+        search(dataFilter)
+    }
+    const getYear = (make, model) => {
         setLoading(true);
         getCall(`${endpoints.getYear(make, model)}`)
-          .then((response) => {
-            const data = response.data;
-            setLoading(false);
-            if (response.status === 200) {
-              setErrorText(data.message);
-              setCarYearData(response.data.data);
-            } else {
-              setshowError(true);
-              setErrorText("Oops! something went wrong. keep calm and try again.");
-            }
-          })
-          .catch((error) => {
-            setshowError(true);
-            setLoading(false);
-            setErrorText("Oops! something went wrong. keep calm and try again.");
-          });
-      };
-      const getTrim = (make, model) => {
+            .then((response) => {
+                const data = response.data;
+                setLoading(false);
+                if (response.status === 200) {
+                    setErrorText(data.message);
+                    setCarYearData(response.data.data);
+                    console.log(response.data.data)
+                } else {
+                    setshowError(true);
+                    setErrorText("Oops! something went wrong. keep calm and try again.");
+                    toast.notify('Oops! something went wrong. keep calm and try again.', {
+                        duration: 5,
+                        title: "An error occured",
+                        type: "error",
+                    });
+                }
+            })
+            .catch((error) => {
+                setshowError(true);
+                setLoading(false);
+                setErrorText("Oops! something went wrong. keep calm and try again.");
+                toast.notify('Oops! something went wrong. keep calm and try again.', {
+                    duration: 5,
+                    title: "An error occured",
+                    type: "error",
+                });
+            });
+    };
+
+    const getTrim = (make, model) => {
         setLoading(true);
         getCall(`${endpoints.getTrim(make, model)}`)
-          .then((response) => {
-            const data = response.data;
-            setLoading(false);
-            if (response.status === 200) {
-              setErrorText(data.message);
-              // console.log("")
-              setCarTrimData(response.data.data);
-            } else {
-              setshowError(true);
-              setErrorText("Oops! something went wrong. keep calm and try again.");
+            .then((response) => {
+                const data = response.data;
+                setLoading(false);
+                if (response.status === 200) {
+                    setErrorText(data.message);
+                    // console.log("")
+                    setCarTrimData(response.data.data);
+                } else {
+                    setshowError(true);
+                    setErrorText("Oops! something went wrong. keep calm and try again.");
+                    toast.notify('Oops! something went wrong. keep calm and try again.', {
+                        duration: 5,
+                        title: "An error occured",
+                        type: "error",
+                    });
+                }
+            })
+            .catch((error) => {
+                setshowError(true);
+                setLoading(false);
+                setErrorText("Oops! something went wrong. keep calm and try again.");
+                toast.notify('Oops! something went wrong. keep calm and try again.', {
+                    duration: 5,
+                    title: "An error occured",
+                    type: "error",
+                });
+            });
+    };
+    const search = (searchParams) => {
+        if (searchParams?.make === 'Make') delete searchParams.make
+        getCall(`${endpoints.getSearch(searchParams)}`)
+            .then((response) => {
+                const data = response.data;
+                setLoading(false);
+                if (response.status === 200) {
+                    setErrorText(data.message);
+
+                    if (typeof response.data.data === 'string') {
+                        toast.notify('No car matched your search criteria', {
+                            duration: 5,
+                            title: "Not found",
+                            type: "error",
+                        });
+                    } else {
+                        if (response.data.data.currency) delete response.data.data.currency
+                        setCarData(Object.values(response.data.data))
+                    }
+                } else {
+                    setshowError(true);
+                    setErrorText("Oops! something went wrong. keep calm and try again.");
+                    toast.notify('Oops! something went wrong. keep calm and try again.', {
+                        duration: 5,
+                        title: "An error occured",
+                        type: "error",
+                    });
+                }
+            })
+            .catch((error) => {
+                setshowError(true);
+                setLoading(false);
+                setErrorText("Oops! something went wrong. keep calm and try again.");
+                toast.notify('Oops! something went wrong. keep calm and try again.', {
+                    duration: 5,
+                    title: "An error occured",
+                    type: "error",
+                });
+            });
+    }
+    const seeAll = () => {
+        router.push(
+            { pathname: '/all-cars' },
+            '/all-cars',
+            { carData }
+        );
+    }
+    const handleChange = (e) => {
+        setData({ ...data, [e.target.name]: e.target.value })
+        let dataFilter = {
+            ...data,
+            [e.target.name]: e.target.value
+        }
+        if (dataFilter.make === 'Make') delete dataFilter.make
+        if (dataFilter.price) {
+            if (dataFilter.price.split('-')[0] * 1 && dataFilter.price.split('-')[1] * 1) {
+                dataFilter.minPrice = dataFilter.price.split('-')[0] * 1
+                dataFilter.maxPrice = dataFilter.price.split('-')[1] * 1
+                delete dataFilter.price
+            } else if (dataFilter.price.split('-')[0] * 1 === 0 && dataFilter.price.split('-')[1] * 1) {
+                dataFilter.maxPrice = dataFilter.price.split('-')[1] * 1
+                delete dataFilter.price
+                delete dataFilter.minPrice
+            } else if (dataFilter.price.split('-')[0] * 1 && dataFilter.price.split('-')[1] * 1 === 0) {
+                dataFilter.minPrice = dataFilter.price.split('-')[0] * 1
+                delete dataFilter.price
+                delete dataFilter.maxPrice
             }
-          })
-          .catch((error) => {
-            setshowError(true);
-            setLoading(false);
-            setErrorText("Oops! something went wrong. keep calm and try again.");
-          });
-      };
+        }
+        search(dataFilter)
+    }
 
     const responsive = {
         0: {
@@ -128,9 +268,10 @@ const Buy = (props) => {
             items: 1
         }
     };
-    console.log({carMakeData})
+    console.log({ carMakeData })
     return (
         <HomeLayout footer="two" header="two">
+            {loading && <Loading />}
             <div className="buy">
                 <div className="jumbotron">
 
@@ -194,9 +335,9 @@ const Buy = (props) => {
                                 <div className="row">
                                     <div className="col-md-12 mb-3">
                                         <div className="input-group">
-                                            <input type="text" className="form-control" placeholder="Search brands" aria-label="Recipient's username" aria-describedby="button-addon2" />
+                                            <input type="text" className="form-control" placeholder="Search brands" aria-label="Recipient's username" aria-describedby="button-addon2" onChange={(e) => setData({ ...data, make: e.target.value })} />
                                             <div className="input-group-append">
-                                                <button className="btn btn-link" type="button" id="button-addon2"><img src="/assets/icons/search.svg" alt="search" /> </button>
+                                                <button className="btn btn-link" onClick={() => search(data)} type="button" id="button-addon2"><img src="/assets/icons/search.svg" alt="search" /> </button>
                                             </div>
                                         </div>
                                     </div>
@@ -204,40 +345,63 @@ const Buy = (props) => {
                                         <p className="teal-color find">Find Cars By:</p>
                                     </div>
                                     <div className="col">
-                                        <MakeDropdown name={'Make'} data={carMakeData}/>
-                                        {/* <GridDropdown
-                                        label="Model"
-                                        activeItem={activeItem}
-                                        items={
-                                            [{ section: 'Toyota', label: 'Venza', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'Toyota', label: 'Camry', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'Toyota', label: 'Camry', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'Toyota', label: 'Camry', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'Toyota', label: 'Camry', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'Toyota', label: 'Camry', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'Toyota', label: 'Camrytrhwhwhehhwhqh', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'Toyota', label: 'Camry', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'Toyota', label: 'Corrola', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'Honda', label: 'Accord', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'BMW', label: '740i', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'BMW', label: '320i', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'BMW', label: '540M', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'Benz', label: 'C300', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'Benz', label: 'C350', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'Benz', label: 'E300', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'Benz', label: 'E500', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'Benz', label: 'Maybach', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'Rolls Royce', label: 'itemLabel', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'Bently', label: 'itemLabel', id: 'itemId', onClick: () => setActiveItem('itemId') }]
-                                        }
-                                    /> */}
-                                    </div>
-                                    <div className="col">
-                                        <Dropdown name={'Model'} />
-                                        {/* <GridDropdown
-                                        label="Model"
-                                        activeItem={activeItem}
-                                        items={
-                                            [{ section: 'Toyota', label: 'Venza', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'Toyota', label: 'Camry', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'Toyota', label: 'Camry', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'Toyota', label: 'Camry', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'Toyota', label: 'Camry', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'Toyota', label: 'Camry', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'Toyota', label: 'Camrytrhwhwhehhwhqh', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'Toyota', label: 'Camry', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'Toyota', label: 'Corrola', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'Honda', label: 'Accord', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'BMW', label: '740i', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'BMW', label: '320i', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'BMW', label: '540M', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'Benz', label: 'C300', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'Benz', label: 'C350', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'Benz', label: 'E300', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'Benz', label: 'E500', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'Benz', label: 'Maybach', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'Rolls Royce', label: 'itemLabel', id: 'itemId', onClick: () => setActiveItem('itemId') }, { section: 'Bently', label: 'itemLabel', id: 'itemId', onClick: () => setActiveItem('itemId') }]
-                                        }
-                                    /> */}
-                                    </div>
-                                    <div className="col">
-                                        <Dropdown name={'Year'} />
+                                        <MakeDropdown name={data.make} data={carMakeData} getSelectedMake={getSelectedMake} />
 
                                     </div>
                                     <div className="col">
-                                        <Dropdown name={'Grade'} />
+                                        {/* <Dropdown name={'Model'} /> */}
+                                        <select className="form-control" id="model" name="model" onChange={(e) => setSelectedModel(e.target.value)}>
+                                            <option value="">Model</option>
+                                            {carModelData.map((model, i) => (
+                                                <option key={i} value={model}>{model}</option>
+                                            ))}
+                                        </select>
+                                    </div>
+                                    <div className="col">
+                                        {/* <Dropdown name={'Year'} /> */}
+                                        <select className="form-control" name="year" id="year" onChange={(e) => handleChange(e)}>
+                                            <option value="">Year</option>
+                                            {carYearData.map((year, i) => (
+                                                <option key={i} value={year}>{year}</option>
+                                            ))}
+
+                                        </select>
 
                                     </div>
                                     <div className="col">
-                                        <Dropdown name={'Price'} />
+                                        {/* <Dropdown name={'Grade'} /> */}
+                                        <select className="form-control" name="grade" id="grade" onChange={(e) => handleChange(e)}>
+                                            <option value="">Grade</option>
+                                            <option value="A">A</option>
+                                            <option value="B">B</option>
+                                            <option value="C">C</option>
+                                            <option value="D">D</option>
+                                            <option value="E">E</option>
+                                        </select>
 
                                     </div>
                                     <div className="col">
-                                        <Dropdown name={'Transmission'} />
+                                        {/* <Dropdown name={'Price'} /> */}
+                                        <select className="form-control" name="price" id="price" onChange={(e) => handleChange(e)}>
+                                            <option value="">Price</option>
+                                            <option value="0-1000000">0 - ₦1m</option>
+                                            <option value="1000000-2000000">₦1m - ₦2m</option>
+                                            <option value="2000000-4000000">₦2m - ₦4m</option>
+                                            <option value="4000000-6000000">₦4m - ₦6m</option>
+                                            <option value="6000000-10000000">₦6m - ₦10m</option>
+                                            <option value="10000000-0">₦10m - Above</option>
+                                        </select>
 
+                                    </div>
+                                    <div className="col">
+                                        {/* <Dropdown name={'Transmission'} /> */}
+                                        <select className="form-control transmission" name="trim" id="trim" onChange={(e) => handleChange(e)}>
+                                            <option value="">Transmission</option>
+                                            {carTrimData.map((trim, i) => (
+                                                <option value={trim} key={i}>{trim}</option>
+                                            ))}
+
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -246,19 +410,22 @@ const Buy = (props) => {
 
                     <div className="fixed-socials">
                         <div>
-                            <button className="btn btn-link"><img src="/assets/icons/fb.svg" className="fb" alt="facebook" /></button>
-
+                            <Link href="http://facebook.com/cars45.NG" >
+                                <button className="btn btn-link"><img src="/assets/icons/fb.svg" className="fb" alt="facebook" /></button>
+                            </Link>
                         </div>
                         <div>
-                            <button className="btn btn-link"><img src="/assets/icons/insta.svg" alt="facebook" /></button>
-
+                            <Link href="https://www.instagram.com/cars45ng/" >
+                                <button className="btn btn-link"><img src="/assets/icons/insta.svg" alt="instagram" /></button>
+                            </Link>
                         </div>
                         <div>
-                            <button className="btn btn-link"><img src="/assets/icons/tw.svg" alt="facebook" /></button>
-
+                            <Link href="https://twitter.com/cars45ng" >
+                                <button className="btn btn-link"><img src="/assets/icons/tw.svg" alt="twitter" /></button>
+                            </Link>
                         </div>
                         <div>
-                            <button className="btn btn-link"><img src="/assets/icons/yt.svg" alt="facebook" /></button>
+                            <button className="btn btn-link"><img src="/assets/icons/yt.svg" alt="youtube" /></button>
 
                         </div>
                     </div>
@@ -267,77 +434,52 @@ const Buy = (props) => {
                 </div>
 
 
-
-                <div className="car-list">
+                {carData.length ? <div className="car-list">
                     <div className="container">
                         <div className="row d-none d-lg-flex">
-                            <div className="col">
+                            {carData.length >= 5 ? carData.slice(0, 5).map((car, i) => (
+                                <div className="col mb-5" key={i}>
 
-                                <Carlist {...props} />
-                            </div>
+                                    <Carlist {...props} car={car} />
+                                </div>
+                            )) :
 
-                            <div className="col">
+                                carData.map((car, i) => (
+                                    <div className="col mb-5" key={i}>
 
-                                <Carlist {...props} />
-                            </div>
+                                        <Carlist {...props} car={car} />
+                                    </div>
+                                ))}
 
-                            <div className="col">
-
-                                <Carlist {...props} />
-                            </div>
-
-                            <div className="col">
-
-                                <Carlist {...props} />
-                            </div>
-
-                            <div className="col">
-
-                                <Carlist {...props} />
-                            </div>
                         </div>
 
 
                         <div className="row d-block d-md-flex d-lg-none">
                             <div className="col-12 col-md-6 mb-md-3 mb-lg-0">
 
-                                <Carlist {...props} />
-                            </div>
+                                {carData.length >= 5 ? carData.slice(0, 5).map((car, i) => (
+                                    <Carlist {...props} car={car} />
+                                )) :
 
-                            <div className="col-12 col-md-6 mb-md-3 mb-lg-0">
-
-                                <Carlist {...props} />
-                            </div>
-
-                            <div className="col-12 col-md-6 mb-md-3 mb-lg-0">
-
-                                <Carlist {...props} />
-                            </div>
-
-                            <div className="col-12 col-md-6 mb-md-3 mb-lg-0">
-
-                                <Carlist {...props} />
-                            </div>
-
-                            <div className="col-12 col-md-6 mb-md-3 mb-lg-0">
-
-                                <Carlist {...props} />
+                                    carData.map((car, i) => (
+                                        <Carlist {...props} car={car} />
+                                    ))}
                             </div>
                         </div>
 
                         <div className="row mt-5 mb-5">
                             <div className="col-md-4 offset-md-4 text-center">
-                                <button className="btn btn-primary dark-color orange-background">See All</button>
+                                <button className="btn btn-primary dark-color orange-background" onClick={() => seeAll()}>See All</button>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> : null}
 
                 <Budget />
 
 
 
-
+                <ToastContainer align={"right"} position={"bottom"} />
             </div >
         </HomeLayout>
     )

@@ -168,16 +168,16 @@ const Home = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const searchParam = {}
-    if(carData.make){
+    if (carData.make) {
       searchParam.make = carData.make.trim()
     }
-    if(carData.model){
+    if (carData.model) {
       searchParam.model = carData.model
     }
-    if(carData.minYear){
+    if (carData.minYear) {
       searchParam.minYear = carData.minYear
     }
-    if(carData.maxYear){
+    if (carData.maxYear) {
       searchParam.maxYear = carData.maxYear
     }
     setLoading(true);
@@ -194,13 +194,13 @@ const Home = (props) => {
           //   query: Object.values(response.data.data),
           // })
           router.push(
-            { pathname: '/all-cars' }, 
-            '/all-cars', 
+            { pathname: '/all-cars' },
+            '/all-cars',
             { carData: Object.values(response.data.data) }
           );
-        //   window.history.pushState({
-        //     data: Object.values(response.data.data)
-        // }, undefined, '/all-cars');
+          //   window.history.pushState({
+          //     data: Object.values(response.data.data)
+          // }, undefined, '/all-cars');
         } else {
           setshowError(true);
           setErrorText("Oops! something went wrong. keep calm and try again.");
@@ -266,37 +266,37 @@ const Home = (props) => {
               <div className="banner-text">
                 <div className="row">
                   <div className="col-10  col-md-6 mx-auto">
-                    <h1>
+                    {/* <h1>
                       Selling, buying and swapping cars has never been this easy
-                    </h1>
+                    </h1> */}
                   </div>
                 </div>
               </div>
-              <img src="/assets/images/banner.svg" alt="banner" />
+              <img src="/assets/images/banner2.png" alt="banner" />
             </div>
             <div className="item">
               <div className="banner-text">
                 <div className="row">
                   <div className="col-10  col-md-6 mx-auto">
-                    <h1>
+                    {/* <h1>
                       Selling, buying and swapping cars has never been this easy
-                    </h1>
+                    </h1> */}
                   </div>
                 </div>
               </div>
-              <img src="/assets/images/banner.svg" alt="banner" />
+              <img src="/assets/images/banner3.png" alt="banner" />
             </div>
             <div className="item">
               <div className="banner-text">
                 <div className="row">
                   <div className="col-10  col-md-6 mx-auto">
-                    <h1>
+                    {/* <h1>
                       Selling, buying and swapping cars has never been this easy
-                    </h1>
+                    </h1> */}
                   </div>
                 </div>
               </div>
-              <img src="/assets/images/banner.svg" alt="banner" />
+              <img src="/assets/images/banner4.png" alt="banner" />
             </div>
           </OwlCarousel>
           <div className="row banner-bottom">

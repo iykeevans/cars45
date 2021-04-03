@@ -6,6 +6,7 @@
         background: transparent;
         border: none;
         color: $cr-dark;
+        font-size: 14px !important;
     }
     .dropdown-toggle img {
         width: 13px;
@@ -49,6 +50,9 @@
     }
     .dropdown-menu.show {
         left: -202px !important;
+    }
+    .btn-link {
+        border-bottom: none !important;
     }
     /* Extra small devices (phones, 600px and down) */
     @media screen and (max-width: 576px) {

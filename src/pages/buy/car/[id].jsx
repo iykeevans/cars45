@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
+import { useRouter } from "next/router";
 import Slider from "react-slick";
 import Carlist from "../../../components/car-list";
 import Caroverview from '../../../components/car-overview';
@@ -8,39 +9,69 @@ import HomeLayout from "../../../components/layouts/home-layout"
 import { getCall, postCall } from "../../../api/request";
 import endpoints from "../../../api/endPoints";
 import Loading from "../../../components/loadingScreen";
+import { toast, ToastContainer } from "react-nextjs-toast";
+
 
 const Cardetails = (props) => {
     useEffect(() => {
         const id = props.id.split("_")[1]
         //  const id = "NG-196632"
-        console.log(id)
 
         getSingleCar(id)
 
-    },[])
-    const [carData, setCarData] = useState({});
+    }, [])
+    const [carData, setCarData] = useState();
     const [loading, setLoading] = useState(false);
+    const [message, setMessage] = useState('Loading car details...')
+    const router = useRouter()
+
+    // const getPreviousData = (data) => {
+    //     let search = decodeURIComponent(data)
+    //     search = search.split('=')[1]
+    //     search = JSON.parse(search)
+    //     setPreviousData(search)
+
+    // }
     const getSingleCar = (sku) => {
         setLoading(true);
         getCall(`${endpoints.getSingleCar(sku)}`)
-          .then((response) => {
-            const data = response.data;
-            setLoading(false);
-            if (response.status === 200) {
-            //   setErrorText(data.message);
-            //   setCarYearData(response.data.data);
-              return setCarData(Object.values(response.data.data)[0])
-            } else {
-            //   setshowError(true);
-            //   setErrorText("Oops! something went wrong. keep calm and try again.");
-            }
-          },)
-          .catch((error) => {
-            // setshowError(true);
-            setLoading(false);
-            // setErrorText("Oops! something went wrong. keep calm and try again.");
-          });
-      };
+            .then((response) => {
+                const data = response.data;
+                setLoading(false);
+                if (response.status === 200) {
+                    //   setErrorText(data.message);
+                    //   setCarYearData(response.data.data);
+                    if (typeof response.data.data === 'string') {
+                        setCarData()
+                        setMessage('Car details not found')
+                        toast.notify('Oops! Can not get more details about this car', {
+                            duration: 5,
+                            title: "An error occured",
+                            type: "error",
+                        });
+                        setTimeout(() => {
+                            // if (previousData) {
+                            //     let search = decodeURIComponent(previousData)
+                            //     search = JSON.parse(search.split('=')[1])
+                            //     return router.push({ pathname: '/buy', query: { data: JSON.stringify(search) } })
+                            // }
+
+                            router.back()
+                        }, 5100);
+                    } else {
+                        return setCarData(Object.values(response.data.data)[0])
+                    }
+                } else {
+                    //   setshowError(true);
+                    //   setErrorText("Oops! something went wrong. keep calm and try again.");
+                }
+            })
+            .catch((error) => {
+                // setshowError(true);
+                setLoading(false);
+                // setErrorText("Oops! something went wrong. keep calm and try again.");
+            });
+    };
 
 
     const mock_cars = Array.from({ length: 10 }, (x) => x);
@@ -92,11 +123,10 @@ const Cardetails = (props) => {
     const next = () => {
         slider.slickNext()
     }
-console.log(carData)
     return (
         <HomeLayout footer="two" header="two">
-            {loading&&<Loading/>}
-            <div className="car-details mt-3">
+            {loading && <Loading />}
+            {carData ? <div className="car-details mt-3">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">
@@ -112,11 +142,11 @@ console.log(carData)
                                     <div className="col-md-7">
                                         <Slider {...settings} ref={c => (slider = c)}>
                                             {
-                                                carData?.images?.map((img, index)=>(
+                                                carData?.images?.map((img, index) => (
 
-                                            <div>
-                                                <img src={`https://buy.cars45.com/image/${img.images}`} />
-                                            </div>
+                                                    <div>
+                                                        <img src={`https://buy.cars45.com/image/${img.images}`} />
+                                                    </div>
                                                 ))
                                             }
 
@@ -138,12 +168,12 @@ console.log(carData)
                                                 <div className="border-right" />
                                             </div>
                                             <div className="col-5 col-md-5 align-self-center">
-                                                <h5>₦ {carData?.price}</h5>
+                                                <h5>₦ {(carData?.price * 1)?.toLocaleString()}</h5>
                                             </div>
                                         </div>
 
                                         <div className="text-center">
-                                            <p className="simple-details">{carData?.year} {" "} •{carData?.trim} •{carData?.mileage} •₦{carData?.price}</p>
+                                            <p className="simple-details">{carData?.year} {" "} •{carData?.trim} •{carData?.mileage} •₦{(carData?.price * 1)?.toLocaleString()}</p>
                                         </div>
                                         <div className="recent">
                                             <p>12 buyers have viewed this vehicle in the last 24 hours</p>
@@ -238,7 +268,7 @@ console.log(carData)
                                             <div className="container pl-0 pl-md-5 pt-0 pt-md-3">
                                                 <h5 className="overview">Features</h5>
 
-                                                <Carfeatures  car={carData} />
+                                                <Carfeatures car={carData} />
                                             </div>
                                         </div>
                                     </div>
@@ -286,7 +316,16 @@ console.log(carData)
 
 
                 </div>
-            </div >
+            </div > :
+
+                <div className="row">
+                    <div className="col-lg-8 offset-md-2">
+                        <div className="card no-details">
+                            <h4>{message}</h4>
+                        </div>
+                    </div>
+                </div>}
+            <ToastContainer align={"right"} position={"bottom"} />
         </HomeLayout>
     )
 }
@@ -294,8 +333,8 @@ console.log(carData)
 
 
 Cardetails.getInitialProps = async ({ query }) => {
-    const {id} = query
-    return {id}
-  }
+    const { id } = query
+    return { id }
+}
 
 export default Cardetails;

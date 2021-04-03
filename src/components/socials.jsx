@@ -6,19 +6,22 @@ const Socials = () => {
         <div className="socials">
             <div className="fixed-socials">
                 <div>
-                    <button className="btn btn-link"><img src="/assets/icons/fb.svg" className="fb" alt="facebook" /></button>
-
+                    <Link href="http://facebook.com/cars45.NG" >
+                        <button className="btn btn-link"><img src="/assets/icons/fb.svg" className="fb" alt="facebook" /></button>
+                    </Link>
                 </div>
                 <div>
-                    <button className="btn btn-link"><img src="/assets/icons/insta.svg" alt="facebook" /></button>
-
+                    <Link href="https://www.instagram.com/cars45ng/" >
+                        <button className="btn btn-link"><img src="/assets/icons/insta.svg" alt="instagram" /></button>
+                    </Link>
                 </div>
                 <div>
-                    <button className="btn btn-link"><img src="/assets/icons/tw.svg" alt="facebook" /></button>
-
+                    <Link href="https://twitter.com/cars45ng" >
+                        <button className="btn btn-link"><img src="/assets/icons/tw.svg" alt="twitter" /></button>
+                    </Link>
                 </div>
                 <div>
-                    <button className="btn btn-link"><img src="/assets/icons/yt.svg" alt="facebook" /></button>
+                    <button className="btn btn-link"><img src="/assets/icons/yt.svg" alt="youtube" /></button>
 
                 </div>
             </div>
