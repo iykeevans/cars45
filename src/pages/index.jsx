@@ -411,8 +411,8 @@ const Home = (props) => {
                       {/* <input type="range" class="form-control-range" id="formControlRange" /> */}
 
                       <InputRange
-                        maxValue={1000}
-                        minValue={0}
+                        maxValue={30000000}
+                        minValue={800000}
                         value={value}
                         onChange={(value) => setValue({ ...value })}
                         type="button"
@@ -447,7 +447,7 @@ const Home = (props) => {
                 <div className="form-group col-12 col-md-6">
                   <div className="row ">
                     <p className="col-7 text-left text-md-right advance">
-                      ADVANCE SEARCH
+                      {/* ADVANCE SEARCH */}
                     </p>
                     <div className="col-sm-5">
                       {/* <input type="range" class="form-control-range" id="formControlRange" /> */}
