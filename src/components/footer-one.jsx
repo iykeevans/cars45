@@ -55,9 +55,9 @@ const Home = (props) => {
 
                         <div className="col-12 col-md-3 align-self-center">
                             <div className="socials">
-                                <a href="/facebook.com"><img className="facebook" src="/assets/icons/facebook.svg" alt="facebook" /></a>
-                                <a href="/instagram.com"><img src="/assets/icons/instagram.svg" alt="instagram" /></a>
-                                <a href="/twitter.com"><img src="/assets/icons/twitter.svg" alt="twitter" /></a>
+                                <a href="http://facebook.com/cars45.NG"><img className="facebook" src="/assets/icons/facebook.svg" alt="facebook" /></a>
+                                <a href="https://www.instagram.com/cars45ng/"><img src="/assets/icons/instagram.svg" alt="instagram" /></a>
+                                <a href="https://twitter.com/cars45ng"><img src="/assets/icons/twitter.svg" alt="twitter" /></a>
                                 <a href="/youtube.com"> <img src="/assets/icons/youtube.svg" alt="youtube" /></a>
                             </div>
                         </div>

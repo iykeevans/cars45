@@ -416,3 +416,17 @@
     @media only screen and (min-width: 1200px) {
     }
 }
+.no-details {
+    border-radius: 5px;
+    box-shadow: 1px 1px 8px -3px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 1px 1px 8px -3px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 1px 1px 8px -3px rgba(0, 0, 0, 0.75);
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+.no-details h4 {
+    align-self: center;
+    color: $cr-tealgreen;
+}

@@ -11,13 +11,14 @@ const OwlCarousel = dynamic(() => import("react-owl-carousel"), { ssr: false });
 import InputRange from "react-input-range";
 import HomeLayout from "../../components/layouts/home-layout";
 import CarList from "../../components/car-list2";
+import next from "next";
 
 const Home = (props) => {
   const router = useRouter();
   useEffect(() => {
     // document.getElementById("open-modal").click();
     // console.log(document.cookie.split(";"));
-    if(!window?.history?.state?.options?.carData){
+    if (!window?.history?.state?.options?.carData) {
       router.push("/")
     }
     getMakes();
@@ -35,6 +36,7 @@ const Home = (props) => {
   const [showError, setshowError] = useState(false);
   const [loading, setLoading] = useState(true);
   const [value, setValue] = useState({ min: 0, max: 0 });
+  const [pagination, setPagination] = useState({ from: 0, to: 20, currentPage: 1, pages: [] })
   const responsive = {
     0: {
       items: 1,
@@ -196,11 +198,21 @@ const Home = (props) => {
         if (response.status === 200) {
           setErrorText(data.message);
           // console.log("")
-          const datai=response.data.data
-          if(datai==="No cars in our repository fits your filter."){
+          const datai = response.data.data
+          if (datai === "No cars in our repository fits your filter.") {
             return
           }
           setSearchResultData(Object.values(data));
+          let total = Object.values(data).length
+          let limit = 20
+          let pages = Math.ceil(total / limit)
+          console.log(pages, total, limit)
+          let pageData = []
+          for (let i = 1; i <= pages; i++) {
+            pageData = [...pageData, i]
+          }
+
+          setPagination({ total, limit, pages: pageData })
         } else {
           setshowError(true);
           setErrorText("Oops! something went wrong. keep calm and try again.");
@@ -212,7 +224,9 @@ const Home = (props) => {
         setErrorText("Oops! something went wrong. keep calm and try again.");
       });
   };
-
+  const next = () => {
+    let currentPage = pagination.currentPage
+  }
   const handleSelect = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -351,11 +365,28 @@ const Home = (props) => {
         </div>
 
         <div className="container my-5">
-          <div className="row d-none d-md-flex">
+          {/* <div className="row d-none d-md-flex"> */}
+          <div className="row">
+            {/* .slice(pagination.from, pagination.to) */}
             {searchResultData.map((car, index) => (
               <CarList car={car} />
             ))}
           </div>
+
+          {pagination.pages.length ? <nav aria-label="Page navigation example">
+            <ul className="pagination justify-content-center mt-5">
+              <li className={pagination.currentPage === 1 ? "page-item disabled" : "page-item"}>
+                <a className="page-link" onClick={() => prev()} tabIndex={-1} aria-disabled="true">Previous</a>
+              </li>
+              {pagination.pages.map(page => (
+                <li className="page-item"><button className="page-link btn btn-link" href="#" key={page}>{page}</button></li>
+              ))}
+
+              <li className="page-item">
+                <a className={pagination.currentPage === pagination.pages ? "page-link disabled" : "page-link"} onClick={() => next()}>Next</a>
+              </li>
+            </ul>
+          </nav> : null}
         </div>
 
         <div className="section6">
@@ -438,7 +469,7 @@ const Home = (props) => {
           </div>
         </div>
 
-        
+
       </div>
     </HomeLayout>
   );

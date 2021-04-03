@@ -95,6 +95,11 @@
         -webkit-box-shadow: 1px 1px 8px -3px rgba(0, 0, 0, 0.75);
         -moz-box-shadow: 1px 1px 8px -3px rgba(0, 0, 0, 0.75);
     }
+    .input-range__label-container {
+        font-size: 20px !important;
+        margin-right: 50px;
+        bottom: 20px;
+    }
     .input-range__track--active {
         background-color: $cr-orange !important;
     }
