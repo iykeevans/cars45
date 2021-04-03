@@ -3,30 +3,24 @@ import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 import Chat from "../components/chat";
 import { getCall, postCall } from "../api/request";
+import { toast, ToastContainer } from "react-nextjs-toast";
 import endpoints from "../api/endPoints";
 import Loading from "../components/loadingScreen";
+import Search from "../components/search-car"
 
 const OwlCarousel = dynamic(() => import("react-owl-carousel"), { ssr: false });
 import InputRange from "react-input-range";
 import HomeLayout from "../components/layouts/home-layout";
 
 const Home = (props) => {
-  const router = useRouter()
+  const router = useRouter();
   useEffect(() => {
     document.getElementById("open-modal").click();
     console.log(document.cookie.split(";"));
-    getMakes();
   }, []);
 
-  const [carData, setCarData] = useState({});
-  const [carMakeData, setCarMakeData] = useState([]);
-  const [carModelData, setCarModelData] = useState([]);
-  const [carYearData, setCarYearData] = useState([]);
-  const [carTrimData, setCarTrimData] = useState([]);
-  const [errorText, setErrorText] = useState("");
-  const [showError, setshowError] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const [value, setValue] = useState({ min: 0, max: 0 });
+  const [loading, setLoading] = useState(false);
+  
   const responsive = {
     0: {
       items: 1,
@@ -70,163 +64,7 @@ const Home = (props) => {
     },
   };
 
-  const getMakes = () => {
-    getCall(`${endpoints.getMake}`)
-      .then((response) => {
-        const data = response.data;
-        setLoading(false);
-        if (response.status === 200) {
-          setErrorText(data.message);
-          setCarMakeData(response.data.data);
-        } else {
-          setshowError(true);
-          setErrorText("Oops! something went wrong. keep calm and try again.");
-        }
-      })
-      .catch((error) => {
-        setshowError(true);
-        setLoading(false);
-        setErrorText("Oops! something went wrong. keep calm and try again.");
-      });
-  };
-  const getModel = (make) => {
-    setLoading(true);
-    getCall(`${endpoints.getModel(make)}`)
-      .then((response) => {
-        const data = response.data;
-        setLoading(false);
-        if (response.status === 200) {
-          setErrorText(data.message);
-          setCarModelData(response.data.data);
-        } else {
-          setshowError(true);
-          setErrorText("Oops! something went wrong. keep calm and try again.");
-        }
-      })
-      .catch((error) => {
-        setshowError(true);
-        setLoading(false);
-        setErrorText("Oops! something went wrong. keep calm and try again.");
-      });
-  };
-  const getYear = (make, model) => {
-    setLoading(true);
-    getCall(`${endpoints.getYear(make, model)}`)
-      .then((response) => {
-        const data = response.data;
-        setLoading(false);
-        if (response.status === 200) {
-          setErrorText(data.message);
-          setCarYearData(response.data.data);
-        } else {
-          setshowError(true);
-          setErrorText("Oops! something went wrong. keep calm and try again.");
-        }
-      })
-      .catch((error) => {
-        setshowError(true);
-        setLoading(false);
-        setErrorText("Oops! something went wrong. keep calm and try again.");
-      });
-  };
-  const getTrim = (make, model) => {
-    setLoading(true);
-    getCall(`${endpoints.getTrim(make, model)}`)
-      .then((response) => {
-        const data = response.data;
-        setLoading(false);
-        if (response.status === 200) {
-          setErrorText(data.message);
-          // console.log("")
-          setCarTrimData(response.data.data);
-        } else {
-          setshowError(true);
-          setErrorText("Oops! something went wrong. keep calm and try again.");
-        }
-      })
-      .catch((error) => {
-        setshowError(true);
-        setLoading(false);
-        setErrorText("Oops! something went wrong. keep calm and try again.");
-      });
-  };
-  const carMakeList = carMakeData.map((make, index) => (
-    <option value={make}>{make}</option>
-  ));
-
-  const carModelList = carModelData.map((model, index) => (
-    <option value={model}>{model}</option>
-  ));
-
-  const carYearList = carYearData.map((year, index) => (
-    <option value={year}>{year}</option>
-  ));
-  const carTrimList = carTrimData?.map((trim, index) => (
-    <option value={trim}>{trim}</option>
-  ));
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const searchParam = {}
-    if (carData.make) {
-      searchParam.make = carData.make.trim()
-    }
-    if (carData.model) {
-      searchParam.model = carData.model
-    }
-    if (carData.minYear) {
-      searchParam.minYear = carData.minYear
-    }
-    if (carData.maxYear) {
-      searchParam.maxYear = carData.maxYear
-    }
-    setLoading(true);
-    getCall(`${endpoints.getSearch(searchParam)}`)
-      .then((response) => {
-        const data = response.data;
-        setLoading(false);
-        if (response.status === 200) {
-          setErrorText(data.message);
-          // console.log("")
-          // setCarTrimData(response.data.data);
-          // router.push({
-          //   pathname: '/post/[pid]',
-          //   query: Object.values(response.data.data),
-          // })
-          router.push(
-            { pathname: '/all-cars' },
-            '/all-cars',
-            { carData: Object.values(response.data.data) }
-          );
-          //   window.history.pushState({
-          //     data: Object.values(response.data.data)
-          // }, undefined, '/all-cars');
-        } else {
-          setshowError(true);
-          setErrorText("Oops! something went wrong. keep calm and try again.");
-        }
-      })
-      .catch((error) => {
-        setshowError(true);
-        setLoading(false);
-        setErrorText("Oops! something went wrong. keep calm and try again.");
-      });
-  };
-
-  const handleSelect = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    if (name == "make") {
-      getModel(value);
-      setCarData({ ...{}, [name]: value })
-    }
-    if (name == "model") {
-      getYear(carData.make, value);
-      getTrim(carData.make, value);
-    }
-    setCarData({ ...carData, [name]: value });
-  };
-  console.log({ carData });
+ 
   return (
     <HomeLayout>
       {loading && <Loading />}
@@ -259,44 +97,43 @@ const Home = (props) => {
                   </div>
                 </div>
               </div>
-
               <img src="/assets/images/banner.svg" alt="banner" />
             </div>
             <div className="item">
               <div className="banner-text">
                 <div className="row">
                   <div className="col-10  col-md-6 mx-auto">
-                    {/* <h1>
+                    <h1>
                       Selling, buying and swapping cars has never been this easy
-                    </h1> */}
+                    </h1>
                   </div>
                 </div>
               </div>
-              <img src="/assets/images/banner2.png" alt="banner" />
+              <img src="/assets/images/banner.svg" alt="banner" />
             </div>
             <div className="item">
               <div className="banner-text">
                 <div className="row">
                   <div className="col-10  col-md-6 mx-auto">
-                    {/* <h1>
+                    <h1>
                       Selling, buying and swapping cars has never been this easy
-                    </h1> */}
+                    </h1>
                   </div>
                 </div>
               </div>
-              <img src="/assets/images/banner3.png" alt="banner" />
+              <img src="/assets/images/banner.svg" alt="banner" />
             </div>
             <div className="item">
               <div className="banner-text">
                 <div className="row">
                   <div className="col-10  col-md-6 mx-auto">
-                    {/* <h1>
+                    <h1>
                       Selling, buying and swapping cars has never been this easy
-                    </h1> */}
+                    </h1>
                   </div>
                 </div>
               </div>
-              <img src="/assets/images/banner4.png" alt="banner" />
+              <img src="/assets/images/banner.svg" alt="banner" />
             </div>
           </OwlCarousel>
           <div className="row banner-bottom">
@@ -314,155 +151,7 @@ const Home = (props) => {
             Feedback
           </button>
         </div>
-
-        <div className="section2 dark-background">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-2 align-self-center">
-                <p className="white-color mt-4">SELECT VEHICLE TYPE</p>
-              </div>
-              <div className="col-md-8">
-                <div className="row mt-3">
-                  <div className="col-4 mb-3 mb-md-0 col-md-2">
-                    <div className="car-option">
-                      <img src="/assets/icons/suv.svg" alt="suv" />
-                      <p className="text-center dark-color">SUV</p>
-                    </div>
-                  </div>
-                  <div className="col-4 mb-3 mb-md-0 col-md-2">
-                    <div className="car-option">
-                      <img src="/assets/icons/pickup.svg" alt="pickup," />
-                      <p className="text-center dark-color">PICKUP</p>
-                    </div>
-                  </div>
-                  <div className="col-4 mb-3 mb-md-0 col-md-2">
-                    <div className="car-option">
-                      <img src="/assets/icons/coupe.svg" alt="coupe" />
-                      <p className="text-center dark-color">COUPE</p>
-                    </div>
-                  </div>
-                  <div className="col-4 mb-3 mb-md-0 col-md-2">
-                    <div className="car-option">
-                      <img src="/assets/icons/suv.svg" alt="convertible" />
-                      <p className="text-center dark-color">CONVERTIBLE</p>
-                    </div>
-                  </div>
-                  <div className="col-4 mb-3 mb-md-0 col-md-2">
-                    <div className="car-option">
-                      <img src="/assets/icons/sedan.svg" alt="sedan" />
-                      <p className="text-center dark-color">SEDAN</p>
-                    </div>
-                  </div>
-                  <div className="col-4 mb-3 mb-md-0 col-md-2">
-                    <div className="car-option">
-                      <img src="/assets/icons/mini.svg" alt="mini" />
-                      <p className="text-center dark-color">MINICAR</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* <div className="col-md-2 text-right">
-                                <button className="btn btn-link message teal-button"><img src="/assets/icons/message.svg" /></button>
-                            </div> */}
-              <Chat />
-            </div>
-
-            <form className="mt-5" onSubmit={handleSubmit}>
-              <div className="form-row">
-                <div className="form-group col-6 col-md-3">
-                  <select
-                    name="make"
-                    className="form-control"
-                    onChange={handleSelect}
-                  >
-                    <option selected>Any Make</option>
-                    {carMakeList}
-                  </select>
-                </div>
-
-                <div className="form-group col-6 col-md-3">
-                  <select
-                    name="model"
-                    className="form-control"
-                    onChange={handleSelect}
-                    disabled={!carData.make}
-                  >
-                    <option selected>Any Model</option>
-                    {carModelList}
-                  </select>
-                </div>
-
-                <div className="form-group col-6 col-md-3">
-                  <select name="status" className="form-control last" onChange={handleSelect}
-                    disabled={!carData.model}>
-                    <option selected>Vehicle Status</option>
-                    {carTrimList}
-                  </select>
-                </div>
-                <div className="form-group col-6 col-md-3 ranger">
-                  <div className="row">
-                    <label
-                      htmlFor="formControlRange"
-                      className="col-sm-4 pl-0 pr-0 col-form-label"
-                    >
-                      PRICE RANGE
-                    </label>
-                    <div className="col-12 col-sm-8">
-                      {/* <input type="range" class="form-control-range" id="formControlRange" /> */}
-
-                      <InputRange
-                        maxValue={30000000}
-                        minValue={800000}
-                        value={value}
-                        onChange={(value) => setValue({ ...value })}
-                        type="button"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div className="form-group col-6 col-md-3">
-                  <select
-                    name="minYear"
-                    className="form-control"
-                    onChange={handleSelect}
-                    disabled={!carData.model}
-                  >
-                    <option selected>Min Year</option>
-                    {carYearList}
-                  </select>
-                </div>
-
-                <div className="form-group col-6 col-md-3">
-                  <select
-                    name="maxYear"
-                    className="form-control"
-                    onChange={handleSelect}
-                    disabled={!carData.model}
-                  >
-                    <option selected>Max Year</option>
-                    {carYearList}
-                  </select>
-                </div>
-
-                <div className="form-group col-12 col-md-6">
-                  <div className="row ">
-                    <p className="col-7 text-left text-md-right advance">
-                      {/* ADVANCE SEARCH */}
-                    </p>
-                    <div className="col-sm-5">
-                      {/* <input type="range" class="form-control-range" id="formControlRange" /> */}
-                      <button type="submit" className="btn btn-primary">
-                        SEARCH THE VEHICLE{" "}
-                        <img src="/assets/icons/caret-right.svg" alt="go" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-
+        <Search/>
         <div className="section3 grey-background">
           <div className="container">
             <div className="row">
@@ -1021,6 +710,7 @@ const Home = (props) => {
           </div>
         </div>
       </div>
+      <ToastContainer align={"right"} position={"bottom"} />
     </HomeLayout>
   );
 };

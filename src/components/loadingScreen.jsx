@@ -1,6 +1,4 @@
 
-// import "../../public/assets/icons/logo-white.svg";
-
 function loadingScreen() {
   return (
     <div className="splash-bg">

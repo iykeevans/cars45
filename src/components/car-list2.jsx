@@ -1,23 +1,26 @@
 import React from "react";
-import { useRouter} from "next/router";
+import { useRouter } from "next/router";
 import { getCall, postCall } from "../api/request";
 import endpoints from "../api/endPoints";
 import Loading from "./loadingScreen";
 
 const Carlist = ({ car }) => {
+  console.log({car})
   React.useEffect(() => {});
 
-  
-  const router = useRouter()
-  const handleRoute = (sku)=>{
+  const router = useRouter();
+  const handleRoute = (sku) => {
     router.push({
-        pathname: '/buy/car/[id]',
-        query: { id: sku },
-      })
-  }
+      pathname: "/buy/car/[id]",
+      query: { id: sku },
+    });
+  };
   return (
     <div className="listing mt-5">
-      <div className="card" onClick={() => handleRoute(`${car.make}_${car.sku}`) }>
+      <div
+        className="card"
+        onClick={() => handleRoute(`${car.make}_${car.sku}`)}
+      >
         <img
           src={`https://buy.cars45.com/image/${car?.image}`}
           className="card-img-top"
@@ -40,28 +43,16 @@ const Carlist = ({ car }) => {
           </div>
           <div className="row condition text-center">
             <div className="col-5 col-md-5 text-center pr-0">
-              <div
-                className={
-                  car.sellingCondition === "nigerian used"
-                    ? " foreign "
-                    : "nigeria"
-                }
-              >
-                <p>Nigerian Used</p>
+              <div className=" foreign ">
+                <p>{car.sellingCondition? car.sellingCondition: "Foreign Used"}</p>
               </div>
             </div>
             <div className="col-2 col-md-2">
               <div className="vertical-line" />
             </div>
             <div className="col-5 col-md-5 text-center pl-0">
-              <div
-                className={
-                  car.sellingCondition !== "nigerian used"
-                    ? " foreign "
-                    : "nigeria"
-                }
-              >
-                <p>Foreign Used</p>
+              <div className="nigeria">
+                <p>{car.carCategory}</p>
               </div>
               {/* <div className="direct">
                                                 <p>Car45-Direct</p>
@@ -74,7 +65,7 @@ const Carlist = ({ car }) => {
 
           <div className="row mt-2">
             <div className="col-md-12">
-              <p className="price">₦ {car.price}</p>
+              <p className="price">₦ {(car?.price * 1)?.toLocaleString()}</p>
               <p className="mile">
                 <small>Mileage: </small>
                 {car.mileage}
@@ -99,7 +90,5 @@ const Carlist = ({ car }) => {
     </div>
   );
 };
-
-
 
 export default Carlist;
