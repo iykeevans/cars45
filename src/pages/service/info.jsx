@@ -44,6 +44,15 @@ export default function info() {
   const router = useRouter();
   const [selectedTab, setSelectedTab] = useState("Periodic services");
 
+  const handleRequestAService = () => {
+    const query = Object.keys(router.query).length ? { ...router.query } : {};
+
+    router.push({
+      pathname: "/service/book-a-repair",
+      query: { ...query, serviceType: selectedTab },
+    });
+  };
+
   return (
     <HomeLayout>
       <div className="container-fluid">
@@ -137,7 +146,7 @@ export default function info() {
         <div className="d-flex justify-content-center">
           <Button
             className="text-center rounded"
-            onClick={() => router.push("/service/book-a-repair")}
+            onClick={handleRequestAService}
           >
             REQUEST A SERVICE NOW
           </Button>
