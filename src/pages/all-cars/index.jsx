@@ -76,7 +76,7 @@ const Home = (props) => {
         <div className="jumbotron">
           <button
             className="btn btn-danger"
-            onClick={() => props.history.push("/feedback")}
+            onClick={() => router.push("/feedback")}
           >
             Feedback
           </button>

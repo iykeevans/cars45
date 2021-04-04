@@ -199,7 +199,7 @@ const Search = (props) => {
             });
           }
           const resDataArr = Object.values(resData).filter(
-            (item) => item.status == "Available"
+            (item) => item.status
           );
           if (resDataArr.length < 1) {
             return toast.notify(

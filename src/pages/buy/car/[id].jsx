@@ -304,7 +304,7 @@ const Cardetails = (props) => {
                                 <h4>Recommended Marketplace Cars For You</h4>
                                 <div ref={ref} className="autopreneneur-recommended">
                                     {mock_cars.map((item, index) => (
-                                        <Carlist key={index} />
+                                        <Carlist key={index} car={item} />
                                     ))}
                                 </div>
                             </div>

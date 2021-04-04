@@ -1,15 +1,14 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { auto_slides } from "../../asset/data/service";
-import Carlist from "../../components/car-list";
 import HomeLayout from "../../components/layouts/home-layout";
 import Link from 'next/link';
+import Recommeneded from "../../components/recommended"
 
 
 export default function Autopreneur() {
   const ref = useRef();
   const [state, setstate] = useState(auto_slides);
   let [currentSlide, setCurrent] = useState(0);
-  const mock_cars = Array.from({ length: 10 }, (x) => x);
 
   const prev = () => {
     if (currentSlide === 0) {
@@ -25,19 +24,6 @@ export default function Autopreneur() {
     return setCurrent((currentSlide += 1));
   };
 
-  const slide = (position) => {
-    let left = ref.current.scrollLeft;
-    switch (position) {
-      case "next":
-        ref.current.scroll(left + 510, 0);
-        return;
-      case "prev":
-        ref.current.scroll(left - 510, 0);
-        return;
-      default:
-        return;
-    }
-  };
 
   return (
     <HomeLayout footer="two" >
@@ -58,18 +44,7 @@ export default function Autopreneur() {
         </div>
         <Link href="https://autopreneur.cars45.ng/">Get started</Link>
         <div className="autopreneneur-line"></div>
-        <div className="autopreneneur-rec-carousel">
-          <h1 onClick={() => slide("prev")}>&#x2039;</h1>
-          <div className="autopreneneur-suggestion">
-            <h4>Recommended Marketplace Cars For You</h4>
-            <div ref={ref} className="autopreneneur-recommended">
-              {mock_cars.map((item, index) => (
-                <Carlist key={index} />
-              ))}
-            </div>
-          </div>
-          <h1 onClick={() => slide("next")}>&#x203A;</h1>
-        </div>
+        <Recommeneded/>
       </div>
     </HomeLayout>
   );

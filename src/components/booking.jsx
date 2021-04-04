@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import cookie from "js-cookie"
-import { useRouter} from "next/router";
+import { useRouter } from "next/router";
 
 import Inputs from "./forms";
-import HomeLayout from "./layouts/home-layout";
 import { toast, ToastContainer } from "react-nextjs-toast";
 import { getCall, postCall } from "../api/request";
 import endpoints from "../api/endPoints";
@@ -17,8 +16,7 @@ const Booking = (props) => {
   const [carTrimData, setCarTrimData] = useState([]);
   const [carCitiesData, setCarCitiesData] = useState([]);
   const [carCentreData, setCarCentreData] = useState([]);
-  const [errorText, setErrorText] = useState("");
-  const [showError, setshowError] = useState(false);
+  const [slotData, setSlotData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState({
     name: "",
@@ -40,7 +38,6 @@ const Booking = (props) => {
   }, []);
 
   const handleChange = (selectedOption, name) => {
-    console.log({ selectedOption });
     if (!selectedOption[name]) {
       setFormError({ ...formError, [name]: "Please select an option" });
     } else {
@@ -67,6 +64,9 @@ const Booking = (props) => {
     }
     if (name == "city") {
       getCentre(selectedOption[name]);
+    }
+    if (name == "placeId") {
+      getSlot(selectedOption[name]);
     }
     setData({ ...data, ...selectedOption });
   };
@@ -270,6 +270,38 @@ const Booking = (props) => {
       });
   };
 
+  const getSlot = (placeId) => {
+    setLoading(true);
+    getCall(`${endpoints.getSlot(placeId)}`)
+      .then((response) => {
+        const data = response.data;
+        setLoading(false);
+        if (response.status === 200) {
+          const data = response.data.data;
+          const setData = data.map((item, i) => ({
+            value: item.id,
+            label: item.address1,
+          }));
+
+          setSlotData(data);
+        } else {
+          toast.notify("Oops! something went wrong. keep calm and try again.", {
+            duration: 5,
+            title: "Something when wrong",
+            type: "warning",
+          });
+        }
+      })
+      .catch((error) => {
+        setLoading(false);
+        toast.notify("Oops! something went wrong. keep calm and try again.", {
+          duration: 5,
+          title: "Something when wrong",
+          type: "error",
+        });
+      });
+  };
+
   const submitInspectionForm = async () => {
     try {
       await validateForm();
@@ -298,9 +330,9 @@ const Booking = (props) => {
             title: "Success",
             type: "success",
           });
-          setTimeout(()=>{
+          setTimeout(() => {
             router.reload()
-          },5000)
+          }, 5000)
         } else {
           toast.notify("Oops! something went wrong. keep calm and try again.", {
             duration: 5,
@@ -321,7 +353,7 @@ const Booking = (props) => {
 
   const submitInspectionExponea = async () => {
     setLoading(true);
-     data.user = cookie.get('__exponea_etc__');
+    data.user = cookie.get('__exponea_etc__');
     postCall(`${endpoints.createInspection}`, data)
       .then((response) => {
         setLoading(false);
@@ -349,7 +381,36 @@ const Booking = (props) => {
       });
   };
 
-  console.log({ data });
+  const slotDate = slotData.map((data) => {
+    const arr = Object.keys(data)
+    return {
+      value: arr[0],
+      label: arr[0],
+    }
+  })
+
+  const slotTime = slotData.map((date) => {
+console.log("i dey her",Object.keys(date)[0])
+console.log("data.date",data.date)
+    if (Object.keys(date)[0]===data.date) {
+      console.log("Object.keys(date)[0]", Object.keys(date)[0])
+      const timeArr = Object.values(date)[0].map((time) => {
+        console.log("time oo ", time)
+        return {
+          value: time,
+          label: time,
+        }
+      })
+      // console.log("timeArr", timeArr)
+      return timeArr 
+      // console.log("date[data.date]", date[data.date])
+    }
+  })
+
+
+  console.log("slotTime", slotTime.filter((time)=>typeof time!=="undefined"))
+  // console.log({ data });
+  // console.log({ slotData });
   return (
     <div className="col-md-12">
       {loading && <Loading />}
@@ -440,8 +501,8 @@ const Booking = (props) => {
 
         <Inputs
           name={"date"}
-          type="date"
-          getValues={getValues}
+          type="select"
+          options={slotDate}
           label={"Select date"}
           errorMessage={formError["date"]}
           handleChange={handleChange}
@@ -452,7 +513,7 @@ const Booking = (props) => {
           getValues={getValues}
           required={true}
           name={"time"}
-          type="time"
+          type="select"
           label={"Select time"}
           errorMessage={formError["time"]}
           handleChange={handleChange}
