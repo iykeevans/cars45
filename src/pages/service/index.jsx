@@ -22,6 +22,16 @@ const GridBox = styled.div`
   }
 `;
 
+const GridItem = styled.div`
+  background-color: #eee;
+  height: 210px;
+  cursor: pointer;
+
+  &:hover {
+    background: #ccc;
+  }
+`;
+
 const Button = styled.button`
   background: #21b7ac;
   border: none;
@@ -63,7 +73,7 @@ const Service = (props) => {
     vehicleModel && (query.model = vehicleModel.trim());
 
     router.push({
-      pathname: "/service/info",
+      pathname: "/service/periodic-services",
       query: { ...query },
     });
   };
@@ -173,18 +183,15 @@ const Service = (props) => {
 
             <div className="px-4">
               <GridBox>
-                {services.map(({ title, image }, index) => (
-                  <div
+                {services.map(({ title, image, link }, index) => (
+                  <GridItem
                     className="d-flex flex-column align-items-center justify-content-center"
-                    style={{
-                      backgroundColor: "#eee",
-                      height: 210,
-                    }}
                     key={index}
+                    onClick={() => router.push({ pathname: link })}
                   >
                     <img src={image} alt={title} className="mb-3" />
                     <h6>{title}</h6>
-                  </div>
+                  </GridItem>
                 ))}
               </GridBox>
             </div>
@@ -334,7 +341,12 @@ const Service = (props) => {
                 </div>
               </div>
 
-              <Button className="rounded mt-5 text-white">
+              <Button
+                className="rounded mt-5 text-white"
+                onClick={() =>
+                  router.push({ pathname: "/service/book-a-repair" })
+                }
+              >
                 REQUEST A CALLBACK
               </Button>
             </div>
@@ -375,14 +387,20 @@ const Service = (props) => {
                 {" "}
                 Let our experts tailor a plan for you.
               </p>
-              <div className="bg-orange mt-auto">
-                <div className="img">
+
+              <div
+                className="mt-auto d-flex align-items-center"
+                style={{ background: "#444343" }}
+              >
+                <div>
                   <img
                     src="/assets/images/phone-call.svg"
                     alt="mobile call"
-                    className="mr-2"
+                    style={{ height: 46 }}
                   />
                 </div>
+
+                <div className="ml-3">+234 818 984 0160</div>
               </div>
             </div>
           </div>
