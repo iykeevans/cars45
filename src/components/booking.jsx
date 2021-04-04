@@ -7,6 +7,40 @@ import { toast, ToastContainer } from "react-nextjs-toast";
 import { getCall, postCall } from "../api/request";
 import endpoints from "../api/endPoints";
 import Loading from "./loadingScreen";
+import Paystack from "./paystack"
+
+  import { usePaystackPayment } from 'react-paystack';
+  
+  
+  const config = {
+      reference: (new Date()).getTime(),
+      email: "kanuamani@gmail.com",
+      amount: 20000,
+      publicKey: 'pk_test_204c9b2cde4a3294c5e246245cbcd45ee5567898',
+  };
+  
+  // you can call this function anything
+  const onSuccess = (reference) => {
+    // Implementation for whatever you want to do with reference and after success call.
+    console.log(reference);
+  };
+
+  // you can call this function anything
+  const onClose = () => {
+    // implementation for  whatever you want to do when the Paystack dialog closed.
+    console.log('closed')
+  }
+
+  const PaystackHookExample = () => {
+      const initializePayment = usePaystackPayment(config);
+      return (
+        <div>
+            <button onClick={() => {
+                initializePayment(onSuccess, onClose)
+            }}>Paystack Hooks Implementation</button>
+        </div>
+      );
+  };
 
 const Booking = (props) => {
   const [carData, setCarData] = useState({});
@@ -390,27 +424,17 @@ const Booking = (props) => {
   })
 
   const slotTime = slotData.map((date) => {
-console.log("i dey her",Object.keys(date)[0])
-console.log("data.date",data.date)
     if (Object.keys(date)[0]===data.date) {
-      console.log("Object.keys(date)[0]", Object.keys(date)[0])
       const timeArr = Object.values(date)[0].map((time) => {
-        console.log("time oo ", time)
         return {
           value: time,
           label: time,
         }
       })
-      // console.log("timeArr", timeArr)
       return timeArr 
-      // console.log("date[data.date]", date[data.date])
     }
-  })
+  }).filter(item=>typeof item!=="undefined")[0]
 
-
-  console.log("slotTime", slotTime.filter((time)=>typeof time!=="undefined"))
-  // console.log({ data });
-  // console.log({ slotData });
   return (
     <div className="col-md-12">
       {loading && <Loading />}
@@ -510,7 +534,7 @@ console.log("data.date",data.date)
 
         <Inputs
           placeholder={"Enter your name"}
-          getValues={getValues}
+          options={slotTime}
           required={true}
           name={"time"}
           type="select"
@@ -528,6 +552,7 @@ console.log("data.date",data.date)
             incomingData={data}
           />
         </div>
+        {/* <PaystackHookExample/> */}
       </form>
       <ToastContainer align={"right"} position={"bottom"} />
     </div>
