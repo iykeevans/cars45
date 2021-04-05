@@ -182,6 +182,7 @@ const Buy = (props) => {
     };
     const search = (searchParams) => {
         if (searchParams?.make === 'Make') delete searchParams.make
+        setLoading(true);
         getCall(`${endpoints.getSearch(searchParams)}`)
             .then((response) => {
                 const data = response.data;
