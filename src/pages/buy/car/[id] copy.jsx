@@ -206,7 +206,7 @@ const Cardetails = (props) => {
 
                                 <div className="tab-content" id="myTabContent">
                                     <div className="tab-pane fade active show" id="details" role="tabpanel" aria-labelledby="details-tab">
-                                        <Caroverview {...props} />
+                                        <Caroverview {...props} car={{}} />
 
                                     </div>
 
@@ -216,7 +216,7 @@ const Cardetails = (props) => {
                                             <div className="container pl-0 pl-md-5 pt-0 pt-md-3">
                                                 <h5 className="overview">Features</h5>
 
-                                                <Carfeatures  {...props} />
+                                                <Carfeatures  {...props} car={{}} />
                                             </div>
                                         </div>
                                     </div>
@@ -227,7 +227,7 @@ const Cardetails = (props) => {
                                     <div className="tab-pane fade" id="inspection" role="tabpanel" aria-labelledby="inspection-tab">
                                         <div className="row">
                                             <div className="col-md-9">
-                                                <Carinspection {...props} />
+                                                <Carinspection {...props} car={{}} />
                                             </div>
                                         </div>
 
