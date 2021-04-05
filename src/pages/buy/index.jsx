@@ -128,7 +128,6 @@ const Buy = (props) => {
                 if (response.status === 200) {
                     setErrorText(data.message);
                     setCarYearData(response.data.data);
-                    console.log(response.data.data)
                 } else {
                     setshowError(true);
                     setErrorText("Oops! something went wrong. keep calm and try again.");
@@ -159,7 +158,6 @@ const Buy = (props) => {
                 setLoading(false);
                 if (response.status === 200) {
                     setErrorText(data.message);
-                    // console.log("")
                     setCarTrimData(response.data.data);
                 } else {
                     setshowError(true);
@@ -268,7 +266,6 @@ const Buy = (props) => {
             items: 1
         }
     };
-    console.log({ carMakeData })
     return (
         <HomeLayout footer="two" header="two">
             {loading && <Loading />}

@@ -6,7 +6,6 @@ const Forms = (props) => {
     const [selectedoption, setSelectedOption] = React.useState(null);
 
     const handleChange = selectedOption => {
-        console.log(selectedOption)
         setSelectedOption(selectedOption);
         props.handleChange({ [props.name]: selectedOption.value }, props.name)
     };

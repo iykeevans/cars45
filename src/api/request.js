@@ -25,7 +25,6 @@ const apikey ="b1028a8c-182c-44d2-b27d-6713e692803f";
   
   export async function getCall(endpoint, headers) {
     // const apikey = cookie.get('__exponea_etc__');
-    console.log({apikey})
     return axios({
       method: 'GET',
       url: endpoint,

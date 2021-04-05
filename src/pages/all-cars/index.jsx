@@ -17,6 +17,7 @@ import next from "next";
 const Home = (props) => {
   const router = useRouter();
   useEffect(() => {
+    getPagination()
   }, []);
 
   const [carData, setCarData] = useState({});
@@ -24,7 +25,7 @@ const Home = (props) => {
     window?.history?.state?.options?.carData || []
   );
   const [loading, setLoading] = useState(false);
-  const [pagination, setPagination] = useState({ from: 0, to: 20, currentPage: 1, pages: [] })
+  const [pagination, setPagination] = useState({ from: 0, to: 20, currentPage: 1, pages: [], limit: 20, total: 0 })
   const responsive = {
     0: {
       items: 1,
@@ -67,8 +68,32 @@ const Home = (props) => {
       items: 1,
     },
   };
-
- 
+  const getPagination = () => {
+    let carData = window?.history?.state?.options?.carData
+    let pages = Math.ceil(carData.length / pagination.limit)
+    let total = pages
+    let pageData = []
+    let count = 0
+    for (let i = 1; i <= pages; i++) {
+      pageData = [...pageData, i]
+      count += 1
+      if (count === pages) {
+        setPagination({ ...pagination, pages: pageData, total })
+      }
+    }
+  }
+  const next = () => {
+    let currentPage = pagination.currentPage + 1
+    let to = pagination.to + pagination.limit
+    let from = pagination.from + pagination.limit
+    setPagination({ ...pagination, currentPage, to, from })
+  }
+  const prev = () => {
+    let currentPage = pagination.currentPage - 1
+    let to = pagination.to - pagination.limit
+    let from = pagination.from - pagination.limit
+    setPagination({ ...pagination, currentPage, to, from })
+  }
   return (
     <HomeLayout>
       {loading && <Loading />}
@@ -76,19 +101,19 @@ const Home = (props) => {
         <div className="jumbotron">
           <button
             className="btn btn-danger"
-            onClick={() => props.history.push("/feedback")}
+            onClick={() => router.push("/feedback")}
           >
             Feedback
           </button>
         </div>
 
-        <Search/>
+        <Search />
 
         <div className="container my-5">
           {/* <div className="row d-none d-md-flex"> */}
           <div className="row">
             {/* .slice(pagination.from, pagination.to) */}
-            {searchResultData.map((car, index) => (
+            {searchResultData.slice(pagination.from, pagination.to).map((car, index) => (
               <CarList car={car} />
             ))}
           </div>
@@ -99,11 +124,11 @@ const Home = (props) => {
                 <a className="page-link" onClick={() => prev()} tabIndex={-1} aria-disabled="true">Previous</a>
               </li>
               {pagination.pages.map(page => (
-                <li className="page-item"><button className="page-link btn btn-link" href="#" key={page}>{page}</button></li>
+                <li className={page === pagination.currentPage ? "page-item active" : "page-item"}><button className="page-link btn btn-link" href="#" key={page}>{page}</button></li>
               ))}
 
-              <li className="page-item">
-                <a className={pagination.currentPage === pagination.pages ? "page-link disabled" : "page-link"} onClick={() => next()}>Next</a>
+              <li className={pagination.currentPage >= pagination.total ? "page-item disabled" : "page-item"}>
+                <a className={"page-link"} onClick={() => next()}>Next</a>
               </li>
             </ul>
           </nav> : null}

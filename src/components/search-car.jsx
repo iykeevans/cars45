@@ -13,8 +13,6 @@ import InputRange from "react-input-range";
 const Search = (props) => {
   const router = useRouter();
   useEffect(() => {
-    // document.getElementById("open-modal").click();
-    // console.log(document.cookie.split(";"));
     getMakes();
   }, []);
 
@@ -27,7 +25,6 @@ const Search = (props) => {
   const [showError, setshowError] = useState(false);
   const [loading, setLoading] = useState(true);
   const [value, setValue] = useState({ min: 0, max: 0 });
-  console.log({ value });
   const responsive = {
     0: {
       items: 1,
@@ -138,7 +135,6 @@ const Search = (props) => {
         setLoading(false);
         if (response.status === 200) {
           setErrorText(data.message);
-          // console.log("")
           setCarTrimData(response.data.data);
         } else {
           setshowError(true);
@@ -199,7 +195,7 @@ const Search = (props) => {
             });
           }
           const resDataArr = Object.values(resData).filter(
-            (item) => item.status == "Available"
+            (item) => item.status
           );
           if (resDataArr.length < 1) {
             return toast.notify(

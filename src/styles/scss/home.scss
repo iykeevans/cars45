@@ -208,10 +208,16 @@
             max-height: 215px;
             overflow: hidden;
         }
+        .card-img-top {
+            overflow: hidden;
+            height: 216px !important;
+            width: inherit;
+        }
         .price {
             background-color: $cr-tealgreen;
             color: $cr-white;
-            width: 60%;
+            width: 80%;
+            text-align: center;
         }
         .car-name {
             color: #313030;
@@ -620,6 +626,12 @@
         }
         .section3 .featured-img {
             width: 340px;
+            height: 200px !important;
+        }
+        .section3 .featured-img img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
         }
         .section3 .owl-carousel .owl-nav button.owl-prev {
             margin-right: 20px;
@@ -694,6 +706,9 @@
     }
     .disabled .page-link {
         border-color: $cr-darkgrey !important;
+    }
+    .page-item.active .page-link {
+        background-color: $cr-tealgreen !important;
     }
 
     /* Small devices (portrait tablets and large phones, 600px and up) */

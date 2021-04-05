@@ -1,13 +1,9 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { getCall, postCall } from "../api/request";
-import endpoints from "../api/endPoints";
-import Loading from "./loadingScreen";
+
 
 const Carlist = ({ car }) => {
-  console.log({car})
-  React.useEffect(() => {});
-
+  
   const router = useRouter();
   const handleRoute = (sku) => {
     router.push({
@@ -21,11 +17,7 @@ const Carlist = ({ car }) => {
         className="card"
         onClick={() => handleRoute(`${car.make}_${car.sku}`)}
       >
-        <img
-          src={`https://buy.cars45.com/image/${car?.image}`}
-          className="card-img-top"
-          alt="..."
-        />
+        <img src={!car.image ? "/assets/images/carlistimg-demo@2x.png" : `https://buy.cars45.com/image/${car.image}`} className="card-img-top" alt="..." />
         <div className="card-body">
           <div className="row border-bottom">
             <div className="col-8 col-md-8">

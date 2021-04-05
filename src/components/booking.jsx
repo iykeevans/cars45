@@ -1,24 +1,23 @@
 import React, { useEffect, useState } from "react";
 import cookie from "js-cookie"
-import { useRouter} from "next/router";
+import { useRouter } from "next/router";
 
 import Inputs from "./forms";
-import HomeLayout from "./layouts/home-layout";
 import { toast, ToastContainer } from "react-nextjs-toast";
 import { getCall, postCall } from "../api/request";
 import endpoints from "../api/endPoints";
-import Loading from "./loadingScreen";
+import Loading from "./inspectionLoadingScreen";
+import { payWithPaystack } from "../utils"
 
-const Booking = (props) => {
-  const [carData, setCarData] = useState({});
+const Booking = () => {
   const [carMakeData, setCarMakeData] = useState([]);
   const [carModelData, setCarModelData] = useState([]);
   const [carYearData, setCarYearData] = useState([]);
   const [carTrimData, setCarTrimData] = useState([]);
   const [carCitiesData, setCarCitiesData] = useState([]);
   const [carCentreData, setCarCentreData] = useState([]);
-  const [errorText, setErrorText] = useState("");
-  const [showError, setshowError] = useState(false);
+  const [slotData, setSlotData] = useState([]);
+  const [isPaymentSuccessfull, setIsPaymentSuccessfull] = useState(false);
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState({
     name: "",
@@ -38,9 +37,8 @@ const Booking = (props) => {
   useEffect(() => {
     getMakes();
   }, []);
-
+const path = router.pathname
   const handleChange = (selectedOption, name) => {
-    console.log({ selectedOption });
     if (!selectedOption[name]) {
       setFormError({ ...formError, [name]: "Please select an option" });
     } else {
@@ -67,6 +65,9 @@ const Booking = (props) => {
     }
     if (name == "city") {
       getCentre(selectedOption[name]);
+    }
+    if (name == "placeId") {
+      getSlot(selectedOption[name]);
     }
     setData({ ...data, ...selectedOption });
   };
@@ -270,6 +271,38 @@ const Booking = (props) => {
       });
   };
 
+  const getSlot = (placeId) => {
+    setLoading(true);
+    getCall(`${endpoints.getSlot(placeId)}`)
+      .then((response) => {
+        const data = response.data;
+        setLoading(false);
+        if (response.status === 200) {
+          const data = response.data.data;
+          const setData = data.map((item, i) => ({
+            value: item.id,
+            label: item.address1,
+          }));
+
+          setSlotData(data);
+        } else {
+          toast.notify("Oops! something went wrong. keep calm and try again.", {
+            duration: 5,
+            title: "Something when wrong",
+            type: "warning",
+          });
+        }
+      })
+      .catch((error) => {
+        setLoading(false);
+        toast.notify("Oops! something went wrong. keep calm and try again.", {
+          duration: 5,
+          title: "Something when wrong",
+          type: "error",
+        });
+      });
+  };
+
   const submitInspectionForm = async () => {
     try {
       await validateForm();
@@ -298,9 +331,9 @@ const Booking = (props) => {
             title: "Success",
             type: "success",
           });
-          setTimeout(()=>{
+          setTimeout(() => {
             router.reload()
-          },5000)
+          }, 5000)
         } else {
           toast.notify("Oops! something went wrong. keep calm and try again.", {
             duration: 5,
@@ -321,7 +354,7 @@ const Booking = (props) => {
 
   const submitInspectionExponea = async () => {
     setLoading(true);
-     data.user = cookie.get('__exponea_etc__');
+    data.user = cookie.get('__exponea_etc__');
     postCall(`${endpoints.createInspection}`, data)
       .then((response) => {
         setLoading(false);
@@ -349,7 +382,38 @@ const Booking = (props) => {
       });
   };
 
-  console.log({ data });
+  const slotDate = slotData.map((data) => {
+    const arr = Object.keys(data)
+    return {
+      value: arr[0],
+      label: arr[0],
+    }
+  })
+
+  const slotTime = slotData.map((date) => {
+    if (Object.keys(date)[0] === data.date) {
+      const timeArr = Object.values(date)[0].map((time) => {
+        return {
+          value: time,
+          label: time,
+        }
+      })
+      return timeArr
+    }
+  }).filter(item => typeof item !== "undefined")[0]
+
+  const {name, email, phone} = data
+  if(name&&email&&phone&&!isPaymentSuccessfull&& path==="/premium-inspection"){
+    payWithPaystack({
+      email,
+      amount: 1000000,
+      name,
+      phone,
+      setIsPaymentSuccessfull
+    })
+  }
+
+
   return (
     <div className="col-md-12">
       {loading && <Loading />}
@@ -440,8 +504,8 @@ const Booking = (props) => {
 
         <Inputs
           name={"date"}
-          type="date"
-          getValues={getValues}
+          type="select"
+          options={slotDate}
           label={"Select date"}
           errorMessage={formError["date"]}
           handleChange={handleChange}
@@ -449,10 +513,10 @@ const Booking = (props) => {
 
         <Inputs
           placeholder={"Enter your name"}
-          getValues={getValues}
+          options={slotTime}
           required={true}
           name={"time"}
-          type="time"
+          type="select"
           label={"Select time"}
           errorMessage={formError["time"]}
           handleChange={handleChange}
@@ -467,6 +531,8 @@ const Booking = (props) => {
             incomingData={data}
           />
         </div>
+        {/* <button onClick={payWithPaystack}>Pay</button> */}
+        {/* <PaystackHookExample/> */}
       </form>
       <ToastContainer align={"right"} position={"bottom"} />
     </div>

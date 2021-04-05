@@ -48,13 +48,6 @@ const Cardetails = (props) => {
     };
     var slider = React.useRef()
     const getNext = (val) => {
-        console.log(document.getElementsByClassName('slick-thumb').scrollLeft)
-        // scroller.scrollTo(`slideClass${val}`, {
-        //     duration: 800,
-        //     delay: 0,
-        //     smooth: "easeInOutQuart",
-        //     offset: 100
-        // });
     }
     const next = () => {
         slider.slickNext()
@@ -259,7 +252,7 @@ const Cardetails = (props) => {
                                 <h4>Recommended Marketplace Cars For You</h4>
                                 <div ref={ref} className="autopreneneur-recommended">
                                     {mock_cars.map((item, index) => (
-                                        <Carlist key={index} />
+                                        <Carlist key={index} car={item} />
                                     ))}
                                 </div>
                             </div>
