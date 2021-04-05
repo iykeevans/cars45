@@ -13,7 +13,6 @@ const WebsiteFeedback = () => {
     ]
     const handleChange = selectedOption => {
         setSelectedOption(selectedOption);
-        console.log(`Option selected:`, selectedOption);
     };
     return (
         <div className="website-feedback" style={{ backgroundColor: "#C7C5C5" }}>

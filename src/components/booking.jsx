@@ -6,44 +6,10 @@ import Inputs from "./forms";
 import { toast, ToastContainer } from "react-nextjs-toast";
 import { getCall, postCall } from "../api/request";
 import endpoints from "../api/endPoints";
-import Loading from "./loadingScreen";
-import Paystack from "./paystack"
+import Loading from "./inspectionLoadingScreen";
+import { payWithPaystack } from "../utils"
 
-  import { usePaystackPayment } from 'react-paystack';
-  
-  
-  const config = {
-      reference: (new Date()).getTime(),
-      email: "kanuamani@gmail.com",
-      amount: 20000,
-      publicKey: 'pk_test_204c9b2cde4a3294c5e246245cbcd45ee5567898',
-  };
-  
-  // you can call this function anything
-  const onSuccess = (reference) => {
-    // Implementation for whatever you want to do with reference and after success call.
-    console.log(reference);
-  };
-
-  // you can call this function anything
-  const onClose = () => {
-    // implementation for  whatever you want to do when the Paystack dialog closed.
-    console.log('closed')
-  }
-
-  const PaystackHookExample = () => {
-      const initializePayment = usePaystackPayment(config);
-      return (
-        <div>
-            <button onClick={() => {
-                initializePayment(onSuccess, onClose)
-            }}>Paystack Hooks Implementation</button>
-        </div>
-      );
-  };
-
-const Booking = (props) => {
-  const [carData, setCarData] = useState({});
+const Booking = () => {
   const [carMakeData, setCarMakeData] = useState([]);
   const [carModelData, setCarModelData] = useState([]);
   const [carYearData, setCarYearData] = useState([]);
@@ -51,6 +17,7 @@ const Booking = (props) => {
   const [carCitiesData, setCarCitiesData] = useState([]);
   const [carCentreData, setCarCentreData] = useState([]);
   const [slotData, setSlotData] = useState([]);
+  const [isPaymentSuccessfull, setIsPaymentSuccessfull] = useState(false);
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState({
     name: "",
@@ -70,7 +37,7 @@ const Booking = (props) => {
   useEffect(() => {
     getMakes();
   }, []);
-
+const path = router.pathname
   const handleChange = (selectedOption, name) => {
     if (!selectedOption[name]) {
       setFormError({ ...formError, [name]: "Please select an option" });
@@ -424,16 +391,28 @@ const Booking = (props) => {
   })
 
   const slotTime = slotData.map((date) => {
-    if (Object.keys(date)[0]===data.date) {
+    if (Object.keys(date)[0] === data.date) {
       const timeArr = Object.values(date)[0].map((time) => {
         return {
           value: time,
           label: time,
         }
       })
-      return timeArr 
+      return timeArr
     }
-  }).filter(item=>typeof item!=="undefined")[0]
+  }).filter(item => typeof item !== "undefined")[0]
+
+  const {name, email, phone} = data
+  if(name&&email&&phone&&!isPaymentSuccessfull&& path==="/premium-inspection"){
+    payWithPaystack({
+      email,
+      amount: 1000000,
+      name,
+      phone,
+      setIsPaymentSuccessfull
+    })
+  }
+
 
   return (
     <div className="col-md-12">
@@ -552,6 +531,7 @@ const Booking = (props) => {
             incomingData={data}
           />
         </div>
+        {/* <button onClick={payWithPaystack}>Pay</button> */}
         {/* <PaystackHookExample/> */}
       </form>
       <ToastContainer align={"right"} position={"bottom"} />

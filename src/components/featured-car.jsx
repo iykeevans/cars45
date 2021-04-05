@@ -77,7 +77,6 @@ const Home = (props) => {
         });
       });
   };
-console.log({carData})
  
   return (
     <>

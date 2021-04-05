@@ -7,6 +7,7 @@ import { toast, ToastContainer } from "react-nextjs-toast";
 import BookingForm from "../../components/booking"
 
 const Ridehailing = (props) => {
+  const [loading, setLoading] = useState(true);
   return (
     <HomeLayout>
       <div className="ride-hailing">
@@ -157,7 +158,7 @@ const Ridehailing = (props) => {
                       </div>
                     </div>
 
-                    <BookingForm/>
+                    <BookingForm setLoading={setLoading}/>
                   </div>
                 </div>
               </div>

@@ -112,13 +112,6 @@ const Cardetails = (props) => {
     };
     var slider = React.useRef()
     const getNext = (val) => {
-        console.log(document.getElementsByClassName('slick-thumb').scrollLeft)
-        // scroller.scrollTo(`slideClass${val}`, {
-        //     duration: 800,
-        //     delay: 0,
-        //     smooth: "easeInOutQuart",
-        //     offset: 100
-        // });
     }
     const next = () => {
         slider.slickNext()
