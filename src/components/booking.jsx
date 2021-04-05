@@ -440,13 +440,22 @@ const path = router.pathname
 
         <Inputs
           name={"phone"}
-          type={"text"}
+          type={"tel"}
           placeholder={"Enter your phone number"}
           label={"Phone number"}
           getValues={getValues}
           errorMessage={formError["phone"]}
           required={true}
         />
+        {path==="/premium-inspection"&&<Inputs
+          name={"address"}
+          type={"text"}
+          placeholder={"Enter your address"}
+          label={"Address"}
+          getValues={getValues}
+          errorMessage={formError["address"]}
+          required={true}
+        />}
 
         <Inputs
           name={"make"}

@@ -2,48 +2,56 @@ export const services = [
   {
     image: "/assets/icons/service/periodic_services.svg",
     title: "Periodic services",
+    link: "/service/periodic-services",
     content:
       "A range of car services tailored specifically for all your preventive maintenance needs. Choose what your car requires and discover the most efficient and hassle-free car servicing in town.",
   },
   {
     image: "/assets/icons/service/denting_painting.svg",
     title: "Denting and painting",
+    link: "/service/denting-and-painting",
     content:
       "Convenient and top quality repair services for all your predictive and corrective maintenance needs.",
   },
   {
     image: "/assets/icons/service/cleaning_detailing.svg",
     title: "Cleaning and detailing",
+    link: "/service/cleaning-and-detailing",
     content:
       "Premium professional vehicle cleaning and detailing service to your delight. Give your car the clean and slick treatment it deserves. ",
   },
   {
     image: "/assets/icons/service/ac.svg",
     title: "AC Services and repair",
+    link: "/service/ac-services-and-repairs",
     content:
       "Comprehensive body repair services ranging from minor scratches and dents to major collision repairs. We offer top-quality oven-baked painting using state-of-the-art equipment. Let us give your car the makeover it deserves.",
   },
   {
     image: "/assets/icons/service/tyre_wheels.svg",
     title: "Tires and wheel care",
+    link: "/service/tyres-and-wheel-care",
     content:
       "Comprehensive body repair services ranging from minor scratches and dents to major collision repairs. We offer top-quality oven-baked painting using state-of-the-art equipment. Let us give your car the makeover it deserves.",
   },
   {
     image: "/assets/icons/service/general_repairs.svg",
     title: "General repairs",
+    link: "/service/general-repairs",
     content:
       "Comprehensive body repair services ranging from minor scratches and dents to major collision repairs. We offer top-quality oven-baked painting using state-of-the-art equipment. Let us give your car the makeover it deserves.",
   },
   {
     image: "/assets/icons/service/inspection_diagnostics.svg",
     title: "Inspection and diagnostics",
+    link: "/service/inspection-and-diagnostics",
     content:
       "Comprehensive body repair services ranging from minor scratches and dents to major collision repairs. We offer top-quality oven-baked painting using state-of-the-art equipment. Let us give your car the makeover it deserves.",
   },
   {
     image: "/assets/icons/service/upgrade_uplift.svg",
-    title: "Upgrades and uplifts",
+    title: "Upgrades & Face lifts",
+    link: "/service/upgrades-and-face-lifts",
     content:
       "Comprehensive body repair services ranging from minor scratches and dents to major collision repairs. We offer top-quality oven-baked painting using state-of-the-art equipment. Let us give your car the makeover it deserves.",
   },

@@ -10,7 +10,7 @@ import Loading from "./loadingScreen";
 import InputRange from "react-input-range";
 
 
-const Search = (props) => {
+const Search = ({setSearchResultData}) => {
   const router = useRouter();
   useEffect(() => {
     getMakes();
@@ -210,6 +210,7 @@ const Search = (props) => {
           router.push({ pathname: "/all-cars" }, "/all-cars", {
             carData: resDataArr,
           });
+          setSearchResultData(resDataArr)
         } else {
           setLoading(false);
           toast.notify("Oops! something went wrong. keep calm and try again.", {

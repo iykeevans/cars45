@@ -22,55 +22,14 @@ const Home = (props) => {
 
   const [carData, setCarData] = useState({});
   const [searchResultData, setSearchResultData] = useState(
-    window?.history?.state?.options?.carData || []
+    typeof window !== "undefined" ? window?.history?.state?.options?.carData : []
   );
   const [loading, setLoading] = useState(false);
   const [pagination, setPagination] = useState({ from: 0, to: 20, currentPage: 1, pages: [], limit: 20, total: 0 })
-  const responsive = {
-    0: {
-      items: 1,
-    },
-    450: {
-      items: 1,
-    },
-    600: {
-      items: 1,
-    },
-    1000: {
-      items: 1,
-    },
-  };
-  const responsivefeatures = {
-    0: {
-      items: 1,
-    },
-    450: {
-      items: 1,
-    },
-    600: {
-      items: 1,
-    },
-    1000: {
-      items: 4,
-    },
-  };
-  const response = {
-    0: {
-      items: 1,
-    },
-    450: {
-      items: 1,
-    },
-    600: {
-      items: 1,
-    },
-    1000: {
-      items: 1,
-    },
-  };
+  
   const getPagination = () => {
     let carData = window?.history?.state?.options?.carData
-    let pages = Math.ceil(carData.length / pagination.limit)
+    let pages = Math.ceil(carData?.length / pagination.limit)
     let total = pages
     let pageData = []
     let count = 0
@@ -107,13 +66,13 @@ const Home = (props) => {
           </button>
         </div>
 
-        <Search />
+        <Search setSearchResultData={setSearchResultData}/>
 
         <div className="container my-5">
           {/* <div className="row d-none d-md-flex"> */}
           <div className="row">
             {/* .slice(pagination.from, pagination.to) */}
-            {searchResultData.slice(pagination.from, pagination.to).map((car, index) => (
+            {searchResultData?.slice(pagination.from, pagination.to).map((car, index) => (
               <CarList car={car} />
             ))}
           </div>
