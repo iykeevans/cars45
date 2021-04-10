@@ -8,8 +8,7 @@
     "start": "next start"
   },
   "engines": {
-    "npm": "6.4.1",
-    "node": "10.15.3"
+    "npm": "6.4.1"
   },
   "dependencies": {
     "axios": "^0.21.1",
