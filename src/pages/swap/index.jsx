@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 // import { NavLink, Link } from "react-router-dom";
 import Inputs from "../../components/forms";
+import cookie from "js-cookie"
 
 import Chat from "../../components/chat";
 import Security from "../../components/security";
@@ -34,10 +35,13 @@ const Swap_car = (props) => {
     model: "",
     trim: "",
     year: "",
+    year2: "",
+    year3: "",
     city: "",
     placeId: "",
     date: "",
     time: "",
+    budget: "",
   });
   const [formError, setFormError] = React.useState({});
   const router = useRouter()
@@ -51,23 +55,26 @@ const Swap_car = (props) => {
     } else {
       delete formError[name];
     }
-    if (name == "make") {
+    if (name == "make" || name == "make2" || name == "make3") {
       getModel(selectedOption[name]);
       setCarModelData([]);
       setData({
         ...data,
-        model: "",
-        city: "",
-        year: "",
-        trim: "",
         ...selectedOption,
       });
       return;
       // setCarData({ ...{}, [name]: selectedOption })
     }
-    if (name == "model") {
-      getYear(data.make, selectedOption[name]);
-      getTrim(data.make, selectedOption[name]);
+    if (name == "model" || name == "model2" || name == "model3") {
+      let makeName = "make"
+      const modelLastChar = name[name.length - 1]
+      if (typeof modelLastChar === "number") {
+        console.log("odelLastChar", modelLastChar)
+        console.log("make${modelLastChar}", `make${modelLastChar}`)
+        makeName = `make${modelLastChar}`
+      }
+      getYear(data[makeName], selectedOption[name]);
+      getTrim(data[makeName], selectedOption[name]);
       getCities();
 
     }
@@ -190,6 +197,7 @@ const Swap_car = (props) => {
         });
       });
   };
+
   const getTrim = (make, model) => {
     setLoading(true);
     getCall(`${endpoints.getTrim(make, model)}`)
@@ -218,6 +226,7 @@ const Swap_car = (props) => {
         });
       });
   };
+
   const getCities = () => {
     setLoading(true);
     getCall(`${endpoints.getCities}`)
@@ -341,6 +350,14 @@ const Swap_car = (props) => {
       })
     }
     if (step === 2) {
+      if (!data.make || !data.model || !data.email || !data.year || !data.trim || !data.phone) {
+        toast.notify("Kindly fill all required fields.", {
+          duration: 5,
+          title: "Missing fields",
+          type: "error",
+        });
+        return
+      }
       setSteps({
         firstStep: false,
         secondStep: true,
@@ -348,6 +365,14 @@ const Swap_car = (props) => {
       })
     }
     if (step === 3) {
+      if (!data.make2 || !data.budget || !data.model2 || !data.year2 || !data.make3 || !data.model3 || !data.year3) {
+        toast.notify("Kindly fill all required fields.", {
+          duration: 5,
+          title: "Missing fields",
+          type: "error",
+        });
+        return
+      }
       setSteps({
         firstStep: false,
         secondStep: false,
@@ -355,6 +380,70 @@ const Swap_car = (props) => {
       })
     }
   }
+
+  const submitInspectionExponea = async (e) => {
+    e.preventDefault();
+    // await validateForm();
+    setLoading(true);
+    const payload = {
+      make: data.make,
+      model: data.model,
+      year: data.year,
+      trim: data.trim,
+      budget: data.budget,
+      swap1: {
+        make: data.make2,
+        model: data.model2,
+        year: data.year2,
+        trim: "Automatic"
+      },
+      swap2: {
+        make: data.make3,
+        model: data.model3,
+        year: data.year3,
+        trim: "Automatic"
+      },
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+      city: data.city,
+      location: data.location,
+      bookingDate: data.date,
+      bookingTime: data.time,
+      leadType: data.referral,
+      leadSource: data.leadSource,
+      user: cookie.get('__exponea_etc__')
+    }
+    postCall(`${endpoints.createCarSwapInspection}`, payload)
+      .then((response) => {
+        setLoading(false);
+        if (response.status === 200) {
+          toast.notify("Thanks, we have received your car swap inspection", {
+            duration: 10,
+            title: "Success",
+            type: "success",
+          });
+          setTimeout(() => {
+            router.push("/")
+          }, 5000)
+        } else {
+          toast.notify("Oops! something went wrong. keep calm and try again.", {
+            duration: 5,
+            title: "Something when wrong",
+            type: "warning",
+          });
+        }
+      })
+      .catch((error) => {
+        setLoading(false);
+        toast.notify("Oops! something went wrong. keep calm and try again.", {
+          duration: 5,
+          title: "Something when wrong",
+          type: "error",
+        });
+      });
+  };
+
   return (
     <>
       {
@@ -409,6 +498,7 @@ do you want?</div>}
                       name={"email"}
                       type={"email"}
                       placeholder={"Enter your email"}
+                      value={data.email}
                       label={"Email"}
                       getValues={getValues}
                       errorMessage={formError["email"]}
@@ -423,7 +513,7 @@ do you want?</div>}
                       errorMessage={formError["phone"]}
                       required={true}
                     />
-                    <button className="mt-4 d-flex" onClick={() => switchStep(2)}>Next <div className="arrow"><img src="/assets/icons/arrow-right.svg" alt="arrow right" /></div></button>
+                    <div className="mt-5 d-flex btn next" onClick={() => switchStep(2)}>Next <div className="arrow"><img src="/assets/icons/arrow-right.svg" alt="arrow right" /></div></div>
                   </div>}
                 {steps.secondStep &&
                   <div className="step-2">
@@ -432,40 +522,40 @@ do you want?</div>}
                       chance of finding you the right match
           </p>
                     <Inputs
-                      name={"amount"}
-                      type={"text"}
-                      placeholder={"Enter your amount"}
-                      label={"Amount"}
+                      name={"budget"}
+                      type={"number"}
+                      placeholder={"Enter your budget"}
+                      label={"Budget"}
                       getValues={getValues}
-                      errorMessage={formError["amount"]}
+                      errorMessage={formError["budget"]}
                       required={true}
                     />
                     <div className="big-text text-lg mt-5 mb-4 display-md ">
                       1st Choice
         </div>
                     <Inputs
-                      name={"make"}
+                      name={"make2"}
                       type="select"
                       label={"Select Brand"}
-                      errorMessage={formError["make"]}
+                      errorMessage={formError["make2"]}
                       options={carMakeData}
                       handleChange={handleChange}
                     />
 
                     <Inputs
-                      name={"model"}
+                      name={"model2"}
                       type="select"
                       label={"Select Model"}
-                      errorMessage={formError["model"]}
+                      errorMessage={formError["model2"]}
                       options={carModelData}
                       handleChange={handleChange}
                     />
 
                     <Inputs
-                      name={"year"}
+                      name={"year2"}
                       type="select"
                       label={"Year"}
-                      errorMessage={formError["year"]}
+                      errorMessage={formError["year2"]}
                       options={carYearData}
                       handleChange={handleChange}
                     />
@@ -473,34 +563,34 @@ do you want?</div>}
                       2nd Choice
         </div>
                     <Inputs
-                      name={"make"}
+                      name={"make3"}
                       type="select"
                       label={"Select Brand"}
-                      errorMessage={formError["make"]}
+                      errorMessage={formError["make3"]}
                       options={carMakeData}
                       handleChange={handleChange}
                     />
 
                     <Inputs
-                      name={"model"}
+                      name={"model3"}
                       type="select"
                       label={"Select Model"}
-                      errorMessage={formError["model"]}
+                      errorMessage={formError["model3"]}
                       options={carModelData}
                       handleChange={handleChange}
                     />
 
                     <Inputs
-                      name={"year"}
+                      name={"year3"}
                       type="select"
                       label={"Year"}
-                      errorMessage={formError["year"]}
+                      errorMessage={formError["year3"]}
                       options={carYearData}
                       handleChange={handleChange}
                     />
                     <div className="d-flex flex-column flex-md-row mt-5">
-                      <button className="prev" onClick={() => switchStep(1)}>Previous </button>
-                      <button className=" mt-3 mt-md-0" onClick={() => switchStep(3)}>Next </button>
+                      <div className="prev btn" onClick={() => switchStep(1)}>Previous </div>
+                      <div className=" mt-3 mt-md-0 btn" onClick={() => switchStep(3)}>Next </div>
                     </div>
                   </div>}
                 {steps.thirdStep &&
@@ -572,14 +662,14 @@ do you want?</div>}
                     <Inputs
                       placeholder={"Enter your name"}
                       options={howDoYouHearAboutUs}
-                      required={true}
-                      name={"time"}
+                      // required={true}
+                      name={"leadSource"}
                       type="select"
                       label={"How do you hear about us (optional)"}
-                      errorMessage={formError["time"]}
+                      errorMessage={formError["leadSource"]}
                       handleChange={handleChange}
                     />
-                    <button className="mt-4 d-flex">Finish </button>
+                    <button className="mt-4 d-flex" onClick={submitInspectionExponea}>Finish </button>
                   </div>}
               </form>
             </div>

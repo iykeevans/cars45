@@ -31,7 +31,7 @@
       margin: 0 auto;
       margin-bottom: 5em;
 
-      button {
+      button,.btn {
         background: var(--unnamed-color-ff9101) 0% 0% no-repeat padding-box;
         background: #ff9101 0% 0% no-repeat padding-box;
         box-shadow: 0px 3px 6px #00000029;
@@ -43,7 +43,7 @@
         border: none;
         padding: 0.5em 1em;
         margin: 0 auto;
-        margin-bottom: 5em;
+        margin-bottom: 1em;
         .arrow {
           height: 20px;
           width: 20px;
@@ -58,6 +58,10 @@
       .prev{
         background-color: #000;
         color: #ffffff;
+      }
+      .next{
+        width: 100px;
+        text-align: center;
       }
       .big-text{
         font-size: 30px;
