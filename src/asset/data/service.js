@@ -244,3 +244,5 @@ export const auto_slides = [
     ),
   },
 ];
+
+export const howDoYouHearAboutUs = [{ value: "Billboard - Abuja", label: "Billboard - Abuja" } , { value: "Billboard - Lagos", label: "Billboard - Lagos" } , { value: "Billboard - Lekki", label: "Billboard - Lekki" },  { value: "Billboard - PH", label: "Billboard - PH" }  , { value: "DSTV - Movies", label: "DSTV - Movies" } , { value: "DSTV - News", label: "DSTV - News" },{ value: "DSTV - Sport", label: "DSTV - Sport" },{ value: "Facebook", label: "Facebook"} ,{ value: "Flag", label: "Flag"}, { value: "Fuel Station Advert", label: "Fuel Station Advert"}]
