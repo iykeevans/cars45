@@ -13,5 +13,6 @@ export default {
     getCities: `${baseURL}/cities`,
     createBooking: `${baseURL}/booking`,
     createInspection: `${baseURL}/car-inspection`,
+    createCarSwapInspection: `${baseURL}/swapcar-inspection`,
     createContact: `${baseURL}/contact`,
 }
