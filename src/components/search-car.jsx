@@ -10,7 +10,7 @@ import Loading from "./loadingScreen";
 import InputRange from "react-input-range";
 
 
-const Search = ({setSearchResultData}) => {
+const Search = ({ setSearchResultData }) => {
   const router = useRouter();
   useEffect(() => {
     getMakes();
@@ -247,154 +247,154 @@ const Search = ({setSearchResultData}) => {
   return (
     <div>
       {loading && <Loading />}
-        <div className="section2 dark-background">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-2 align-self-center">
-                <p className="white-color mt-4">SELECT VEHICLE TYPE</p>
-              </div>
-              <div className="col-md-8">
-                <div className="row mt-3">
-                  <div className="col-4 mb-3 mb-md-0 col-md-2">
-                    <div className="car-option">
-                      <img src="/assets/icons/suv.svg" alt="suv" />
-                      <p className="text-center dark-color">SUV</p>
-                    </div>
-                  </div>
-                  <div className="col-4 mb-3 mb-md-0 col-md-2">
-                    <div className="car-option">
-                      <img src="/assets/icons/pickup.svg" alt="pickup," />
-                      <p className="text-center dark-color">PICKUP</p>
-                    </div>
-                  </div>
-                  <div className="col-4 mb-3 mb-md-0 col-md-2">
-                    <div className="car-option">
-                      <img src="/assets/icons/coupe.svg" alt="coupe" />
-                      <p className="text-center dark-color">COUPE</p>
-                    </div>
-                  </div>
-                  <div className="col-4 mb-3 mb-md-0 col-md-2">
-                    <div className="car-option">
-                      <img src="/assets/icons/suv.svg" alt="convertible" />
-                      <p className="text-center dark-color">CONVERTIBLE</p>
-                    </div>
-                  </div>
-                  <div className="col-4 mb-3 mb-md-0 col-md-2">
-                    <div className="car-option">
-                      <img src="/assets/icons/sedan.svg" alt="sedan" />
-                      <p className="text-center dark-color">SEDAN</p>
-                    </div>
-                  </div>
-                  <div className="col-4 mb-3 mb-md-0 col-md-2">
-                    <div className="car-option">
-                      <img src="/assets/icons/mini.svg" alt="mini" />
-                      <p className="text-center dark-color">MINICAR</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <Chat />
+      <div className="section2 dark-background">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-2 align-self-center">
+              <p className="white-color mt-4">SELECT VEHICLE TYPE</p>
             </div>
-
-            <form className="mt-5" onSubmit={handleSubmit}>
-              <div className="form-row">
-                <div className="form-group col-6 col-md-3">
-                  <select
-                    name="make"
-                    className="form-control"
-                    onChange={handleSelect}
-                  >
-                    <option selected>Any Make</option>
-                    {carMakeList}
-                  </select>
-                </div>
-
-                <div className="form-group col-6 col-md-3">
-                  <select
-                    name="model"
-                    className="form-control"
-                    onChange={handleSelect}
-                    disabled={!carData.make}
-                  >
-                    <option selected>Any Model</option>
-                    {carModelList}
-                  </select>
-                </div>
-
-                <div className="form-group col-6 col-md-3">
-                  <select
-                    name="status"
-                    className="form-control last"
-                    onChange={handleSelect}
-                    disabled={!carData.model}
-                  >
-                    <option selected>Vehicle Status</option>
-                    {carTrimList}
-                  </select>
-                </div>
-                <div className="form-group col-6 col-md-3 ranger">
-                  <div className="row">
-                    <label
-                      htmlFor="formControlRange"
-                      className="col-sm-4 pl-0 pr-0 col-form-label"
-                    >
-                      PRICE RANGE
-                    </label>
-                    <div className="col-12 col-sm-8">
-                      {/* <input type="range" class="form-control-range" id="formControlRange" /> */}
-
-                      <InputRange
-                        maxValue={30000000}
-                        minValue={800000}
-                        value={value}
-                        onChange={(value) => setValue({ ...value })}
-                        type="button"
-                      />
-                    </div>
+            <div className="col-md-8">
+              <div className="row mt-3">
+                <div className="col-4 mb-3 mb-md-0 col-md-2">
+                  <div className="car-option">
+                    <img src="/assets/icons/suv.svg" alt="suv" />
+                    <p className="text-center dark-color">SUV</p>
                   </div>
                 </div>
-                <div className="form-group col-6 col-md-3">
-                  <select
-                    name="minYear"
-                    className="form-control"
-                    onChange={handleSelect}
-                    disabled={!carData.model}
-                  >
-                    <option selected>Min Year</option>
-                    {carYearList}
-                  </select>
+                <div className="col-4 mb-3 mb-md-0 col-md-2">
+                  <div className="car-option">
+                    <img src="/assets/icons/pickup.svg" alt="pickup," />
+                    <p className="text-center dark-color">PICKUP</p>
+                  </div>
                 </div>
-
-                <div className="form-group col-6 col-md-3">
-                  <select
-                    name="maxYear"
-                    className="form-control"
-                    onChange={handleSelect}
-                    disabled={!carData.model}
-                  >
-                    <option selected>Max Year</option>
-                    {carYearList}
-                  </select>
+                <div className="col-4 mb-3 mb-md-0 col-md-2">
+                  <div className="car-option">
+                    <img src="/assets/icons/coupe.svg" alt="coupe" />
+                    <p className="text-center dark-color">COUPE</p>
+                  </div>
                 </div>
-
-                <div className="form-group col-12 col-md-6">
-                  <div className="row ">
-                    <p className="col-7 text-left text-md-right advance">
-                      {/* ADVANCE SEARCH */}
-                    </p>
-                    <div className="col-sm-5">
-                      {/* <input type="range" class="form-control-range" id="formControlRange" /> */}
-                      <button type="submit" className="btn btn-primary">
-                        SEARCH THE VEHICLE{" "}
-                        <img src="/assets/icons/caret-right.svg" alt="go" />
-                      </button>
-                    </div>
+                <div className="col-4 mb-3 mb-md-0 col-md-2">
+                  <div className="car-option">
+                    <img src="/assets/icons/suv.svg" alt="convertible" />
+                    <p className="text-center dark-color">CONVERTIBLE</p>
+                  </div>
+                </div>
+                <div className="col-4 mb-3 mb-md-0 col-md-2">
+                  <div className="car-option">
+                    <img src="/assets/icons/sedan.svg" alt="sedan" />
+                    <p className="text-center dark-color">SEDAN</p>
+                  </div>
+                </div>
+                <div className="col-4 mb-3 mb-md-0 col-md-2">
+                  <div className="car-option">
+                    <img src="/assets/icons/mini.svg" alt="mini" />
+                    <p className="text-center dark-color">MINICAR</p>
                   </div>
                 </div>
               </div>
-            </form>
+            </div>
+            <Chat />
           </div>
+
+          <form className="mt-5" onSubmit={handleSubmit}>
+            <div className="form-row">
+              <div className="form-group col-6 col-md-3">
+                <select
+                  name="make"
+                  className="form-control"
+                  onChange={handleSelect}
+                >
+                  <option selected>Any Make</option>
+                  {carMakeList}
+                </select>
+              </div>
+
+              <div className="form-group col-6 col-md-3">
+                <select
+                  name="model"
+                  className="form-control"
+                  onChange={handleSelect}
+                  disabled={!carData.make}
+                >
+                  <option selected>Any Model</option>
+                  {carModelList}
+                </select>
+              </div>
+
+              <div className="form-group col-6 col-md-3">
+                <select
+                  name="status"
+                  className="form-control last"
+                  onChange={handleSelect}
+                  disabled={!carData.model}
+                >
+                  <option selected>Vehicle Status</option>
+                  {carTrimList}
+                </select>
+              </div>
+              <div className="form-group col-6 col-md-3 ranger">
+                <div className="row">
+                  <label
+                    htmlFor="formControlRange"
+                    className="col-sm-4 pl-0 pr-0 col-form-label"
+                  >
+                    PRICE RANGE
+                    </label>
+                  <div className="col-12 col-sm-8">
+                    {/* <input type="range" class="form-control-range" id="formControlRange" /> */}
+
+                    <InputRange
+                      maxValue={30000000}
+                      minValue={800000}
+                      value={value}
+                      onChange={(value) => setValue({ ...value })}
+                      type="button"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="form-group col-6 col-md-3">
+                <select
+                  name="minYear"
+                  className="form-control"
+                  onChange={handleSelect}
+                  disabled={!carData.model}
+                >
+                  <option selected>Min Year</option>
+                  {carYearList}
+                </select>
+              </div>
+
+              <div className="form-group col-6 col-md-3">
+                <select
+                  name="maxYear"
+                  className="form-control"
+                  onChange={handleSelect}
+                  disabled={!carData.model}
+                >
+                  <option selected>Max Year</option>
+                  {carYearList}
+                </select>
+              </div>
+
+              <div className="form-group col-12 col-md-6">
+                <div className="row ">
+                  <p className="col-7 text-left text-md-right advance">
+                    {/* ADVANCE SEARCH */}
+                  </p>
+                  <div className="col-sm-5">
+                    {/* <input type="range" class="form-control-range" id="formControlRange" /> */}
+                    <button type="submit" className="btn btn-primary">
+                      SEARCH THE VEHICLE{" "}
+                      <img src="/assets/icons/caret-right.svg" alt="go" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
+      </div>
       <ToastContainer align={"right"} position={"bottom"} />
     </div>
   );
