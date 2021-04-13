@@ -69,8 +69,6 @@ const Swap_car = (props) => {
       let makeName = "make"
       const modelLastChar = name[name.length - 1]
       if (typeof modelLastChar === "number") {
-        console.log("odelLastChar", modelLastChar)
-        console.log("make${modelLastChar}", `make${modelLastChar}`)
         makeName = `make${modelLastChar}`
       }
       getYear(data[makeName], selectedOption[name]);
@@ -83,6 +81,9 @@ const Swap_car = (props) => {
     }
     if (name == "placeId") {
       getSlot(selectedOption[name]);
+      const placeLabel = carCentreData.filter((item)=>item.value===selectedOption["placeId"])[0].label
+      setData({ ...data, location: placeLabel });
+      return;
     }
     setData({ ...data, ...selectedOption });
   };
@@ -395,13 +396,13 @@ const Swap_car = (props) => {
         make: data.make2,
         model: data.model2,
         year: data.year2,
-        trim: "Automatic"
+        trim: data.trim2
       },
       swap2: {
         make: data.make3,
         model: data.model3,
         year: data.year3,
-        trim: "Automatic"
+        trim: data.trim3
       },
       name: data.name,
       email: data.email,
@@ -559,6 +560,14 @@ do you want?</div>}
                       options={carYearData}
                       handleChange={handleChange}
                     />
+                    <Inputs
+                      name={"trim2"}
+                      type="select"
+                      label={"Gear type"}
+                      errorMessage={formError["trim2"]}
+                      options={carTrimData}
+                      handleChange={handleChange}
+                    />
                     <div className="big-text text-lg mt-5 mb-4">
                       2nd Choice
         </div>
@@ -577,6 +586,14 @@ do you want?</div>}
                       label={"Select Model"}
                       errorMessage={formError["model3"]}
                       options={carModelData}
+                      handleChange={handleChange}
+                    />
+                    <Inputs
+                      name={"trim"}
+                      type="select"
+                      label={"Gear type"}
+                      errorMessage={formError["trim"]}
+                      options={carTrimData}
                       handleChange={handleChange}
                     />
 
