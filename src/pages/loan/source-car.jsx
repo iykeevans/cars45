@@ -7,6 +7,9 @@ import Loading from "../../components/loadingScreen";
 import HomeLayout from "../../components/layouts/home-layout";
 import Socials from "../../components/socials";
 import Chat from "../../components/chat";
+import { postCall, getCall } from '../../api/request';
+import endpoint from '../../api/endPoints';
+import { toast, ToastContainer } from "react-nextjs-toast";
 
 const Button = styled.button`
   background: #10cac1;
@@ -40,8 +43,8 @@ const SourceLoanableCar = (props) => {
       errors.email = "Invalid email address";
     }
 
-    if (!values.phoneNo) {
-      errors.phoneNo = "Required";
+    if (!values.phone) {
+      errors.phone = "Required";
     }
 
     if (!values.address) {
@@ -52,16 +55,16 @@ const SourceLoanableCar = (props) => {
       errors.state = "Required";
     }
 
-    if (!values.dateOfBirth) {
-      errors.dateOfBirth = "Required";
-    }
 
-    if (!values.car) {
-      errors.car = "Required";
+    if (!values.interestedInCar) {
+      errors.interestedInCar = "Required";
     }
 
     if (!values.incomeSource) {
       errors.incomeSource = "Required";
+    }
+    if (!values.lga) {
+      errors.lga = "Required";
     }
 
     return errors;
@@ -72,16 +75,38 @@ const SourceLoanableCar = (props) => {
       firstName: "",
       lastName: "",
       email: "",
-      phoneNo: "",
+      phone: "",
       address: "",
       state: "",
-      dateOfBirth: "",
-      car: "",
+      lga: "",
+      interestedInCar: "",
       incomeSource: "business owner",
     },
     validate,
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+    onSubmit: async (values, { resetForm }) => {
+      try {
+        setLoading(true)
+        let headers = {
+          "x-api-key": process.env.FINANCE_API_KEY
+        }
+        let res = await postCall(endpoint.leads, values, headers)
+        if (res.data.status === true) {
+          toast.notify('Your request was sent successfully', {
+            duration: 5,
+            title: "Successful",
+            type: "success",
+          });
+          resetForm()
+        }
+        setLoading(false)
+      } catch (error) {
+        setLoading(false)
+        toast.notify('Oops! something went wrong. keep calm and try again.', {
+          duration: 5,
+          title: "An error occured",
+          type: "error",
+        });
+      }
     },
   });
 
@@ -89,8 +114,8 @@ const SourceLoanableCar = (props) => {
     return !formik.touched[value]
       ? "form-control"
       : formik.errors[value]
-      ? "form-control is-invalid"
-      : "form-control is-valid";
+        ? "form-control is-invalid"
+        : "form-control is-valid";
   };
 
   const renderError = (value) =>
@@ -100,6 +125,7 @@ const SourceLoanableCar = (props) => {
 
   return (
     <HomeLayout>
+      {loading && <Loading />}
       <Socials />
       <Chat />
 
@@ -158,17 +184,17 @@ const SourceLoanableCar = (props) => {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="phoneNo">Phone Number (Linked to BVN)</label>
+            <label htmlFor="phone">Phone Number (Linked to BVN)</label>
             <input
-              className={validationClassSetter("phoneNo")}
-              id="phoneNo"
-              name="phoneNo"
-              value={formik.values.phoneNo}
+              className={validationClassSetter("phone")}
+              id="phone"
+              name="phone"
+              value={formik.values.phone}
               onBlur={formik.handleBlur}
               onChange={formik.handleChange}
             />
 
-            {renderError("phoneNo")}
+            {renderError("phone")}
           </div>
 
           <div className="mb-3">
@@ -186,24 +212,34 @@ const SourceLoanableCar = (props) => {
           </div>
 
           <div className="mb-3">
+            <label htmlFor="lga">Local government</label>
+            <input
+              className={validationClassSetter("lga")}
+              id="lga"
+              name="lga"
+              value={formik.values.lga}
+              onBlur={formik.handleBlur}
+              onChange={formik.handleChange}
+            />
+
+            {renderError("lga")}
+          </div>
+
+          <div className="mb-3">
             <label htmlFor="serviceType">State (Location of Applicant)</label>
-            <select
+            <input
               className={validationClassSetter("state")}
               id="state"
               name="state"
               value={formik.values.state}
               onBlur={formik.handleBlur}
               onChange={formik.handleChange}
-            >
-              <option disabled value="">
-                Choose...
-              </option>
-            </select>
+            />
 
             {renderError("state")}
           </div>
 
-          <div className="mb-3">
+          {/* <div className="mb-3">
             <label htmlFor="city">Date Of Birth</label>
             <select
               className={validationClassSetter("dateOfBirth")}
@@ -216,7 +252,7 @@ const SourceLoanableCar = (props) => {
             />
 
             {renderError("dateOfBirth")}
-          </div>
+          </div> */}
 
           <div className="mb-4">
             <label htmlFor="location">
@@ -224,14 +260,14 @@ const SourceLoanableCar = (props) => {
             </label>
             <input
               type="text"
-              className={validationClassSetter("car")}
-              id="car"
-              value={formik.values.car}
+              className={validationClassSetter("interestedInCar")}
+              id="interestedInCar"
+              value={formik.values.interestedInCar}
               onBlur={formik.handleBlur}
               onChange={formik.handleChange}
             />
 
-            {renderError("car")}
+            {renderError("interestedInCar")}
           </div>
 
           <div>
@@ -278,6 +314,7 @@ const SourceLoanableCar = (props) => {
           </Button>
         </form>
       </div>
+      <ToastContainer align={"right"} position={"bottom"} />
     </HomeLayout>
   );
 };

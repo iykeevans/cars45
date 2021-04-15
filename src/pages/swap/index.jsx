@@ -68,9 +68,10 @@ const Swap_car = (props) => {
     if (name == "model" || name == "model2" || name == "model3") {
       let makeName = "make"
       const modelLastChar = name[name.length - 1]
-      if (typeof modelLastChar === "number") {
+      if (typeof (modelLastChar * 1) === "number") {
         makeName = `make${modelLastChar}`
       }
+      console.log(makeName)
       getYear(data[makeName], selectedOption[name]);
       getTrim(data[makeName], selectedOption[name]);
       getCities();
@@ -81,7 +82,7 @@ const Swap_car = (props) => {
     }
     if (name == "placeId") {
       getSlot(selectedOption[name]);
-      const placeLabel = carCentreData.filter((item)=>item.value===selectedOption["placeId"])[0].label
+      const placeLabel = carCentreData.filter((item) => item.value === selectedOption["placeId"])[0].label
       setData({ ...data, location: placeLabel });
       return;
     }

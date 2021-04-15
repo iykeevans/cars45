@@ -7,6 +7,9 @@ import Loading from "../../components/loadingScreen";
 import HomeLayout from "../../components/layouts/home-layout";
 import Socials from "../../components/socials";
 import Chat from "../../components/chat";
+import { postCall, getCall } from '../../api/request';
+import endpoint from '../../api/endPoints';
+import { toast, ToastContainer } from "react-nextjs-toast";
 
 const Button = styled.button`
   background: ${(props) => (props.secondary ? "#10cac1" : "#ff9101")};
@@ -15,40 +18,116 @@ const Button = styled.button`
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   font-weight: 500;
 `;
-
 const LoanableCarFinancialInformation = (props) => {
-  const [loading, setLoading] = useState(false);
-
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState({})
+  const [banks, setBanks] = useState([])
 
+  React.useEffect(() => {
+    setIncomingData(router.query.data)
+
+  }, [router.query.data])
+
+  React.useEffect(() => {
+    loadBanks()
+  }, [])
+
+  const setIncomingData = (incomingData) => {
+    if (incomingData) {
+      setData({ ...JSON.parse(incomingData) });
+    }
+  }
+  const loadBanks = async () => {
+    try {
+      let banks = await getCall(endpoint.getBanks, {})
+      setBanks(banks.data.data.banks)
+    } catch (error) {
+      toast.notify('Oops! something went wrong. keep calm and try again.', {
+        duration: 5,
+        title: "An error occured",
+        type: "error",
+      });
+    }
+
+  }
   const validate = (values) => {
     const errors = {};
 
-    if (!values.car) {
-      errors.car = "Required";
+    // if (!values.interestedInCar) {
+    //   errors.interestedInCar = "Required";
+    // }
+
+    if (!values.preferredBank) {
+      errors.preferredBank = "Required";
     }
 
-    if (!values.incomeSource) {
-      errors.incomeSource = "Required";
+    if (!values.accountNumber) {
+      errors.accountNumber = "Required";
     }
-
+    if (!values.description) {
+      errors.description = "Required";
+    }
+    if (!values.bvn) {
+      errors.bvn = "Required";
+    }
+    if (!values.netMonthlySal) {
+      errors.netMonthlySal = "Required";
+    }
+    if (!values.amount) {
+      errors.amount = "Required";
+    }
     return errors;
   };
 
   const formik = useFormik({
     initialValues: {
-      car: "",
-      bank: "",
+      interestedInCar: "",
+      preferredBank: "",
       accountNumber: "",
+      description: "",
       bvn: "",
       incomeSource: "business owner",
-      monthlySalary: "",
-      receivingInAccount: "yes",
-      hasActiveLoan: "no",
+      netMonthlySal: "",
+      isActiveLoan: "false",
+      amount: ""
     },
     validate,
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+    onSubmit: async (values) => {
+      setLoading(true)
+      if (values.isActiveLoan === "false") {
+        values.isActiveLoan = false
+      } else if (values.isActiveLoan === "true") {
+        values.isActiveLoan = true
+      }
+      let financeData = { ...values, ...data, callbackURL: `${window.location.host}/loan/congratulations` }
+      let api;
+      switch (financeData.preferredBank) {
+        case ('Sterling Bank'):
+          api = endpoint.payWithSterling
+          break;
+        case ('Guaranty Trust Bank'):
+          api = endpoint.payWithGTB
+      }
+      let headers = {
+        "x-api-key": process.env.FINANCE_API_KEY
+      }
+      try {
+        let res = await postCall(api, financeData, headers)
+        if (financeData.preferredBank === 'Guaranty Trust Bank') {
+          return null
+        }
+        window.location.assign(res.data.data.paymentURL)
+        setLoading(false)
+      } catch (error) {
+        setLoading(false)
+        toast.notify('Oops! something went wrong. keep calm and try again.', {
+          duration: 5,
+          title: "An error occured",
+          type: "error",
+        });
+      }
+
     },
   });
 
@@ -56,8 +135,8 @@ const LoanableCarFinancialInformation = (props) => {
     return !formik.touched[value]
       ? "form-control"
       : formik.errors[value]
-      ? "form-control is-invalid"
-      : "form-control is-valid";
+        ? "form-control is-invalid"
+        : "form-control is-valid";
   };
 
   const renderError = (value) =>
@@ -67,6 +146,7 @@ const LoanableCarFinancialInformation = (props) => {
 
   return (
     <HomeLayout>
+      {loading && <Loading />}
       <Socials />
       <Chat />
 
@@ -75,7 +155,7 @@ const LoanableCarFinancialInformation = (props) => {
           Cars45 Financing
         </h2>
 
-        <form
+        {data.interestedInCar !== undefined && <form
           className="p-4 mb-5 rounded d-flex flex-column"
           style={{ background: "#eee", width: "60vw" }}
           onSubmit={formik.handleSubmit}
@@ -84,34 +164,59 @@ const LoanableCarFinancialInformation = (props) => {
 
           <div className="row mb-3">
             <div className="col-md-6">
-              <label htmlFor="car">
+              <label htmlFor="interestedInCar">
                 Which car are you interested in buying
               </label>
               <input
                 type="text"
-                className={validationClassSetter("firstName")}
-                id="car"
-                name="car"
-                value={formik.values.car}
+                className={validationClassSetter("interestedInCar")}
+                id="interestedInCar"
+                name="interestedInCar"
+                value={data.interestedInCar}
+                disabled
                 onBlur={formik.handleBlur}
                 onChange={formik.handleChange}
               />
 
-              {renderError("car")}
+              {renderError("interestedInCar")}
             </div>
 
             <div className="col-md-6">
-              <label htmlFor="bank">Select you prefered bank</label>
-              <input
-                className={validationClassSetter("bank")}
-                id="bank"
-                name="bank"
-                value={formik.values.bank}
+              <label htmlFor="preferredBank">Select you prefered bank</label>
+              <select
+                className={validationClassSetter("preferredBank")}
+                id="preferredBank"
+                name="preferredBank"
+                value={formik.values.preferredBank}
+                onBlur={formik.handleBlur}
+                onChange={formik.handleChange}
+              >
+                <option value="">Choose one</option>
+                {banks.map((bank, index) => (
+                  <option key={index} value={bank}>{bank}</option>
+                ))}
+              </select>
+
+              {renderError("preferredBank")}
+            </div>
+          </div>
+
+          <div className="row mb-3">
+            <div className="col-md-12">
+              <label htmlFor="description">
+                Description
+              </label>
+              <textarea
+                type="text"
+                className={validationClassSetter("description")}
+                id="description"
+                name="description"
+                value={formik.values.description}
                 onBlur={formik.handleBlur}
                 onChange={formik.handleChange}
               />
 
-              {renderError("bank")}
+              {renderError("description")}
             </div>
           </div>
 
@@ -139,6 +244,7 @@ const LoanableCarFinancialInformation = (props) => {
                 value={formik.values.bvn}
                 onBlur={formik.handleBlur}
                 onChange={formik.handleChange}
+                type="text"
               />
 
               {renderError("bvn")}
@@ -183,27 +289,28 @@ const LoanableCarFinancialInformation = (props) => {
 
           <div className="row mb-4">
             <div className="col-md-8">
-              <label htmlFor="monthlySalary">Monthly Salary</label>
+              <label htmlFor="netMonthlySal">Monthly Salary</label>
               <input
-                className={validationClassSetter("monthlySalary")}
-                id="monthlySalary"
-                name="monthlySalary"
-                value={formik.values.monthlySalary}
+                className={validationClassSetter("netMonthlySal")}
+                id="netMonthlySal"
+                name="netMonthlySal"
+                type="text"
+                value={formik.values.netMonthlySal}
                 onBlur={formik.handleBlur}
                 onChange={formik.handleChange}
               />
 
-              {renderError("monthlySalary")}
+              {renderError("netMonthlySal")}
             </div>
           </div>
 
           <div className="mb-4">
-            <div className="mb-2" htmlFor="incomeSource">
+            {/* <div className="mb-2" htmlFor="incomeSource">
               Have you been receiving your salary in the account for more than 6
               months
-            </div>
+            </div> */}
 
-            <div className="custom-control custom-radio mb-1">
+            {/* <div className="custom-control custom-radio mb-1">
               <input
                 type="radio"
                 className="custom-control-input"
@@ -240,7 +347,7 @@ const LoanableCarFinancialInformation = (props) => {
             </div>
           </div>
 
-          <div>
+          <div> */}
             <div className="mb-2" htmlFor="incomeSource">
               Do you have an Active Loan?
             </div>
@@ -249,10 +356,10 @@ const LoanableCarFinancialInformation = (props) => {
               <input
                 type="radio"
                 className="custom-control-input"
-                name="hasActiveLoan"
+                name="isActiveLoan"
                 id="withActiveLoan"
-                value="yes"
-                checked={formik.values.hasActiveLoan === "yes"}
+                value={true}
+                checked={formik.values.isActiveLoan === "true"}
                 onChange={formik.handleChange}
               />
               <label className="custom-control-label" htmlFor="withActiveLoan">
@@ -264,15 +371,32 @@ const LoanableCarFinancialInformation = (props) => {
               <input
                 type="radio"
                 className="custom-control-input"
-                name="hasActiveLoan"
+                name="isActiveLoan"
                 id="noActiveLoan"
-                value="no"
-                checked={formik.values.hasActiveLoan === "no"}
+                value={"false"}
+                checked={formik.values.isActiveLoan === "false"}
                 onChange={formik.handleChange}
               />
               <label className="custom-control-label" htmlFor="noActiveLoan">
                 No
               </label>
+            </div>
+          </div>
+
+          <div className="row mb-4">
+            <div className="col-md-8">
+              <label htmlFor="amount">Amount</label>
+              <input
+                className={validationClassSetter("amount")}
+                id="amount"
+                name="amount"
+                type="number"
+                value={formik.values.amount}
+                onBlur={formik.handleBlur}
+                onChange={formik.handleChange}
+              />
+
+              {renderError("amount")}
             </div>
           </div>
 
@@ -293,8 +417,9 @@ const LoanableCarFinancialInformation = (props) => {
               Submit
             </Button>
           </div>
-        </form>
+        </form>}
       </div>
+      <ToastContainer align={"right"} position={"bottom"} />
     </HomeLayout>
   );
 };

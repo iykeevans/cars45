@@ -16,15 +16,12 @@ const Cardetails = (props) => {
     useEffect(() => {
         const id = props.id.split("_")[1]
         //  const id = "NG-196632"
-
         getSingleCar(id)
-
     }, [])
     const [carData, setCarData] = useState();
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState('Loading car details...')
     const router = useRouter()
-
     // const getPreviousData = (data) => {
     //     let search = decodeURIComponent(data)
     //     search = search.split('=')[1]
@@ -59,7 +56,7 @@ const Cardetails = (props) => {
                             router.back()
                         }, 5100);
                     } else {
-                        return setCarData(Object.values(response.data.data)[0])
+                        return setCarData(response.data.data)
                     }
                 } else {
                     //   setshowError(true);
@@ -251,7 +248,7 @@ const Cardetails = (props) => {
 
                                 <div className="tab-content" id="myTabContent">
                                     <div className="tab-pane fade active show" id="details" role="tabpanel" aria-labelledby="details-tab">
-                                        <Caroverview car={carData} />
+                                        <Caroverview car={carData} interestedInCar={window.location.href} />
 
                                     </div>
 

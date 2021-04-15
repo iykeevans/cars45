@@ -10,7 +10,7 @@ const Button = styled.button`
   font-weight: 500;
 `;
 
-const Caroverview = ({ car }) => {
+const Caroverview = ({ car, interestedInCar }) => {
   const router = useRouter();
 
   return (
@@ -135,9 +135,11 @@ const Caroverview = ({ car }) => {
                 <div className="d-flex justify-content-end">
                   <Button
                     className="rounded text-white"
-                    onClick={() =>
-                      router.push({ pathname: "/loan/personal-information" })
-                    }
+                    onClick={() => {
+                      let interested = { interestedInCar }
+
+                      router.push({ pathname: "/loan/personal-information", query: { data: JSON.stringify(interested) } })
+                    }}
                   >
                     Proceed To Access Loan
                   </Button>

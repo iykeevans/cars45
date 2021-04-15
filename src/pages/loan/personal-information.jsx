@@ -40,8 +40,8 @@ const SourceLoanableCar = (props) => {
       errors.email = "Invalid email address";
     }
 
-    if (!values.phoneNo) {
-      errors.phoneNo = "Required";
+    if (!values.phone) {
+      errors.phone = "Required";
     }
 
     if (!values.address) {
@@ -52,9 +52,13 @@ const SourceLoanableCar = (props) => {
       errors.state = "Required";
     }
 
-    if (!values.dateOfBirth) {
-      errors.dateOfBirth = "Required";
+    if (!values.lga) {
+      errors.lga = "Required";
     }
+
+    // if (!values.dateOfBirth) {
+    //   errors.dateOfBirth = "Required";
+    // }
 
     return errors;
   };
@@ -64,14 +68,22 @@ const SourceLoanableCar = (props) => {
       firstName: "",
       lastName: "",
       email: "",
-      phoneNo: "",
+      phone: "",
       address: "",
+      lga: "",
       state: "",
-      dateOfBirth: "",
     },
     validate,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      // let interestedInCar = JSON.parse(router.query.data)
+      // let interestedInCar = { interestedInCar: 'https://cars45.com/toyota' }
+      let data = { ...values, ...JSON.parse(router.query.data) }
+      router.push({
+        pathname: '/loan/financial-information',
+        query: { data: JSON.stringify(data) }
+      })
+      // alert(JSON.stringify(values, null, 2));
+
     },
   });
 
@@ -79,8 +91,8 @@ const SourceLoanableCar = (props) => {
     return !formik.touched[value]
       ? "form-control"
       : formik.errors[value]
-      ? "form-control is-invalid"
-      : "form-control is-valid";
+        ? "form-control is-invalid"
+        : "form-control is-valid";
   };
 
   const renderError = (value) =>
@@ -153,17 +165,17 @@ const SourceLoanableCar = (props) => {
             </div>
 
             <div className="col-md-6">
-              <label htmlFor="phoneNo">Phone Number (Linked to BVN)</label>
+              <label htmlFor="phone">Phone Number (Linked to BVN)</label>
               <input
-                className={validationClassSetter("phoneNo")}
-                id="phoneNo"
-                name="phoneNo"
-                value={formik.values.phoneNo}
+                className={validationClassSetter("phone")}
+                id="phone"
+                name="phone"
+                value={formik.values.phone}
                 onBlur={formik.handleBlur}
                 onChange={formik.handleChange}
               />
 
-              {renderError("phoneNo")}
+              {renderError("phone")}
             </div>
           </div>
 
@@ -183,24 +195,34 @@ const SourceLoanableCar = (props) => {
 
           <div className="row">
             <div className="col-md-6">
+              <label htmlFor="lga">Local Government</label>
+              <input
+                className={validationClassSetter("lga")}
+                id="lga"
+                name="lga"
+                value={formik.values.lga}
+                onBlur={formik.handleBlur}
+                onChange={formik.handleChange}
+              />
+
+              {renderError("lga")}
+            </div>
+
+            <div className="col-md-6">
               <label htmlFor="serviceType">State (Location of Applicant)</label>
-              <select
+              <input
                 className={validationClassSetter("state")}
                 id="state"
                 name="state"
                 value={formik.values.state}
                 onBlur={formik.handleBlur}
                 onChange={formik.handleChange}
-              >
-                <option disabled value="">
-                  Choose...
-                </option>
-              </select>
+              />
 
               {renderError("state")}
             </div>
 
-            <div className="col-md-6">
+            {/* <div className="col-md-6">
               <label htmlFor="city">Date Of Birth</label>
               <input
                 className={validationClassSetter("dateOfBirth")}
@@ -213,7 +235,7 @@ const SourceLoanableCar = (props) => {
               />
 
               {renderError("dateOfBirth")}
-            </div>
+            </div> */}
           </div>
 
           <div className="d-flex">
