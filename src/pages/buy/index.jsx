@@ -182,6 +182,9 @@ const Buy = (props) => {
     };
     const search = (searchParams) => {
         if (searchParams?.make === 'Make') delete searchParams.make
+        if (searchParams?.grade) {
+            searchParams.grade = searchParams.grade.toLowerCase()
+        }
         setLoading(true);
         getCall(`${endpoints.getSearch(searchParams)}`)
             .then((response) => {
@@ -198,6 +201,7 @@ const Buy = (props) => {
                         });
                     } else {
                         if (response.data.data.currency) delete response.data.data.currency
+                        if (response.data.data.totalCars) delete response.data.data.totalCars
                         setCarData(Object.values(response.data.data))
                     }
                 } else {
@@ -453,16 +457,21 @@ const Buy = (props) => {
 
 
                         <div className="row d-block d-md-flex d-lg-none">
-                            <div className="col-12 col-md-6 mb-md-3 mb-lg-0">
 
-                                {carData.length >= 5 ? carData.slice(0, 5).map((car, i) => (
+
+                            {carData.length >= 5 ? carData.slice(0, 5).map((car, i) => (
+                                <div key={i} className="col-12 col-md-6 mb-md-3 mb-lg-0">
                                     <Carlist {...props} car={car} />
-                                )) :
+                                </div>
+                            )) :
 
-                                    carData.map((car, i) => (
+                                carData.map((car, i) => (
+                                    <div key={i} className="col-12 col-md-6 mb-md-3 mb-lg-0">
+
                                         <Carlist {...props} car={car} />
-                                    ))}
-                            </div>
+                                    </div>
+
+                                ))}
                         </div>
 
                         <div className="row mt-5 mb-5">

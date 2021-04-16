@@ -121,11 +121,13 @@
         color: $cr-tealgreen;
         box-shadow: none !important;
         background-color: $cr-grey;
+        font-size: 12px;
     }
     .inspection-menu .btn-outline-secondary.active {
         border-right: solid 4px $cr-yellow !important;
         background: $cr-white;
         color: $cr-tealgreen;
+        font-size: 12px;
     }
     .inspection-menu .btn-outline-secondary:hover {
         height: 50px;

@@ -17,7 +17,6 @@ const Home = (props) => {
   const router = useRouter();
   useEffect(() => {
     document.getElementById("open-modal").click();
-    console.log(document.cookie.split(";"));
   }, []);
 
   const [loading, setLoading] = useState(false);

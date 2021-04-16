@@ -10,147 +10,22 @@ const Carfeatures = (props) => {
 
     return (
         <div className="car-overview">
-            <div className="row">
+            {props.features && Object.keys(props.features).length ? <div className="row">
                 <div className="col-md-9 feature-list">
-                    <div className="row">
-                        <div className="col-6">
-                            <p>Cool box</p>
+                    {Object.keys(props.features).map((key, index) => (
+                        <div className="row" key={index}>
+                            <div className="col-6">
+                                <p>{key}</p>
+                            </div>
+                            <div className="col-6 text-left">
+                                <p>{props.features[key]}</p>
+                            </div>
                         </div>
-                        <div className="col-6 text-left">
-                            <p>Yes</p>
-                        </div>
-                    </div>
-
-                    <div className="row">
-                        <div className="col-6">
-                            <p>Sunroof</p>
-                        </div>
-                        <div className="col-6 text-left">
-                            <p>Yes</p>
-                        </div>
-                    </div>
-
-                    <div className="row">
-                        <div className="col-6">
-                            <p>DVD System</p>
-                        </div>
-                        <div className="col-6 text-left">
-                            <p>Yes</p>
-                        </div>
-                    </div>
-
-                    <div className="row">
-                        <div className="col-6">
-                            <p>Remote Key Box</p>
-                        </div>
-                        <div className="col-6 text-left">
-                            <p>Yes</p>
-                        </div>
-                    </div>
-
-                    <div className="row">
-                        <div className="col-6">
-                            <p>Car Tracker</p>
-                        </div>
-                        <div className="col-6 text-left">
-                            <p>Yes</p>
-                        </div>
-                    </div>
-
-                    <div className="row">
-                        <div className="col-6">
-                            <p>Park Assist</p>
-                        </div>
-                        <div className="col-6 text-left">
-                            <p>Yes</p>
-                        </div>
-                    </div>
-
-                    <div className="row">
-                        <div className="col-6">
-                            <p>Heated Seats</p>
-                        </div>
-                        <div className="col-6 text-left">
-                            <p>Yes</p>
-                        </div>
-                    </div>
-
-                    <div className="row">
-                        <div className="col-6">
-                            <p>Seat Massager</p>
-                        </div>
-                        <div className="col-6 text-left">
-                            <p>Yes</p>
-                        </div>
-                    </div>
-
-                    <div className="row">
-                        <div className="col-6">
-                            <p>Parking Sensor</p>
-                        </div>
-                        <div className="col-6 text-left">
-                            <p>Yes</p>
-                        </div>
-                    </div>
-
-                    <div className="row">
-                        <div className="col-6">
-                            <p>Push Start Stop</p>
-                        </div>
-                        <div className="col-6 text-left">
-                            <p>Yes</p>
-                        </div>
-                    </div>
-
-                    <div className="row">
-                        <div className="col-6">
-                            <p>Reverse Camera</p>
-                        </div>
-                        <div className="col-6 text-left">
-                            <p>Yes</p>
-                        </div>
-                    </div>
-
-                    <div className="row">
-                        <div className="col-6">
-                            <p>Navigation System</p>
-                        </div>
-                        <div className="col-6 text-left">
-                            <p>Yes</p>
-                        </div>
-                    </div>
-
-                    <div className="row">
-                        <div className="col-6">
-                            <p>Adaptive Head Lamp</p>
-                        </div>
-                        <div className="col-6 text-left">
-                            <p>Yes</p>
-                        </div>
-                    </div>
-
-                    <div className="row">
-                        <div className="col-6">
-                            <p>Bluetooth Hands Free</p>
-                        </div>
-                        <div className="col-6 text-left">
-                            <p>Yes</p>
-                        </div>
-                    </div>
-
-
-                    <div className="row">
-                        <div className="col-6">
-                            <p>Touchscreen Audio System</p>
-                        </div>
-                        <div className="col-6 text-left">
-                            <p>Yes</p>
-                        </div>
-                    </div>
+                    ))}
                 </div>
 
 
-            </div>
+            </div> : null}
         </div>
     )
 }

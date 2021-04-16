@@ -181,6 +181,12 @@ const Search = ({ setSearchResultData }) => {
       searchParam.minPrice = value.min;
       searchParam.maxPrice = value.max;
     }
+    if (carData.gearType) {
+      searchParam.trim = carData.gearType
+    }
+    if (carData.condition) {
+      searchParam.condition = carData.condition
+    }
     setLoading(true);
     getCall(`${endpoints.getSearch(searchParam)}`)
       .then((response) => {
@@ -241,6 +247,7 @@ const Search = ({ setSearchResultData }) => {
       getYear(carData.make, value);
       getTrim(carData.make, value);
     }
+    console.log(name, value)
     setCarData({ ...carData, [name]: value });
   };
 
@@ -323,12 +330,12 @@ const Search = ({ setSearchResultData }) => {
 
               <div className="form-group col-6 col-md-3">
                 <select
-                  name="status"
+                  name="gearType"
                   className="form-control last"
                   onChange={handleSelect}
                   disabled={!carData.model}
                 >
-                  <option selected>Vehicle Status</option>
+                  <option selected>Gear Type</option>
                   {carTrimList}
                 </select>
               </div>
@@ -377,7 +384,19 @@ const Search = ({ setSearchResultData }) => {
                 </select>
               </div>
 
-              <div className="form-group col-12 col-md-6">
+              <div className="form-group col-6 col-md-3">
+                <select
+                  name="condition"
+                  className="form-control"
+                  onChange={handleSelect}
+                >
+                  <option value="">Select Condition</option>
+                  <option value="new">Brand New</option>
+                  <option value="foreign">Foreign Used</option>
+                  <option value="local">Local Used</option>
+                </select>
+              </div>
+              <div className="form-group col-12 col-md-12 text-md-right">
                 <div className="row ">
                   <p className="col-7 text-left text-md-right advance">
                     {/* ADVANCE SEARCH */}

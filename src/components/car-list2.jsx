@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 
 
 const Carlist = ({ car }) => {
-  
+
   const router = useRouter();
   const handleRoute = (sku) => {
     router.push({
@@ -26,26 +26,26 @@ const Carlist = ({ car }) => {
               </p>
             </div>
             <div className="col-4 col-md-4 text-right">
-              <img
+              {car.grade && <img
                 className="inspection-badge"
-                src={`/assets/icons/badge-${car.grade}.svg`}
-                alt="B"
-              />
+                src={`/assets/icons/badge-${car.grade.toLowerCase()}.svg`}
+                alt={car.grade}
+              />}
             </div>
           </div>
           <div className="row condition text-center">
             <div className="col-5 col-md-5 text-center pr-0">
-              <div className=" foreign ">
-                <p>{car.sellingCondition? car.sellingCondition: "Foreign Used"}</p>
+              <div className={car?.sellingCondition === 'nigerian used' ? "nigeria" : 'foreign'}>
+                <p>{car.sellingCondition ? car.sellingCondition : "Foreign Used"}</p>
               </div>
             </div>
             <div className="col-2 col-md-2">
               <div className="vertical-line" />
             </div>
             <div className="col-5 col-md-5 text-center pl-0">
-              <div className="nigeria">
-                <p>{car.carCategory}</p>
-              </div>
+              {car?.carCategory && <div className={car?.carCategory === 'C45-Direct' ? 'direct' : "market"}>
+                <p>{car?.carCategory}</p>
+              </div>}
               {/* <div className="direct">
                                                 <p>Car45-Direct</p>
                                             </div> */}

@@ -20,7 +20,9 @@ const Cardetails = (props) => {
     }, [])
     const [carData, setCarData] = useState();
     const [loading, setLoading] = useState(false);
-    const [message, setMessage] = useState('Loading car details...')
+    const [message, setMessage] = useState('Loading car details...');
+    const [features, setFeatures] = useState({});
+    const [inspection, setInspection] = useState({});
     const router = useRouter()
     // const getPreviousData = (data) => {
     //     let search = decodeURIComponent(data)
@@ -56,6 +58,35 @@ const Cardetails = (props) => {
                             router.back()
                         }, 5100);
                     } else {
+                        console.log(response.data.data.report)
+                        let detail = response.data.data.report
+                        let initialKey = Object.keys(detail)
+                        let inspection = {}
+                        let features = {}
+                        for (let i in initialKey) {
+                            let key = Object.keys(detail[initialKey[i]])
+                            for (let j in key) {
+                                if (initialKey[i] === 'features') {
+                                    features = {
+                                        ...features,
+                                        [key[j]]: detail[initialKey[i]][key[j]]
+                                    }
+                                } else {
+                                    inspection = {
+                                        ...inspection,
+                                        [key[j]]: detail[initialKey[i]][key[j]]
+                                    }
+                                }
+                            }
+
+                            // value = [...value, Object.values(detail[initialKey[i]])]
+                        }
+                        console.log(inspection)
+                        console.log(features)
+                        setFeatures(features)
+                        setInspection(inspection)
+                        // console.log(value)
+                        // console.(initialKey)
                         return setCarData(response.data.data)
                     }
                 } else {
@@ -134,7 +165,7 @@ const Cardetails = (props) => {
                                             {
                                                 carData?.images?.map((img, index) => (
 
-                                                    <div>
+                                                    <div key={index}>
                                                         <img src={`https://buy.cars45.com/image/${img.images}`} />
                                                     </div>
                                                 ))
@@ -258,7 +289,7 @@ const Cardetails = (props) => {
                                             <div className="container pl-0 pl-md-5 pt-0 pt-md-3">
                                                 <h5 className="overview">Features</h5>
 
-                                                <Carfeatures car={carData} />
+                                                <Carfeatures car={carData} features={features} />
                                             </div>
                                         </div>
                                     </div>
@@ -266,16 +297,16 @@ const Cardetails = (props) => {
 
 
 
-                                    <div className="tab-pane fade" id="inspection" role="tabpanel" aria-labelledby="inspection-tab">
+                                    {/* <div className="tab-pane fade" id="inspection" role="tabpanel" aria-labelledby="inspection-tab">
                                         <div className="row">
                                             <div className="col-md-9">
-                                                <Carinspection car={carData} />
+                                                <Carinspection car={carData} inspection={inspection} />
                                             </div>
                                         </div>
 
 
 
-                                    </div>
+                                    </div> */}
 
 
                                 </div>
