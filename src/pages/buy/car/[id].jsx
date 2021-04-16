@@ -81,7 +81,7 @@ const Cardetails = (props) => {
 
                             // value = [...value, Object.values(detail[initialKey[i]])]
                         }
-                        console.log(inspection)
+                        console.log(response.data.data)
                         console.log(features)
                         setFeatures(features)
                         setInspection(inspection)
@@ -197,7 +197,7 @@ const Cardetails = (props) => {
                                             <p className="simple-details">{carData?.year} {" "} •{carData?.trim} •{carData?.mileage} •₦{(carData?.price * 1)?.toLocaleString()}</p>
                                         </div>
                                         <div className="recent">
-                                            <p>12 buyers have viewed this vehicle in the last 24 hours</p>
+                                            <p>{carData.viewed} buyers have viewed this vehicle in the last 24 hours</p>
                                         </div>
 
 
