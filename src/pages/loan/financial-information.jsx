@@ -114,11 +114,21 @@ const LoanableCarFinancialInformation = (props) => {
       }
       try {
         let res = await postCall(api, financeData, headers)
+        setLoading(false)
         if (financeData.preferredBank === 'Guaranty Trust Bank') {
+          console.log(res.data.data)
+          let resp = res.data.data
+          let formdata = new FormData()
+          Object.keys(resp).map(item => {
+            formdata.append(item, resp[item])
+            console.log(formdata)
+            return true
+          })
+          let gtbpay = await postCall(endpoint.gtbfinance, formdata, headers)
+          console.log(gtbpay)
           return null
         }
         window.location.assign(res.data.data.paymentURL)
-        setLoading(false)
       } catch (error) {
         setLoading(false)
         toast.notify('Oops! something went wrong. keep calm and try again.', {

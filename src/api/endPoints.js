@@ -19,6 +19,7 @@ export default {
     getBanks: `${financeUrl}/banks`,
     payWithSterling: `${financeUrl}/sterling/create`,
     payWithGTB: `${financeUrl}/gtb/create`,
+    gtbfinance: `${financeUrl}/GTPay/Tranx.aspx`,
     verifyFinance: (ref) => `${financeUrl}/sterling/callback?${ref}`,
     leads: `${financeUrl}/leads`
 }

@@ -35,18 +35,22 @@ const Carinspection = (props) => {
     const select = (id) => {
         let count = 0
         let keyys = []
-        title.map(ti => {
+        let titles = title
+        titles.map(ti => {
             if (ti == id) {
-                keyys = []
-                keyys = [ti.split('/')[0] + '/active', ...keyys,]
+                // keyys = []
+
                 setSingleData(data[ti.split('/')[0]])
-                console.log(data[ti.split('/')[0]])
+                keyys = [...keyys, ti.split('/')[0] + '/active']
             } else {
-                keyys = [ti.split('/')[0] + '/notActive', ...keyys,]
+                keyys = [...keyys, ti.split('/')[0] + '/notActive']
+                console.log(ti)
             }
             count += 1
-            if (count === title.length) {
+            if (count === titles.length) {
                 setTitle(keyys)
+                console.log(keyys)
+                return title
             }
         })
 
@@ -83,15 +87,39 @@ const Carinspection = (props) => {
                     </ul> : null}
                 </div>
                 <div className="col-md-9 inspection-details">
-                    <div className="row">
+                    {typeof singleData === 'string' ? <div className="row">
                         <div className="col-md-1 align-self-center">
-                            <img src="/assets/icons/check.svg" alt="check" />
+                            {/* <img src="/assets/icons/check.svg" alt="check" /> */}
                         </div>
-                        {console.log(singleData)}
                         <div className="col-md-11 align-self-center">
-                            <p>{typeof singleData === 'string' ? singleData : null}</p>
+                            <p>{singleData}</p>
+                            {typeof singleData === 'object' ? <div>
+                                {Object.keys(singleData).map((singlekey, index) => (
+                                    <p key={index}>{`${singlekey}: ${singleData[singlekey]}`}</p>
+                                ))}
+                            </div> : null}
                         </div>
-                    </div>
+                    </div> :
+
+                        typeof singleData === 'object' ? <div>
+                            {Object.keys(singleData).map((singlekey, index) => (
+                                <div className="row" key={index}>
+                                    <div className="col-md-1 align-self-center">
+                                        {/* <img src="/assets/icons/check.svg" alt="check" /> */}
+                                    </div>
+                                    <div className="col-md-11 align-self-center">
+                                        <div>
+
+                                            <p>{`${singlekey}: ${singleData[singlekey]}`}</p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div> : null}
+
+
+
 
                     {/* <div className="row">
                         <div className="col-md-1 align-self-center">

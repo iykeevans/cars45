@@ -148,18 +148,21 @@ const Search = ({ setSearchResultData }) => {
       });
   };
   const carMakeList = carMakeData.map((make, index) => (
-    <option value={make}>{make}</option>
+    <option key={index} value={make}>{make}</option>
   ));
 
   const carModelList = carModelData.map((model, index) => (
-    <option value={model}>{model}</option>
+    <option key={index} value={model}>{model}</option>
   ));
 
   const carYearList = carYearData.map((year, index) => (
-    <option value={year}>{year}</option>
+    <option key={index} value={year}>{year}</option>
+  ));
+  const carMaxYearList = carYearData.filter(year => year > carData.minYear).map((year, index) => (
+    <option key={index} value={year}>{year}</option>
   ));
   const carTrimList = carTrimData?.map((trim, index) => (
-    <option value={trim}>{trim}</option>
+    <option key={index} value={trim}>{trim}</option>
   ));
 
   const handleSubmit = (e) => {
@@ -380,7 +383,7 @@ const Search = ({ setSearchResultData }) => {
                   disabled={!carData.model}
                 >
                   <option selected>Max Year</option>
-                  {carYearList}
+                  {carMaxYearList}
                 </select>
               </div>
 

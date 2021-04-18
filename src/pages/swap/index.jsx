@@ -68,10 +68,10 @@ const Swap_car = (props) => {
     if (name == "model" || name == "model2" || name == "model3") {
       let makeName = "make"
       const modelLastChar = name[name.length - 1]
-      if (typeof (modelLastChar * 1) === "number") {
+      if (!isNaN(modelLastChar * 1)) {
+        console.log(typeof modelLastChar * 1)
         makeName = `make${modelLastChar}`
       }
-      console.log(makeName)
       getYear(data[makeName], selectedOption[name]);
       getTrim(data[makeName], selectedOption[name]);
       getCities();

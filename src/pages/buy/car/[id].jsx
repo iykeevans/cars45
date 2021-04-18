@@ -183,7 +183,7 @@ const Cardetails = (props) => {
                                     <div className="col-md-5 quick-details">
                                         <div className="row quick-details-container mt-3">
                                             <div className="col-5 col-md-5 align-self-center">
-                                                <h5>{carData?.year} {carData?.make}</h5>
+                                                <h5>{carData?.year} {carData?.make} {carData?.sku}</h5>
                                             </div>
                                             <div className="col-1 col-md-1 text-right">
                                                 <div className="border-right" />
@@ -297,7 +297,7 @@ const Cardetails = (props) => {
 
 
 
-                                    {/* <div className="tab-pane fade" id="inspection" role="tabpanel" aria-labelledby="inspection-tab">
+                                    <div className="tab-pane fade" id="inspection" role="tabpanel" aria-labelledby="inspection-tab">
                                         <div className="row">
                                             <div className="col-md-9">
                                                 <Carinspection car={carData} inspection={inspection} />
@@ -306,7 +306,7 @@ const Cardetails = (props) => {
 
 
 
-                                    </div> */}
+                                    </div>
 
 
                                 </div>

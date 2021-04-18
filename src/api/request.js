@@ -12,6 +12,7 @@ export async function postCall(endpoint, data, headers) {
     headers: {
       'Content-Type': 'application/json',
       Accept: "*/*",
+      apikey,
       ...headers,
     },
     data,
