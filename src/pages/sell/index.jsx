@@ -12,7 +12,7 @@ const Sell_car = (props) => {
         <div className="hero ">
         </div>
         <div className="text-area container pb-5  ">
-          <div className="heading mb-5  mt-5 mt-lg-0 text-center">
+          <div className="heading mb-5  mt-5 mt-lg-0 mt-xl-5 text-center">
             Sell your car without stress
         </div>
           <form className=" col-lg-7 d-flex flex-column">

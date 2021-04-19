@@ -121,12 +121,16 @@ const LoanableCarFinancialInformation = (props) => {
           let formdata = new FormData()
           Object.keys(resp).map(item => {
             formdata.append(item, resp[item])
-            console.log(formdata)
             return true
           })
+          headers['Content-Type'] = 'multipart/form-data'
           let gtbpay = await postCall(endpoint.gtbfinance, formdata, headers)
-          console.log(gtbpay)
-          return null
+          toast.notify('Congrats! Your request is currently processing', {
+            duration: 5,
+            title: "Success",
+            type: "success",
+          });
+          return router.push('/loan')
         }
         window.location.assign(res.data.data.paymentURL)
       } catch (error) {
