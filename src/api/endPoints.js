@@ -1,5 +1,6 @@
 const baseURL = "https://testing-c45webapi.cars45.com/api"
 const financeUrl = "http://testing-confinapi.cars45.ng/api"
+const gtPayUrl = "https://gtweb.gtbank.com/GTPay/Tranx.aspx"
 
 export default {
     getMake: `${baseURL}/make`,
@@ -19,7 +20,7 @@ export default {
     getBanks: `${financeUrl}/banks`,
     payWithSterling: `${financeUrl}/sterling/create`,
     payWithGTB: `${financeUrl}/gtb/create`,
-    gtbfinance: `${financeUrl}/GTPay/Tranx.aspx`,
+    gtbfinance: gtPayUrl,
     verifyFinance: (ref) => `${financeUrl}/sterling/callback?${ref}`,
     leads: `${financeUrl}/leads`
 }
