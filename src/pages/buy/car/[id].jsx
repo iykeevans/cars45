@@ -209,6 +209,7 @@ const Cardetails = (props) => {
                     title: "Congrats!!",
                     type: "success",
                 });
+                setData({})
                 setLoading(false)
                 setTimeout(() => {
                     // router.push('/service')
