@@ -40,11 +40,11 @@ const Caroverview = ({ car, interestedInCar }) => {
                   <p>{car.fuel}</p>
                 </div>
               </div>
-              <div className="col-12 mb-3 mb-sm-0 col-md-3">
+              {/* <div className="col-12 mb-3 mb-sm-0 col-md-3">
                 <div className="d-flex stars">
                   <img src="/assets/icons/stars.svg" alt="type" />
                 </div>
-              </div>
+              </div> */}
             </div>
             <div className="row">
               <div className="col-md-12 text-left mt-4">

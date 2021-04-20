@@ -63,8 +63,14 @@ const Home = (props) => {
       items: 1,
     },
   };
+  const closeFeedback = () => {
+    document.getElementById('closeFeedback').click()
 
-
+  }
+  const answerNow = () => {
+    closeFeedback()
+    window.location.assign('https://docs.google.com/forms/d/1uvqqKDzYS7pOVG1wKOoyNpVeyYTJpE1mXXYh0-y-IdE/edit')
+  }
   return (
     <HomeLayout>
       {loading && <Loading />}
@@ -445,10 +451,9 @@ const Home = (props) => {
                       />
                     </div>
                     <div className="col-2 col-md-2 text-right">
-                      <button className="btn btn-link">
+                      <button data-dismiss="modal" id="closeFeedback" className="btn btn-link">
                         <img
                           className="close"
-                          data-dismiss="modal"
                           src="/assets/icons/close.svg"
                           alt="close"
                         />
@@ -467,17 +472,17 @@ const Home = (props) => {
 
                       <h3>It'll take 3 minutes</h3>
                       <div>
-                        <button className="btn btn-success">
+                        <button onClick={answerNow} className="btn btn-success">
                           YES, I'LL ANSWER NOW
                         </button>
                       </div>
                       <div>
-                        <button className="btn btn-success">
+                        <button onClick={closeFeedback} className="btn btn-success">
                           Sure, But When I'm Done
                         </button>
                       </div>
                       <div>
-                        <button className="btn btn-outline-secondary">
+                        <button onClick={closeFeedback} className="btn btn-outline-secondary">
                           NO THANKS
                         </button>
                       </div>

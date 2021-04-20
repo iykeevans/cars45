@@ -2,13 +2,15 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 import { useFormik } from "formik";
+import cookie from "js-cookie"
 
 import endPoints from "../../api/endPoints";
-import { getCall } from "../../api/request";
+import { getCall, postCall } from "../../api/request";
 
 import { services } from "../../asset/data/service";
 import HomeLayout from "../../components/layouts/home-layout";
 import Loading from "../../components/loadingScreen";
+import { toast, ToastContainer } from "react-nextjs-toast";
 
 const Button = styled.button`
   background: #21b7ac;
@@ -26,8 +28,11 @@ export default function BookARepair() {
   const [loading, setLoading] = useState(true);
   const [carMakes, setCarMakes] = useState([]);
   const [carModels, setCarModels] = useState([]);
+  const [carYear, setCarYear] = useState([]);
   const [cities, setCities] = useState([]);
   const [cityLocations, setCityLocations] = useState([]);
+  const [dates, setDates] = useState([])
+  const [times, setTimes] = useState([])
 
   const router = useRouter();
 
@@ -50,52 +55,99 @@ export default function BookARepair() {
       errors.phoneNo = "Required";
     }
 
-    if (!values.brand) {
-      errors.brand = "Required";
+    if (!values.make) {
+      errors.make = "Required";
     }
 
     if (!values.model) {
       errors.model = "Required";
     }
 
-    if (!values.serviceType) {
-      errors.serviceType = "Required";
+    if (!values.year) {
+      errors.year = "Required";
+    }
+
+    if (!values.service_type) {
+      errors.service_type = "Required";
     }
 
     if (!values.city) {
       errors.city = "Required";
     }
 
-    if (!values.location) {
-      errors.location = "Required";
+    if (!values.address) {
+      errors.address = "Required";
+    }
+
+    if (!values.date) {
+      errors.date = "Required";
+    }
+
+    if (!values.time) {
+      errors.time = "Required";
     }
 
     return errors;
   };
 
+  // const handleChange = (e) => {
+  //   let name = e.target.name
+  //   let value = e.target.value
+  //   if (name === 'model') {
+  //     // console.log(formik)
+  //     formik.setValues({ [name]: value })
+  //     console.log(formik.values)
+  //   }
+  // }
   const formik = useFormik({
     initialValues: {
       name: "",
       email: "",
       phoneNo: router.query.phoneNo || "",
-      brand: router.query.make || "",
+      make: router.query.make || "",
       model: router.query.model || "",
-      serviceType: router.query.serviceType || "",
+      year: "",
+      service_type: router.query.service_type || "",
       city: "",
-      location: "",
+      address: "",
+      date: "",
+      time: ""
     },
     validate,
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-    },
+    onSubmit: async (values) => {
+      setLoading(true)
+      let data = { ...values, address: values.address.split('/')[1], booking_date: new Date(`${values.date}T${values.time}`).toISOString(), user: cookie.get('__exponea_etc__') }
+      try {
+        await postCall(endPoints.goMechanic, data, {})
+        toast.notify('Your booking was successful', {
+          duration: 5,
+          title: "Congrats!!",
+          type: "success",
+        });
+        formik.resetForm()
+        setLoading(false)
+        setTimeout(() => {
+          router.push('/service')
+        }, 5000);
+
+      } catch (error) {
+        setLoading(false)
+        toast.notify('Oops! something went wrong. keep calm and try again.', {
+          duration: 5,
+          title: "An error occured",
+          type: "error",
+        });
+      }
+
+    }
   });
 
   const validationClassSetter = (value) => {
     return !formik.touched[value]
       ? "form-control"
       : formik.errors[value]
-      ? "form-control is-invalid"
-      : "form-control is-valid";
+        ? "form-control is-invalid"
+        : "form-control is-valid";
   };
 
   const renderError = (value) =>
@@ -109,11 +161,18 @@ export default function BookARepair() {
   }, []);
 
   useEffect(() => {
-    if (formik.values.brand) {
+    if (formik.values.make) {
       // formik.values.model = "";
-      getModel(formik.values.brand);
+      getModel(formik.values.make);
     }
-  }, [formik.values.brand]);
+  }, [formik.values.make]);
+
+  useEffect(() => {
+    if (formik.values.model) {
+      // formik.values.model = "";
+      getYear(formik.values.make, formik.values.model);
+    }
+  }, [formik.values.model]);
 
   useEffect(() => {
     if (formik.values.city) {
@@ -121,6 +180,7 @@ export default function BookARepair() {
       getCityLocations(formik.values.city);
     }
   }, [formik.values.city]);
+
 
   const getMakes = () => {
     getCall(`${endPoints.getMake}`)
@@ -136,7 +196,13 @@ export default function BookARepair() {
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));
   };
+  const getYear = (make, model) => {
 
+    getCall(`${endPoints.getYear(make, model)}`)
+      .then(({ data: response }) => setCarYear(response.data))
+      .catch((error) => console.log(error))
+      .finally(() => setLoading(false));
+  };
   const getCities = () => {
     setLoading(true);
     getCall(`${endPoints.getCities}`)
@@ -153,6 +219,29 @@ export default function BookARepair() {
       .finally(() => setLoading(false));
   };
 
+  const getslot = (placeId) => {
+    setLoading(true);
+    getCall(`${endPoints.getSlot(placeId)}`)
+      .then(({ data: response }) => {
+        let theDates = Object.values(response.data)
+        setDates(theDates)
+      })
+      .catch((error) => console.log(error))
+      .finally(() => setLoading(false));
+  };
+  const getTime = (e) => {
+    let count = 0
+    let result;
+    for (let i in dates) {
+      if (dates[i][e.target.value]) {
+        result = dates[i][e.target.value]
+      }
+      count += 1
+      if (count === dates.length) {
+        setTimes(result)
+      }
+    }
+  }
   return (
     <HomeLayout>
       {loading && <Loading />}
@@ -210,12 +299,12 @@ export default function BookARepair() {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="brand">Brand</label>
+            <label htmlFor="make">Brand</label>
             <select
-              className={validationClassSetter("brand")}
-              id="brand"
-              name="brand"
-              value={formik.values.brand}
+              className={validationClassSetter("make")}
+              id="make"
+              name="make"
+              value={formik.values.make}
               onBlur={formik.handleBlur}
               onChange={formik.handleChange}
             >
@@ -229,7 +318,7 @@ export default function BookARepair() {
               ))}
             </select>
 
-            {renderError("brand")}
+            {renderError("make")}
           </div>
 
           <div className="mb-3">
@@ -238,10 +327,14 @@ export default function BookARepair() {
               className={validationClassSetter("model")}
               id="model"
               name="model"
-              disabled={!formik.values.brand}
+              disabled={!formik.values.make}
               value={formik.values.model}
               onBlur={formik.handleBlur}
-              onChange={formik.handleChange}
+              onChange={(e) => {
+                formik.handleChange(e)
+                getYear(formik.values.make, e.target.value)
+                console.log(formik.values.make, e.target.value)
+              }}
             >
               <option disabled value="">
                 Choose...
@@ -257,12 +350,36 @@ export default function BookARepair() {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="serviceType">Service Type</label>
+            <label htmlFor="year">year</label>
             <select
-              className={validationClassSetter("serviceType")}
-              id="serviceType"
-              name="serviceType"
-              value={formik.values.serviceType}
+              className={validationClassSetter("year")}
+              id="year"
+              name="year"
+              disabled={!formik.values.model}
+              value={formik.values.year}
+              onBlur={formik.handleBlur}
+              onChange={(e) => { formik.handleChange(e) }}
+            >
+              <option disabled value="">
+                Choose...
+              </option>
+              {carYear.map((year, index) => (
+                <option key={index} value={year}>
+                  {year}
+                </option>
+              ))}
+            </select>
+
+            {renderError("year")}
+          </div>
+
+          <div className="mb-3">
+            <label htmlFor="service_type">Service Type</label>
+            <select
+              className={validationClassSetter("service_type")}
+              id="service_type"
+              name="service_type"
+              value={formik.values.service_type}
               onBlur={formik.handleBlur}
               onChange={formik.handleChange}
             >
@@ -276,7 +393,7 @@ export default function BookARepair() {
               ))}
             </select>
 
-            {renderError("serviceType")}
+            {renderError("service_type")}
           </div>
 
           <div className="mb-3">
@@ -303,27 +420,86 @@ export default function BookARepair() {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="location">Location(street)</label>
+            <label htmlFor="address">address(street)</label>
             <select
               type="text"
-              className={validationClassSetter("location")}
-              id="location"
-              value={formik.values.location}
+              name="address"
+              className={validationClassSetter("address")}
+              id="address"
+              value={formik.values.address}
               onBlur={formik.handleBlur}
-              onChange={formik.handleChange}
+              onChange={(e) => {
+                formik.handleChange(e)
+                getslot(e.target.value.split('/')[0])
+              }}
             >
               <option disabled value="">
                 Choose...
               </option>
               {cityLocations.map((item, index) => (
-                <option key={index} value={item.location}>
+                <option key={index} value={`${item.id}/${item.location}`}>
                   {item.location}
                 </option>
               ))}
             </select>
 
-            {renderError("location")}
+            {renderError("address")}
           </div>
+
+
+          <div className="mb-4">
+            <label htmlFor="date">Date</label>
+            <select
+              type="text"
+              name="date"
+              className={validationClassSetter("date")}
+              id="date"
+              value={formik.values.date}
+              onBlur={formik.handleBlur}
+              onChange={(e) => {
+                formik.handleChange(e)
+                getTime(e)
+              }}
+            >
+              <option disabled value="">
+                Choose...
+              </option>
+              {dates.map((item, index) => (
+                <option key={index} value={Object.keys(item)}>
+                  {Object.keys(item)}
+                </option>
+              ))}
+            </select>
+
+            {renderError("date")}
+          </div>
+
+
+          {formik.values.date ? <div className="mb-4">
+            <label htmlFor="time">Time</label>
+            <select
+              type="text"
+              name="time"
+              className={validationClassSetter("time")}
+              id="time"
+              value={formik.values.time}
+              onBlur={formik.handleBlur}
+              onChange={(e) => {
+                formik.handleChange(e)
+              }}
+            >
+              <option disabled value="">
+                Choose...
+              </option>
+              {times.map((item, index) => (
+                <option key={index} value={item}>
+                  {item}
+                </option>
+              ))}
+            </select>
+
+            {renderError("time")}
+          </div> : null}
 
           <Button
             className="text-center rounded align-self-center text-white"
@@ -333,6 +509,8 @@ export default function BookARepair() {
           </Button>
         </form>
       </div>
+      <ToastContainer align={"right"} position={"bottom"} />
+
     </HomeLayout>
   );
 }

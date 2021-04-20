@@ -22,5 +22,7 @@ export default {
     payWithGTB: `${financeUrl}/gtb/create`,
     gtbfinance: gtPayUrl,
     verifyFinance: (ref) => `${financeUrl}/sterling/callback?${ref}`,
-    leads: `${financeUrl}/leads`
+    leads: `${financeUrl}/leads`,
+    goMechanic: `${baseURL}/go-mechanic`,
+    reserveCar: `${baseURL}/reserve-car`
 }

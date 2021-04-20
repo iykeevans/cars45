@@ -10,19 +10,26 @@ import { getCall, postCall } from "../../../api/request";
 import endpoints from "../../../api/endPoints";
 import Loading from "../../../components/loadingScreen";
 import { toast, ToastContainer } from "react-nextjs-toast";
-
+import Recommeneded from "../../../components/recommended"
+import cookie from "js-cookie";
 
 const Cardetails = (props) => {
     useEffect(() => {
         const id = props.id.split("_")[1]
         //  const id = "NG-196632"
         getSingleCar(id)
+        getCities()
     }, [])
     const [carData, setCarData] = useState();
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState('Loading car details...');
     const [features, setFeatures] = useState({});
     const [inspection, setInspection] = useState({});
+    const [cities, setCities] = useState([]);
+    const [dates, setDates] = useState([]);
+    const [times, setTimes] = useState([]);
+    const [cityLocations, setCityLocations] = useState([]);
+    const [data, setData] = useState({})
     const router = useRouter()
     // const getPreviousData = (data) => {
     //     let search = decodeURIComponent(data)
@@ -81,8 +88,6 @@ const Cardetails = (props) => {
 
                             // value = [...value, Object.values(detail[initialKey[i]])]
                         }
-                        console.log(response.data.data)
-                        console.log(features)
                         setFeatures(features)
                         setInspection(inspection)
                         // console.log(value)
@@ -102,22 +107,22 @@ const Cardetails = (props) => {
     };
 
 
-    const mock_cars = Array.from({ length: 10 }, (x) => x);
-    const ref = React.useRef();
+    // const mock_cars = Array.from({ length: 10 }, (x) => x);
+    // const ref = React.useRef();
 
-    const slide = (position) => {
-        let left = ref.current.scrollLeft;
-        switch (position) {
-            case "next":
-                ref.current.scroll(left + 510, 0);
-                return;
-            case "prev":
-                ref.current.scroll(left - 510, 0);
-                return;
-            default:
-                return;
-        }
-    };
+    // const slide = (position) => {
+    //     let left = ref.current.scrollLeft;
+    //     switch (position) {
+    //         case "next":
+    //             ref.current.scroll(left + 510, 0);
+    //             return;
+    //         case "prev":
+    //             ref.current.scroll(left - 510, 0);
+    //             return;
+    //         default:
+    //             return;
+    //     }
+    // };
 
     const settings = {
         customPaging: function (i) {
@@ -143,6 +148,83 @@ const Cardetails = (props) => {
     }
     const next = () => {
         slider.slickNext()
+    }
+    const handleChange = (e) => {
+        setData({ ...data, [e.target.name]: e.target.value })
+    }
+    const getCities = () => {
+        setLoading(true);
+        getCall(`${endpoints.getCities}`)
+            .then(({ data: response }) => setCities(response.data))
+            .catch((error) => console.log(error))
+            .finally(() => setLoading(false));
+    };
+    const getCityLocations = (city) => {
+        setLoading(true);
+        getCall(`${endpoints.getCenters(city)}`)
+            .then(({ data: response }) => setCityLocations(response.data))
+            .catch((error) => console.log(error))
+            .finally(() => setLoading(false));
+    };
+    const getslot = (placeId) => {
+        setLoading(true);
+        getCall(`${endpoints.getSlot(placeId)}`)
+            .then(({ data: response }) => {
+                let theDates = Object.values(response.data)
+                setDates(theDates)
+            })
+            .catch((error) => console.log(error))
+            .finally(() => setLoading(false));
+    };
+    const getTime = (e) => {
+        let count = 0
+        let result;
+        for (let i in dates) {
+            if (dates[i][e.target.value]) {
+                result = dates[i][e.target.value]
+            }
+            count += 1
+            if (count === dates.length) {
+                setTimes(result)
+            }
+        }
+    }
+    const submit = async (e) => {
+        e.preventDefault()
+        console.log(data)
+        if (!data.name || !data.email || !data.phone || !data.city || !data.address || !data.date || !data.time) {
+            toast.notify('All feilds are required', {
+                duration: 5,
+                title: "Invalid",
+                type: "error",
+            });
+        } else {
+            setLoading(true)
+
+            let datas = { ...data, address: data.address.split('/')[1], booking_date: new Date(`${data.date}T${data.time}`).toISOString(), user: cookie.get('__exponea_etc__'), make: carData.make, model: carData.model, year: carData.year }
+            try {
+                await postCall(endpoints.reserveCar, datas, {})
+                toast.notify('Your information has been received', {
+                    duration: 5,
+                    title: "Congrats!!",
+                    type: "success",
+                });
+                setLoading(false)
+                setTimeout(() => {
+                    // router.push('/service')
+                    document.getElementById('res').reset()
+                    document.getElementById('res1').reset()
+                }, 3000);
+
+            } catch (error) {
+                setLoading(false)
+                toast.notify('Oops! something went wrong. keep calm and try again.', {
+                    duration: 5,
+                    title: "An error occured",
+                    type: "error",
+                });
+            }
+        }
     }
     return (
         <HomeLayout footer="two" header="two">
@@ -222,21 +304,68 @@ const Cardetails = (props) => {
                                                 <div className="row">
                                                     <div className="col-md-12 text-center">
                                                         <div className="content-container">
-                                                            <form>
+                                                            <form onSubmit={(e) => submit(e)} id="res">
                                                                 <div className="form-group">
-                                                                    <input type="text" className="form-control" id="name" aria-describedby="name" placeholder="Your name" />
+                                                                    <input type="text" onChange={(e) => handleChange(e)} className="form-control" id="name" aria-describedby="name" name="name" placeholder="Your name" />
+                                                                </div>
+                                                                <div className="form-group">
+                                                                    <input type="email" onChange={(e) => handleChange(e)} className="form-control" id="email" aria-describedby="email" name="email" placeholder="Your email" />
                                                                 </div>
                                                                 <div className="form-group">
                                                                     <div className="input-group mb-3">
                                                                         <div className="input-group-prepend">
                                                                             <span className="input-group-text" id="basic-addon1">+234</span>
                                                                         </div>
-                                                                        <input type="text" className="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />
+                                                                        <input type="text" onChange={(e) => handleChange(e)} name="phone" className="form-control" placeholder="Phone number" aria-label="phone" aria-describedby="basic-addon1" />
                                                                     </div>
                                                                 </div>
+                                                                {cities.length ? <div className="form-group">
+                                                                    <select name="city" className="form-control" onChange={(e) => {
+                                                                        handleChange(e)
+                                                                        getCityLocations(e.target.value)
+                                                                    }}>
+                                                                        <option value="">Select City</option>
+                                                                        {cities.map((city, index) => (
+                                                                            <option key={index} value={city}>{city}</option>
+                                                                        ))}
+                                                                    </select>
+                                                                </div> : null}
                                                                 <div className="form-group">
-                                                                    <input type="text" className="form-control" id="offer" placeholder="Make us an offer" />
+                                                                    {cityLocations.length ? <select name="address" onChange={(e) => {
+                                                                        handleChange(e)
+                                                                        getslot(e.target.value.split('/')[0])
+                                                                    }} className="form-control">
+                                                                        <option value="">Select Address</option>
+                                                                        {cityLocations.map((loc, index) => (
+                                                                            <option option key={index} value={`${loc.id}/${loc.location}`}>{loc.location}</option>
+                                                                        ))}
+                                                                    </select> : null}
                                                                 </div>
+                                                                {dates.length ? <div className="form-group">
+                                                                    <select name="date" onChange={(e) => {
+                                                                        handleChange(e)
+                                                                        getTime(e)
+                                                                    }} className="form-control">
+                                                                        <option value="">Choose Date</option>
+                                                                        {dates.map((item, index) => (
+                                                                            <option key={index} value={Object.keys(item)}>
+                                                                                {Object.keys(item)}
+                                                                            </option>
+                                                                        ))}
+                                                                    </select>
+                                                                </div> : null}
+                                                                {times.length ? <div className="form-group">
+                                                                    <select name="time" onChange={(e) => handleChange(e)} className="form-control">
+                                                                        <option value="">Choose time</option>
+                                                                        {times.map((item, index) => (
+                                                                            <option key={index} value={item}>
+                                                                                {item}
+                                                                            </option>))}
+                                                                    </select>
+                                                                </div> : null}
+                                                                {/* <div className="form-group">
+                                                                    <input type="text" className="form-control" id="offer" placeholder="Make us an offer" />
+                                                                </div> */}
 
                                                                 <button type="submit" className="btn btn-primary btn-block">SPEAK TO OUR AGENT</button>
                                                             </form>
@@ -245,11 +374,81 @@ const Cardetails = (props) => {
                                                 </div>
 
 
-                                                <div className="tab-pane fade" id="refer" role="tabpanel" aria-labelledby="refer-tab">...</div>
-
-
-
                                                 <div className="tab-pane fade" id="deposit" role="tabpanel" aria-labelledby="deposit-tab">...</div>
+                                            </div>
+
+                                            <div className="tab-pane fade" id="refer" role="tabpanel" aria-labelledby="refer-tab">
+                                                <div className="row">
+                                                    <div className="col-md-12 text-center">
+                                                        <div className="content-container">
+                                                            <form onSubmit={(e) => submit(e)} id="res1">
+                                                                <div className="form-group">
+                                                                    <input type="text" onChange={(e) => handleChange(e)} className="form-control" id="name" aria-describedby="name" name="name" placeholder="Your name" />
+                                                                </div>
+                                                                <div className="form-group">
+                                                                    <input type="email" onChange={(e) => handleChange(e)} className="form-control" id="email" aria-describedby="email" name="email" placeholder="Your email" />
+                                                                </div>
+                                                                <div className="form-group">
+                                                                    <div className="input-group mb-3">
+                                                                        <div className="input-group-prepend">
+                                                                            <span className="input-group-text" id="basic-addon1">+234</span>
+                                                                        </div>
+                                                                        <input type="text" onChange={(e) => handleChange(e)} name="phone" className="form-control" placeholder="Phone number" aria-label="phone" aria-describedby="basic-addon1" />
+                                                                    </div>
+                                                                </div>
+                                                                {cities.length ? <div className="form-group">
+                                                                    <select name="city" className="form-control" onChange={(e) => {
+                                                                        handleChange(e)
+                                                                        getCityLocations(e.target.value)
+                                                                    }}>
+                                                                        <option value="">Select City</option>
+                                                                        {cities.map((city, index) => (
+                                                                            <option key={index} value={city}>{city}</option>
+                                                                        ))}
+                                                                    </select>
+                                                                </div> : null}
+                                                                <div className="form-group">
+                                                                    {cityLocations.length ? <select name="address" onChange={(e) => {
+                                                                        handleChange(e)
+                                                                        getslot(e.target.value.split('/')[0])
+                                                                    }} className="form-control">
+                                                                        <option value="">Select Address</option>
+                                                                        {cityLocations.map((loc, index) => (
+                                                                            <option option key={index} value={`${loc.id}/${loc.location}`}>{loc.location}</option>
+                                                                        ))}
+                                                                    </select> : null}
+                                                                </div>
+                                                                {dates.length ? <div className="form-group">
+                                                                    <select name="date" onChange={(e) => {
+                                                                        handleChange(e)
+                                                                        getTime(e)
+                                                                    }} className="form-control">
+                                                                        <option value="">Choose Date</option>
+                                                                        {dates.map((item, index) => (
+                                                                            <option key={index} value={Object.keys(item)}>
+                                                                                {Object.keys(item)}
+                                                                            </option>
+                                                                        ))}
+                                                                    </select>
+                                                                </div> : null}
+                                                                {times.length ? <div className="form-group">
+                                                                    <select name="time" onChange={(e) => handleChange(e)} className="form-control">
+                                                                        <option value="">Choose time</option>
+                                                                        {times.map((item, index) => (
+                                                                            <option key={index} value={item}>
+                                                                                {item}
+                                                                            </option>))}
+                                                                    </select>
+                                                                </div> : null}
+                                                                {/* <div className="form-group">
+                                                                    <input type="text" className="form-control" id="offer" placeholder="Make us an offer" />
+                                                                </div> */}
+
+                                                                <button type="submit" className="btn btn-primary btn-block">REFER</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -317,20 +516,7 @@ const Cardetails = (props) => {
 
 
                     <div className="recommended mt-3 pb-5 mb-5">
-                        {/* <h5 className="overview">Recommended marketplace cars for you</h5> */}
-
-                        <div className="autopreneneur-rec-carousel">
-                            <h1 onClick={() => slide("prev")}>&#x2039;</h1>
-                            <div className="autopreneneur-suggestion">
-                                <h4>Recommended Marketplace Cars For You</h4>
-                                <div ref={ref} className="autopreneneur-recommended">
-                                    {mock_cars.map((item, index) => (
-                                        <Carlist key={index} car={item} />
-                                    ))}
-                                </div>
-                            </div>
-                            <h1 onClick={() => slide("next")}>&#x203A;</h1>
-                        </div>
+                        <Recommeneded />
 
                     </div>
 
