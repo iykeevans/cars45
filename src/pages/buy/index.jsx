@@ -33,6 +33,7 @@ const Buy = (props) => {
     useEffect(() => {
         search()
         getMakes();
+        getTransmission()
     }, []);
 
 
@@ -111,7 +112,7 @@ const Buy = (props) => {
     const setSelectedModel = (model) => {
         setData({ ...data, model })
         getYear(data.make, model)
-        getTrim(data.make, model)
+        // getTrim(data.make, model)
         let dataFilter = {
             ...data,
             model
@@ -150,40 +151,60 @@ const Buy = (props) => {
             });
     };
 
-    const getTrim = (make, model) => {
-        setLoading(true);
-        getCall(`${endpoints.getTrim(make, model)}`)
-            .then((response) => {
-                const data = response.data;
-                setLoading(false);
-                if (response.status === 200) {
-                    setErrorText(data.message);
-                    setCarTrimData(response.data.data);
-                } else {
-                    setshowError(true);
-                    setErrorText("Oops! something went wrong. keep calm and try again.");
-                    toast.notify('Oops! something went wrong. keep calm and try again.', {
-                        duration: 5,
-                        title: "An error occured",
-                        type: "error",
-                    });
-                }
-            })
-            .catch((error) => {
-                setshowError(true);
-                setLoading(false);
-                setErrorText("Oops! something went wrong. keep calm and try again.");
-                toast.notify('Oops! something went wrong. keep calm and try again.', {
-                    duration: 5,
-                    title: "An error occured",
-                    type: "error",
-                });
+    // const getTrim = (make, model) => {
+    //     setLoading(true);
+    //     getCall(`${endpoints.getTrim(make, model)}`)
+    //         .then((response) => {
+    //             const data = response.data;
+    //             setLoading(false);
+    //             if (response.status === 200) {
+    //                 setErrorText(data.message);
+    //                 setCarTrimData(response.data.data);
+    //             } else {
+    //                 setshowError(true);
+    //                 setErrorText("Oops! something went wrong. keep calm and try again.");
+    //                 toast.notify('Oops! something went wrong. keep calm and try again.', {
+    //                     duration: 5,
+    //                     title: "An error occured",
+    //                     type: "error",
+    //                 });
+    //             }
+    //         })
+    //         .catch((error) => {
+    //             setshowError(true);
+    //             setLoading(false);
+    //             setErrorText("Oops! something went wrong. keep calm and try again.");
+    //             toast.notify('Oops! something went wrong. keep calm and try again.', {
+    //                 duration: 5,
+    //                 title: "An error occured",
+    //                 type: "error",
+    //             });
+    //         });
+    // };
+
+    const getTransmission = async () => {
+        try {
+            setLoading(true);
+            let response = await getCall(`${endpoints.getTransmission}`)
+            setLoading(false);
+            setCarTrimData(response.data.data);
+        } catch (error) {
+            setLoading(false);
+            toast.notify('Can not load transmission at the moment', {
+                duration: 5,
+                title: "An error occured",
+                type: "error",
             });
-    };
-    const search = (searchParams) => {
+        }
+    }
+    const search = ({ ...searchParams }) => {
         if (searchParams?.make === 'Make') delete searchParams.make
         if (searchParams?.grade) {
             searchParams.grade = searchParams.grade.toLowerCase()
+        }
+        if (searchParams && searchParams.trim) {
+            console.log(searchParams)
+            searchParams.transmission = searchParams.trim
         }
         setLoading(true);
         getCall(`${endpoints.getSearch(searchParams)}`)
@@ -400,7 +421,7 @@ const Buy = (props) => {
                                         <select className="form-control transmission" name="trim" id="trim" onChange={(e) => handleChange(e)}>
                                             <option value="">Transmission</option>
                                             {carTrimData.map((trim, i) => (
-                                                <option value={trim} key={i}>{trim}</option>
+                                                <option value={trim.filter_id} key={i}>{trim.name}</option>
                                             ))}
 
                                         </select>

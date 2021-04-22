@@ -308,7 +308,7 @@ const LoanableCarFinancialInformation = (props) => {
                 className={validationClassSetter("netMonthlySal")}
                 id="netMonthlySal"
                 name="netMonthlySal"
-                type="text"
+                type="number"
                 value={formik.values.netMonthlySal}
                 onBlur={formik.handleBlur}
                 onChange={formik.handleChange}

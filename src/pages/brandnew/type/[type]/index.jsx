@@ -1,32 +1,46 @@
 import React from 'react';
 import Link from "next/link";
-import HomeLayout from "../../../components/layouts/home-layout";
-import Loading from "../../../components/loadingScreen";
+import HomeLayout from "../../../../components/layouts/home-layout";
+import Loading from "../../../../components/loadingScreen";
 import { toast, ToastContainer } from "react-nextjs-toast";
 import { useRouter } from "next/router";
-import endpoints from '../../../api/endPoints';
-import { getCall } from '../../../api/request';
-import Carlist from '../../../components/car-list';
+import endpoints from '../../../../api/endPoints';
+import { getCall } from '../../../../api/request';
+import Carlist from '../../../../components/car-list';
 
-const Brandnewbrand = (props) => {
+const Brandnewtype = (props) => {
     React.useEffect(() => {
-        searchModels(props.brand)
+        searchModels(props.type)
+        getMakes()
     }, [])
 
     const [loading, setLoading] = React.useState(false);
     const [models, setModels] = React.useState([])
     const [cars, setCars] = React.useState([])
-    const [make, setMake] = React.useState();
+    const [makes, setMakes] = React.useState([]);
     const [data, setData] = React.useState({});
     const [relatedCars, setRelatedCars] = React.useState([])
     const router = useRouter();
 
-    const getModels = async (maker) => {
+    const getMakes = async () => {
         try {
-            let response = await getCall(`${endpoints.getModel(maker)}`)
+            console.log(endpoints)
+            let response = await getCall(`${endpoints.getMake}`, {})
+            setMakes(response.data.data);
+        } catch (error) {
+            setLoading(false);
+            console.log(error)
+        }
+    }
+
+    const getModels = async (make) => {
+        try {
+            console.log(make)
+            let response = await getCall(`${endpoints.getModel(make)}`)
             setModels(response.data.data);
         } catch (error) {
             setLoading(false);
+            console.log(error)
             toast.notify('Can not load models', {
                 duration: 5,
                 title: "An error occured",
@@ -34,10 +48,10 @@ const Brandnewbrand = (props) => {
             });
         }
     }
-    const searchModels = async (maker) => {
+    const searchModels = async (type) => {
         try {
             setLoading(true);
-            let response = await getCall(`${endpoints.getSearch({ make: maker, condition: 'new' })}`)
+            let response = await getCall(`${endpoints.getSearch({ type, condition: 'new' })}`)
             setLoading(false);
             if (typeof response.data.data === 'string') {
                 return toast.notify('Can not find new cars for this brand', {
@@ -49,8 +63,7 @@ const Brandnewbrand = (props) => {
             if (response.data.data.currency) delete response.data.data.currency
             if (response.data.data.totalCars) delete response.data.data.totalCars
             setCars(Object.values(response.data.data));
-            setMake(maker)
-            getModels(maker)
+            setData({ ...data, type })
             getRelatedCars(Object.values(response.data.data))
         } catch (error) {
             setLoading(false);
@@ -65,7 +78,7 @@ const Brandnewbrand = (props) => {
     const search = async (datafilter) => {
         try {
             setLoading(true);
-            let response = await getCall(`${endpoints.getSearch({ ...datafilter, make, condition: 'new' })}`)
+            let response = await getCall(`${endpoints.getSearch({ ...datafilter, condition: 'new' })}`)
             setLoading(false);
             if (typeof response.data.data === 'string') {
                 return toast.notify('Can not find new cars for this brand', {
@@ -142,18 +155,21 @@ const Brandnewbrand = (props) => {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12 border-bottom heading ">
-                            <h5>New <span style={{ textTransform: 'capitalize' }}>{make}</span> Models: Make A Selection</h5>
+                            <h5>New Models: Make A Selection</h5>
                         </div>
 
                         <div className="col-md-12 filters">
                             <form>
                                 <div className="form-group row">
                                     <label htmlFor="staticEmail" className="col-sm-1 col-form-label">Filters</label>
-                                    <div className="col-sm-2">
-                                        <select className="form-control" disabled>
-                                            <option value="">{make}</option>
+                                    {makes.length ? <div className="col-sm-2">
+                                        <select className="form-control" onChange={(e) => getModels(e.target.value)}>
+                                            <option value="">Select make</option>
+                                            {makes.map((make, index) => (
+                                                <option key={index} value={make}>{make}</option>
+                                            ))}
                                         </select>
-                                    </div>
+                                    </div> : null}
                                     {models && <div className="col-sm-2">
                                         <select className="form-control" name="model" onChange={(e) => handleChange(e)}>
                                             <option value="">All Vehicle Types</option>
@@ -189,7 +205,7 @@ const Brandnewbrand = (props) => {
                                 <div className="row">
                                     {cars.map((car, index) => (
                                         <div className="col-md-3 mb-5" style={{ cursor: 'pointer' }}>
-                                            <div key={i} className="col-12 col-md-6 mb-md-3 mb-lg-0" key={index}>
+                                            <div key={index} className="col-12 col-md-6 mb-md-3 mb-lg-0" key={index}>
                                                 <Link href="/brandnew/toyota/details">
                                                     <Carlist {...props} car={car} />
                                                 </Link>
@@ -327,7 +343,7 @@ const Brandnewbrand = (props) => {
 
 
                     {relatedCars.length ? <div className="related">
-                        <p className="related-head">RELATED <span style={{ textTransform: 'uppercase' }}>{make}</span> VEHICLES</p>
+                        <p className="related-head">RELATED VEHICLES</p>
                         <div className="row">
                             {relatedCars.map((car, index) => (
                                 <div className="col-md-4" key={index}>
@@ -406,10 +422,10 @@ const Brandnewbrand = (props) => {
     )
 }
 
-Brandnewbrand.getInitialProps = async ({ query }) => {
-    const { brand } = query
-    return { brand }
+Brandnewtype.getInitialProps = async ({ query }) => {
+    const { type } = query
+    return { type }
 }
 
 
-export default Brandnewbrand;
+export default Brandnewtype;

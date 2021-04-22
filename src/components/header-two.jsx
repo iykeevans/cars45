@@ -81,7 +81,7 @@ const HeaderTwo = (props) => {
                                     <Link href="/service"><a className={path === "/service" ? "nav-active nav-link" : "nav-link"}>Service & Repair</a></Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link href="/franchise"><a className={path === "/franchise" ? "nav-active nav-link" : "nav-link"}>Become a Franshise</a></Link>
+                                    <Link href="/franchise"><a className={path === "/franchise" ? "nav-active nav-link" : "nav-link"}>Become a Franchise</a></Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link href="/corporate"><a className={path === "/corporate" ? "nav-active nav-link" : "nav-link"}>Corporate Service</a></Link>

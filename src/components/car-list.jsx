@@ -52,7 +52,7 @@ const Carlist = ({ car }) => {
                             </div>
 
                         </div>
-                        <img src="/assets/icons/car-badge.svg" className="car-badge" alt="car-badge" />
+                        {car?.financeable ? <img src="/assets/icons/car-badge.svg" className="car-badge" alt="car-badge" /> : null}
                     </div>
                 </div>
             </Link>}

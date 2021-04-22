@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { useRouter } from "next/router";
 import Slider from "react-slick";
 import Carlist from "../../../components/car-list";
@@ -189,6 +190,27 @@ const Cardetails = (props) => {
             }
         }
     }
+    const searchMake = async (make) => {
+        try {
+            setLoading(true);
+            let response = await getCall(`${endpoints.getSearch({ make })}`)
+            setLoading(false);
+            let data = response.data.data
+            if (data) {
+                data = Object.values(data)
+            }
+            router.push({ pathname: "/all-cars" }, "/all-cars", {
+                carData: data,
+            });
+        } catch (error) {
+            setLoading(false);
+            toast.notify('Oops! something went wrong. keep calm and try again.', {
+                duration: 5,
+                title: "An error occured",
+                type: "error",
+            });
+        }
+    }
     const submit = async (e) => {
         e.preventDefault()
         console.log(data)
@@ -235,10 +257,24 @@ const Cardetails = (props) => {
                     <div className="row">
                         <div className="col-md-12">
                             <div className="col-12 col-md-3 title-container">
+                                <div>
+                                </div>
+
                                 <div className="d-flex justify-content-between title">
-                                    <p>Home</p>
+                                    {/* <p>Home</p>
                                     <p>{carData?.make}</p>
-                                    <p>{carData?.year} {carData?.make}</p>
+                                    <p>{carData?.year} {carData?.make} {carData?.model}</p> */}
+
+                                    <nav aria-label="breadcrumb">
+                                        <ol className="breadcrumb">
+                                            <li className="breadcrumb-item"><Link href="/">Home</Link></li>
+                                            <li className="breadcrumb-item" onClick={() => searchMake(carData?.make)}><span href="/all-cars">{carData?.make}</span></li>
+                                            <li className="breadcrumb-item active" aria-current="page">{carData?.year} {carData?.make} {carData?.model}</li>
+                                        </ol>
+                                    </nav>
+
+
+
                                 </div>
                             </div>
                             <div className="car-container">

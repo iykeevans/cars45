@@ -22,7 +22,7 @@ const Carlist = ({ car }) => {
           <div className="row border-bottom">
             <div className="col-8 col-md-8">
               <p>
-                {car.year} {car.make}
+                {car.year} {car.make} {car.model}
               </p>
             </div>
             <div className="col-4 col-md-4 text-right">
@@ -72,11 +72,11 @@ const Carlist = ({ car }) => {
               </p>
             </div>
           </div>
-          <img
+          {car?.financeable ? <img
             src="/assets/icons/car-badge.svg"
             className="car-badge"
             alt="car-badge"
-          />
+          /> : null}
         </div>
       </div>
     </div>

@@ -13,7 +13,9 @@ import InputRange from "react-input-range";
 const Search = ({ setSearchResultData }) => {
   const router = useRouter();
   useEffect(() => {
+    getTypes();
     getMakes();
+    getTransmission();
   }, []);
 
   const [carData, setCarData] = useState({});
@@ -25,6 +27,7 @@ const Search = ({ setSearchResultData }) => {
   const [showError, setshowError] = useState(false);
   const [loading, setLoading] = useState(true);
   const [value, setValue] = useState({ min: 0, max: 0 });
+  const [types, setTypes] = useState([]);
   const responsive = {
     0: {
       items: 1,
@@ -147,6 +150,36 @@ const Search = ({ setSearchResultData }) => {
         setErrorText("Oops! something went wrong. keep calm and try again.");
       });
   };
+  const getTypes = async () => {
+    try {
+      setLoading(true);
+      let response = await getCall(`${endpoints.getBodyType}`)
+      setLoading(false);
+      setTypes(response.data.data);
+    } catch (error) {
+      setLoading(false);
+      toast.notify('Can not load body types at the moment', {
+        duration: 5,
+        title: "An error occured",
+        type: "error",
+      });
+    }
+  }
+  const getTransmission = async () => {
+    try {
+      setLoading(true);
+      let response = await getCall(`${endpoints.getTransmission}`)
+      setLoading(false);
+      setCarTrimData(response.data.data);
+    } catch (error) {
+      setLoading(false);
+      toast.notify('Can not load transmission at the moment', {
+        duration: 5,
+        title: "An error occured",
+        type: "error",
+      });
+    }
+  }
   const carMakeList = carMakeData.map((make, index) => (
     <option key={index} value={make}>{make}</option>
   ));
@@ -162,8 +195,48 @@ const Search = ({ setSearchResultData }) => {
     <option key={index} value={year}>{year}</option>
   ));
   const carTrimList = carTrimData?.map((trim, index) => (
-    <option key={index} value={trim}>{trim}</option>
+    <option key={index} value={trim.filter_id}>{trim.name}</option>
   ));
+
+  const searchByType = async (type) => {
+    setLoading(true)
+    const response = await getCall(`${endpoints.getSearch({ type })}`)
+
+    const resData = response.data.data;
+    setLoading(false);
+    if (response.status === 200) {
+      if (resData === "No cars in our repository fits your filter.") {
+        return toast.notify("No cars in our repository fits your filter.", {
+          duration: 5,
+          title: "Success",
+          type: "warning",
+        });
+      }
+      const resDataArr = Object.values(resData)
+      if (resDataArr.length < 1) {
+        return toast.notify(
+          "No Available cars in our repository fits your filter.",
+          {
+            duration: 5,
+            title: "Success",
+            type: "warning",
+          }
+        );
+      }
+      router.push({ pathname: "/all-cars" }, "/all-cars", {
+        carData: resDataArr,
+      });
+      setSearchResultData(resDataArr)
+    } else {
+      setLoading(false);
+      toast.notify("Oops! something went wrong. keep calm and try again.", {
+        duration: 5,
+        title: "Something when wrong",
+        type: "warning",
+      });
+    }
+  }
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -185,7 +258,7 @@ const Search = ({ setSearchResultData }) => {
       searchParam.maxPrice = value.max;
     }
     if (carData.gearType) {
-      searchParam.trim = carData.gearType
+      searchParam.transmission = carData.gearType
     }
     if (carData.condition) {
       searchParam.condition = carData.condition
@@ -248,9 +321,8 @@ const Search = ({ setSearchResultData }) => {
     }
     if (name == "model") {
       getYear(carData.make, value);
-      getTrim(carData.make, value);
+      // getTrim(carData.make, value);
     }
-    console.log(name, value)
     setCarData({ ...carData, [name]: value });
   };
 
@@ -259,19 +331,22 @@ const Search = ({ setSearchResultData }) => {
       {loading && <Loading />}
       <div className="section2 dark-background">
         <div className="container">
-          <div className="row">
+          {types.length ? <div className="row">
             <div className="col-md-2 align-self-center">
               <p className="white-color mt-4">SELECT VEHICLE TYPE</p>
             </div>
             <div className="col-md-8">
               <div className="row mt-3">
-                <div className="col-4 mb-3 mb-md-0 col-md-2">
-                  <div className="car-option">
-                    <img src="/assets/icons/suv.svg" alt="suv" />
-                    <p className="text-center dark-color">SUV</p>
+                {types.map((type, index) => (
+                  <div key={index} className="col-4 mb-3 mb-md-0 col-md-2 mt-3" onClick={() => searchByType(type.filter_id)}>
+                    <div className="car-option">
+                      <img src={`/assets/icons/${type.name}.svg`} alt="suv" />
+                      <p className="text-center dark-color"><span>{type.name}</span></p>
+                    </div>
                   </div>
-                </div>
-                <div className="col-4 mb-3 mb-md-0 col-md-2">
+                ))}
+
+                {/* <div className="col-4 mb-3 mb-md-0 col-md-2">
                   <div className="car-option">
                     <img src="/assets/icons/pickup.svg" alt="pickup," />
                     <p className="text-center dark-color">PICKUP</p>
@@ -300,11 +375,11 @@ const Search = ({ setSearchResultData }) => {
                     <img src="/assets/icons/mini.svg" alt="mini" />
                     <p className="text-center dark-color">MINICAR</p>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
             <Chat />
-          </div>
+          </div> : null}
 
           <form className="mt-5" onSubmit={handleSubmit}>
             <div className="form-row">
@@ -336,7 +411,7 @@ const Search = ({ setSearchResultData }) => {
                   name="gearType"
                   className="form-control last"
                   onChange={handleSelect}
-                  disabled={!carData.model}
+                  disabled={!carTrimData.length}
                 >
                   <option selected>Gear Type</option>
                   {carTrimList}

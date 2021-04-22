@@ -132,7 +132,7 @@ const Caroverview = ({ car, interestedInCar }) => {
                   </div> */}
                 </div>
 
-                <div className="d-flex justify-content-end">
+                {car.financeable ? <div className="d-flex justify-content-end">
                   <Button
                     className="rounded text-white"
                     onClick={() => {
@@ -143,7 +143,7 @@ const Caroverview = ({ car, interestedInCar }) => {
                   >
                     Proceed To Access Loan
                   </Button>
-                </div>
+                </div> : null}
               </div>
             </div>
           </div>

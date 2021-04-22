@@ -4,10 +4,62 @@ import Budget from '../../components/budget';
 import Chat from "../../components/chat";
 import Feedbackbutton from '../../components/feedback-button';
 import HomeLayout from "../../components/layouts/home-layout"
-
+import endpoints from '../../api/endPoints';
+import { getCall } from '../../api/request';
+import Loading from "../../components/loadingScreen";
+import { toast, ToastContainer } from "react-nextjs-toast";
+import { useRouter } from "next/router";
 
 const Brandnew = (props) => {
+    React.useEffect(() => {
+        getMakes()
+        getBodyTypes()
+    }, [])
     const [scrollValue, setScrollValue] = React.useState(0)
+    const [makes, setMakes] = React.useState([])
+    const [loading, setLoading] = React.useState(false)
+    const [limit, setLimit] = React.useState(9)
+    const [types, setTypes] = React.useState([])
+    const router = useRouter()
+
+    const getMakes = async () => {
+        try {
+            setLoading(true);
+            let response = await getCall(`${endpoints.getMake}`)
+            setLoading(false);
+            let data = response.data.data
+            data = data.sort()
+            setMakes(data);
+        } catch (error) {
+            setLoading(false);
+            toast.notify('Oops! something went wrong. keep calm and try again.', {
+                duration: 5,
+                title: "An error occured",
+                type: "error",
+            });
+        }
+    }
+    const getBodyTypes = async () => {
+        try {
+            setLoading(true);
+            let response = await getCall(`${endpoints.getBodyType}`)
+            setLoading(false);
+            setTypes(response.data.data);
+        } catch (error) {
+            setLoading(false);
+            toast.notify('Oops! something went wrong. keep calm and try again.', {
+                duration: 5,
+                title: "An error occured",
+                type: "error",
+            });
+        }
+    }
+    const showAll = () => {
+        setLimit(makes.length)
+    }
+    const searchBodyTypes = (filter_id) => {
+        router.push({ pathname: "/brandnew/type/[type]", query: { type: filter_id } })
+    }
     const next = () => {
         let ele = document.getElementById('scroll')
         ele.scrollLeft += 230
@@ -19,6 +71,7 @@ const Brandnew = (props) => {
     }
     return (
         <HomeLayout>
+            {loading && <Loading />}
             <div className="brandnew">
                 <div className="jumbotron">
                     <h1>THE EASIEST WAY TO BUY YOUR NEXT CAR</h1>
@@ -26,7 +79,7 @@ const Brandnew = (props) => {
                 </div>
                 <Chat {...props} />
 
-                <div className="brands">
+                {makes.length ? <div className="brands">
                     <div className="container">
                         <div className="row">
                             <div className="col-md-12">
@@ -34,67 +87,21 @@ const Brandnew = (props) => {
                             </div>
                         </div>
                         <div className="row brand-row">
-                            <Link href={`/brandnew/toyota`} className="col">
-                                <a className="col">
-                                    <div className="brand-container">
-                                        <img src="/assets/icons/toyota.svg" alt="toyota" />
-                                    </div>
-                                </a>
-                            </Link>
-                            <Link href={`/brandnew/toyota`} className="col">
-                                <a className="col">
-                                    <div className="brand-container">
-                                        <img src="/assets/icons/ford.svg" alt="ford" />
-                                    </div>
-                                </a>
-                            </Link>
-                            <Link href={`/brandnew/toyota`} className="col">
-                                <a className="col">
-                                    <div className="brand-container">
-                                        <img src="/assets/icons/honda.svg" alt="honda" />
-                                    </div>
-                                </a>
-                            </Link>
-                            <Link href={`/brandnew/toyota`} className="col">
-                                <a className="col">
-                                    <div className="brand-container">
-                                        <img src="/assets/icons/nissan.svg" alt="nissan" />
-                                    </div>
-                                </a>
-                            </Link>
-                            <Link href={`/brandnew/toyota`} className="col">
-                                <a className="col">
-                                    <div className="brand-container">
-                                        <img src="/assets/icons/jeep.svg" alt="jeep" />
-                                    </div>
-                                </a>
-                            </Link>
-                        </div>
+                            {makes.slice(0, limit).map((make, index) => (
+                                <Link href={{ pathname: "/brandnew/[brand]", query: { brand: make.trim() } }} className="col" key={index}>
+                                    <a className="col mb-5">
+                                        <div className="brand-container">
+                                            <div className="brand-content">
+                                                <img src="/assets/icons/brand-placeholder.png" alt="brand" />
+                                                <h4>{make}</h4>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </Link>
+                            ))}
 
-
-                        <div className="row brand-row">
-                            <div className="col">
-                                <div className="brand-container">
-                                    <img src="/assets/icons/bmw.svg" alt="bmw" />
-                                </div>
-                            </div>
-                            <div className="col">
-                                <div className="brand-container">
-                                    <img src="/assets/icons/volks.svg" alt="volks" />
-                                </div>
-                            </div>
-                            <div className="col">
-                                <div className="brand-container">
-                                    <img src="/assets/icons/akura.svg" alt="akura" />
-                                </div>
-                            </div>
-                            <div className="col">
-                                <div className="brand-container">
-                                    <img src="/assets/icons/hyundai.svg" alt="hyundai" />
-                                </div>
-                            </div>
-                            <div className="col">
-                                <div className="see-container">
+                            {limit < makes.length ? <div className="col">
+                                <div className="see-container" onClick={() => showAll()}>
                                     <div className="see-all text-center">
                                         <h4>SEE ALL BRANDS</h4>
 
@@ -102,14 +109,15 @@ const Brandnew = (props) => {
                                         <img src="/assets/icons/teal-arrow-down.svg" alt="..." />
                                     </div>
                                 </div>
-                            </div>
+                            </div> : null}
                         </div>
+
                         <div className="border-bottom mb-3" />
                     </div>
-                </div>
+                </div> : null}
 
                 <div className="type mt-5">
-                    <div className="container">
+                    {types.length ? <div className="container">
                         <div className="row">
                             <div className="col-md-12">
                                 <h3 className="h-shop">Shop by Type</h3>
@@ -118,50 +126,20 @@ const Brandnew = (props) => {
                         </div>
                         <div className="row mt-4">
                             <div className="type-container" id="scroll">
-                                <div className="type-content text-center">
-                                    <div className="align-self-center">
-                                        <img src="/assets/icons/suv.svg" alt="suv" />
-                                        <p>SUV</p>
-                                    </div>
-                                </div>
-                                <div className="type-content text-center">
-                                    <div className="align-self-center">
-                                        <img src="/assets/icons/pickup.svg" alt="pickup" />
-                                        <p>PICKUP</p>
-                                    </div>
-                                </div>
 
-                                <div className="type-content text-center">
-                                    <div className="align-self-center">
-                                        <img src="/assets/icons/coupe.svg" alt="coupe" />
-                                        <p>COUPE</p>
+                                {types.map((type, index) => (
+                                    <div className="type-content text-center" key={index} onClick={() => searchBodyTypes(type.filter_id)}>
+                                        <div className="align-self-center">
+                                            <img src={`/assets/icons/${type.name}.svg`} alt={type.name} />
+                                            <p>{type.name.toUpperCase()}</p>
+                                        </div>
                                     </div>
-                                </div>
+                                ))}
 
-                                <div className="type-content text-center">
-                                    <div className="align-self-center">
-                                        <img src="/assets/icons/sedan.svg" alt="sedan" />
-                                        <p>SEDAN</p>
-                                    </div>
-                                </div>
-
-                                <div className="type-content text-center">
-                                    <div className="align-self-center">
-                                        <img src="/assets/icons/mini.svg" alt="mini" />
-                                        <p>MINI</p>
-                                    </div>
-                                </div>
-
-                                {/* <div className="type-content text-center">
-                                <div className="align-self-center">
-                                    <img src="/assets/icons/mini.svg" alt="mini" />
-                                    <p>MINI</p>
-                                </div>
-                            </div> */}
                             </div>
                         </div>
                         <button onClick={() => next()} className="btn btn-link"><img src="/assets/icons/arrow-right.svg" alt="..." /></button>
-                    </div>
+                    </div> : null}
                 </div>
 
                 <div className="price">
@@ -169,6 +147,7 @@ const Brandnew = (props) => {
                 </div>
 
             </div>
+            <ToastContainer align={"right"} position={"bottom"} />
         </HomeLayout>
     )
 }
