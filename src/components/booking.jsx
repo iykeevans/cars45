@@ -37,7 +37,7 @@ const Booking = () => {
   useEffect(() => {
     getMakes();
   }, []);
-const path = router.pathname
+  const path = router.pathname
   const handleChange = (selectedOption, name) => {
     if (!selectedOption[name]) {
       setFormError({ ...formError, [name]: "Please select an option" });
@@ -402,11 +402,11 @@ const path = router.pathname
     }
   }).filter(item => typeof item !== "undefined")[0]
 
-  const {name, email, phone} = data
-  if(name&&email&&phone&&!isPaymentSuccessfull&& path==="/premium-inspection"){
+  const { name, email, phone } = data
+  if (name && email && phone && !isPaymentSuccessfull && path === "/premium-inspection") {
     payWithPaystack({
       email,
-      amount: 1000000,
+      amount: process.env.PREMIUM_INSPECTION,
       name,
       phone,
       setIsPaymentSuccessfull
@@ -447,7 +447,7 @@ const path = router.pathname
           errorMessage={formError["phone"]}
           required={true}
         />
-        {path==="/premium-inspection"&&<Inputs
+        {path === "/premium-inspection" && <Inputs
           name={"address"}
           type={"text"}
           placeholder={"Enter your address"}

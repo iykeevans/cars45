@@ -12,6 +12,7 @@ import endpoints from "../../../api/endPoints";
 import Loading from "../../../components/loadingScreen";
 import { toast, ToastContainer } from "react-nextjs-toast";
 import Recommeneded from "../../../components/recommended"
+import { payWithPaystack } from "../../../utils";
 import cookie from "js-cookie";
 
 const Cardetails = (props) => {
@@ -31,6 +32,8 @@ const Cardetails = (props) => {
     const [times, setTimes] = useState([]);
     const [cityLocations, setCityLocations] = useState([]);
     const [data, setData] = useState({})
+    const [payData, setPayData] = useState({});
+    const [isPaymentSuccessfull, setIsPaymentSuccessfull] = useState(false);
     const router = useRouter()
     // const getPreviousData = (data) => {
     //     let search = decodeURIComponent(data)
@@ -213,7 +216,6 @@ const Cardetails = (props) => {
     }
     const submit = async (e) => {
         e.preventDefault()
-        console.log(data)
         if (!data.name || !data.email || !data.phone || !data.city || !data.address || !data.date || !data.time) {
             toast.notify('All feilds are required', {
                 duration: 5,
@@ -249,9 +251,74 @@ const Cardetails = (props) => {
             }
         }
     }
+    const refer = async (e) => {
+        e.preventDefault()
+        if (!data.name || !data.email || !data.phone || !data.city || !data.address || !data.date || !data.time) {
+            toast.notify('All feilds are required', {
+                duration: 5,
+                title: "Invalid",
+                type: "error",
+            });
+        } else {
+            setLoading(true)
+
+            let datas = { ...data, address: data.address.split('/')[1], booking_date: new Date(`${data.date}T${data.time}`).toISOString(), user: cookie.get('__exponea_etc__'), make: carData.make, model: carData.model, year: carData.year }
+            try {
+                await postCall(endpoints.reserveCar, datas, {})
+                toast.notify('Your information has been received', {
+                    duration: 5,
+                    title: "Congrats!!",
+                    type: "success",
+                });
+                setData({})
+                setLoading(false)
+                setTimeout(() => {
+                    // router.push('/service')
+                    document.getElementById('res').reset()
+                    document.getElementById('res1').reset()
+                }, 3000);
+
+            } catch (error) {
+                setLoading(false)
+                toast.notify('Oops! something went wrong. keep calm and try again.', {
+                    duration: 5,
+                    title: "An error occured",
+                    type: "error",
+                });
+            }
+        }
+    }
+    const handlePayChange = (e) => {
+        setPayData({ ...payData, [e.target.name]: e.target.value })
+    }
+    const openModal = () => {
+        document.getElementById('openPayModal').click()
+    }
+    const onPaysubmit = (e) => {
+        e.preventDefault()
+        if (!payData.name || !payData.email || !payData.phone) {
+            return toast.notify('All fields are required', {
+                duration: 5,
+                title: "Invalid",
+                type: "error",
+            });
+        }
+        openModal()
+    }
+    const payOnline = () => {
+        const { name, email, phone } = payData
+        payWithPaystack({
+            email,
+            amount: carData.payNow,
+            name,
+            phone,
+            setIsPaymentSuccessfull
+        })
+    }
     return (
         <HomeLayout footer="two" header="two">
             {loading && <Loading />}
+            <button className="d-none" data-target="#popup-modal" data-toggle="modal" id="openPayModal">open</button>
             {carData ? <div className="car-details mt-3">
                 <div className="container">
                     <div className="row">
@@ -411,14 +478,14 @@ const Cardetails = (props) => {
                                                 </div>
 
 
-                                                <div className="tab-pane fade" id="deposit" role="tabpanel" aria-labelledby="deposit-tab">...</div>
+
                                             </div>
 
                                             <div className="tab-pane fade" id="refer" role="tabpanel" aria-labelledby="refer-tab">
                                                 <div className="row">
                                                     <div className="col-md-12 text-center">
                                                         <div className="content-container">
-                                                            <form onSubmit={(e) => submit(e)} id="res1">
+                                                            <form onSubmit={(e) => refer(e)} id="res1">
                                                                 <div className="form-group">
                                                                     <input type="text" onChange={(e) => handleChange(e)} className="form-control" id="name" aria-describedby="name" name="name" placeholder="Your name" />
                                                                 </div>
@@ -487,6 +554,37 @@ const Cardetails = (props) => {
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            <div className="tab-pane fade" id="deposit" role="tabpanel" aria-labelledby="deposit-tab">
+
+                                                <div className="row">
+                                                    <div className="col-md-12 text-center">
+                                                        <div className="content-container">
+                                                            <form onSubmit={(e) => onPaysubmit(e)}>
+                                                                <div className="form-group">
+                                                                    <input type="text" onChange={(e) => handlePayChange(e)} className="form-control" id="name" aria-describedby="name" name="name" placeholder="Your name" />
+                                                                </div>
+                                                                <div className="form-group">
+                                                                    <input type="email" onChange={(e) => handlePayChange(e)} className="form-control" id="email" aria-describedby="email" name="email" placeholder="Your email" />
+                                                                </div>
+                                                                <div className="form-group">
+                                                                    <div className="input-group mb-3">
+                                                                        <div className="input-group-prepend">
+                                                                            <span className="input-group-text" id="basic-addon1">+234</span>
+                                                                        </div>
+                                                                        <input type="text" onChange={(e) => handlePayChange(e)} name="phone" className="form-control" placeholder="Phone number" aria-label="phone" aria-describedby="basic-addon1" />
+                                                                    </div>
+                                                                </div>
+
+                                                                <p>Make a fully refundable <span style={{ color: '#ff9101' }}>deposit of</span> NGN{carData?.payNow.toLocaleString()} to hold this car</p>
+
+                                                                <button type="submit" className="btn btn-primary btn-block">PAY NOW</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         </div>
 
 
@@ -558,7 +656,113 @@ const Cardetails = (props) => {
                     </div>
 
 
+                    {/* Modal */}
+                    <div>
+                        <div
+                            className="modal fade"
+                            id="popup-modal"
+                            tabIndex={-1}
+                            aria-labelledby="popup"
+                            aria-hidden="true"
+                        >
+                            <div className="modal-dialog modal-dialog-centered">
+                                <div className="modal-content">
+                                    {/* <div className="modal-header">
+                                <h5 className="modal-title" id="popup"><img src="/assets/icons/Cars45logo.svg" alt="logo" /></h5>
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div> */}
+                                    <div className="modal-body">
+                                        <div className="row mt-2">
+                                            <div className="col-9 col-md-10 text-center">
+                                                <img
+                                                    className="logo"
+                                                    src="/assets/icons/Cars45logo.svg"
+                                                    alt="logo"
+                                                />
+                                            </div>
+                                            <div className="col-2 col-md-2 text-right">
+                                                <button data-dismiss="modal" id="closeFeedback" className="btn btn-link">
+                                                    <img
+                                                        className="close"
+                                                        src="/assets/icons/close.svg"
+                                                        alt="close"
+                                                    />
+                                                </button>
+                                            </div>
+                                        </div>
 
+                                        <div className="row pb-5 pl-2 pl-md-5 pr-2 pr-md-5">
+                                            <div className="col-md-12 text-center">
+                                                <div className="question">
+                                                    <p>Payment details</p>
+                                                </div>
+
+                                                <div className="row pt-3 car-info">
+                                                    <div className="col-md-6">
+                                                        <h4>{carData?.make} {carData?.model} {carData?.year}</h4>
+                                                    </div>
+                                                    <div className="col-md-6">
+                                                        <h4>NGN {carData?.payNow.toLocaleString()}</h4>
+                                                    </div>
+
+                                                    <div className="col-md-6 mt-4">
+                                                        <button className="btn btn-success">Pay Via Bank</button>
+                                                    </div>
+                                                    <div className="col-md-6 mt-4">
+                                                        <button className="btn btn-outline-secondary" onClick={() => payOnline()}>Pay Online</button>
+                                                    </div>
+
+                                                    <div className="col-md-12">
+                                                        <h6>Please follow the instructions below</h6>
+                                                        <div className="text-left">
+                                                            <p>Please enter your phone number in the remarks/transaction reference section on your internet banking/mobile banking while transferring the funds.</p>
+
+                                                            <p className="mb-3 orange-color">Bank : Providus</p>
+                                                            <p className="mb-3 orange-color">Account Name : C45/C45l-100015</p>
+                                                            <p className="mb-3 orange-color">Account Number : 9000010183</p>
+
+                                                            <p>Once the transfer has been completed, click the button below and call our customer care line on +2348096951860 to complete the purchase of your car.</p>
+                                                        </div>
+
+                                                        <div>
+                                                            <button className="btn btn-success">Complete Payment</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                {/* <h3>It'll take 3 minutes</h3>
+                                                
+                                                <div>
+                                                    <button className="btn btn-success">
+                                                        YES, I'LL ANSWER NOW
+                                         </button>
+                                                </div>
+                                                <div>
+                                                    <button className="btn btn-success">
+                                                        Sure, But When I'm Done
+                                          </button>
+                                                </div>
+                                                <div>
+                                                    <button className="btn btn-outline-secondary">
+                                                        NO THANKS
+                                           </button>
+                                                </div> */}
+                                            </div>
+                                            {/* <div className="car-info">
+                                                <div className="row">
+                                                    <div className="col"></div>
+                                                </div>
+                                            </div> */}
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div > :
 
@@ -570,6 +774,7 @@ const Cardetails = (props) => {
                     </div>
                 </div>}
             <ToastContainer align={"right"} position={"bottom"} />
+
         </HomeLayout>
     )
 }

@@ -1,6 +1,6 @@
 export function payWithPaystack({ email, amount = 1000000, name, phone, setIsPaymentSuccessfull }) {
     let handler = PaystackPop.setup({
-        key: 'pk_test_204c9b2cde4a3294c5e246245cbcd45ee5567898', // Replace with your public key
+        key: process.env.PAYSTACK_KEY, // Replace with your public key
         email,
         amount,
         label: name,

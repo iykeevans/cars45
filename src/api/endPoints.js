@@ -25,6 +25,8 @@ export default {
     leads: `${financeUrl}/leads`,
     goMechanic: `${baseURL}/go-mechanic`,
     reserveCar: `${baseURL}/reserve-car`,
+    referBuyer: `${baseURL}/refer-buyer`,
+    preorder: `${baseURL}/preorder-car`,
     getBodyType: `${baseURL}/bodytype`,
     getTransmission: `${baseURL}/transmission`,
     getRelatedCars: (sku, make, year) => `${baseURL}/related-cars?sku=${sku}&make=${make}&year=${year}`
