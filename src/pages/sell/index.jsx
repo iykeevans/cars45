@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import Head from 'next/head';
 import Chat from "../../components/chat";
 import Security from "../../components/security";
 import HomeLayout from "../../components/layouts/home-layout";
@@ -153,6 +153,11 @@ const Sell_car = (props) => {
   return (
     <HomeLayout >
       <div className="sell-car">
+        <Head>
+          <title>Sell your car</title>
+          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+          <meta name="description" content="Sell your car" key="title" />
+        </Head>
         {loading && <Loading />}
         <div className="hero ">
         </div>

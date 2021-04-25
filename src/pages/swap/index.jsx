@@ -386,6 +386,14 @@ const Swap_car = (props) => {
   const submitInspectionExponea = async (e) => {
     e.preventDefault();
     // await validateForm();
+    if (!data.name || !data.city || !data.location || !data.date || !data.time) {
+      console.log(data.name, data.city, data.location, data.date, data.time)
+      return toast.notify("Please be sure to input your name, city, location date and time", {
+        duration: 5,
+        title: "Missing fields",
+        type: "error",
+      });
+    }
     setLoading(true);
     const payload = {
       make: data.make,

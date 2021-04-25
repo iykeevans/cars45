@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Head from 'next/head';
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import Link from 'next/link';
@@ -294,6 +295,11 @@ const Buy = (props) => {
     };
     return (
         <HomeLayout footer="two" header="two">
+            <Head>
+                <title>Buy used cars</title>
+                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                <meta name="description" content="Buy used cars" key="title" />
+            </Head>
             {loading && <Loading />}
             <div className="buy">
                 <div className="jumbotron">
