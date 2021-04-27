@@ -25,6 +25,7 @@ const Button = styled.button`
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   font-weight: 500;
 `;
+
 const LoanableCarFinancialInformation = (props) => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
@@ -44,6 +45,7 @@ const LoanableCarFinancialInformation = (props) => {
       setData({ ...JSON.parse(incomingData) });
     }
   };
+
   const loadBanks = async () => {
     try {
       let banks = await getCall(endpoint.getBanks, {});
@@ -317,7 +319,7 @@ const LoanableCarFinancialInformation = (props) => {
                   className={validationClassSetter("netMonthlySal")}
                   id="netMonthlySal"
                   name="netMonthlySal"
-                  type="number"
+                  type="text"
                   value={formik.values.netMonthlySal}
                   onBlur={formik.handleBlur}
                   onChange={formik.handleChange}

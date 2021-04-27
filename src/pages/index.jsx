@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Head from 'next/head';
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 import Chat from "../components/chat";
@@ -16,7 +17,8 @@ import HomeLayout from "../components/layouts/home-layout";
 const Home = (props) => {
   const router = useRouter();
   useEffect(() => {
-    document.getElementById("open-modal").click();
+    // document.getElementById("open-modal").click();
+    checkSurvery()
   }, []);
 
   const [loading, setLoading] = useState(false);
@@ -63,17 +65,34 @@ const Home = (props) => {
       items: 1,
     },
   };
+  const checkSurvery = () => {
+    let survey = JSON.parse(localStorage.getItem('survey'))
+    if (!survey) {
+      localStorage.setItem('survey', false)
+      document.getElementById("open-modal").click();
+    }
+  }
   const closeFeedback = () => {
     document.getElementById('closeFeedback').click()
 
   }
   const answerNow = () => {
     closeFeedback()
-    window.location.assign('https://docs.google.com/forms/d/1uvqqKDzYS7pOVG1wKOoyNpVeyYTJpE1mXXYh0-y-IdE/edit')
+    localStorage.setItem('survey', true)
+    document.getElementById('survey-go').click()
+    // window.location.assign('https://docs.google.com/forms/d/1uvqqKDzYS7pOVG1wKOoyNpVeyYTJpE1mXXYh0-y-IdE/edit')
   }
   return (
     <HomeLayout>
+      <Head>
+        <title>Home</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta property="og:title" content="Welcome to cars 45" key="title" />
+      </Head>
       {loading && <Loading />}
+
+      {/* survey link */}
+      <a className="d-none" id="survey-go" href="https://docs.google.com/forms/d/1uvqqKDzYS7pOVG1wKOoyNpVeyYTJpE1mXXYh0-y-IdE/edit" target="_blank">Survey link</a>
       <div className="home">
         {/* dynamic modal buttons */}
         <button

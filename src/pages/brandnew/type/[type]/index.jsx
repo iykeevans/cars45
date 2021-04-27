@@ -35,7 +35,6 @@ const Brandnewtype = (props) => {
 
     const getModels = async (make) => {
         try {
-            console.log(make)
             let response = await getCall(`${endpoints.getModel(make)}`)
             setModels(response.data.data);
         } catch (error) {
@@ -54,7 +53,8 @@ const Brandnewtype = (props) => {
             let response = await getCall(`${endpoints.getSearch({ type, condition: 'new' })}`)
             setLoading(false);
             if (typeof response.data.data === 'string') {
-                return toast.notify('Can not find new cars for this brand', {
+                setCars([])
+                return toast.notify('No cars found, try another search', {
                     duration: 5,
                     title: "Not found",
                     type: "error",
@@ -336,7 +336,7 @@ const Brandnewtype = (props) => {
                         <div className="row">
                             <div className="col-lg-12">
                                 <div className="card no-details">
-                                    <h4>{loading ? 'Loading...' : 'No brand new cars for this brand at the moment'}</h4>
+                                    <h4>{loading ? 'Loading...' : 'No cars found, try another search'}</h4>
                                 </div>
                             </div>
                         </div>}

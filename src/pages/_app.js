@@ -45,6 +45,10 @@ import "../styles/scss/usedcar.scss";
 import "../styles/scss/forms.scss";
 import "../styles/globals.css";
 
+// import { useRouter } from "next/router";
+import React from "react";
+
+
 const theme = {
   colors: {
     primary: "#0070f3",
@@ -60,6 +64,19 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function MyApp({ Component, pageProps }) {
+  // const router = useRouter();
+  // const path = router.pathname
+  // React.useEffect(() => {
+  //   getTitle()
+  // }, [])
+
+  // const [title, setTitle] = React.useState('')
+
+  // const getTitle = () => {
+  //   let currentTitle = path.split('/')[1]
+  //   currentTitle = currentTitle.charAt(0).toUpperCase() + currentTitle.substring(1)
+  //   setTitle(currentTitle)
+  // }
   return (
     <>
       <Head>
@@ -69,7 +86,7 @@ function MyApp({ Component, pageProps }) {
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
           crossOrigin="anonymous"
         />
-        <title>car45</title>
+        <title>Cars45</title>
 
         <script
           src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
