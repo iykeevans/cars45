@@ -7,9 +7,13 @@ import Loading from "../../components/loadingScreen";
 import HomeLayout from "../../components/layouts/home-layout";
 import Socials from "../../components/socials";
 import Chat from "../../components/chat";
-import { postCall, getCall } from '../../api/request';
-import endpoint from '../../api/endPoints';
+import { postCall, getCall } from "../../api/request";
+import endpoint from "../../api/endPoints";
 import { toast, ToastContainer } from "react-nextjs-toast";
+
+const mockedData = {
+  title: "Let's Help You Source",
+};
 
 const Button = styled.button`
   background: #10cac1;
@@ -55,7 +59,6 @@ const SourceLoanableCar = (props) => {
       errors.state = "Required";
     }
 
-
     if (!values.interestedInCar) {
       errors.interestedInCar = "Required";
     }
@@ -85,23 +88,23 @@ const SourceLoanableCar = (props) => {
     validate,
     onSubmit: async (values, { resetForm }) => {
       try {
-        setLoading(true)
+        setLoading(true);
         let headers = {
-          "x-api-key": process.env.FINANCE_API_KEY
-        }
-        let res = await postCall(endpoint.leads, values, headers)
+          "x-api-key": process.env.FINANCE_API_KEY,
+        };
+        let res = await postCall(endpoint.leads, values, headers);
         if (res.data.status === true) {
-          toast.notify('Your request was sent successfully', {
+          toast.notify("Your request was sent successfully", {
             duration: 5,
             title: "Successful",
             type: "success",
           });
-          resetForm()
+          resetForm();
         }
-        setLoading(false)
+        setLoading(false);
       } catch (error) {
-        setLoading(false)
-        toast.notify('Oops! something went wrong. keep calm and try again.', {
+        setLoading(false);
+        toast.notify("Oops! something went wrong. keep calm and try again.", {
           duration: 5,
           title: "An error occured",
           type: "error",
@@ -114,8 +117,8 @@ const SourceLoanableCar = (props) => {
     return !formik.touched[value]
       ? "form-control"
       : formik.errors[value]
-        ? "form-control is-invalid"
-        : "form-control is-valid";
+      ? "form-control is-invalid"
+      : "form-control is-valid";
   };
 
   const renderError = (value) =>
@@ -131,7 +134,7 @@ const SourceLoanableCar = (props) => {
 
       <div className="container d-flex flex-column align-items-center">
         <h2 className="text-center mt-5 mb-4 font-weight-bold">
-          Let's Help You Source
+          {mockedData.title}
         </h2>
 
         <form

@@ -1,20 +1,34 @@
 import { partnership } from "../../asset/data/service";
 import PartnershipCard from "../../components/partnership-card";
-import HomeLayout from "../../components/layouts/home-layout"
+import HomeLayout from "../../components/layouts/home-layout";
 
+const mockedData = {
+  hero: {
+    title: "Let's Partner With You",
+  },
+  service: {
+    title: "We offer the following services for a corporate or business lead",
+    items: partnership,
+  },
+  additionalInfo: {
+    title: "For enquires, please contact:",
+    image: "./assets/images/picture.svg",
+    name: "Felicia Afiemo",
+    email: "felicia.a@cars45.com",
+  },
+};
 
 export default function Partnership() {
-
   return (
-    <HomeLayout footer="two" >
+    <HomeLayout footer="two">
       <div className="corporate">
         <div className="hero  partnership">
-          <h1 className="header text-center">Let's Partner With You</h1>
+          <h1 className="header text-center">{mockedData.hero.title}</h1>
         </div>
         <div className="content-container">
-          <h3 className="content-header">We offer the following services for a corporate or business lead</h3>
+          <h3 className="content-header">{mockedData.service.title}</h3>
           <div className="partnership-items">
-            {partnership.map((item, index) => (
+            {mockedData.service.items.map((item, index) => (
               <PartnershipCard
                 key={index}
                 title={item.title}
@@ -26,13 +40,15 @@ export default function Partnership() {
         </div>
         <div className="line"></div>
         <div className="partnership-contact">
-          <h5>For enquires, please contact:</h5>
+          <h5>{mockedData.additionalInfo.title}</h5>
           <div className="patrnership-contact-person">
-            <img src="./assets/images/picture.svg" />
+            <img src={mockedData.additionalInfo.image} />
             <div className="sub-line"></div>
             <div className="partnership-contact-user">
-              <p>Felicia Afiemo</p>
-              <a href="mailto:adrenaline@gmail.com">felicia.a@cars45.com</a>
+              <p>{mockedData.additionalInfo.name}</p>
+              <a href="mailto:adrenaline@gmail.com">
+                {mockedData.additionalInfo.email}
+              </a>
             </div>
           </div>
         </div>

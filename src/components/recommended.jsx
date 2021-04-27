@@ -5,17 +5,19 @@ import endpoints from "../api/endPoints";
 import Loading from "./loadingScreen";
 import { toast, ToastContainer } from "react-nextjs-toast";
 
+const mockedData = {
+  title: "Recommended Marketplace Cars For You",
+};
+
 export default function Autopreneur() {
   const ref = useRef();
   const [carData, setCarData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-
   useEffect(() => {
     search();
   }, []);
 
- 
   const slide = (position) => {
     let left = ref.current.scrollLeft;
     switch (position) {
@@ -73,11 +75,11 @@ export default function Autopreneur() {
 
   return (
     <>
-    {loading&&<Loading/>}
+      {loading && <Loading />}
       <div className="autopreneneur-rec-carousel">
         <h1 onClick={() => slide("prev")}>&#x2039;</h1>
         <div className="autopreneneur-suggestion">
-          <h4>Recommended Marketplace Cars For You</h4>
+          <h4>{mockedData.title}</h4>
           <div ref={ref} className="autopreneneur-recommended">
             {carData.map((item, index) => (
               <Carlist key={index} car={item} />

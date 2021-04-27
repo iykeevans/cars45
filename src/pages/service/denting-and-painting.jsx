@@ -6,6 +6,27 @@ import { services } from "../../asset/data/service";
 import HomeLayout from "../../components/layouts/home-layout";
 import ServiceInfoItem from "../../components/services-info/services-info-item";
 
+const mockedData = {
+  title: "Denting & Painting",
+  basic: {
+    title: "Panel painting",
+    image: "/assets/images/services/panel_painting.jpg",
+    firstColumn: ["Front bumper", "Rear bumper", "Left/Right fender"],
+    secondColumn: ["Bonnet/boot", "Door paint"],
+  },
+  standard: {
+    title: "Full Body painting",
+    image: "/assets/images/services/full_body_painting.jpg",
+  },
+  premium: {
+    title: "Comprehensive Service",
+    image: "/assets/images/services/rim_painting.jpg",
+  },
+  button: {
+    text: "REQUEST A SERVICE NOW",
+  },
+};
+
 const TabContainer = styled.div`
   height: 80px;
   border: 1px solid #10cac1;
@@ -74,35 +95,35 @@ export default function DentingAndPainting() {
         </TabContainer>
 
         <div className="pl-md-5 mt-4">
-          <Heading className="mb-2">Denting & Painting</Heading>
+          <Heading className="mb-2">{mockedData.title}</Heading>
 
           <section className="d-flex flex-column flex-md-row p-3 border mb-4">
             <div>
               <img
-                src="/assets/images/services/panel_painting.jpg"
-                alt="basic"
+                src={mockedData.basic.image}
+                alt={mockedData.basic.title.toLowerCase()}
                 style={{ height: 250, width: 250 }}
                 className="mr-3"
               />
             </div>
 
             <div style={{ width: "100%" }}>
-              <h6 className="mb-3 font-weight-bold">Panel painting</h6>
+              <h6 className="mb-3 font-weight-bold">
+                {mockedData.basic.title}
+              </h6>
 
               <div className="container" style={{ width: "100%" }}>
                 <div className="row">
                   <div className="col-md-5 text-left" style={{ padding: 0 }}>
-                    <ServiceInfoItem text="Front bumper" />
-
-                    <ServiceInfoItem text="Rear bumper" />
-
-                    <ServiceInfoItem text="Left/Right fender" />
+                    {mockedData.basic.firstColumn.map((item, i) => (
+                      <ServiceInfoItem text={item} key={i} />
+                    ))}
                   </div>
 
                   <div className="col-md-5" style={{ padding: 0 }}>
-                    <ServiceInfoItem text="Bonnet/boot" />
-
-                    <ServiceInfoItem text="Door paint" />
+                    {mockedData.basic.secondColumn.map((item, i) => (
+                      <ServiceInfoItem text={item} key={i} />
+                    ))}
                   </div>
                 </div>
               </div>
@@ -112,30 +133,34 @@ export default function DentingAndPainting() {
           <section className="d-flex flex-column flex-md-row p-3 border mb-4">
             <div>
               <img
-                src="/assets/images/services/full_body_painting.jpg"
-                alt="basic"
+                src={mockedData.standard.image}
+                alt={mockedData.standard.title.toLowerCase()}
                 style={{ height: 250, width: 250 }}
                 className="mr-3"
               />
             </div>
 
             <div style={{ width: "100%" }}>
-              <h6 className="mb-3 font-weight-bold">Full Body painting</h6>
+              <h6 className="mb-3 font-weight-bold">
+                {mockedData.standard.title}
+              </h6>
             </div>
           </section>
 
           <section className="d-flex flex-column flex-md-row p-3 border mb-5">
             <div>
               <img
-                src="/assets/images/services/rim_painting.jpg"
-                alt="basic"
+                src={mockedData.premium.image}
+                alt={mockedData.premium.title.toLowerCase()}
                 style={{ height: 250, width: 250 }}
                 className="mr-3"
               />
             </div>
 
             <div style={{ width: "100%" }}>
-              <h6 className="mb-3 font-weight-bold">Comprehensive Service</h6>
+              <h6 className="mb-3 font-weight-bold">
+                {mockedData.premium.title}
+              </h6>
             </div>
           </section>
         </div>
@@ -145,7 +170,7 @@ export default function DentingAndPainting() {
             className="text-center rounded"
             onClick={handleRequestAService}
           >
-            REQUEST A SERVICE NOW
+            {mockedData.button.text}
           </Button>
         </div>
       </div>
