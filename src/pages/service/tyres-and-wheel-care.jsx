@@ -6,6 +6,25 @@ import { services } from "../../asset/data/service";
 import HomeLayout from "../../components/layouts/home-layout";
 import ServiceInfoItem from "../../components/services-info/services-info-item";
 
+const mockedData = {
+  title: "Tyres and Wheel Care",
+  basic: {
+    image: "/assets/images/services/tyres_replacement.jpg",
+    title: "Tyres replacement",
+  },
+  standard: {
+    image: "/assets/images/services/wheel_care_replacement.jpg",
+    title: "Wheel care",
+    firstColumn: [
+      "Wheel alignment",
+      "Wheel balancing",
+      "Tyre rotation",
+      "Camber adjustments",
+    ],
+    secondColumn: ["Tyre wear pattern inspection"],
+  },
+};
+
 const TabContainer = styled.div`
   height: 80px;
   border: 1px solid #10cac1;
@@ -74,50 +93,52 @@ export default function TyresAndWheelCare() {
         </TabContainer>
 
         <div className="pl-md-5 mt-4">
-          <Heading className="mb-2">Tyres and Wheel Care</Heading>
+          <Heading className="mb-2">{mockedData.title}</Heading>
 
           <section className="d-flex flex-column flex-md-row p-3 shadow-sm border mb-4">
             <div>
               <img
-                src="/assets/images/services/tyres_replacement.jpg"
-                alt="basic"
+                src={mockedData.basic.image}
+                alt={mockedData.basic.title.toLowerCase()}
                 style={{ height: 250, width: 250 }}
                 className="mr-3"
               />
             </div>
 
             <div style={{ width: "100%" }}>
-              <h6 className="mb-3 font-weight-bold">Tyres replacement</h6>
+              <h6 className="mb-3 font-weight-bold">
+                {mockedData.basic.title}
+              </h6>
             </div>
           </section>
 
           <section className="position-relative d-flex flex-column flex-md-row p-3 border mb-4">
             <div>
               <img
-                src="/assets/images/services/wheel_care_replacement.jpg"
-                alt="basic"
+                src={mockedData.standard.image}
+                alt={mockedData.standard.title.toLowerCase()}
                 style={{ height: 250, width: 250 }}
                 className="mr-3"
               />
             </div>
 
             <div style={{ width: "100%" }}>
-              <h6 className="mb-3 font-weight-bold">Wheel care</h6>
+              <h6 className="mb-3 font-weight-bold">
+                {mockedData.standard.title}
+              </h6>
 
               <div className="container" style={{ width: "100%" }}>
                 <div className="row">
                   <div className="col-md-5 text-left" style={{ padding: 0 }}>
-                    <ServiceInfoItem text="Wheel alignment" />
-
-                    <ServiceInfoItem text="Wheel balancing" />
-
-                    <ServiceInfoItem text="Tyre rotation" />
-
-                    <ServiceInfoItem text="Camber adjustments" />
+                    {mockedData.standard.firstColumn.map((item, i) => (
+                      <ServiceInfoItem text={item} key={i} />
+                    ))}
                   </div>
 
                   <div className="col-md-5 text-left" style={{ padding: 0 }}>
-                    <ServiceInfoItem text="Tyre wear pattern inspection" />
+                    {mockedData.standard.secondColumn.map((item, i) => (
+                      <ServiceInfoItem text={item} key={i} />
+                    ))}
                   </div>
                 </div>
               </div>

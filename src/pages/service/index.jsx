@@ -13,6 +13,46 @@ import { services, advantage, faqs } from "../../asset/data/service";
 import Accordion from "../../components/faq-accordion";
 import Loading from "../../components/loadingScreen";
 
+const mockData = {
+  hero: {
+    form: {
+      title: "The Best Car Service Awaits You",
+      button: {
+        text: "CHECK SERVICE",
+      },
+    },
+  },
+  service: {
+    title: "SERVICES",
+    items: services,
+  },
+  features: {
+    title: "The MeKanic 45 Advantage",
+    items: advantage,
+  },
+  benefits: {
+    title: "Remote Diagnostics",
+  },
+  brands: {
+    title: "We service most makes and models",
+    image: "/assets/images/car-logo.svg",
+  },
+  faq: {
+    title: "Frequently Asked Questions",
+    items: faqs,
+  },
+  footer: {
+    cta: {
+      paragraph1: "Need an attractive service plan for a fleet of cars?",
+      paragraph2: "Let our experts tailor a plan for you.",
+    },
+    phone: {
+      image: "/assets/images/phone-call.svg",
+      data: "+234 818 984 0160",
+    },
+  },
+};
+
 const GridBox = styled.div`
   display: grid;
   grid-template-columns: repeat(1, 1fr);
@@ -122,9 +162,7 @@ const Service = (props) => {
                 onSubmit={handleCheckService}
               >
                 <span className="text-black">{vehicleMake}</span>
-                <div className="heading mb-4">
-                  The Best Car Service Awaits You
-                </div>
+                <div className="heading mb-4">{mockData.hero.form.title}</div>
 
                 <select
                   name="brand"
@@ -175,7 +213,9 @@ const Service = (props) => {
                   onChange={({ target }) => setPhoneNo(target.value)}
                 />
 
-                <button className="mt-4 d-flex">CHECK SERVICE</button>
+                <button className="mt-4 d-flex">
+                  {mockData.hero.form.button.text}
+                </button>
               </form>
             </div>
           </div>
@@ -183,12 +223,12 @@ const Service = (props) => {
           {/* services section */}
           <div className="service-section pt-5">
             <h2 className="text-center font-weight-bold mb-5 text-white">
-              SERVICES
+              {mockData.service.title}
             </h2>
 
             <div className="px-4">
               <GridBox>
-                {services.map(({ title, image, link }, index) => (
+                {mockData.service.items.map(({ title, image, link }, index) => (
                   <GridItem
                     className="d-flex flex-column align-items-center justify-content-center"
                     key={index}
@@ -205,10 +245,10 @@ const Service = (props) => {
           {/* advantages section */}
           <div className="advantage">
             <h2 className="text-white mb-5 text-center">
-              The MeKanic 45 Advantage
+              {mockData.features.title}
             </h2>
             <div className="d-flex justify-content-around mt-5 flex-column flex-lg-row">
-              {advantage.map((adv, index) => (
+              {mockData.features.items.map((adv, index) => (
                 <div className="card mb-5 mx-auto" key={index}>
                   <div className="top d-flex flex-column align-items-center  ">
                     <div className="ing">
@@ -234,7 +274,7 @@ const Service = (props) => {
 
           {/* remote diagnostics sections */}
           <div className="mt-5 px-5 py-5" style={{ background: "#E4E4E4" }}>
-            <h2 className="text-center mb-5">Remote Diagnostics</h2>
+            <h2 className="text-center mb-5">{mockData.benefits.title}</h2>
 
             <div className="row justify-content-center">
               <div className="col-md-4">
@@ -360,12 +400,12 @@ const Service = (props) => {
           {/* brands section */}
           <div className="brand container ">
             <h2 className="mb-5 text-center font-weight-bold">
-              We service most makes and models
+              {mockData.brands.title}
             </h2>
 
             <div className="d-flex justify-content-center container-fluid">
               <img
-                src="/assets/images/car-logo.svg"
+                src={mockData.brands.image}
                 alt="car logo"
                 className="mr-2"
               />
@@ -376,22 +416,19 @@ const Service = (props) => {
         {/* faq */}
         <div className="faq-section">
           <h2 className="text-center font-weight-bold mb-5">
-            Frequently Asked Questions
+            {mockData.faq.title}
           </h2>
 
           <div className="container bg-green  py-5 px-lg-5 d-flex flex-column flex-lg-row">
             <div className="col-lg-8">
-              {faqs.map((faq, index) => (
+              {mockData.faq.items.map((faq, index) => (
                 <Accordion faq={faq} key={index} />
               ))}
             </div>
 
             <div className="col-lg-4 green text-white p-5 mb-4 d-flex flex-column">
-              <p>Need an attractive service plan for a fleet of cars?</p>
-              <p className="mt-5 mb-5">
-                {" "}
-                Let our experts tailor a plan for you.
-              </p>
+              <p>{mockData.footer.cta.paragraph1}</p>
+              <p className="mt-5 mb-5"> {mockData.footer.cta.paragraph2}</p>
 
               <div
                 className="mt-auto d-flex align-items-center"
@@ -399,13 +436,13 @@ const Service = (props) => {
               >
                 <div>
                   <img
-                    src="/assets/images/phone-call.svg"
+                    src={mockData.footer.phone.image}
                     alt="mobile call"
                     style={{ height: 46 }}
                   />
                 </div>
 
-                <div className="ml-3">+234 818 984 0160</div>
+                <div className="ml-3">{mockData.footer.phone.data}</div>
               </div>
             </div>
           </div>

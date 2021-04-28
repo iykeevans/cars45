@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 import { useFormik } from "formik";
-import cookie from "js-cookie"
+import cookie from "js-cookie";
 
 import endPoints from "../../api/endPoints";
 import { getCall, postCall } from "../../api/request";
@@ -11,6 +11,10 @@ import { services } from "../../asset/data/service";
 import HomeLayout from "../../components/layouts/home-layout";
 import Loading from "../../components/loadingScreen";
 import { toast, ToastContainer } from "react-nextjs-toast";
+
+const mockedData = {
+  title: "Book A Car Repair",
+};
 
 const Button = styled.button`
   background: #21b7ac;
@@ -31,8 +35,8 @@ export default function BookARepair() {
   const [carYear, setCarYear] = useState([]);
   const [cities, setCities] = useState([]);
   const [cityLocations, setCityLocations] = useState([]);
-  const [dates, setDates] = useState([])
-  const [times, setTimes] = useState([])
+  const [dates, setDates] = useState([]);
+  const [times, setTimes] = useState([]);
 
   const router = useRouter();
 
@@ -90,15 +94,6 @@ export default function BookARepair() {
     return errors;
   };
 
-  // const handleChange = (e) => {
-  //   let name = e.target.name
-  //   let value = e.target.value
-  //   if (name === 'model') {
-  //     // console.log(formik)
-  //     formik.setValues({ [name]: value })
-  //     console.log(formik.values)
-  //   }
-  // }
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -111,43 +106,46 @@ export default function BookARepair() {
       city: "",
       address: "",
       date: "",
-      time: ""
+      time: "",
     },
     validate,
     onSubmit: async (values) => {
-      setLoading(true)
-      let data = { ...values, address: values.address.split('/')[1], booking_date: new Date(`${values.date}T${values.time}`).toISOString(), user: cookie.get('__exponea_etc__') }
+      setLoading(true);
+      let data = {
+        ...values,
+        address: values.address.split("/")[1],
+        booking_date: new Date(`${values.date}T${values.time}`).toISOString(),
+        user: cookie.get("__exponea_etc__"),
+      };
       try {
-        await postCall(endPoints.goMechanic, data, {})
-        toast.notify('Your booking was successful', {
+        await postCall(endPoints.goMechanic, data, {});
+        toast.notify("Your booking was successful", {
           duration: 5,
           title: "Congrats!!",
           type: "success",
         });
-        formik.resetForm()
-        setLoading(false)
+        formik.resetForm();
+        setLoading(false);
         setTimeout(() => {
-          router.push('/service')
+          router.push("/service");
         }, 5000);
-
       } catch (error) {
-        setLoading(false)
-        toast.notify('Oops! something went wrong. keep calm and try again.', {
+        setLoading(false);
+        toast.notify("Oops! something went wrong. keep calm and try again.", {
           duration: 5,
           title: "An error occured",
           type: "error",
         });
       }
-
-    }
+    },
   });
 
   const validationClassSetter = (value) => {
     return !formik.touched[value]
       ? "form-control"
       : formik.errors[value]
-        ? "form-control is-invalid"
-        : "form-control is-valid";
+      ? "form-control is-invalid"
+      : "form-control is-valid";
   };
 
   const renderError = (value) =>
@@ -181,7 +179,6 @@ export default function BookARepair() {
     }
   }, [formik.values.city]);
 
-
   const getMakes = () => {
     getCall(`${endPoints.getMake}`)
       .then(({ data: response }) => setCarMakes(response.data))
@@ -197,7 +194,6 @@ export default function BookARepair() {
       .finally(() => setLoading(false));
   };
   const getYear = (make, model) => {
-
     getCall(`${endPoints.getYear(make, model)}`)
       .then(({ data: response }) => setCarYear(response.data))
       .catch((error) => console.log(error))
@@ -223,30 +219,30 @@ export default function BookARepair() {
     setLoading(true);
     getCall(`${endPoints.getSlot(placeId)}`)
       .then(({ data: response }) => {
-        let theDates = Object.values(response.data)
-        setDates(theDates)
+        let theDates = Object.values(response.data);
+        setDates(theDates);
       })
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));
   };
   const getTime = (e) => {
-    let count = 0
+    let count = 0;
     let result;
     for (let i in dates) {
       if (dates[i][e.target.value]) {
-        result = dates[i][e.target.value]
+        result = dates[i][e.target.value];
       }
-      count += 1
+      count += 1;
       if (count === dates.length) {
-        setTimes(result)
+        setTimes(result);
       }
     }
-  }
+  };
   return (
     <HomeLayout>
       {loading && <Loading />}
       <div className="container d-flex flex-column align-items-center">
-        <Heading className="text-center mt-5 mb-4">Book A Car Repair</Heading>
+        <Heading className="text-center mt-5 mb-4">{mockedData.title}</Heading>
 
         <form
           className="p-4 mb-5 rounded d-flex flex-column"
@@ -331,9 +327,9 @@ export default function BookARepair() {
               value={formik.values.model}
               onBlur={formik.handleBlur}
               onChange={(e) => {
-                formik.handleChange(e)
-                getYear(formik.values.make, e.target.value)
-                console.log(formik.values.make, e.target.value)
+                formik.handleChange(e);
+                getYear(formik.values.make, e.target.value);
+                console.log(formik.values.make, e.target.value);
               }}
             >
               <option disabled value="">
@@ -358,7 +354,9 @@ export default function BookARepair() {
               disabled={!formik.values.model}
               value={formik.values.year}
               onBlur={formik.handleBlur}
-              onChange={(e) => { formik.handleChange(e) }}
+              onChange={(e) => {
+                formik.handleChange(e);
+              }}
             >
               <option disabled value="">
                 Choose...
@@ -429,8 +427,8 @@ export default function BookARepair() {
               value={formik.values.address}
               onBlur={formik.handleBlur}
               onChange={(e) => {
-                formik.handleChange(e)
-                getslot(e.target.value.split('/')[0])
+                formik.handleChange(e);
+                getslot(e.target.value.split("/")[0]);
               }}
             >
               <option disabled value="">
@@ -446,7 +444,6 @@ export default function BookARepair() {
             {renderError("address")}
           </div>
 
-
           <div className="mb-4">
             <label htmlFor="date">Date</label>
             <select
@@ -457,8 +454,8 @@ export default function BookARepair() {
               value={formik.values.date}
               onBlur={formik.handleBlur}
               onChange={(e) => {
-                formik.handleChange(e)
-                getTime(e)
+                formik.handleChange(e);
+                getTime(e);
               }}
             >
               <option disabled value="">
@@ -474,32 +471,33 @@ export default function BookARepair() {
             {renderError("date")}
           </div>
 
-
-          {formik.values.date ? <div className="mb-4">
-            <label htmlFor="time">Time</label>
-            <select
-              type="text"
-              name="time"
-              className={validationClassSetter("time")}
-              id="time"
-              value={formik.values.time}
-              onBlur={formik.handleBlur}
-              onChange={(e) => {
-                formik.handleChange(e)
-              }}
-            >
-              <option disabled value="">
-                Choose...
-              </option>
-              {times.map((item, index) => (
-                <option key={index} value={item}>
-                  {item}
+          {formik.values.date ? (
+            <div className="mb-4">
+              <label htmlFor="time">Time</label>
+              <select
+                type="text"
+                name="time"
+                className={validationClassSetter("time")}
+                id="time"
+                value={formik.values.time}
+                onBlur={formik.handleBlur}
+                onChange={(e) => {
+                  formik.handleChange(e);
+                }}
+              >
+                <option disabled value="">
+                  Choose...
                 </option>
-              ))}
-            </select>
+                {times.map((item, index) => (
+                  <option key={index} value={item}>
+                    {item}
+                  </option>
+                ))}
+              </select>
 
-            {renderError("time")}
-          </div> : null}
+              {renderError("time")}
+            </div>
+          ) : null}
 
           <Button
             className="text-center rounded align-self-center text-white"
@@ -510,7 +508,6 @@ export default function BookARepair() {
         </form>
       </div>
       <ToastContainer align={"right"} position={"bottom"} />
-
     </HomeLayout>
   );
 }

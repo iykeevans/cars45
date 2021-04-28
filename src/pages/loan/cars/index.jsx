@@ -10,8 +10,17 @@ import Chat from "../../../components/chat";
 import CarList from "../../../components/car-list2";
 
 import { toast, ToastContainer } from "react-nextjs-toast";
-import endpoints from '../../../api/endPoints';
-import { getCall } from '../../../api/request';
+import endpoints from "../../../api/endPoints";
+import { getCall } from "../../../api/request";
+
+const mockedData = {
+  source: {
+    title: "Can't find what you want",
+    button: {
+      text: "CLICK HERE",
+    },
+  },
+};
 
 const SourceBanner = styled.section`
   background: url("/assets/images/loan/cant-find-what-you-want.png");
@@ -32,8 +41,8 @@ const AllLoanableCars = (props) => {
   const router = useRouter();
 
   React.useEffect(() => {
-    searchModels()
-  }, [])
+    searchModels();
+  }, []);
   const [cars, setCars] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchParams, setSearchParams] = React.useState({})
@@ -44,8 +53,8 @@ const AllLoanableCars = (props) => {
       setLoading(true);
       let response = await getCall(`${endpoints.getSearch({ financeable: true, start: 1 })}`)
       setLoading(false);
-      if (typeof response.data.data === 'string') {
-        return toast.notify('No cars found', {
+      if (typeof response.data.data === "string") {
+        return toast.notify("No cars found", {
           duration: 5,
           title: "Not found",
           type: "error",
@@ -69,8 +78,8 @@ const AllLoanableCars = (props) => {
       setCars(Object.values(response.data.data));
     } catch (error) {
       setLoading(false);
-      console.log(error)
-      toast.notify('Oops! something went wrong. keep calm and try again.', {
+      console.log(error);
+      toast.notify("Oops! something went wrong. keep calm and try again.", {
         duration: 5,
         title: "An error occured",
         type: "error",
@@ -198,15 +207,17 @@ const AllLoanableCars = (props) => {
           <Socials />
         </div>
 
-        {cars.length && <div className="overview">
-          <Chat />
+        {cars.length && (
+          <div className="overview">
+            <Chat />
 
-          <div className="container">
-            <div className="overview-container">
-              <div className="row">
-                {cars.map((car, index) => (
-                  <CarList car={car} key={index} />
-                ))}
+            <div className="container">
+              <div className="overview-container">
+                <div className="row">
+                  {cars.map((car, index) => (
+                    <CarList car={car} key={index} />
+                  ))}
+                </div>
               </div>
               {pagination.pages.length ? <nav aria-label="Page navigation example">
                 <ul className="pagination justify-content-center mt-5">
@@ -225,16 +236,16 @@ const AllLoanableCars = (props) => {
               </nav> : null}
             </div>
           </div>
-        </div>}
+        )}
 
         <SourceBanner className="d-flex flex-column align-items-center justify-content-center">
-          <h2 className="font-weight-bold mb-4">Can't find what you want</h2>
+          <h2 className="font-weight-bold mb-4">{mockedData.source.title}</h2>
 
           <Button
             className="rounded"
             onClick={() => router.push({ pathname: "/loan/source-car" })}
           >
-            CLICK HERE
+            {mockedData.source.button.text}
           </Button>
         </SourceBanner>
       </div>

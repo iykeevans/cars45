@@ -5,9 +5,42 @@ import Chat from "../../components/chat";
 import Feedbackbutton from "../../components/feedback-button";
 import HomeLayout from "../../components/layouts/home-layout";
 import { toast, ToastContainer } from "react-nextjs-toast";
-import BookingForm from "../../components/booking"
+import BookingForm from "../../components/booking";
 
-const Ridehailing = (props) => {
+const mockedData = {
+  inspection: {
+    title1: "Determine the current market value of the vehicle",
+    title2: "Get your car inspected",
+    items: [
+      {
+        image: "/assets/icons/book.svg",
+        alt: "book",
+        text: "Book an inspection right here or walk into any of our centers",
+      },
+      {
+        image: "/assets/icons/money.svg",
+        alt: "money",
+        text: "Make a deposit of ₦10,000 at your inspection center of choice.",
+      },
+      {
+        image: "/assets/icons/inspect-done.svg",
+        alt: "inspect info",
+        text: "The inspection is carried within an hour.",
+      },
+      {
+        image: "/assets/icons/inspection-report.svg",
+        alt: "inspection-report",
+        text: "Receive your inspection result within 30 minutes later!",
+      },
+    ],
+  },
+  button: {
+    text: "Book An Inspection",
+  },
+};
+
+const PremiumInspection = (props) => {
+  const [loading, setLoading] = useState(true);
   return (
     <HomeLayout>
       <Head>
@@ -31,64 +64,24 @@ const Ridehailing = (props) => {
                   alt="inspect"
                   alt="inspect"
                 />
-                <p>Remote inspection, either to dispose, list, or determine the market value</p>              </div>
+                <p>{mockedData.inspection.title1}</p>
+              </div>
+
               <div className="col-lg-8">
                 <h2 className="inspect-header text-center">
-                  Get your car inspected
+                  {mockedData.inspection.title2}
                 </h2>
-                <div className="row ml-4 mb-4">
-                  <div className="col-md-2 inspect-info-img">
-                    <img
-                      className="book"
-                      src="/assets/icons/book.svg"
-                      alt="book"
-                    />
-                  </div>
-                  <div className="col-md-6 details align-self-center">
-                    <p>
-                      Book an inspection right here or walk into any of our
-                      centers
-                    </p>
-                  </div>
-                </div>
 
-                <div className="row ml-4 mb-4">
-                  <div className="col-md-2 align-self-center inspect-info-img">
-                    <img src="/assets/icons/money.svg" alt="book" />
+                {mockedData.inspection.items.map((item) => (
+                  <div className="row ml-4 mb-4">
+                    <div className="col-md-2 inspect-info-img">
+                      <img className="book" src={item.image} alt="book" />
+                    </div>
+                    <div className="col-md-6 details align-self-center">
+                      <p>{item.text}</p>
+                    </div>
                   </div>
-                  <div className="col-md-6 details align-self-center">
-                    <p>
-                      Make a deposit of ₦10,000 at your inspection center of
-                      choice.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="row ml-4 mb-4">
-                  <div className="col-md-2 inspect-info-img">
-                    <img src="/assets/icons/inspect-done.svg" alt="book" />
-                  </div>
-                  <div className="col-md-6 details align-self-center">
-                    <p>
-                      The inspection is carried out in less than 30 minutes.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="row ml-4 mb-4">
-                  <div className="col-md-2 inspect-info-img">
-                    <img
-                      className="report"
-                      src="/assets/icons/inspection-report.svg"
-                      alt="book"
-                    />
-                  </div>
-                  <div className="col-md-6 details align-self-center">
-                    <p>
-                      Receive your inspection result within 30 minutes later!
-                    </p>
-                  </div>
-                </div>
+                ))}
 
                 <button
                   className="btn btn-secondary orange-button mt-5 mb-5"
@@ -162,7 +155,7 @@ const Ridehailing = (props) => {
                       </div>
                     </div>
 
-                    <BookingForm />
+                    <BookingForm setLoading={setLoading} />
                   </div>
                 </div>
               </div>
@@ -176,4 +169,4 @@ const Ridehailing = (props) => {
   );
 };
 
-export default Ridehailing;
+export default PremiumInspection;

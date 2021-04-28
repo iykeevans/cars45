@@ -6,6 +6,45 @@ import { services } from "../../asset/data/service";
 import HomeLayout from "../../components/layouts/home-layout";
 import ServiceInfoItem from "../../components/services-info/services-info-item";
 
+const mockedData = {
+  title: "Scheduled packages",
+  basicService: {
+    title: "Basic Service",
+    image: "/assets/images/services/periodic_services_basic.jpg",
+    firstColumn: [
+      "Engine oil replacement",
+      "Oil filter replacement",
+      "Air filter clean",
+    ],
+    secondColumn: ["Spark plugs check", "Car wash"],
+  },
+  standardService: {
+    title: "Standard Service",
+    image: "/assets/images/services/periodic_services_standard.jpg",
+    firstColumn: () => [
+      ...mockedData.basicService.firstColumn,
+      ...mockedData.basicService.secondColumn,
+    ],
+    secondColumn: [
+      "Cabin filter cleaning",
+      "Front brake pads serviced",
+      "Rear brake shoes serviced",
+      "Car scan",
+      "Check coolants and fluid",
+    ],
+  },
+  premiumService: {
+    title: "Comprehensive Service",
+    image: "/assets/images/services/periodic_services_comprehensive.jpg",
+    firstColumn: () => [...mockedData.standardService.firstColumn()],
+    secondColumn: () => [...mockedData.standardService.secondColumn],
+    thirdColumn: ["Wheel alignment", "Wheel balancing", "Tyre rotation"],
+  },
+  button: {
+    text: "REQUEST A SERVICE NOW",
+  },
+};
+
 const TabContainer = styled.div`
   height: 80px;
   border: 1px solid #10cac1;
@@ -74,12 +113,12 @@ export default function PeriodicServices() {
         </TabContainer>
 
         <div className="pl-md-5 mt-4">
-          <Heading className="mb-2">Scheduled packages</Heading>
+          <Heading className="mb-2">{mockedData.title}</Heading>
 
           <section className="d-flex flex-column flex-md-row p-3 border mb-4">
             <div>
               <img
-                src="/assets/images/services/periodic_services_basic.jpg"
+                src={mockedData.basicService.image}
                 alt="basic"
                 style={{ height: 250, width: 250 }}
                 className="mr-3"
@@ -87,22 +126,22 @@ export default function PeriodicServices() {
             </div>
 
             <div style={{ width: "100%" }}>
-              <h6 className="mb-3 font-weight-bold">Basic Service</h6>
+              <h6 className="mb-3 font-weight-bold">
+                {mockedData.basicService.title}
+              </h6>
 
               <div className="container" style={{ width: "100%" }}>
                 <div className="row">
                   <div className="col-md-5 text-left" style={{ padding: 0 }}>
-                    <ServiceInfoItem text="Engine oil replacement" />
-
-                    <ServiceInfoItem text="Oil filter replacement" />
-
-                    <ServiceInfoItem text="Air filter clean" />
+                    {mockedData.basicService.firstColumn.map((item, i) => (
+                      <ServiceInfoItem text={item} key={i} />
+                    ))}
                   </div>
 
                   <div className="col-md-5" style={{ padding: 0 }}>
-                    <ServiceInfoItem text="Spark plugs check" />
-
-                    <ServiceInfoItem text="Car wash" />
+                    {mockedData.basicService.secondColumn.map((item) => (
+                      <ServiceInfoItem text={item} key={i} />
+                    ))}
                   </div>
                 </div>
               </div>
@@ -119,40 +158,30 @@ export default function PeriodicServices() {
 
             <div>
               <img
-                src="/assets/images/services/periodic_services_standard.jpg"
-                alt="basic"
+                src={mockedData.standardService.image}
+                alt="standard"
                 style={{ height: 250, width: 250 }}
                 className="mr-3"
               />
             </div>
 
             <div style={{ width: "100%" }}>
-              <h6 className="mb-3 font-weight-bold">Standard Service</h6>
+              <h6 className="mb-3 font-weight-bold">
+                {mockedData.standardService.title}
+              </h6>
 
               <div className="container" style={{ width: "100%" }}>
                 <div className="row">
                   <div className="col-md-5 text-left" style={{ padding: 0 }}>
-                    <ServiceInfoItem text="Engine oil replacement" />
-
-                    <ServiceInfoItem text="Oil filter replacement" />
-
-                    <ServiceInfoItem text="Air filter clean" />
-
-                    <ServiceInfoItem text="Spark plugs check" />
-
-                    <ServiceInfoItem text="Car wash" />
+                    {mockedData.standardService.firstColumn().map((item, i) => (
+                      <ServiceInfoItem text={item} key={i} />
+                    ))}
                   </div>
 
                   <div className="col-md-5" style={{ padding: 0 }}>
-                    <ServiceInfoItem text="Cabin filter cleaning" />
-
-                    <ServiceInfoItem text="Front brake pads serviced" />
-
-                    <ServiceInfoItem text="Rear brake shoes serviced" />
-
-                    <ServiceInfoItem text="Car scan" />
-
-                    <ServiceInfoItem text="Check coolants and fluid" />
+                    {mockedData.standardService.secondColumn.map((item, i) => (
+                      <ServiceInfoItem text={item} key={i} />
+                    ))}
                   </div>
                 </div>
               </div>
@@ -162,7 +191,7 @@ export default function PeriodicServices() {
           <section className="d-flex flex-column flex-md-row p-3 border mb-5">
             <div>
               <img
-                src="/assets/images/services/periodic_services_comprehensive.jpg"
+                src={mockedData.premiumService.image}
                 alt="basic"
                 style={{ height: 250, width: 250 }}
                 className="mr-3"
@@ -170,40 +199,28 @@ export default function PeriodicServices() {
             </div>
 
             <div style={{ width: "100%" }}>
-              <h6 className="mb-3 font-weight-bold">Comprehensive Service</h6>
+              <h6 className="mb-3 font-weight-bold">
+                {mockedData.premiumService.title}
+              </h6>
 
               <div className="container" style={{ width: "100%" }}>
                 <div className="row">
                   <div className="col-md-4 text-left" style={{ padding: 0 }}>
-                    <ServiceInfoItem text="Engine oil replacement" />
-
-                    <ServiceInfoItem text="Oil filter replacement" />
-
-                    <ServiceInfoItem text="Air filter clean" />
-
-                    <ServiceInfoItem text="Spark plugs check" />
-
-                    <ServiceInfoItem text="Car wash" />
+                    {mockedData.premiumService.firstColumn().map((item, i) => (
+                      <ServiceInfoItem text={item} key={i} />
+                    ))}
                   </div>
 
                   <div className="col-md-4" style={{ padding: 0 }}>
-                    <ServiceInfoItem text="Cabin filter cleaning" />
-
-                    <ServiceInfoItem text="Front brake pads serviced" />
-
-                    <ServiceInfoItem text="Rear brake shoes serviced" />
-
-                    <ServiceInfoItem text="Car scan" />
-
-                    <ServiceInfoItem text="Check coolants and fluid" />
+                    {mockedData.premiumService.secondColumn().map((item, i) => (
+                      <ServiceInfoItem text={item} key={i} />
+                    ))}
                   </div>
 
                   <div className="col-md-4" style={{ padding: 0 }}>
-                    <ServiceInfoItem text="Wheel alignment" />
-
-                    <ServiceInfoItem text="Wheel balancing" />
-
-                    <ServiceInfoItem text="Tyre rotation" />
+                    {mockedData.premiumService.thirdColumn.map((item, i) => (
+                      <ServiceInfoItem text={item} key={i} />
+                    ))}
                   </div>
                 </div>
               </div>
@@ -216,7 +233,7 @@ export default function PeriodicServices() {
             className="text-center rounded"
             onClick={handleRequestAService}
           >
-            REQUEST A SERVICE NOW
+            {mockedData.button.text}
           </Button>
         </div>
       </div>

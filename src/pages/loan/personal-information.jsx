@@ -8,6 +8,13 @@ import HomeLayout from "../../components/layouts/home-layout";
 import Socials from "../../components/socials";
 import Chat from "../../components/chat";
 
+const mockedData = {
+  title: "Cars45 Financing",
+  form: {
+    title: "Personal Information",
+  },
+};
+
 const Button = styled.button`
   background: #ff9101;
   border: none;
@@ -77,13 +84,12 @@ const SourceLoanableCar = (props) => {
     onSubmit: (values) => {
       // let interestedInCar = JSON.parse(router.query.data)
       // let interestedInCar = { interestedInCar: 'https://cars45.com/toyota' }
-      let data = { ...values, ...JSON.parse(router.query.data) }
+      let data = { ...values, ...JSON.parse(router.query.data) };
       router.push({
-        pathname: '/loan/financial-information',
-        query: { data: JSON.stringify(data) }
-      })
+        pathname: "/loan/financial-information",
+        query: { data: JSON.stringify(data) },
+      });
       // alert(JSON.stringify(values, null, 2));
-
     },
   });
 
@@ -91,8 +97,8 @@ const SourceLoanableCar = (props) => {
     return !formik.touched[value]
       ? "form-control"
       : formik.errors[value]
-        ? "form-control is-invalid"
-        : "form-control is-valid";
+      ? "form-control is-invalid"
+      : "form-control is-valid";
   };
 
   const renderError = (value) =>
@@ -107,7 +113,7 @@ const SourceLoanableCar = (props) => {
 
       <div className="container d-flex flex-column align-items-center">
         <h2 className="text-center mt-5 mb-4 font-weight-bold">
-          Cars45 Financing
+          {mockedData.title}
         </h2>
 
         <form
@@ -115,7 +121,7 @@ const SourceLoanableCar = (props) => {
           style={{ background: "#eee", width: "60vw" }}
           onSubmit={formik.handleSubmit}
         >
-          <h5 className="text-center mb-4">Personal Information</h5>
+          <h5 className="text-center mb-4">{mockedData.form.title}</h5>
 
           <div className="row mb-3">
             <div className="col-md-6">
