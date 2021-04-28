@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Head from 'next/head';
 import { useRouter } from "next/router";
 import Slider from "react-slick";
 import Carlist from "../../../components/car-list";
@@ -317,13 +318,17 @@ const Cardetails = (props) => {
     }
     return (
         <HomeLayout footer="two" header="two">
+            <Head>
+                <title>{carData?.make} {carData?.model} {carData?.year}</title>
+                <meta name="description" content={`${carData?.make} ${carData?.model} ${carData?.year}`} />
+            </Head>
             {loading && <Loading />}
             <button className="d-none" data-target="#popup-modal" data-toggle="modal" id="openPayModal">open</button>
             {carData ? <div className="car-details mt-3">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">
-                            <div className="col-12 col-md-3 title-container">
+                            <div className="col-12 col-md-6 title-container">
                                 <div>
                                 </div>
 

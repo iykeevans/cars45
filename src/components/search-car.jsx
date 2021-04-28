@@ -10,7 +10,7 @@ import Loading from "./loadingScreen";
 import InputRange from "react-input-range";
 
 
-const Search = ({ setSearchResultData }) => {
+const Search = ({ setSearchResultData, setPage, getSearchParams }) => {
   const router = useRouter();
   useEffect(() => {
     getTypes();
@@ -203,6 +203,8 @@ const Search = ({ setSearchResultData }) => {
     const response = await getCall(`${endpoints.getSearch({ type })}`)
 
     const resData = response.data.data;
+    if (getSearchParams) getSearchParams({ type })
+    if (setPage && resData.totalCars && resData.totalCars[0]) setPage(resData.totalCars[0])
     setLoading(false);
     if (response.status === 200) {
       if (resData === "No cars in our repository fits your filter.") {
@@ -225,8 +227,10 @@ const Search = ({ setSearchResultData }) => {
       }
       router.push({ pathname: "/all-cars" }, "/all-cars", {
         carData: resDataArr,
+        searchParam: { type },
+        pagination: resData.totalCars[0] || null
       });
-      setSearchResultData(resDataArr)
+      // setSearchResultData(resDataArr)
     } else {
       setLoading(false);
       toast.notify("Oops! something went wrong. keep calm and try again.", {
@@ -264,35 +268,31 @@ const Search = ({ setSearchResultData }) => {
       searchParam.condition = carData.condition
     }
     setLoading(true);
-    getCall(`${endpoints.getSearch(searchParam)}`)
+    getCall(`${endpoints.getSearch({ ...searchParam, start: 1 })}`)
       .then((response) => {
         const resData = response.data.data;
+        if (getSearchParams) getSearchParams(searchParam)
+        if (setPage && resData.totalCars && resData.totalCars[0]) setPage(resData.totalCars[0])
         setLoading(false);
         if (response.status === 200) {
-          if (resData === "No cars in our repository fits your filter.") {
-            return toast.notify("No cars in our repository fits your filter.", {
+          if (typeof resData === "string") {
+            toast.notify("No cars in our repository fits your filter.", {
               duration: 5,
               title: "Success",
               type: "warning",
             });
+            return
           }
           const resDataArr = Object.values(resData).filter(
             (item) => item.status
           );
-          if (resDataArr.length < 1) {
-            return toast.notify(
-              "No Available cars in our repository fits your filter.",
-              {
-                duration: 5,
-                title: "Success",
-                type: "warning",
-              }
-            );
-          }
+
           router.push({ pathname: "/all-cars" }, "/all-cars", {
             carData: resDataArr,
+            searchParam,
+            pagination: resData.totalCars[0] || null
           });
-          setSearchResultData(resDataArr)
+          if (setSearchResultData) setSearchResultData(resDataArr)
         } else {
           setLoading(false);
           toast.notify("Oops! something went wrong. keep calm and try again.", {
@@ -304,6 +304,7 @@ const Search = ({ setSearchResultData }) => {
       })
       .catch((error) => {
         setLoading(false);
+        console.log(error)
         toast.notify("No Available cars in our repository fits your filter.", {
           duration: 5,
           title: "Success",

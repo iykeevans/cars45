@@ -156,7 +156,7 @@ const Sell_car = (props) => {
         <Head>
           <title>Sell your car</title>
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-          <meta name="description" content="Sell your car" key="title" />
+          <meta name="description" content="Sell your car" />
         </Head>
         {loading && <Loading />}
         <div className="hero ">

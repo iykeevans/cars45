@@ -297,8 +297,7 @@ const Buy = (props) => {
         <HomeLayout footer="two" header="two">
             <Head>
                 <title>Buy used cars</title>
-                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-                <meta name="description" content="Buy used cars" key="title" />
+                <meta name="description" content="Buy used cars" />
             </Head>
             {loading && <Loading />}
             <div className="buy">

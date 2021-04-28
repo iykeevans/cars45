@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Head from 'next/head';
 import styled from "styled-components";
 import endPoints from "../../api/endPoints";
 import { useRouter } from "next/router";
@@ -107,6 +108,10 @@ const Service = (props) => {
 
   return (
     <HomeLayout footer="two">
+      <Head>
+        <title>Car servicing</title>
+        <meta name="description" content="Service your car" />
+      </Head>
       {loading && <Loading />}
       <div className="service servicing">
         <div className="container">

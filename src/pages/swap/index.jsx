@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import Head from 'next/head';
 // import { NavLink, Link } from "react-router-dom";
 import Inputs from "../../components/forms";
 import cookie from "js-cookie"
@@ -387,7 +388,6 @@ const Swap_car = (props) => {
     e.preventDefault();
     // await validateForm();
     if (!data.name || !data.city || !data.location || !data.date || !data.time) {
-      console.log(data.name, data.city, data.location, data.date, data.time)
       return toast.notify("Please be sure to input your name, city, location date and time", {
         duration: 5,
         title: "Missing fields",
@@ -458,6 +458,10 @@ const Swap_car = (props) => {
     <>
       {
         <HomeLayout footer="two">
+          <Head>
+            <title>Swap Car</title>
+            <meta name="description" content={`Swap your cars`} />
+          </Head>
           <div className="swap-car">
             {loading && <Loading />}
             <div className="hero2" style={{ backgroundImage: "../../asset/background-images/car_swap.webp" }}>

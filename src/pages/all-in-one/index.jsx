@@ -6,6 +6,9 @@ import HomeLayout from "../../components/layouts/home-layout"
 const Allinone = (props) => {
     return (
         <HomeLayout>
+            <Head>
+                <title>All in one</title>
+            </Head>
             <div className="ride-hailing">
                 <div className="jumbotron">
                     <Feedbackbutton {...props} />

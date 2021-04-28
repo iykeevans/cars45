@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import Chat from "../../components/chat";
 import Feedbackbutton from '../../components/feedback-button';
 import HomeLayout from "../../components/layouts/home-layout"
@@ -6,6 +7,9 @@ import HomeLayout from "../../components/layouts/home-layout"
 const Duedilligence = (props) => {
     return (
         <HomeLayout>
+            <Head>
+                <title>Due dilligence</title>
+            </Head>
             <div className="ride-hailing">
                 <div className="jumbotron">
                     <Feedbackbutton {...props} />

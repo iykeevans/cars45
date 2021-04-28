@@ -74,8 +74,7 @@ const Brandnew = (props) => {
         <HomeLayout>
             <Head>
                 <title>Brand new cars</title>
-                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-                <meta name="description" content="Buy brand new cars" key="title" />
+                <meta name="description" content="Buy brand new cars" />
             </Head>
             {loading && <Loading />}
             <div className="brandnew">

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Head from 'next/head';
 // import '../../asset/scss/ride-hailing.scss';
 import Chat from "../../components/chat";
 import Feedbackbutton from "../../components/feedback-button";
@@ -9,6 +10,10 @@ import BookingForm from "../../components/booking"
 const Ridehailing = (props) => {
   return (
     <HomeLayout>
+      <Head>
+        <title>Private/individual inspection</title>
+        <meta name="description" content="Book a private or individual inspection" />
+      </Head>
       <div className="ride-hailing">
         <div className="jumbotron">
           <Feedbackbutton {...props} />
@@ -158,7 +163,7 @@ const Ridehailing = (props) => {
                       </div>
                     </div>
 
-                    <BookingForm/>
+                    <BookingForm />
                   </div>
                 </div>
               </div>

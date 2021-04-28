@@ -86,8 +86,7 @@ const Home = (props) => {
     <HomeLayout>
       <Head>
         <title>Home</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta property="og:title" content="Welcome to cars 45" key="title" />
+        <meta name="description" content="Welcome to cars 45" />
       </Head>
       {loading && <Loading />}
 

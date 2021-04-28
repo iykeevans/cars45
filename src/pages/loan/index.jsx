@@ -1,4 +1,5 @@
 import React from "react";
+import Head from 'next/head';
 import styled from "styled-components";
 import { useRouter } from "next/router";
 
@@ -19,6 +20,10 @@ const Loan = (props) => {
 
   return (
     <HomeLayout footer="two">
+      <Head>
+        <title>Car Loan</title>
+        <meta name="description" content="Buy now pay later" />
+      </Head>
       <div className="loan">
         <div className="jumbotron">
           <div className="banner-container">
