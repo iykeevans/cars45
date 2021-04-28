@@ -20,6 +20,7 @@ const Cardetails = (props) => {
     useEffect(() => {
         const id = props.id.split("_")[1]
         //  const id = "NG-196632"
+        console.log(window)
         getSingleCar(id)
         getCities()
     }, [])
@@ -35,6 +36,7 @@ const Cardetails = (props) => {
     const [data, setData] = useState({})
     const [payData, setPayData] = useState({});
     const [isPaymentSuccessfull, setIsPaymentSuccessfull] = useState(false);
+    const [reference, setReference] = useState()
     const router = useRouter()
     // const getPreviousData = (data) => {
     //     let search = decodeURIComponent(data)
@@ -297,7 +299,7 @@ const Cardetails = (props) => {
     }
     const onPaysubmit = (e) => {
         e.preventDefault()
-        if (!payData.name || !payData.email || !payData.phone) {
+        if (!payData.customerName || !payData.customerEmail || !payData.phone) {
             return toast.notify('All fields are required', {
                 duration: 5,
                 title: "Invalid",
@@ -307,14 +309,65 @@ const Cardetails = (props) => {
         openModal()
     }
     const payOnline = () => {
-        const { name, email, phone } = payData
+        const { customerName, customerEmail, phone } = payData
         payWithPaystack({
-            email,
+            email: customerEmail,
             amount: carData.payNow,
-            name,
+            name: customerName,
             phone,
             setIsPaymentSuccessfull
         })
+    }
+    const payMoneyDown = async () => {
+        setLoading(true)
+        try {
+            let res = await postCall(endpoints.payMoneyDown, { ...payData, sku: carData?.sku, make: carData?.make, model: carData?.model, year: carData?.year, url: window.location.href }, {})
+            if (typeof res.data.data !== 'string') {
+                setReference(res.data.data.reference)
+            }
+            toast.notify('Your information has been received', {
+                duration: 5,
+                title: "Congrats!!",
+                type: "success",
+            });
+            setLoading(false)
+
+        } catch (error) {
+            setLoading(false)
+            toast.notify('Oops! something went wrong. keep calm and try again.', {
+                duration: 5,
+                title: "An error occured",
+                type: "error",
+            });
+        }
+    }
+
+    const confirmPayment = async () => {
+        setLoading(true)
+        try {
+            let res = await postCall(endpoints.validateCarPayment, { ref: reference, url: window.location.href }, {})
+            setLoading(false)
+            if (res.data.data.message && res.data.data.message === 'Invalid Payment.') {
+                return toast.notify('Can not validate payment', {
+                    duration: 5,
+                    title: "An error occured",
+                    type: "error",
+                });
+            }
+            toast.notify('Payment validated', {
+                duration: 5,
+                title: "Congrats!!",
+                type: "success",
+            });
+
+        } catch (error) {
+            setLoading(false)
+            toast.notify('Can not validate payment', {
+                duration: 5,
+                title: "An error occured",
+                type: "error",
+            });
+        }
     }
     return (
         <HomeLayout footer="two" header="two">
@@ -567,10 +620,10 @@ const Cardetails = (props) => {
                                                         <div className="content-container">
                                                             <form onSubmit={(e) => onPaysubmit(e)}>
                                                                 <div className="form-group">
-                                                                    <input type="text" onChange={(e) => handlePayChange(e)} className="form-control" id="name" aria-describedby="name" name="name" placeholder="Your name" />
+                                                                    <input type="text" onChange={(e) => handlePayChange(e)} className="form-control" id="name" aria-describedby="name" name="customerName" placeholder="Your name" />
                                                                 </div>
                                                                 <div className="form-group">
-                                                                    <input type="email" onChange={(e) => handlePayChange(e)} className="form-control" id="email" aria-describedby="email" name="email" placeholder="Your email" />
+                                                                    <input type="email" onChange={(e) => handlePayChange(e)} className="form-control" id="email" aria-describedby="email" name="customerEmail" placeholder="Your email" />
                                                                 </div>
                                                                 <div className="form-group">
                                                                     <div className="input-group mb-3">
@@ -713,7 +766,7 @@ const Cardetails = (props) => {
                                                     </div>
 
                                                     <div className="col-md-6 mt-4">
-                                                        <button className="btn btn-success">Pay Via Bank</button>
+                                                        <button className="btn btn-success" onClick={() => payMoneyDown()}>Pay Via Bank</button>
                                                     </div>
                                                     <div className="col-md-6 mt-4">
                                                         <button className="btn btn-outline-secondary" onClick={() => payOnline()}>Pay Online</button>
@@ -732,7 +785,7 @@ const Cardetails = (props) => {
                                                         </div>
 
                                                         <div>
-                                                            <button className="btn btn-success">Complete Payment</button>
+                                                            <button className="btn btn-success" data-dismiss="modal" onClick={() => confirmPayment()}>Complete Payment</button>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -29,5 +29,7 @@ export default {
     preorder: `${baseURL}/preorder-car`,
     getBodyType: `${baseURL}/bodytype`,
     getTransmission: `${baseURL}/transmission`,
-    getRelatedCars: (sku, make, year) => `${baseURL}/related-cars?sku=${sku}&make=${make}&year=${year}`
+    getRelatedCars: (sku, make, year) => `${baseURL}/related-cars?sku=${sku}&make=${make}&year=${year}`,
+    payMoneyDown: `${baseURL}/car/pay`,
+    validateCarPayment: `${baseURL}/car/validate`
 }
