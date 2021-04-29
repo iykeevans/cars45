@@ -17,6 +17,9 @@
         cursor: pointer;
         position: relative;
     }
+    .card2 {
+        width: 262px !important;
+    }
     .card:hover {
         box-shadow: 1px 1px 8px -3px rgba(0, 0, 0, 0.75);
         -webkit-box-shadow: 1px 1px 8px -3px rgba(0, 0, 0, 0.75);
@@ -43,6 +46,7 @@
         margin-right: 2px;
         margin-left: 2px;
         border-color: $cr-darkgrey !important;
+        height: 48px;
     }
     .border-bottom p {
         margin-bottom: 5px;
@@ -137,6 +141,10 @@
         margin: 0;
         .card {
             width: 100% !important;
+            margin-bottom: 30px;
+        }
+        .card2 {
+            width: inherit !important;
             margin-bottom: 30px;
         }
     }

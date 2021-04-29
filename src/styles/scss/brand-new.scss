@@ -151,6 +151,8 @@
     }
     /* Extra small devices (phones, 600px and down) */
     @media screen and (max-width: 576px) {
+        overflow-x: hidden;
+
         .type .container .btn-link {
             top: 40%;
             right: 0;

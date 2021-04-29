@@ -86,7 +86,7 @@ const Brandnew = (props) => {
           <h1>THE EASIEST WAY TO BUY YOUR NEXT CAR</h1>
           <Feedbackbutton {...props} />
         </div>
-        <Chat {...props} />
+        {/* <Chat {...props} /> */}
 
         {makes.length ? (
           <div className="brands">

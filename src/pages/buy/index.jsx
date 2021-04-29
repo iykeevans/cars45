@@ -359,7 +359,7 @@ const Buy = (props) => {
               <img src="/assets/images/buy-banner.png" alt="banner" />
             </div>
           </OwlCarousel>
-          <div className="row banner-bottom">
+          <div className="row banner-bottom d-none d-md-flex">
             <div className="col-12 col-lg-8 offset-lg-2">
               <div className="banner-bottom-container mr-0 mr-md-4 ml-4 ml-md-5">
                 <div className="row">
@@ -463,6 +463,130 @@ const Buy = (props) => {
                     </select>
                   </div>
                   <div className="col">
+                    {/* <Dropdown name={'Transmission'} /> */}
+                    <select
+                      className="form-control transmission"
+                      name="trim"
+                      id="trim"
+                      onChange={(e) => handleChange(e)}
+                    >
+                      <option value="">Transmission</option>
+                      {carTrimData.map((trim, i) => (
+                        <option value={trim.filter_id} key={i}>
+                          {trim.name}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="row banner-bottom d-flex d-md-none">
+            <div className="col-12">
+              <div className="banner-bottom-container mr-0 mr-md-4 ml-4 ml-md-5">
+                <div className="row">
+                  <div className="col-md-12 mb-3">
+                    <div className="input-group">
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Search brands"
+                        aria-label="Recipient's username"
+                        aria-describedby="button-addon2"
+                        onChange={(e) =>
+                          setData({ ...data, make: e.target.value })
+                        }
+                      />
+                      <div className="input-group-append">
+                        <button
+                          className="btn btn-link"
+                          onClick={() => search(data)}
+                          type="button"
+                          id="button-addon2"
+                        >
+                          <img src="/assets/icons/search.svg" alt="search" />{" "}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-12">
+                    <p className="teal-color find">Find Cars By:</p>
+                  </div>
+                  <div className="col-4 text-center">
+                    <MakeDropdown
+                      name={data.make}
+                      data={carMakeData}
+                      getSelectedMake={getSelectedMake}
+                    />
+                  </div>
+                  <div className="col-4 text-center">
+                    {/* <Dropdown name={'Model'} /> */}
+                    <select
+                      className="form-control"
+                      id="model"
+                      name="model"
+                      onChange={(e) => setSelectedModel(e.target.value)}
+                    >
+                      <option value="">Model</option>
+                      {carModelData.map((model, i) => (
+                        <option key={i} value={model}>
+                          {model}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="col-4 text-center">
+                    {/* <Dropdown name={'Year'} /> */}
+                    <select
+                      className="form-control"
+                      name="year"
+                      id="year"
+                      onChange={(e) => handleChange(e)}
+                    >
+                      <option value="">Year</option>
+                      {carYearData.map((year, i) => (
+                        <option key={i} value={year}>
+                          {year}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="col-6 d-none text-center">
+                    {/* <Dropdown name={'Grade'} /> */}
+                    <select
+                      className="form-control"
+                      name="grade"
+                      id="grade"
+                      onChange={(e) => handleChange(e)}
+                    >
+                      <option value="">Grade</option>
+                      <option value="A">A</option>
+                      <option value="B">B</option>
+                      <option value="C">C</option>
+                      <option value="D">D</option>
+                      <option value="E">E</option>
+                    </select>
+                  </div>
+                  <div className="col-6 d-none text-center">
+                    {/* <Dropdown name={'Price'} /> */}
+                    <select
+                      className="form-control"
+                      name="price"
+                      id="price"
+                      onChange={(e) => handleChange(e)}
+                    >
+                      <option value="">Price</option>
+                      <option value="0-1000000">0 - ₦1m</option>
+                      <option value="1000000-2000000">₦1m - ₦2m</option>
+                      <option value="2000000-4000000">₦2m - ₦4m</option>
+                      <option value="4000000-6000000">₦4m - ₦6m</option>
+                      <option value="6000000-10000000">₦6m - ₦10m</option>
+                      <option value="10000000-0">₦10m - Above</option>
+                    </select>
+                  </div>
+                  <div className="col-12 d-none text-center">
                     {/* <Dropdown name={'Transmission'} /> */}
                     <select
                       className="form-control transmission"

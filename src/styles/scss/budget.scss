@@ -145,6 +145,9 @@
             color: #707070;
             font-weight: 500;
         }
+        .input-range__label-container {
+            margin-right: 0px !important;
+        }
     }
     /* Small devices (portrait tablets and large phones, 600px and up) */
     @media screen and (min-device-width: 576px) and (max-device-width: 767px) {

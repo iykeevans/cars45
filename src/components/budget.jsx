@@ -79,10 +79,10 @@ const Budget = () => {
                             <div className="col-md-6 offset-md-3">
                                 <div className="budget-category" onClick={() => getBudget(2000000, 5000000)}>
                                     <div className="row">
-                                        <div className="col-7 text-right">
+                                        <div className="col-8 text-right">
                                             <p>₦2m - ₦5m</p>
                                         </div>
-                                        <div className="col-5 text-right">
+                                        <div className="col-4 text-right">
                                             <img src="/assets/icons/budget-arrow.svg" alt="continue" />
                                         </div>
                                     </div>
@@ -90,10 +90,10 @@ const Budget = () => {
 
                                 <div className="budget-category" onClick={() => getBudget(5000000, 10000000)}>
                                     <div className="row">
-                                        <div className="col-7 text-right">
+                                        <div className="col-8 text-right">
                                             <p>₦5m - ₦10m</p>
                                         </div>
-                                        <div className="col-5 text-right">
+                                        <div className="col-4 text-right">
                                             <img src="/assets/icons/budget-arrow.svg" alt="continue" />
                                         </div>
                                     </div>
@@ -101,10 +101,10 @@ const Budget = () => {
 
                                 <div className="budget-category" onClick={() => getBudget(10000000, 15000000)}>
                                     <div className="row">
-                                        <div className="col-7 text-right">
+                                        <div className="col-8 text-right">
                                             <p>₦10m - ₦15m</p>
                                         </div>
-                                        <div className="col-5 text-right">
+                                        <div className="col-4 text-right">
                                             <img src="/assets/icons/budget-arrow.svg" alt="continue" />
                                         </div>
                                     </div>
@@ -112,10 +112,10 @@ const Budget = () => {
 
                                 <div className="budget-category" onClick={() => getBudget(15000000, 30000000)}>
                                     <div className="row">
-                                        <div className="col-7 text-right">
+                                        <div className="col-8 text-right">
                                             <p>₦15m - ₦30m</p>
                                         </div>
-                                        <div className="col-5 text-right">
+                                        <div className="col-4 text-right">
                                             <img src="/assets/icons/budget-arrow.svg" alt="continue" />
                                         </div>
                                     </div>
@@ -123,10 +123,10 @@ const Budget = () => {
 
                                 <div className="budget-category" onClick={() => getBudget(30000000, 50000000)}>
                                     <div className="row">
-                                        <div className="col-7 text-right">
+                                        <div className="col-8 text-right">
                                             <p>₦30m - ₦50m</p>
                                         </div>
-                                        <div className="col-5 text-right">
+                                        <div className="col-4 text-right">
                                             <img src="/assets/icons/budget-arrow.svg" alt="continue" />
                                         </div>
                                     </div>

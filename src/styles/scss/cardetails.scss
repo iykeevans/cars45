@@ -531,3 +531,49 @@
     align-self: center;
     color: $cr-tealgreen;
 }
+/* Extra small devices (phones, 600px and down) */
+@media screen and (max-width: 576px) {
+    .no-details {
+        border-radius: 5px;
+        box-shadow: 1px 1px 8px -3px rgba(0, 0, 0, 0.75);
+        -webkit-box-shadow: 1px 1px 8px -3px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 1px 1px 8px -3px rgba(0, 0, 0, 0.75);
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 50px;
+        text-align: center !important;
+    }
+    .no-details h4 {
+        align-self: center;
+        color: $cr-tealgreen;
+    }
+    .modal {
+        .modal-content {
+            width: 100% !important;
+        }
+        .modal-body {
+            width: 100% !important;
+        }
+        .logo {
+            width: 100px;
+            margin-left: 50px;
+        }
+        .close {
+            width: 30px;
+            margin-top: -5px;
+        }
+        .question {
+            padding-left: 0px;
+            padding-right: 0px;
+            border-bottom: solid 1px #707070;
+            margin-top: 20px;
+        }
+        .btn-success {
+            width: 100%;
+        }
+        .btn-outline-secondary {
+            width: 100%;
+        }
+    }
+}

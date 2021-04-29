@@ -137,7 +137,7 @@ const Loan = (props) => {
                   </div>
 
                   {mockedData.benefits.items.map((item, i) => (
-                    <div className="col-md-5 mb-4 text-center" key={i}>
+                    <div className="col-md-5 mb-4 benefit text-center" key={i}>
                       <img
                         src={item.image}
                         alt={item.alt}
@@ -181,7 +181,7 @@ const Loan = (props) => {
             </div>
           </div>
 
-          <div className="d-flex align-items-center mt-5 pl-5">
+          <div className="d-none d-lg-flex align-items-center mt-5 pl-5">
             <h5 className="mr-4">{mockedData.footer.title}</h5>
             <div style={{ height: "80px" }}>
               <img

@@ -139,7 +139,7 @@ export default function PeriodicServices() {
                   </div>
 
                   <div className="col-md-5" style={{ padding: 0 }}>
-                    {mockedData.basicService.secondColumn.map((item) => (
+                    {mockedData.basicService.secondColumn.map((item, i) => (
                       <ServiceInfoItem text={item} key={i} />
                     ))}
                   </div>

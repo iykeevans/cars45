@@ -258,6 +258,7 @@
     }
     /* Extra small devices (phones, 600px and down) */
     @media screen and (max-width: 576px) {
+        overflow-x: hidden;
         .jumbotron .owl-theme .owl-nav.disabled + .owl-dots {
             bottom: 20px;
         }

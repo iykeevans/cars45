@@ -212,10 +212,12 @@ const AllLoanableCars = (props) => {
             <Chat />
 
             <div className="container">
-              <div className="overview-container">
+              <div className="overview-container overview-mob">
                 <div className="row">
                   {cars.map((car, index) => (
-                    <CarList car={car} key={index} />
+                    <div className="col-12 col-md-3">
+                      <CarList car={car} key={index} />
+                    </div>
                   ))}
                 </div>
               </div>

@@ -129,7 +129,12 @@
 .page-item.active .page-link {
     background-color: $cr-tealgreen !important;
 }
-
+/* Extra small devices (phones, 600px and down) */
+@media screen and (max-width: 576px) {
+    .source-form {
+        width: 100% !important;
+    }
+}
 @keyframes leaves {
     0% {
         transform: scale(1);

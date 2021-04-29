@@ -82,7 +82,10 @@ export default function Autopreneur() {
           <h4>{mockedData.title}</h4>
           <div ref={ref} className="autopreneneur-recommended">
             {carData.map((item, index) => (
-              <Carlist key={index} car={item} />
+              <div className="mr-2 mr-md-0 ml-md-0 ml-2">
+                <Carlist key={index} car={item} />
+              </div>
+
             ))}
           </div>
         </div>

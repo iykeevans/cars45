@@ -255,9 +255,14 @@ const AllCars = (props) => {
         <div className="container my-5">
           {/* <div className="row d-none d-md-flex"> */}
           <div className="row">
+
             {searchResultData?.map((car, index) => (
-              <CarList car={car} key={index} />
+              <div className="col-lg-3">
+                <CarList car={car} key={index} />
+              </div>
             ))}
+
+
           </div>
 
           {pagination.pages.length ? <nav aria-label="Page navigation example">

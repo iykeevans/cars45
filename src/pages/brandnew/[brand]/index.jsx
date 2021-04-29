@@ -43,13 +43,15 @@ const Brandnewbrand = (props) => {
             let response = await getCall(`${endpoints.getSearch({ make: maker, condition: 'new', start: 1 })}`)
             setSearchParams({ make: maker, condition: 'new' })
             setLoading(false);
+            setMake(maker)
             if (typeof response.data.data === 'string') {
                 setCars([])
-                return toast.notify('No cars found, try another search', {
+                toast.notify('No cars found, try another search', {
                     duration: 5,
                     title: "Not found",
                     type: "error",
                 });
+                return false
             }
             if (response.data.data.currency) delete response.data.data.currency
             if (response.data.data.totalCars[0]) {
@@ -67,7 +69,6 @@ const Brandnewbrand = (props) => {
             }
             if (response.data.data.totalCars) delete response.data.data.totalCars
             setCars(Object.values(response.data.data));
-            setMake(maker)
             getModels(maker)
             getRelatedCars(Object.values(response.data.data))
         } catch (error) {
@@ -563,8 +564,9 @@ const Brandnewbrand = (props) => {
                         </div> : null}
                     </div>
                 </div>
-                <ToastContainer align={"right"} position={"bottom"} />
             </div>}
+            <ToastContainer align={"right"} position={"bottom"} />
+
         </HomeLayout>
     )
 }

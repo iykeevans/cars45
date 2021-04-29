@@ -346,37 +346,6 @@ const Search = ({ setSearchResultData, setPage, getSearchParams }) => {
                     </div>
                   </div>
                 ))}
-
-                {/* <div className="col-4 mb-3 mb-md-0 col-md-2">
-                  <div className="car-option">
-                    <img src="/assets/icons/pickup.svg" alt="pickup," />
-                    <p className="text-center dark-color">PICKUP</p>
-                  </div>
-                </div>
-                <div className="col-4 mb-3 mb-md-0 col-md-2">
-                  <div className="car-option">
-                    <img src="/assets/icons/coupe.svg" alt="coupe" />
-                    <p className="text-center dark-color">COUPE</p>
-                  </div>
-                </div>
-                <div className="col-4 mb-3 mb-md-0 col-md-2">
-                  <div className="car-option">
-                    <img src="/assets/icons/suv.svg" alt="convertible" />
-                    <p className="text-center dark-color">CONVERTIBLE</p>
-                  </div>
-                </div>
-                <div className="col-4 mb-3 mb-md-0 col-md-2">
-                  <div className="car-option">
-                    <img src="/assets/icons/sedan.svg" alt="sedan" />
-                    <p className="text-center dark-color">SEDAN</p>
-                  </div>
-                </div>
-                <div className="col-4 mb-3 mb-md-0 col-md-2">
-                  <div className="car-option">
-                    <img src="/assets/icons/mini.svg" alt="mini" />
-                    <p className="text-center dark-color">MINICAR</p>
-                  </div>
-                </div> */}
               </div>
             </div>
             <Chat />
@@ -384,7 +353,7 @@ const Search = ({ setSearchResultData, setPage, getSearchParams }) => {
 
           <form className="mt-5" onSubmit={handleSubmit}>
             <div className="form-row">
-              <div className="form-group col-6 col-md-3">
+              <div className="form-group col-12 col-md-3">
                 <select
                   name="make"
                   className="form-control"
@@ -395,7 +364,7 @@ const Search = ({ setSearchResultData, setPage, getSearchParams }) => {
                 </select>
               </div>
 
-              <div className="form-group col-6 col-md-3">
+              <div className="form-group col-12 col-md-3">
                 <select
                   name="model"
                   className="form-control"
@@ -407,7 +376,7 @@ const Search = ({ setSearchResultData, setPage, getSearchParams }) => {
                 </select>
               </div>
 
-              <div className="form-group col-6 col-md-3">
+              <div className="form-group col-12 col-md-3">
                 <select
                   name="gearType"
                   className="form-control last"
@@ -418,7 +387,7 @@ const Search = ({ setSearchResultData, setPage, getSearchParams }) => {
                   {carTrimList}
                 </select>
               </div>
-              <div className="form-group col-6 col-md-3 ranger">
+              <div className="form-group col-12 col-md-3 ranger">
                 <div className="row">
                   <label
                     htmlFor="formControlRange"
@@ -439,7 +408,7 @@ const Search = ({ setSearchResultData, setPage, getSearchParams }) => {
                   </div>
                 </div>
               </div>
-              <div className="form-group col-6 col-md-3">
+              <div className="form-group col-12 col-md-3 mt-4 mt-md-0">
                 <select
                   name="minYear"
                   className="form-control"
@@ -451,7 +420,7 @@ const Search = ({ setSearchResultData, setPage, getSearchParams }) => {
                 </select>
               </div>
 
-              <div className="form-group col-6 col-md-3">
+              <div className="form-group col-12 col-md-3">
                 <select
                   name="maxYear"
                   className="form-control"
@@ -463,7 +432,7 @@ const Search = ({ setSearchResultData, setPage, getSearchParams }) => {
                 </select>
               </div>
 
-              <div className="form-group col-6 col-md-3">
+              <div className="form-group col-12 col-md-3">
                 <select
                   name="condition"
                   className="form-control"

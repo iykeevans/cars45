@@ -159,8 +159,8 @@ const LoanableCarFinancialInformation = (props) => {
     return !formik.touched[value]
       ? "form-control"
       : formik.errors[value]
-      ? "form-control is-invalid"
-      : "form-control is-valid";
+        ? "form-control is-invalid"
+        : "form-control is-valid";
   };
 
   const renderError = (value) =>
@@ -181,7 +181,7 @@ const LoanableCarFinancialInformation = (props) => {
 
         {data.interestedInCar !== undefined && (
           <form
-            className="p-4 mb-5 rounded d-flex flex-column"
+            className="p-4 mb-5 rounded d-flex flex-column source-form"
             style={{ background: "#eee", width: "60vw" }}
             onSubmit={formik.handleSubmit}
           >
