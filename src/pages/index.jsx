@@ -73,6 +73,7 @@ const Home = (props) => {
     }
   }
   const closeFeedback = () => {
+    localStorage.setItem('survey', false)
     document.getElementById('closeFeedback').click()
 
   }
@@ -469,7 +470,7 @@ const Home = (props) => {
                       />
                     </div>
                     <div className="col-2 col-md-2 text-right">
-                      <button data-dismiss="modal" id="closeFeedback" className="btn btn-link">
+                      <button onClick={closeFeedback} id="closeFeedback" className="btn btn-link">
                         <img
                           className="close"
                           src="/assets/icons/close.svg"
