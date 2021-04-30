@@ -40,7 +40,7 @@ const Brandnewbrand = (props) => {
     const searchModels = async (maker) => {
         try {
             setLoading(true);
-            let response = await getCall(`${endpoints.getSearch({ make: maker, condition: 'new', start: 1 })}`)
+            let response = await getCall(`${endpoints.getSearch({ make: maker, condition: 'new', page: 0 })}`)
             setSearchParams({ make: maker, condition: 'new' })
             setLoading(false);
             setMake(maker)
@@ -84,7 +84,7 @@ const Brandnewbrand = (props) => {
     const search = async (datafilter) => {
         try {
             setLoading(true);
-            let response = await getCall(`${endpoints.getSearch({ ...datafilter, make, condition: 'new', start: 1 })}`)
+            let response = await getCall(`${endpoints.getSearch({ ...datafilter, make, condition: 'new', page: 0 })}`)
             setSearchParams({ ...datafilter, make, condition: 'new' })
             setLoading(false);
             if (typeof response.data.data === 'string') {
@@ -128,7 +128,7 @@ const Brandnewbrand = (props) => {
         let count = pagination.count + 1
         setPagination({ ...pagination, currentPage, paginationLimit: count === 6 ? [pagination.paginationLimit[0] + 5, pagination.paginationLimit[1] + 5] : pagination.paginationLimit, count: count === 6 ? 1 : count })
         setLoading(true);
-        getCall(`${endpoints.getSearch({ ...searchParams, start: currentPage })}`)
+        getCall(`${endpoints.getSearch({ ...searchParams, page: currentPage - 1 })}`)
             .then((response) => {
                 const resData = response.data.data;
 
@@ -184,7 +184,7 @@ const Brandnewbrand = (props) => {
         let count = pagination.count - 1
         setPagination({ ...pagination, currentPage, paginationLimit: count === 1 || count === 0 ? [pagination.paginationLimit[0] - 5, pagination.paginationLimit[1] - 5] : pagination.paginationLimit, count: count === 1 || count === 0 ? 5 : count })
         setLoading(true);
-        getCall(`${endpoints.getSearch({ ...searchParams, start: currentPage })}`)
+        getCall(`${endpoints.getSearch({ ...searchParams, page: currentPage - 1 })}`)
             .then((response) => {
                 const resData = response.data.data;
 

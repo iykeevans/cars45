@@ -69,7 +69,7 @@ const AllCars = (props) => {
   const resetSearch = () => {
     console.log('resetting')
     setLoading(true);
-    getCall(`${endpoints.getSearch({ ...searchParams, start: 1 })}`)
+    getCall(`${endpoints.getSearch({ ...searchParams, page: 0 })}`)
       .then((response) => {
         const resData = response.data.data;
         setLoading(false);
@@ -81,6 +81,10 @@ const AllCars = (props) => {
               type: "warning",
             });
           }
+          // if (resData.currency) delete resData.currency
+          // if (resData.totalCars) delete rresData.totalCars;
+
+
           const resDataArr = Object.values(resData).filter(
             (item) => item.status
           );
@@ -134,7 +138,7 @@ const AllCars = (props) => {
     let count = pagination.count + 1
     setPagination({ ...pagination, currentPage, paginationLimit: count === 6 ? [pagination.paginationLimit[0] + 5, pagination.paginationLimit[1] + 5] : pagination.paginationLimit, count: count === 6 ? 1 : count })
     setLoading(true);
-    getCall(`${endpoints.getSearch({ ...searchParams, start: currentPage })}`)
+    getCall(`${endpoints.getSearch({ ...searchParams, page: currentPage - 1 })}`)
       .then((response) => {
         const resData = response.data.data;
 
@@ -190,7 +194,7 @@ const AllCars = (props) => {
     let count = pagination.count - 1
     setPagination({ ...pagination, currentPage, paginationLimit: count === 1 || count === 0 ? [pagination.paginationLimit[0] - 5, pagination.paginationLimit[1] - 5] : pagination.paginationLimit, count: count === 1 || count === 0 ? 5 : count })
     setLoading(true);
-    getCall(`${endpoints.getSearch({ ...searchParams, start: currentPage })}`)
+    getCall(`${endpoints.getSearch({ ...searchParams, page: currentPage - 1 })}`)
       .then((response) => {
         const resData = response.data.data;
 
@@ -257,8 +261,11 @@ const AllCars = (props) => {
           <div className="row">
 
             {searchResultData?.map((car, index) => (
-              <div className="col-lg-3">
-                <CarList car={car} key={index} />
+              <div className="col-lg-4 col-xl-3">
+                {car.make && <div>
+                  <CarList car={car} key={index} />
+                </div>}
+
               </div>
             ))}
 
@@ -288,7 +295,7 @@ const AllCars = (props) => {
               <div className="faq">
                 <div className="row">
                   <div className="col-12 col-md-4">
-                    <div className="row faq1 justify-content-center">
+                    <div className="row faq1 justify-content-center" style={{ cursor: 'pointer' }} onClick={() => router.push('/buy')}>
                       <div className="col-10 col-md-10">
                         <div className="row">
                           <div className="col-3 col-md-2 align-self-center">
@@ -300,18 +307,18 @@ const AllCars = (props) => {
                             </div>
                           </div>
                           <div className="col-9 col-md-10 align-self-center mt-3">
-                            <p>ARE YOU LOOKING FOR A CAR?</p>
-                            <p className="small">
+                            <p>BUY</p>
+                            {/* <p className="small">
                               Search our inventory with thousands of cars and
                               more cars are adding on a daily basis
-                            </p>
+                            </p> */}
                           </div>
                         </div>
                       </div>
                       <div className="col-1 col-md-1"></div>
                     </div>
                   </div>
-                  <div className="col-12 col-md-4">
+                  <div className="col-12 col-md-4" style={{ cursor: 'pointer' }} onClick={() => router.push('/sell')}>
                     <div className="row faq2 justify-content-center">
                       <div className="col-10 col-md-10">
                         <div className="row">
@@ -321,18 +328,18 @@ const AllCars = (props) => {
                             </div>
                           </div>
                           <div className="col-9 col-md-10 align-self-center mt-3">
-                            <p>ARE YOU LOOKING FOR A CAR?</p>
-                            <p className="small">
+                            <p>SELL</p>
+                            {/* <p className="small">
                               Search our inventory with thousands of cars and
                               more cars are adding on a daily basis
-                            </p>
+                            </p> */}
                           </div>
                         </div>
                       </div>
                       <div className="col-1 col-md-1"></div>
                     </div>
                   </div>
-                  <div className="col-12 col-md-4">
+                  <div className="col-12 col-md-4" style={{ cursor: 'pointer' }} onClick={() => router.push('/swap')}>
                     <div className="row faq3 justify-content-center">
                       <div className="col-10 col-md-10">
                         <div className="row">
@@ -342,11 +349,11 @@ const AllCars = (props) => {
                             </div>
                           </div>
                           <div className="col-9 col-md-10 align-self-center mt-3">
-                            <p>ARE YOU LOOKING FOR A CAR?</p>
-                            <p className="small">
+                            <p>SWAP</p>
+                            {/* <p className="small">
                               Search our inventory with thousands of cars and
                               more cars are adding on a daily basis
-                            </p>
+                            </p> */}
                           </div>
                         </div>
                       </div>

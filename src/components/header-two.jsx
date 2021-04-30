@@ -39,7 +39,7 @@ const HeaderTwo = (props) => {
 
 
                     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                        <a className="navbar-brand" href="/"><img className="logo" src="/assets/icons/logo.svg" alt="logo" /></a>
+                        <a className="navbar-brand" href="/"><img className="logo" src={path === '/service' ? "/assets/icons/fixitlogo.svg" : "/assets/icons/logo.svg"} alt="logo" /></a>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon" />
                         </button>

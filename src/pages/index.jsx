@@ -7,8 +7,9 @@ import { getCall, postCall } from "../api/request";
 import { toast, ToastContainer } from "react-nextjs-toast";
 import endpoints from "../api/endPoints";
 import Loading from "../components/loadingScreen";
-import Search from "../components/search-car"
-import FeaturedCar from "../components/featured-car"
+import Search from "../components/search-car";
+import FeaturedCar from "../components/featured-car";
+import moment from 'moment';
 
 const OwlCarousel = dynamic(() => import("react-owl-carousel"), { ssr: false });
 import InputRange from "react-input-range";
@@ -67,13 +68,25 @@ const Home = (props) => {
   };
   const checkSurvery = () => {
     let survey = JSON.parse(localStorage.getItem('survey'))
+    let time = localStorage.getItem('surveyTime')
     if (!survey) {
-      localStorage.setItem('survey', false)
-      document.getElementById("open-modal").click();
+      if (time) {
+        let now = moment();
+        time = new moment(time)
+        let hours = now.diff(time, 'hours')
+        if (hours >= 24) {
+          localStorage.setItem('survey', false)
+          document.getElementById("open-modal").click();
+        }
+      } else {
+        localStorage.setItem('survey', false)
+        document.getElementById("open-modal").click();
+      }
     }
   }
   const closeFeedback = () => {
     localStorage.setItem('survey', false)
+    localStorage.setItem('surveyTime', moment())
     document.getElementById('closeFeedback').click()
 
   }
@@ -470,7 +483,7 @@ const Home = (props) => {
                       />
                     </div>
                     <div className="col-2 col-md-2 text-right">
-                      <button onClick={closeFeedback} id="closeFeedback" className="btn btn-link">
+                      <button data-dismiss="modal" onClick={closeFeedback} id="closeFeedback" className="btn btn-link">
                         <img
                           className="close"
                           src="/assets/icons/close.svg"

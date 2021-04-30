@@ -225,12 +225,13 @@ const Search = ({ setSearchResultData, setPage, getSearchParams }) => {
           }
         );
       }
+      if (setSearchResultData) setSearchResultData(resDataArr)
       router.push({ pathname: "/all-cars" }, "/all-cars", {
         carData: resDataArr,
         searchParam: { type },
         pagination: resData.totalCars[0] || null
       });
-      // setSearchResultData(resDataArr)
+
     } else {
       setLoading(false);
       toast.notify("Oops! something went wrong. keep calm and try again.", {
@@ -268,7 +269,7 @@ const Search = ({ setSearchResultData, setPage, getSearchParams }) => {
       searchParam.condition = carData.condition
     }
     setLoading(true);
-    getCall(`${endpoints.getSearch({ ...searchParam, start: 1 })}`)
+    getCall(`${endpoints.getSearch({ ...searchParam, page: 0 })}`)
       .then((response) => {
         const resData = response.data.data;
         if (getSearchParams) getSearchParams(searchParam)
@@ -286,13 +287,13 @@ const Search = ({ setSearchResultData, setPage, getSearchParams }) => {
           const resDataArr = Object.values(resData).filter(
             (item) => item.status
           );
-
+          if (setSearchResultData) setSearchResultData(resDataArr)
           router.push({ pathname: "/all-cars" }, "/all-cars", {
             carData: resDataArr,
             searchParam,
             pagination: resData.totalCars[0] || null
           });
-          if (setSearchResultData) setSearchResultData(resDataArr)
+
         } else {
           setLoading(false);
           toast.notify("Oops! something went wrong. keep calm and try again.", {

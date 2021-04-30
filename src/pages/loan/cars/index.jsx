@@ -51,7 +51,7 @@ const AllLoanableCars = (props) => {
   const searchModels = async () => {
     try {
       setLoading(true);
-      let response = await getCall(`${endpoints.getSearch({ financeable: true, start: 1 })}`)
+      let response = await getCall(`${endpoints.getSearch({ financeable: true, page: 0 })}`)
       setLoading(false);
       if (typeof response.data.data === "string") {
         return toast.notify("No cars found", {
@@ -91,7 +91,7 @@ const AllLoanableCars = (props) => {
     let count = pagination.count + 1
     setPagination({ ...pagination, currentPage, paginationLimit: count === 6 ? [pagination.paginationLimit[0] + 5, pagination.paginationLimit[1] + 5] : pagination.paginationLimit, count: count === 6 ? 1 : count })
     setLoading(true);
-    getCall(`${endpoints.getSearch({ financeable: true, start: currentPage })}`)
+    getCall(`${endpoints.getSearch({ financeable: true, page: currentPage - 1 })}`)
       .then((response) => {
         const resData = response.data.data;
 
@@ -147,7 +147,7 @@ const AllLoanableCars = (props) => {
     let count = pagination.count - 1
     setPagination({ ...pagination, currentPage, paginationLimit: count === 1 || count === 0 ? [pagination.paginationLimit[0] - 5, pagination.paginationLimit[1] - 5] : pagination.paginationLimit, count: count === 1 || count === 0 ? 5 : count })
     setLoading(true);
-    getCall(`${endpoints.getSearch({ financeable: true, start: currentPage })}`)
+    getCall(`${endpoints.getSearch({ financeable: true, page: currentPage - 1 })}`)
       .then((response) => {
         const resData = response.data.data;
 

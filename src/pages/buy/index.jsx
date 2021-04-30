@@ -387,7 +387,7 @@ const Buy = (props) => {
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-2">
+                  <div className="col-md-2 col-lg-3 col-xl-2">
                     <p className="teal-color find">Find Cars By:</p>
                   </div>
                   <div className="col">
@@ -445,7 +445,7 @@ const Buy = (props) => {
                       <option value="E">E</option>
                     </select>
                   </div>
-                  <div className="col">
+                  <div className="col d-lg-none d-xl-flex">
                     {/* <Dropdown name={'Price'} /> */}
                     <select
                       className="form-control"
@@ -462,7 +462,7 @@ const Buy = (props) => {
                       <option value="10000000-0">₦10m - Above</option>
                     </select>
                   </div>
-                  <div className="col">
+                  <div className="col d-lg-none d-xl-flex">
                     {/* <Dropdown name={'Transmission'} /> */}
                     <select
                       className="form-control transmission"
@@ -644,7 +644,7 @@ const Buy = (props) => {
         {carData.length ? (
           <div className="car-list">
             <div className="container">
-              <div className="row d-none d-lg-flex">
+              <div className="row d-none d-xl-flex">
                 {carData.length >= 5
                   ? carData.slice(0, 5).map((car, i) => (
                     <div className="col mb-5" key={i}>
@@ -653,6 +653,20 @@ const Buy = (props) => {
                   ))
                   : carData.map((car, i) => (
                     <div className="col mb-5" key={i}>
+                      <Carlist {...props} car={car} />
+                    </div>
+                  ))}
+              </div>
+
+              <div className="row d-none d-lg-flex d-xl-none">
+                {carData.length >= 5
+                  ? carData.slice(0, 5).map((car, i) => (
+                    <div className="col-lg-4 mb-5" key={i}>
+                      <Carlist {...props} car={car} />
+                    </div>
+                  ))
+                  : carData.map((car, i) => (
+                    <div className="col-lg-4 mb-5" key={i}>
                       <Carlist {...props} car={car} />
                     </div>
                   ))}
