@@ -368,7 +368,7 @@ const Home = (props) => {
               <div className="faq">
                 <div className="row">
                   <div className="col-12 col-md-4">
-                    <div className="row faq1 justify-content-center">
+                    <div className="row faq1 justify-content-center" style={{ cursor: 'pointer' }} onClick={() => router.push('/buy')}>
                       <div className="col-10 col-md-10">
                         <div className="row">
                           <div className="col-3 col-md-2 align-self-center">
@@ -380,18 +380,18 @@ const Home = (props) => {
                             </div>
                           </div>
                           <div className="col-9 col-md-10 align-self-center mt-3">
-                            <p>ARE YOU LOOKING FOR A CAR?</p>
-                            <p className="small">
+                            <p>BUY</p>
+                            {/* <p className="small">
                               Search our inventory with thousands of cars and
                               more cars are adding on a daily basis
-                            </p>
+                            </p> */}
                           </div>
                         </div>
                       </div>
                       <div className="col-1 col-md-1"></div>
                     </div>
                   </div>
-                  <div className="col-12 col-md-4">
+                  <div className="col-12 col-md-4" style={{ cursor: 'pointer' }} onClick={() => router.push('/sell')}>
                     <div className="row faq2 justify-content-center">
                       <div className="col-10 col-md-10">
                         <div className="row">
@@ -401,18 +401,18 @@ const Home = (props) => {
                             </div>
                           </div>
                           <div className="col-9 col-md-10 align-self-center mt-3">
-                            <p>ARE YOU LOOKING FOR A CAR?</p>
-                            <p className="small">
+                            <p>SELL</p>
+                            {/* <p className="small">
                               Search our inventory with thousands of cars and
                               more cars are adding on a daily basis
-                            </p>
+                            </p> */}
                           </div>
                         </div>
                       </div>
                       <div className="col-1 col-md-1"></div>
                     </div>
                   </div>
-                  <div className="col-12 col-md-4">
+                  <div className="col-12 col-md-4" style={{ cursor: 'pointer' }} onClick={() => router.push('/swap')}>
                     <div className="row faq3 justify-content-center">
                       <div className="col-10 col-md-10">
                         <div className="row">
@@ -422,11 +422,11 @@ const Home = (props) => {
                             </div>
                           </div>
                           <div className="col-9 col-md-10 align-self-center mt-3">
-                            <p>ARE YOU LOOKING FOR A CAR?</p>
-                            <p className="small">
+                            <p>SWAP</p>
+                            {/* <p className="small">
                               Search our inventory with thousands of cars and
                               more cars are adding on a daily basis
-                            </p>
+                            </p> */}
                           </div>
                         </div>
                       </div>
@@ -483,7 +483,7 @@ const Home = (props) => {
                     <div className="col-md-12 text-center">
                       <div className="question">
                         <p>
-                          Can we ask you a few questions to make car45.com
+                          Can we ask you a few questions to make Cars45.com
                           better
                         </p>
                       </div>

@@ -156,10 +156,18 @@
 
     /* Medium devices (landscape tablets, 768px and up) */
     @media screen and (min-device-width: 768px) and (max-device-width: 991px) {
+        overflow-x: hidden;
+        .benefit img {
+            width: 150px !important;
+        }
+        .overview .overview-container {
+            padding: 20px 0px 20px 45px;
+        }
     }
 
     /* Large devices (laptops/desktops, 992px and up) */
     @media screen and (min-device-width: 992px) and (max-device-width: 1199px) {
+        overflow-x: hidden;
     }
 
     /* Extra large devices (large laptops and desktops, 1200px and up) */

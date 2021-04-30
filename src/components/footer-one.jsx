@@ -9,11 +9,11 @@ const Home = (props) => {
             <div className="footer-section-one">
                 <div className="container">
                     <div className="row">
-                        <div className="col-12 col-md-3">
+                        <div className="col-12 col-md-4 col-lg-3">
                             <img className="logo" src="/assets/icons/logo-white.svg" alt="logo" />
                         </div>
 
-                        <div className="col-6 col-md-3">
+                        <div className="col-6 col-md-4 col-lg-3">
                             <ul>
                                 <li>
                                     <Link href="/"><a>About Us</a></Link>
@@ -33,7 +33,7 @@ const Home = (props) => {
                             </ul>
                         </div>
 
-                        <div className="col-6 col-md-3">
+                        <div className="col-6 col-md-4 col-lg-3">
                             <ul>
                                 <li>
                                     <Link href="/"><a>Inspection Centers</a></Link>
@@ -53,7 +53,7 @@ const Home = (props) => {
                             </ul>
                         </div>
 
-                        <div className="col-12 col-md-3 align-self-center">
+                        <div className="col-12 col-lg-3 align-self-center">
                             <div className="socials">
                                 <a href="http://facebook.com/cars45.NG" target="_blank"><img className="facebook" src="/assets/icons/facebook.svg" alt="facebook" /></a>
                                 <a href="https://www.instagram.com/cars45ng/" target="_blank"><img src="/assets/icons/instagram.svg" alt="instagram" /></a>

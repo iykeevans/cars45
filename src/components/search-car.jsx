@@ -333,15 +333,15 @@ const Search = ({ setSearchResultData, setPage, getSearchParams }) => {
       <div className="section2 dark-background">
         <div className="container">
           {types.length ? <div className="row">
-            <div className="col-md-2 align-self-center">
+            <div className="col-lg-2 align-self-center">
               <p className="white-color mt-4">SELECT VEHICLE TYPE</p>
             </div>
-            <div className="col-md-8">
+            <div className="col-lg-8 text-center">
               <div className="row mt-3">
                 {types.map((type, index) => (
-                  <div key={index} className="col-4 mb-3 mb-md-0 col-md-2 mt-3" onClick={() => searchByType(type.filter_id)}>
+                  <div key={index} className="col-4 mb-3 mb-md-0 col-md-3 col-lg-3 col-xl-2 mt-3" onClick={() => searchByType(type.filter_id)}>
                     <div className="car-option">
-                      <img src={`/assets/icons/${type.name}.svg`} alt="suv" />
+                      <img src={`/assets/icons/${type.name}.svg`} alt={type.name} />
                       <p className="text-center dark-color"><span>{type.name}</span></p>
                     </div>
                   </div>

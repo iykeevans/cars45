@@ -10,6 +10,11 @@
             max-width: 1250px;
         }
     }
+    .feed-div {
+        background-color: #ffffff;
+        padding-left: 100px;
+        padding-right: 100px;
+    }
     .logo-img {
         width: 300px;
     }
@@ -174,5 +179,28 @@
     }
     .col {
         width: 19% !important;
+    }
+
+    /* Extra small devices (phones, 600px and down) */
+    @media screen and (max-width: 576px) {
+        .feed-div {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+    }
+
+    .page-link {
+        border-color: $cr-dark !important;
+        color: $cr-tealgreen;
+    }
+    .page-item .btn-link {
+        border-radius: 0 !important;
+        text-decoration: none;
+    }
+    .disabled .page-link {
+        border-color: $cr-darkgrey !important;
+    }
+    .page-item.active .page-link {
+        background-color: $cr-tealgreen !important;
     }
 }

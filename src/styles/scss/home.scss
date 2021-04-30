@@ -43,7 +43,8 @@
             background-color: $cr-dark;
             border-top-left-radius: 20px;
             border-top-right-radius: 20px;
-            padding: 20px 80px 20px 80px;
+            // padding: 20px 80px 20px 80px;
+            padding: 10px 80px 0px 80px;
         }
         .banner-bottom {
             position: absolute;
@@ -94,7 +95,7 @@
                 max-width: 1300px;
             }
         }
-        padding-top: 20px;
+        padding-top: 0px;
         padding-bottom: 20px;
         .car-option img {
             width: 90px;
@@ -390,15 +391,18 @@
             color: $cr-white !important;
         }
         .faq1 img {
-            width: 40px;
+            width: 30px;
+            margin-top: 15px;
         }
         .faq1 {
-            height: 94px;
+            height: 70px;
         }
         .faq1 p {
             margin-bottom: 0;
             color: $cr-darker;
             font-weight: 500;
+            margin-top: 2px;
+            font-size: 24px;
         }
         .faq .small {
             font-weight: 400;
@@ -419,15 +423,18 @@
             color: $cr-white !important;
         }
         .faq2 img {
-            width: 40px;
+            width: 30px;
+            margin-top: 15px;
         }
         .faq2 {
-            height: 94px;
+            height: 70px;
         }
         .faq2 p {
             margin-bottom: 0;
             color: $cr-white;
             font-weight: 500;
+            margin-top: 2px;
+            font-size: 24px;
         }
         .faq .small {
             font-weight: 400;
@@ -446,15 +453,18 @@
             color: $cr-white !important;
         }
         .faq3 img {
-            width: 40px;
+            width: 30px;
+            margin-top: 15px;
         }
         .faq3 {
-            height: 94px;
+            height: 70px;
         }
         .faq3 p {
             margin-bottom: 0;
             color: $cr-white;
             font-weight: 500;
+            margin-top: 2px;
+            font-size: 24px;
         }
         .faq .small {
             font-weight: 400;
@@ -591,6 +601,9 @@
             font-size: 1.2rem;
             margin-top: 10px;
         }
+        // .jumbotron .banner-bottom-container-home {
+        //     padding: 20px 80px 20px 80px;
+        // }
         .jumbotron .banner-bottom-container-home {
             margin-left: 20px;
             padding: 10px 10px 10px 10px;
@@ -603,6 +616,9 @@
         }
         .section2 .car-option img {
             width: 70px;
+        }
+        .section2 {
+            padding-top: 20px;
         }
         .section2 .car-option p {
             font-size: 10px;
@@ -766,6 +782,7 @@
 
     /* Large devices (laptops/desktops, 992px and up) */
     @media screen and (min-device-width: 992px) and (max-device-width: 1199px) {
+        overflow-x: hidden;
     }
 
     /* Extra large devices (large laptops and desktops, 1200px and up) */

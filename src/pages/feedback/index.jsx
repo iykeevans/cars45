@@ -6,7 +6,7 @@ const Feedback = (props) => {
 
     return (
         <div className="feedback" style={{ backgroundColor: "#C7C5C5" }}>
-            <div className="container" style={{ backgroundColor: "#ffffff", paddingLeft: '100px', paddingRight: '100px' }}>
+            <div className="container" className="feed-div" >
                 <div className="row" style={{ height: '100vh' }}>
                     <div className="col-md-12 mx-auto my-auto bordered" >
 

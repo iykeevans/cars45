@@ -215,7 +215,7 @@ const AllLoanableCars = (props) => {
               <div className="overview-container overview-mob">
                 <div className="row">
                   {cars.map((car, index) => (
-                    <div className="col-12 col-md-3">
+                    <div className="col-12 col-md-6 col-lg-3">
                       <CarList car={car} key={index} />
                     </div>
                   ))}

@@ -106,6 +106,7 @@ function MyApp({ Component, pageProps }) {
         ></script>
 
         <script src="/assets/script/script.js" type="text/javascript"></script>
+        <script src="/assets/script/google-tag.js" type="text/javascript"></script>
       </Head>
       <GlobalStyle />
       <ThemeProvider theme={theme}>

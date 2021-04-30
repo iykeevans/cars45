@@ -3,13 +3,13 @@ import React from "react";
 
 const Chat = (props) => {
   return (
-    
-      <div className="chat ">
+    <div>
+      {process.env.chatbot ? <div className="chat ">
         <button className="btn btn-link message rounded-circle teal-button d-flex align-items-center justify-content-center">
           <img src="/assets/icons/message.svg" />
         </button>
-      </div>
-   
+      </div> : null}
+    </div>
   );
 };
 

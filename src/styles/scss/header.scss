@@ -17,7 +17,7 @@
     .top-phone {
         display: flex;
         border: solid 1px $cr-tealgreen;
-        margin-right: 10px;
+        margin-left: 70px;
         border-radius: 50px;
         padding: 5px 10px;
         justify-content: center;
@@ -304,6 +304,13 @@
         .top-phone p {
             font-size: 10px;
         }
+        .top-phone {
+            margin-left: 0 !important;
+            margin-right: 20px !important;
+        }
+        .top-phone img {
+            display: none;
+        }
         .profile .dropdown-menu.show {
             transform: translate3d(-47px, 46px, 0px) !important;
             width: 100px !important;
@@ -366,6 +373,9 @@
         .phone-box {
             max-width: 80% !important;
         }
+        .top-phone {
+            margin-left: 285px;
+        }
         .top-phone p {
             font-size: 10px;
         }
@@ -425,6 +435,42 @@
 
     /* Large devices (laptops/desktops, 992px and up) */
     @media screen and (min-device-width: 992px) and (max-device-width: 1199px) {
+        overflow-x: hidden;
+        .navbar.bg-light .nav-active::after {
+            content: "";
+            position: absolute;
+            border-top-left-radius: 600px;
+            border-top-right-radius: 600px;
+            width: 100%;
+            height: 3.5px;
+            top: 20px;
+            bottom: 0px;
+            left: 0;
+        }
+        .navbar.bg-light .navbar-brand {
+            margin-right: 20px;
+        }
+        .container {
+            max-width: 1090px;
+        }
+
+        .top-phone {
+            margin-left: -50px !important;
+            padding: 5px 0px;
+            width: 300px;
+        }
+        .navbar.bg-light .nav-link {
+            font-size: 10px;
+        }
+        .navbar.bg-light .nav-link.dropdown-toggle {
+            font-size: 7px;
+        }
+        .navbar.bg-light .nav-link.dropdown-toggle.used {
+            font-size: 7px;
+        }
+        .navbar.bg-light .nav-link {
+            font-size: 7px;
+        }
     }
 
     /* Extra large devices (large laptops and desktops, 1200px and up) */

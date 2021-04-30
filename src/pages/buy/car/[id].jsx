@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
 import { useRouter } from "next/router";
+import Image from 'next/image';
 import Slider from "react-slick";
 import Carlist from "../../../components/car-list";
 import Caroverview from '../../../components/car-overview';
@@ -136,7 +137,7 @@ const Cardetails = (props) => {
             const images = carData.images
             return (
                 <a>
-                    <img className={`slideClass${i}`} style={{ width: '70px', height: '50px' }} src={`https://buy.cars45.com/image/${images[i].images}`} />
+                    <Image className={`slideClass${i}`} src={`https://buy.cars45.com/image/${images[i].images}`} layout="fill" />
                 </a>
             );
         },
@@ -381,7 +382,7 @@ const Cardetails = (props) => {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">
-                            <div className="col-12 col-md-6 title-container">
+                            <div className="col-12 col-lg-6 title-container">
                                 <div>
                                 </div>
 
@@ -404,13 +405,13 @@ const Cardetails = (props) => {
                             </div>
                             <div className="car-container">
                                 <div className="row">
-                                    <div className="col-md-7">
+                                    <div className="col-lg-7">
                                         <Slider {...settings} ref={c => (slider = c)}>
                                             {
                                                 carData?.images?.map((img, index) => (
 
                                                     <div key={index}>
-                                                        <img src={`https://buy.cars45.com/image/${img.images}`} />
+                                                        <Image src={`https://buy.cars45.com/image/${img.images}`} height={500} width={646} layout="responsive" />
                                                     </div>
                                                 ))
                                             }
@@ -424,7 +425,7 @@ const Cardetails = (props) => {
                                         </div>
 
                                     </div>
-                                    <div className="col-md-5 quick-details">
+                                    <div className="col-lg-5 quick-details">
                                         <div className="row quick-details-container mt-3">
                                             <div className="col-5 col-md-5 align-self-center">
                                                 <h5>{carData?.year} {carData?.make} {carData?.sku}</h5>

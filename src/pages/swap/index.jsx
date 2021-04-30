@@ -53,6 +53,8 @@ const Swap_car = (props) => {
   const handleChange = (selectedOption, name) => {
     if (!selectedOption[name]) {
       setFormError({ ...formError, [name]: "Please select an option" });
+    } else if (selectedOption.name === 'platNumber' || selectedOption.name === 'referral') {
+      delete formError[name];
     } else {
       delete formError[name];
     }
@@ -720,7 +722,7 @@ const Swap_car = (props) => {
                       label={"Plate Number"}
                       getValues={getValues}
                       errorMessage={formError["plateNumber"]}
-                      // required={true}
+                    // required={true}
                     />
                     <Inputs
                       name={"referral"}
@@ -729,7 +731,7 @@ const Swap_car = (props) => {
                       label={"Referral code"}
                       getValues={getValues}
                       errorMessage={formError["referral"]}
-                      // required={true}
+                    // required={true}
                     />
                     <Inputs
                       placeholder={"Enter your name"}
