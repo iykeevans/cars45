@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import cookie from "js-cookie"
+import cookie from "js-cookie";
 import { useRouter } from "next/router";
 
 import Inputs from "./forms";
@@ -7,7 +7,7 @@ import { toast, ToastContainer } from "react-nextjs-toast";
 import { getCall, postCall } from "../api/request";
 import endpoints from "../api/endPoints";
 import Loading from "./inspectionLoadingScreen";
-import { payWithPaystack } from "../utils"
+import { payWithPaystack } from "../utils";
 
 const Booking = () => {
   const [carMakeData, setCarMakeData] = useState([]);
@@ -33,11 +33,11 @@ const Booking = () => {
     time: "",
   });
   const [formError, setFormError] = React.useState({});
-  const router = useRouter()
+  const router = useRouter();
   useEffect(() => {
     getMakes();
   }, []);
-  const path = router.pathname
+  const path = router?.pathname;
   const handleChange = (selectedOption, name) => {
     if (!selectedOption[name]) {
       setFormError({ ...formError, [name]: "Please select an option" });
@@ -307,7 +307,7 @@ const Booking = () => {
     try {
       await validateForm();
       createBooking();
-      submitInspectionExponea()
+      submitInspectionExponea();
     } catch (error) {
       console.log(error);
       if (error.statusCode && error.statusCode === 400) {
@@ -332,8 +332,8 @@ const Booking = () => {
             type: "success",
           });
           setTimeout(() => {
-            router.reload()
-          }, 5000)
+            router.reload();
+          }, 5000);
         } else {
           toast.notify("Oops! something went wrong. keep calm and try again.", {
             duration: 5,
@@ -354,7 +354,7 @@ const Booking = () => {
 
   const submitInspectionExponea = async () => {
     setLoading(true);
-    data.user = cookie.get('__exponea_etc__');
+    data.user = cookie.get("__exponea_etc__");
     postCall(`${endpoints.createInspection}`, data)
       .then((response) => {
         setLoading(false);
@@ -383,36 +383,43 @@ const Booking = () => {
   };
 
   const slotDate = slotData.map((data) => {
-    const arr = Object.keys(data)
+    const arr = Object.keys(data);
     return {
       value: arr[0],
       label: arr[0],
-    }
-  })
+    };
+  });
 
-  const slotTime = slotData.map((date) => {
-    if (Object.keys(date)[0] === data.date) {
-      const timeArr = Object.values(date)[0].map((time) => {
-        return {
-          value: time,
-          label: time,
-        }
-      })
-      return timeArr
-    }
-  }).filter(item => typeof item !== "undefined")[0]
+  const slotTime = slotData
+    .map((date) => {
+      if (Object.keys(date)[0] === data.date) {
+        const timeArr = Object.values(date)[0].map((time) => {
+          return {
+            value: time,
+            label: time,
+          };
+        });
+        return timeArr;
+      }
+    })
+    .filter((item) => typeof item !== "undefined")[0];
 
-  const { name, email, phone } = data
-  if (name && email && phone && !isPaymentSuccessfull && path === "/premium-inspection") {
+  const { name, email, phone } = data;
+  if (
+    name &&
+    email &&
+    phone &&
+    !isPaymentSuccessfull &&
+    path === "/premium-inspection"
+  ) {
     payWithPaystack({
       email,
       amount: process.env.PREMIUM_INSPECTION,
       name,
       phone,
-      setIsPaymentSuccessfull
-    })
+      setIsPaymentSuccessfull,
+    });
   }
-
 
   return (
     <div className="col-md-12">
@@ -447,15 +454,17 @@ const Booking = () => {
           errorMessage={formError["phone"]}
           required={true}
         />
-        {path === "/premium-inspection" && <Inputs
-          name={"address"}
-          type={"text"}
-          placeholder={"Enter your address"}
-          label={"Address"}
-          getValues={getValues}
-          errorMessage={formError["address"]}
-          required={true}
-        />}
+        {path === "/premium-inspection" && (
+          <Inputs
+            name={"address"}
+            type={"text"}
+            placeholder={"Enter your address"}
+            label={"Address"}
+            getValues={getValues}
+            errorMessage={formError["address"]}
+            required={true}
+          />
+        )}
 
         <Inputs
           name={"make"}

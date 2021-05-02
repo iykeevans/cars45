@@ -63,8 +63,8 @@ const AllInOne = (props) => {
                   {mockedData.inspection.title2}
                 </h2>
 
-                {mockedData.inspection.items.map((item) => (
-                  <div className="row ml-4 mb-4">
+                {mockedData.inspection.items.map((item, index) => (
+                  <div className="row ml-4 mb-4" key={index}>
                     <div className="col-md-2 inspect-info-img">
                       <img className="book" src={item.image} alt="book" />
                     </div>

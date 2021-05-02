@@ -1,0 +1,712 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Referral page Referral page matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="header-one"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="row justify-content-md-end"
+      >
+        <div
+          class="col-10 col-lg-4 phone-box"
+        >
+          <div
+            class="top-phone"
+          >
+            <img
+              alt="phone"
+              src="/assets/icons/phone.svg"
+            />
+            <p
+              class="darkgrey-color"
+            >
+              +234 818 984 0160
+            </p>
+            <div
+              class="divider"
+            />
+            <p
+              class="darkgrey-color"
+            >
+              +234 818 984 0160
+            </p>
+          </div>
+        </div>
+        <div
+          class="col-1 col-md-1 profile"
+        >
+          <div
+            class="btn-group"
+          >
+            <button
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="btn btn-outline-secondary dropdown-toggle"
+              data-toggle="dropdown"
+              type="button"
+            >
+              <img
+                alt="profile"
+                src="/assets/icons/profile-icon.svg"
+              />
+            </button>
+            <div
+              class="dropdown-menu"
+            >
+              <button
+                class="dropdown-item btn btn-link darkgrey-color"
+              >
+                Sign In
+              </button>
+              <div
+                class="dropdown-divider"
+              />
+              <button
+                class="dropdown-item btn btn-link darkgrey-color"
+              >
+                Register
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav
+        class="navbar navbar-expand-lg navbar-light bg-light"
+      >
+        <a
+          class="navbar-brand"
+          href="/"
+        >
+          <img
+            alt="logo"
+            class="logo"
+            src="/assets/icons/logo.svg"
+          />
+        </a>
+        <button
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          class="navbar-toggler"
+          data-target="#navbarNavDropdown"
+          data-toggle="collapse"
+          type="button"
+        >
+          <span
+            class="navbar-toggler-icon"
+          />
+        </button>
+        <div
+          class="collapse navbar-collapse"
+          id="navbarNavDropdown"
+        >
+          <ul
+            class="navbar-nav"
+          >
+            <li
+              class="nav-item"
+            >
+              <a
+                class="nav-link"
+                href="/brandnew"
+              >
+                Brand New Cars 
+              </a>
+            </li>
+            <li
+              class="nav-item dropdown"
+            >
+              <button
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="nav-link dropdown-toggle btn btn-outline-secondary used"
+                data-toggle="dropdown"
+                id="navbarDropdownMenuLink"
+                role="button"
+              >
+                Used Cars
+              </button>
+              <div
+                aria-labelledby="navbarDropdownMenuLink"
+                class="dropdown-menu used-menu"
+              >
+                <a
+                  class="dropdown-item"
+                  href="/buy"
+                >
+                  Buy
+                </a>
+                <div
+                  class="dropdown-divider"
+                />
+                <a
+                  class="dropdown-item"
+                  href="/sell"
+                >
+                  Sell
+                </a>
+                <div
+                  class="dropdown-divider"
+                />
+                <a
+                  class="dropdown-item"
+                  href="/swap"
+                >
+                  Swap
+                </a>
+              </div>
+            </li>
+            <li
+              class="nav-item dropdown"
+            >
+              <button
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="nav-link dropdown-toggle btn btn-outline-secondary inspection"
+                data-toggle="dropdown"
+                id="navbarDropdownMenuLink"
+                role="button"
+              >
+                Inspection Services
+              </button>
+              <div
+                aria-labelledby="navbarDropdownMenuLink"
+                class="dropdown-menu inspect"
+              >
+                <a
+                  class="dropdown-item"
+                  href="/ride-hailing"
+                >
+                  Ride Hailing 
+                </a>
+                <div
+                  class="dropdown-divider"
+                />
+                <a
+                  class="dropdown-item"
+                  href="/private-individual"
+                >
+                  Private/Individual 
+                </a>
+                <div
+                  class="dropdown-divider"
+                />
+                <a
+                  class="dropdown-item"
+                  href="/premium-inspection"
+                >
+                  Premium Inspection 
+                </a>
+                <div
+                  class="dropdown-divider"
+                />
+                <a
+                  class="dropdown-item"
+                  href="/valuation"
+                >
+                  Valuation 
+                </a>
+                <div
+                  class="dropdown-divider"
+                />
+                <a
+                  class="dropdown-item"
+                  href="/due-dilligence"
+                >
+                  Due Dilligence 
+                </a>
+                <div
+                  class="dropdown-divider"
+                />
+                <a
+                  class="dropdown-item"
+                  href="/all-in-one"
+                >
+                  All-in-one 
+                </a>
+              </div>
+            </li>
+            <li
+              class="nav-item"
+            >
+              <a
+                class="nav-link"
+                href="/loan"
+              >
+                Car Loan 
+              </a>
+            </li>
+            <li
+              class="nav-item"
+            >
+              <a
+                class="nav-link"
+                href="/service"
+              >
+                Service & Repair 
+              </a>
+            </li>
+            <li
+              class="nav-item"
+            >
+              <a
+                class="nav-link"
+                href="/franchise"
+              >
+                Become a Franchise 
+              </a>
+            </li>
+            <li
+              class="nav-item"
+            >
+              <a
+                class="nav-link"
+                href="/corporate"
+              >
+                Corporate Service 
+              </a>
+            </li>
+            <li
+              class="nav-item"
+            >
+              <a
+                class="nav-link"
+                href="/import"
+              >
+                Import Cars 
+              </a>
+            </li>
+            <li
+              class="nav-item"
+            >
+              <a
+                class="nav-link"
+                href="/referral"
+              >
+                Referral Program 
+              </a>
+            </li>
+            <li
+              class="nav-item dropdown"
+            >
+              <button
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="nav-link dropdown-toggle btn btn-outline-secondary"
+                data-toggle="dropdown"
+                id="navbarDropdownMenuLink"
+                role="button"
+              >
+                Other Services
+              </button>
+              <div
+                aria-labelledby="navbarDropdownMenuLink"
+                class="dropdown-menu"
+              >
+                <a
+                  class="dropdown-item"
+                  href="/about"
+                >
+                  About Us 
+                </a>
+                <div
+                  class="dropdown-divider"
+                />
+                <a
+                  class="dropdown-item"
+                  href="/check"
+                >
+                  Background Check 
+                </a>
+                <div
+                  class="dropdown-divider"
+                />
+                <a
+                  class="dropdown-item"
+                  href="/dealer"
+                >
+                  Become A Dealer 
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <div
+    class="autopreneneur-container"
+  >
+    <div
+      class="autopreneur-become autopreneur-hero"
+    >
+      <h1>
+        Become An Autopreneur
+      </h1>
+    </div>
+    <div
+      class="autopreneneur-carousel"
+    >
+      <div
+        class="left-slide navigator"
+      >
+        <h1>
+          ‹
+        </h1>
+      </div>
+      <div
+        class="right-slide navigator"
+      >
+        <h1>
+          ›
+        </h1>
+      </div>
+      <div
+        class="autopreneneur-content"
+      >
+        <p
+          class="autopreneur-centered"
+        >
+          Cars45 Autopreneur Programme is a unique platform that enables freelance earning for individuals through referring successful business transactions on the Cars45 platform.
+          <br />
+          <br />
+           You refer someone to Buy or Sell Cars to Cars45 you earn commission if the transaction is successful.
+        </p>
+      </div>
+    </div>
+    <a
+      href="https://autopreneur.cars45.ng/"
+    >
+      Get started
+    </a>
+    <div
+      class="autopreneneur-line"
+    />
+    <div
+      class="splash-bg"
+    >
+      <div>
+        <img
+          alt="logo"
+          src="/assets/icons/logo-white.svg"
+        />
+      </div>
+    </div>
+    <div
+      class="autopreneneur-rec-carousel"
+    >
+      <h1>
+        ‹
+      </h1>
+      <div
+        class="autopreneneur-suggestion"
+      >
+        <h4>
+          Recommended Marketplace Cars For You
+        </h4>
+        <div
+          class="autopreneneur-recommended"
+        />
+      </div>
+      <h1>
+        ›
+      </h1>
+    </div>
+    <div
+      class="jsx-2955411730 toast-container"
+      id="toast-container"
+    />
+  </div>
+  <div>
+    <div
+      class="footer-one border-top"
+    >
+      <div
+        class="footer-menu"
+      >
+        <div
+          class="container"
+        >
+          <div
+            class="row"
+          >
+            <div
+              class="col-9 col-md-7"
+            >
+              <div
+                class="row"
+              >
+                <div
+                  class="col col-md-2 d-none d-md-block"
+                >
+                  <a
+                    href="/"
+                  >
+                    About Us
+                  </a>
+                </div>
+                <div
+                  class=" col col-md-2"
+                >
+                  <a
+                    href="/"
+                  >
+                    Terms Of Use
+                  </a>
+                </div>
+                <div
+                  class="col col-md-2"
+                >
+                  <a
+                    href="/"
+                  >
+                    Privacy Policy
+                  </a>
+                </div>
+                <div
+                  class="col col-md-1"
+                >
+                  <a
+                    href="/"
+                  >
+                    FAQs
+                  </a>
+                </div>
+                <div
+                  class="col col-md-2"
+                >
+                  <a
+                    href="/"
+                  >
+                    Financing
+                  </a>
+                </div>
+                <div
+                  class="col col-md-3 d-none d-md-block"
+                >
+                  <a
+                    href="/"
+                  >
+                    Become A Franchise
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-1 col-md-5"
+            >
+              <div
+                class="row"
+              >
+                <div
+                  class="col-md-6 text-center"
+                >
+                  <a
+                    href="/"
+                  >
+                    help@car45.com
+                  </a>
+                </div>
+                <div
+                  class="col-md-6 text-right d-none d-md-block"
+                >
+                  <div
+                    class="socials"
+                  >
+                    <a
+                      href=" http://facebook.com/cars45.NG"
+                      target="_blank"
+                    >
+                      <img
+                        alt="facebook"
+                        class="facebook"
+                        src="/assets/icons/fb.svg"
+                      />
+                    </a>
+                    <a
+                      href="https://www.instagram.com/cars45ng/"
+                      target="_blank"
+                    >
+                      <img
+                        alt="instagram"
+                        src="/assets/icons/insta.svg"
+                      />
+                    </a>
+                    <a
+                      href="https://twitter.com/cars45ng"
+                      target="_blank"
+                    >
+                      <img
+                        alt="twitter"
+                        src="/assets/icons/tw.svg"
+                      />
+                    </a>
+                    <a
+                      href="/youtube.com"
+                      target="_blank"
+                    >
+                       
+                      <img
+                        alt="youtube"
+                        src="/assets/icons/yt.svg"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="footer-section-one"
+      >
+        <div
+          class="container"
+        >
+          <div
+            class="row info"
+          >
+            <div
+              class="col-md-7"
+            >
+              <p>
+                Cars45 brand provides consumers with the opportunity to buy cars online and offline. Car dealers and end-users can now have access to a rich variety of cars that have been properly verified and checked, accompanied by a standard inspection report. What we are bringing to the market isn't just availability but access to cars with the right information such that consumers can make the right decision. Cars45 currently has its operations spread across Lekki, Ikeja, Ikorodu, Oshodi and Amuwo areas of Lagos, Ibadan, Kano, Port-Harcourt, and Abuja.
+              </p>
+            </div>
+            <div
+              class="col-md-5 subscribe"
+            >
+              <p>
+                SUBSCRIBE TO GET NOTIFIED
+                <br />
+                 ON GREAT OFFERS ON CARS45
+              </p>
+              <form
+                class="form-inline"
+              >
+                <div
+                  class="form-group mr-4 mb-2"
+                >
+                  <input
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    placeholder="Your email address"
+                    type="email"
+                  />
+                </div>
+                <button
+                  class="btn btn-primary mb-2 teal-button"
+                  type="submit"
+                >
+                  SUBSCRIBE
+                </button>
+              </form>
+            </div>
+          </div>
+          <div
+            class="row ssl"
+          >
+            <div
+              class="col-md-6"
+            >
+              <p>
+                SSL Protection | Buy with confidence
+              </p>
+              <p>
+                buy.cars45.com has been security-scanned and is 100% protected by the Secure Socket Layer certificate. All files and data sent over this site are fully encrypted from third-party access.
+              </p>
+            </div>
+            <div
+              class="col-md-6"
+            >
+              <div
+                class="socials"
+              >
+                <a
+                  href="/facebook.com"
+                >
+                  <img
+                    alt="facebook"
+                    class="facebook"
+                    src="/assets/icons/facebook.svg"
+                  />
+                </a>
+                <a
+                  href="/instagram.com"
+                >
+                  <img
+                    alt="instagram"
+                    src="/assets/icons/instagram.svg"
+                  />
+                </a>
+                <a
+                  href="/twitter.com"
+                >
+                  <img
+                    alt="twitter"
+                    src="/assets/icons/twitter.svg"
+                  />
+                </a>
+                <a
+                  href="/youtube.com"
+                >
+                   
+                  <img
+                    alt="youtube"
+                    src="/assets/icons/youtube.svg"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="footer-section-two"
+      >
+        <div
+          class="container"
+        >
+          <div
+            class="row"
+          >
+            <div
+              class="col-md-6"
+            >
+              <ul>
+                <li>
+                  <a
+                    href="/"
+                  >
+                    Terms & Conditions
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/"
+                  >
+                    Privacy
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div
+              class="col-md-6 text-center text-md-right"
+            >
+              <p>
+                2021Cars45.com. ©All rights reserved
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

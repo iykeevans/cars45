@@ -112,8 +112,8 @@ const Dealer = (props) => {
                     {mockedData.cta.paragraph}
                   </div>
                   <ul className="mt-4">
-                    {mockedData.cta.items.map(({ text, image }) => (
-                      <li className="d-flex align-items-center">
+                    {mockedData.cta.items.map(({ text, image }, index) => (
+                      <li className="d-flex align-items-center" key={index}>
                         <div>
                           <img src={image} alt="check mark" className="mr-3" />
                         </div>{" "}
@@ -167,8 +167,11 @@ const Dealer = (props) => {
                 {mockedData.service.title}
               </div>
               <div className="row justify-content-between mt-5 ">
-                {mockedData.service.items.map((item) => (
-                  <div className="col-lg-5 d-flex flex-column align-items-center justify-content-center">
+                {mockedData.service.items.map((item, index) => (
+                  <div
+                    className="col-lg-5 d-flex flex-column align-items-center justify-content-center"
+                    key={index}
+                  >
                     <div>
                       <img
                         src={item.image}
@@ -206,16 +209,18 @@ const Dealer = (props) => {
 
           <div className=" col-10 mx-auto text-white ">
             <div className=" d-none d-lg-flex  justify-content-between border-bottom font-weight-bold pb-3 mt-5 h5">
-              {mockedData.additionalInfo.cities.map((item) => (
-                <div className="col-3">{item.name}</div>
+              {mockedData.additionalInfo.cities.map((item, index) => (
+                <div className="col-3" key={index}>
+                  {item.name}
+                </div>
               ))}
             </div>
           </div>
 
           <div className=" col-10 mx-auto text-white">
             <div className=" d-flex flex-column flex-lg-row justify-content-between  mt-3 pb-3">
-              {mockedData.additionalInfo.cities.map((item) => (
-                <div className=" col-12 col-lg-3 mt-5 mt-lg-0">
+              {mockedData.additionalInfo.cities.map((item, index) => (
+                <div className=" col-12 col-lg-3 mt-5 mt-lg-0" key={index}>
                   <p className="h5 font-weight-bold d-lg-none">{item.name}</p>
                   {item.summary}
                 </div>
@@ -230,13 +235,13 @@ const Dealer = (props) => {
 
             <p className="text-center d-flex justify-content-center mt-3 pb-5 mb-0">
               {" "}
-              <div>
+              <span>
                 <img
                   src="/assets/images/telephone.svg"
                   alt="app store"
                   className="mr-3"
                 />
-              </div>
+              </span>
               {mockedData.contact.number}
             </p>
           </div>
