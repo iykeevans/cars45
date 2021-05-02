@@ -52,7 +52,10 @@ const Import_car = () => {
         <div className="container mt-5">
           <div className="d-flex flex-column flex-lg-row justify-content-center ">
             {mockedData.carTypes.map((item, index) => (
-              <div className={`col-6 py-4 ${index == 0 ? "border-right" : ""}`}>
+              <div
+                className={`col-6 py-4 ${index == 0 ? "border-right" : ""}`}
+                key={index}
+              >
                 {index == 1 && <span> </span>}
                 <div
                   className={`card   ${
@@ -88,8 +91,11 @@ const Import_car = () => {
           <div className="overley py-5">
             <div className="container mx-auto">
               <div className="h1 text-center">{mockedData.service.title}</div>
-              {mockedData.service.items.map((item) => (
-                <div className="word py-3 text-dark text-center mt-4">
+              {mockedData.service.items.map((item, index) => (
+                <div
+                  className="word py-3 text-dark text-center mt-4"
+                  key={index}
+                >
                   {item}
                 </div>
               ))}

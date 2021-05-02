@@ -53,8 +53,8 @@ const About = () => {
             <li>
               {mockedData.email.text} {mockedData.email.value}
             </li>
-            {mockedData.socials.map(({ text, value }) => (
-              <li>
+            {mockedData.socials.map(({ text, value }, index) => (
+              <li key={index}>
                 {text}: <Link href={value}>{value}</Link>
               </li>
             ))}

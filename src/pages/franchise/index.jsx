@@ -88,7 +88,7 @@ export default function Dealer() {
           {mockData.why.paragraph1()}
           <h5 className="motivation">{mockData.why.tagline}</h5>
 
-          {mockData.why.footNote}
+          {mockData.why.footNote()}
 
           <div className="line"></div>
 
@@ -112,8 +112,8 @@ export default function Dealer() {
         <div className="dealer-journey">
           <h1>{mockData.journey.title}</h1>
           <ul>
-            {mockData.journey.items.map((item) => (
-              <li>{item}</li>
+            {mockData.journey.items.map((item, index) => (
+              <li key={index}>{item}</li>
             ))}
           </ul>
         </div>

@@ -1,0 +1,1591 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Ride hailing page Ride hailing page matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="header-one"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="row justify-content-md-end"
+      >
+        <div
+          class="col-10 col-lg-4 phone-box"
+        >
+          <div
+            class="top-phone"
+          >
+            <img
+              alt="phone"
+              src="/assets/icons/phone.svg"
+            />
+            <p
+              class="darkgrey-color"
+            >
+              +234 818 984 0160
+            </p>
+            <div
+              class="divider"
+            />
+            <p
+              class="darkgrey-color"
+            >
+              +234 818 984 0160
+            </p>
+          </div>
+        </div>
+        <div
+          class="col-1 col-md-1 profile"
+        >
+          <div
+            class="btn-group"
+          >
+            <button
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="btn btn-outline-secondary dropdown-toggle"
+              data-toggle="dropdown"
+              type="button"
+            >
+              <img
+                alt="profile"
+                src="/assets/icons/profile-icon.svg"
+              />
+            </button>
+            <div
+              class="dropdown-menu"
+            >
+              <button
+                class="dropdown-item btn btn-link darkgrey-color"
+              >
+                Sign In
+              </button>
+              <div
+                class="dropdown-divider"
+              />
+              <button
+                class="dropdown-item btn btn-link darkgrey-color"
+              >
+                Register
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav
+        class="navbar navbar-expand-lg navbar-light bg-light"
+      >
+        <a
+          class="navbar-brand"
+          href="/"
+        >
+          <img
+            alt="logo"
+            class="logo"
+            src="/assets/icons/logo.svg"
+          />
+        </a>
+        <button
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          class="navbar-toggler"
+          data-target="#navbarNavDropdown"
+          data-toggle="collapse"
+          type="button"
+        >
+          <span
+            class="navbar-toggler-icon"
+          />
+        </button>
+        <div
+          class="collapse navbar-collapse"
+          id="navbarNavDropdown"
+        >
+          <ul
+            class="navbar-nav"
+          >
+            <li
+              class="nav-item"
+            >
+              <a
+                class="nav-link"
+                href="/brandnew"
+              >
+                Brand New Cars 
+              </a>
+            </li>
+            <li
+              class="nav-item dropdown"
+            >
+              <button
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="nav-link dropdown-toggle btn btn-outline-secondary used"
+                data-toggle="dropdown"
+                id="navbarDropdownMenuLink"
+                role="button"
+              >
+                Used Cars
+              </button>
+              <div
+                aria-labelledby="navbarDropdownMenuLink"
+                class="dropdown-menu used-menu"
+              >
+                <a
+                  class="dropdown-item"
+                  href="/buy"
+                >
+                  Buy
+                </a>
+                <div
+                  class="dropdown-divider"
+                />
+                <a
+                  class="dropdown-item"
+                  href="/sell"
+                >
+                  Sell
+                </a>
+                <div
+                  class="dropdown-divider"
+                />
+                <a
+                  class="dropdown-item"
+                  href="/swap"
+                >
+                  Swap
+                </a>
+              </div>
+            </li>
+            <li
+              class="nav-item dropdown"
+            >
+              <button
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="nav-link dropdown-toggle btn btn-outline-secondary inspection"
+                data-toggle="dropdown"
+                id="navbarDropdownMenuLink"
+                role="button"
+              >
+                Inspection Services
+              </button>
+              <div
+                aria-labelledby="navbarDropdownMenuLink"
+                class="dropdown-menu inspect"
+              >
+                <a
+                  class="dropdown-item"
+                  href="/ride-hailing"
+                >
+                  Ride Hailing 
+                </a>
+                <div
+                  class="dropdown-divider"
+                />
+                <a
+                  class="dropdown-item"
+                  href="/private-individual"
+                >
+                  Private/Individual 
+                </a>
+                <div
+                  class="dropdown-divider"
+                />
+                <a
+                  class="dropdown-item"
+                  href="/premium-inspection"
+                >
+                  Premium Inspection 
+                </a>
+                <div
+                  class="dropdown-divider"
+                />
+                <a
+                  class="dropdown-item"
+                  href="/valuation"
+                >
+                  Valuation 
+                </a>
+                <div
+                  class="dropdown-divider"
+                />
+                <a
+                  class="dropdown-item"
+                  href="/due-dilligence"
+                >
+                  Due Dilligence 
+                </a>
+                <div
+                  class="dropdown-divider"
+                />
+                <a
+                  class="dropdown-item"
+                  href="/all-in-one"
+                >
+                  All-in-one 
+                </a>
+              </div>
+            </li>
+            <li
+              class="nav-item"
+            >
+              <a
+                class="nav-link"
+                href="/loan"
+              >
+                Car Loan 
+              </a>
+            </li>
+            <li
+              class="nav-item"
+            >
+              <a
+                class="nav-link"
+                href="/service"
+              >
+                Service & Repair 
+              </a>
+            </li>
+            <li
+              class="nav-item"
+            >
+              <a
+                class="nav-link"
+                href="/franchise"
+              >
+                Become a Franchise 
+              </a>
+            </li>
+            <li
+              class="nav-item"
+            >
+              <a
+                class="nav-link"
+                href="/corporate"
+              >
+                Corporate Service 
+              </a>
+            </li>
+            <li
+              class="nav-item"
+            >
+              <a
+                class="nav-link"
+                href="/import"
+              >
+                Import Cars 
+              </a>
+            </li>
+            <li
+              class="nav-item"
+            >
+              <a
+                class="nav-link"
+                href="/referral"
+              >
+                Referral Program 
+              </a>
+            </li>
+            <li
+              class="nav-item dropdown"
+            >
+              <button
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="nav-link dropdown-toggle btn btn-outline-secondary"
+                data-toggle="dropdown"
+                id="navbarDropdownMenuLink"
+                role="button"
+              >
+                Other Services
+              </button>
+              <div
+                aria-labelledby="navbarDropdownMenuLink"
+                class="dropdown-menu"
+              >
+                <a
+                  class="dropdown-item"
+                  href="/about"
+                >
+                  About Us 
+                </a>
+                <div
+                  class="dropdown-divider"
+                />
+                <a
+                  class="dropdown-item"
+                  href="/check"
+                >
+                  Background Check 
+                </a>
+                <div
+                  class="dropdown-divider"
+                />
+                <a
+                  class="dropdown-item"
+                  href="/dealer"
+                >
+                  Become A Dealer 
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <div
+    class="ride-hailing"
+  >
+    <div
+      class="jumbotron"
+    >
+      <div
+        class="feedback-button"
+      >
+        <a
+          class="d-none"
+          href="https://docs.google.com/forms/d/1uvqqKDzYS7pOVG1wKOoyNpVeyYTJpE1mXXYh0-y-IdE/edit"
+          id="survey-go"
+          target="_blank"
+        >
+          Survey link
+        </a>
+        <button
+          class="btn btn-danger"
+        >
+          Feedback
+        </button>
+      </div>
+    </div>
+    <div
+      class="get-inspected"
+    >
+      <div
+        class="container"
+      >
+        <div />
+        <div
+          class="row"
+        >
+          <div
+            class="col-md-4 inspect-img d-none d-lg-block"
+          >
+            <img
+              alt="inspect"
+              src="/assets/images/inspection.png"
+            />
+            <p>
+              Determine the current market value of the vehicle
+            </p>
+          </div>
+          <div
+            class="col-lg-8"
+          >
+            <h2
+              class="inspect-header text-center"
+            >
+              Get your car inspected
+            </h2>
+            <div
+              class="row ml-4 mb-4"
+            >
+              <div
+                class="col-md-2 inspect-info-img"
+              >
+                <img
+                  alt="book"
+                  class="book"
+                  src="/assets/icons/book.svg"
+                />
+              </div>
+              <div
+                class="col-md-6 details align-self-center"
+              >
+                <p>
+                  Book an inspection right here or walk into any of our centers
+                </p>
+              </div>
+            </div>
+            <div
+              class="row ml-4 mb-4"
+            >
+              <div
+                class="col-md-2 inspect-info-img"
+              >
+                <img
+                  alt="book"
+                  class="book"
+                  src="/assets/icons/money.svg"
+                />
+              </div>
+              <div
+                class="col-md-6 details align-self-center"
+              >
+                <p>
+                  Make a deposit of ₦10,000 at your inspection center of choice.
+                </p>
+              </div>
+            </div>
+            <div
+              class="row ml-4 mb-4"
+            >
+              <div
+                class="col-md-2 inspect-info-img"
+              >
+                <img
+                  alt="book"
+                  class="book"
+                  src="/assets/icons/inspect-done.svg"
+                />
+              </div>
+              <div
+                class="col-md-6 details align-self-center"
+              >
+                <p>
+                  The inspection is carried within an hour.
+                </p>
+              </div>
+            </div>
+            <div
+              class="row ml-4 mb-4"
+            >
+              <div
+                class="col-md-2 inspect-info-img"
+              >
+                <img
+                  alt="book"
+                  class="book"
+                  src="/assets/icons/inspection-report.svg"
+                />
+              </div>
+              <div
+                class="col-md-6 details align-self-center"
+              >
+                <p>
+                  Receive your inspection result within 30 minutes later!
+                </p>
+              </div>
+            </div>
+            <button
+              class="btn btn-secondary orange-button mt-5 mb-5"
+              data-target="#popup-modal"
+              data-toggle="modal"
+            >
+              Book An Inspection
+            </button>
+          </div>
+          <div
+            class="col-md-12 other-info text-center"
+          >
+            <p>
+              We’ve partnered with these companies to ensure that the quality of their cars comply with prescribed standards
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-md-12"
+      >
+        <div
+          class="bottom-div"
+        >
+          <img
+            alt="security"
+            src="/assets/icons/security.svg"
+          />
+          <p>
+            Cars45 is commited to keeping your information safe
+          </p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        aria-hidden="true"
+        aria-labelledby="popup"
+        class="modal fade"
+        id="popup-modal"
+        tabindex="-1"
+      >
+        <div
+          class="modal-dialog modal-dialog-centered"
+        >
+          <div
+            class="modal-content"
+          >
+            <div
+              class="modal-body"
+            >
+              <div
+                class="row mt-2"
+              >
+                <div
+                  class="col-9 col-md-10 text-center"
+                >
+                  <img
+                    alt="logo"
+                    class="logo"
+                    src="/assets/icons/Cars45logo.svg"
+                  />
+                </div>
+                <div
+                  class="col-2 col-md-2 text-right"
+                >
+                  <button
+                    class="btn btn-link"
+                  >
+                    <img
+                      alt="close"
+                      class="close"
+                      data-dismiss="modal"
+                      src="/assets/icons/close.svg"
+                    />
+                  </button>
+                </div>
+              </div>
+              <div
+                class="row pb-5 pl-2 pl-md-5 pr-2 pr-md-5"
+              >
+                <div
+                  class="col-md-12 text-center"
+                >
+                  <div
+                    class="question"
+                  >
+                    <p>
+                      Schedule Your Car Inspection
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="col-md-12"
+                >
+                  <form
+                    novalidate=""
+                  >
+                    <div
+                      class="form"
+                    >
+                      <div
+                        class="form-group"
+                      >
+                        <label
+                          class="col-form-label"
+                          for="name"
+                        >
+                          Name
+                        </label>
+                        <input
+                          aria-describedby="nameFeedback"
+                          class="form-control"
+                          id="name"
+                          name="name"
+                          placeholder="Enter your name"
+                          required=""
+                          type="text"
+                          value=""
+                        />
+                        <div
+                          class="invalid-feedback"
+                          id="nameFeedback"
+                          style="display: none;"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="form"
+                    >
+                      <div
+                        class="form-group"
+                      >
+                        <label
+                          class="col-form-label"
+                          for="name"
+                        >
+                          Email
+                        </label>
+                        <input
+                          aria-describedby="emailFeedback"
+                          class="form-control"
+                          id="email"
+                          name="email"
+                          placeholder="Enter your email"
+                          required=""
+                          type="email"
+                          value=""
+                        />
+                        <div
+                          class="invalid-feedback"
+                          id="emailFeedback"
+                          style="display: none;"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="form"
+                    >
+                      <div
+                        class="form-group"
+                      >
+                        <label
+                          class="col-form-label"
+                          for="name"
+                        >
+                          Phone number
+                        </label>
+                        <input
+                          aria-describedby="phoneFeedback"
+                          class="form-control"
+                          id="phone"
+                          name="phone"
+                          placeholder="Enter your phone number"
+                          required=""
+                          type="tel"
+                          value=""
+                        />
+                        <div
+                          class="invalid-feedback"
+                          id="phoneFeedback"
+                          style="display: none;"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="form"
+                    >
+                      <div
+                        class="form-group"
+                      >
+                        <label
+                          class="col-form-label"
+                        >
+                          Select Brand
+                        </label>
+                        <div
+                          class=" css-2b097c-container"
+                        >
+                          <span
+                            aria-atomic="false"
+                            aria-live="polite"
+                            aria-relevant="additions text"
+                            class="css-1f43avz-a11yText-A11yText"
+                          />
+                          <div
+                            class=" css-yk16xz-control"
+                          >
+                            <div
+                              class=" css-g1d714-ValueContainer"
+                            >
+                              <div
+                                class=" css-1wa3eu0-placeholder"
+                              >
+                                Choose
+                              </div>
+                              <div
+                                class="css-b8ldur-Input"
+                              >
+                                <div
+                                  class=""
+                                  style="display: inline-block;"
+                                >
+                                  <input
+                                    aria-autocomplete="list"
+                                    autocapitalize="none"
+                                    autocomplete="off"
+                                    autocorrect="off"
+                                    id="react-select-10-input"
+                                    spellcheck="false"
+                                    style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
+                                    tabindex="0"
+                                    type="text"
+                                    value=""
+                                  />
+                                  <div
+                                    style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class=" css-1hb7zxy-IndicatorsContainer"
+                            >
+                              <span
+                                class=" css-1okebmr-indicatorSeparator"
+                              />
+                              <div
+                                aria-hidden="true"
+                                class=" css-tlfecz-indicatorContainer"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class="css-tj5bde-Svg"
+                                  focusable="false"
+                                  height="20"
+                                  viewBox="0 0 20 20"
+                                  width="20"
+                                >
+                                  <path
+                                    d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="invalid-feedback"
+                          id="makeFeedback"
+                          style="display: none;"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="form"
+                    >
+                      <div
+                        class="form-group"
+                      >
+                        <label
+                          class="col-form-label"
+                        >
+                          Select Model
+                        </label>
+                        <div
+                          class=" css-2b097c-container"
+                        >
+                          <span
+                            aria-atomic="false"
+                            aria-live="polite"
+                            aria-relevant="additions text"
+                            class="css-1f43avz-a11yText-A11yText"
+                          />
+                          <div
+                            class=" css-yk16xz-control"
+                          >
+                            <div
+                              class=" css-g1d714-ValueContainer"
+                            >
+                              <div
+                                class=" css-1wa3eu0-placeholder"
+                              >
+                                Choose
+                              </div>
+                              <div
+                                class="css-b8ldur-Input"
+                              >
+                                <div
+                                  class=""
+                                  style="display: inline-block;"
+                                >
+                                  <input
+                                    aria-autocomplete="list"
+                                    autocapitalize="none"
+                                    autocomplete="off"
+                                    autocorrect="off"
+                                    id="react-select-11-input"
+                                    spellcheck="false"
+                                    style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
+                                    tabindex="0"
+                                    type="text"
+                                    value=""
+                                  />
+                                  <div
+                                    style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class=" css-1hb7zxy-IndicatorsContainer"
+                            >
+                              <span
+                                class=" css-1okebmr-indicatorSeparator"
+                              />
+                              <div
+                                aria-hidden="true"
+                                class=" css-tlfecz-indicatorContainer"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class="css-tj5bde-Svg"
+                                  focusable="false"
+                                  height="20"
+                                  viewBox="0 0 20 20"
+                                  width="20"
+                                >
+                                  <path
+                                    d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="invalid-feedback"
+                          id="modelFeedback"
+                          style="display: none;"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="form"
+                    >
+                      <div
+                        class="form-group"
+                      >
+                        <label
+                          class="col-form-label"
+                        >
+                          Gear type
+                        </label>
+                        <div
+                          class=" css-2b097c-container"
+                        >
+                          <span
+                            aria-atomic="false"
+                            aria-live="polite"
+                            aria-relevant="additions text"
+                            class="css-1f43avz-a11yText-A11yText"
+                          />
+                          <div
+                            class=" css-yk16xz-control"
+                          >
+                            <div
+                              class=" css-g1d714-ValueContainer"
+                            >
+                              <div
+                                class=" css-1wa3eu0-placeholder"
+                              >
+                                Choose
+                              </div>
+                              <div
+                                class="css-b8ldur-Input"
+                              >
+                                <div
+                                  class=""
+                                  style="display: inline-block;"
+                                >
+                                  <input
+                                    aria-autocomplete="list"
+                                    autocapitalize="none"
+                                    autocomplete="off"
+                                    autocorrect="off"
+                                    id="react-select-12-input"
+                                    spellcheck="false"
+                                    style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
+                                    tabindex="0"
+                                    type="text"
+                                    value=""
+                                  />
+                                  <div
+                                    style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class=" css-1hb7zxy-IndicatorsContainer"
+                            >
+                              <span
+                                class=" css-1okebmr-indicatorSeparator"
+                              />
+                              <div
+                                aria-hidden="true"
+                                class=" css-tlfecz-indicatorContainer"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class="css-tj5bde-Svg"
+                                  focusable="false"
+                                  height="20"
+                                  viewBox="0 0 20 20"
+                                  width="20"
+                                >
+                                  <path
+                                    d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="invalid-feedback"
+                          id="trimFeedback"
+                          style="display: none;"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="form"
+                    >
+                      <div
+                        class="form-group"
+                      >
+                        <label
+                          class="col-form-label"
+                        >
+                          Year
+                        </label>
+                        <div
+                          class=" css-2b097c-container"
+                        >
+                          <span
+                            aria-atomic="false"
+                            aria-live="polite"
+                            aria-relevant="additions text"
+                            class="css-1f43avz-a11yText-A11yText"
+                          />
+                          <div
+                            class=" css-yk16xz-control"
+                          >
+                            <div
+                              class=" css-g1d714-ValueContainer"
+                            >
+                              <div
+                                class=" css-1wa3eu0-placeholder"
+                              >
+                                Choose
+                              </div>
+                              <div
+                                class="css-b8ldur-Input"
+                              >
+                                <div
+                                  class=""
+                                  style="display: inline-block;"
+                                >
+                                  <input
+                                    aria-autocomplete="list"
+                                    autocapitalize="none"
+                                    autocomplete="off"
+                                    autocorrect="off"
+                                    id="react-select-13-input"
+                                    spellcheck="false"
+                                    style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
+                                    tabindex="0"
+                                    type="text"
+                                    value=""
+                                  />
+                                  <div
+                                    style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class=" css-1hb7zxy-IndicatorsContainer"
+                            >
+                              <span
+                                class=" css-1okebmr-indicatorSeparator"
+                              />
+                              <div
+                                aria-hidden="true"
+                                class=" css-tlfecz-indicatorContainer"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class="css-tj5bde-Svg"
+                                  focusable="false"
+                                  height="20"
+                                  viewBox="0 0 20 20"
+                                  width="20"
+                                >
+                                  <path
+                                    d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="invalid-feedback"
+                          id="yearFeedback"
+                          style="display: none;"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="form"
+                    >
+                      <div
+                        class="form-group"
+                      >
+                        <label
+                          class="col-form-label"
+                        >
+                          City
+                        </label>
+                        <div
+                          class=" css-2b097c-container"
+                        >
+                          <span
+                            aria-atomic="false"
+                            aria-live="polite"
+                            aria-relevant="additions text"
+                            class="css-1f43avz-a11yText-A11yText"
+                          />
+                          <div
+                            class=" css-yk16xz-control"
+                          >
+                            <div
+                              class=" css-g1d714-ValueContainer"
+                            >
+                              <div
+                                class=" css-1wa3eu0-placeholder"
+                              >
+                                Choose
+                              </div>
+                              <div
+                                class="css-b8ldur-Input"
+                              >
+                                <div
+                                  class=""
+                                  style="display: inline-block;"
+                                >
+                                  <input
+                                    aria-autocomplete="list"
+                                    autocapitalize="none"
+                                    autocomplete="off"
+                                    autocorrect="off"
+                                    id="react-select-14-input"
+                                    spellcheck="false"
+                                    style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
+                                    tabindex="0"
+                                    type="text"
+                                    value=""
+                                  />
+                                  <div
+                                    style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class=" css-1hb7zxy-IndicatorsContainer"
+                            >
+                              <span
+                                class=" css-1okebmr-indicatorSeparator"
+                              />
+                              <div
+                                aria-hidden="true"
+                                class=" css-tlfecz-indicatorContainer"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class="css-tj5bde-Svg"
+                                  focusable="false"
+                                  height="20"
+                                  viewBox="0 0 20 20"
+                                  width="20"
+                                >
+                                  <path
+                                    d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="invalid-feedback"
+                          id="cityFeedback"
+                          style="display: none;"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="form"
+                    >
+                      <div
+                        class="form-group"
+                      >
+                        <label
+                          class="col-form-label"
+                        >
+                          Select an inspection center
+                        </label>
+                        <div
+                          class=" css-2b097c-container"
+                        >
+                          <span
+                            aria-atomic="false"
+                            aria-live="polite"
+                            aria-relevant="additions text"
+                            class="css-1f43avz-a11yText-A11yText"
+                          />
+                          <div
+                            class=" css-yk16xz-control"
+                          >
+                            <div
+                              class=" css-g1d714-ValueContainer"
+                            >
+                              <div
+                                class=" css-1wa3eu0-placeholder"
+                              >
+                                Choose
+                              </div>
+                              <div
+                                class="css-b8ldur-Input"
+                              >
+                                <div
+                                  class=""
+                                  style="display: inline-block;"
+                                >
+                                  <input
+                                    aria-autocomplete="list"
+                                    autocapitalize="none"
+                                    autocomplete="off"
+                                    autocorrect="off"
+                                    id="react-select-15-input"
+                                    spellcheck="false"
+                                    style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
+                                    tabindex="0"
+                                    type="text"
+                                    value=""
+                                  />
+                                  <div
+                                    style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class=" css-1hb7zxy-IndicatorsContainer"
+                            >
+                              <span
+                                class=" css-1okebmr-indicatorSeparator"
+                              />
+                              <div
+                                aria-hidden="true"
+                                class=" css-tlfecz-indicatorContainer"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class="css-tj5bde-Svg"
+                                  focusable="false"
+                                  height="20"
+                                  viewBox="0 0 20 20"
+                                  width="20"
+                                >
+                                  <path
+                                    d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="invalid-feedback"
+                          id="placeIdFeedback"
+                          style="display: none;"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="form"
+                    >
+                      <div
+                        class="form-group"
+                      >
+                        <label
+                          class="col-form-label"
+                        >
+                          Select date
+                        </label>
+                        <div
+                          class=" css-2b097c-container"
+                        >
+                          <span
+                            aria-atomic="false"
+                            aria-live="polite"
+                            aria-relevant="additions text"
+                            class="css-1f43avz-a11yText-A11yText"
+                          />
+                          <div
+                            class=" css-yk16xz-control"
+                          >
+                            <div
+                              class=" css-g1d714-ValueContainer"
+                            >
+                              <div
+                                class=" css-1wa3eu0-placeholder"
+                              >
+                                Choose
+                              </div>
+                              <div
+                                class="css-b8ldur-Input"
+                              >
+                                <div
+                                  class=""
+                                  style="display: inline-block;"
+                                >
+                                  <input
+                                    aria-autocomplete="list"
+                                    autocapitalize="none"
+                                    autocomplete="off"
+                                    autocorrect="off"
+                                    id="react-select-16-input"
+                                    spellcheck="false"
+                                    style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
+                                    tabindex="0"
+                                    type="text"
+                                    value=""
+                                  />
+                                  <div
+                                    style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class=" css-1hb7zxy-IndicatorsContainer"
+                            >
+                              <span
+                                class=" css-1okebmr-indicatorSeparator"
+                              />
+                              <div
+                                aria-hidden="true"
+                                class=" css-tlfecz-indicatorContainer"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class="css-tj5bde-Svg"
+                                  focusable="false"
+                                  height="20"
+                                  viewBox="0 0 20 20"
+                                  width="20"
+                                >
+                                  <path
+                                    d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="invalid-feedback"
+                          id="dateFeedback"
+                          style="display: none;"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="form"
+                    >
+                      <div
+                        class="form-group"
+                      >
+                        <label
+                          class="col-form-label"
+                        >
+                          Select time
+                        </label>
+                        <div
+                          class=" css-2b097c-container"
+                        >
+                          <span
+                            aria-atomic="false"
+                            aria-live="polite"
+                            aria-relevant="additions text"
+                            class="css-1f43avz-a11yText-A11yText"
+                          />
+                          <div
+                            class=" css-yk16xz-control"
+                          >
+                            <div
+                              class=" css-g1d714-ValueContainer"
+                            >
+                              <div
+                                class=" css-1wa3eu0-placeholder"
+                              >
+                                Choose
+                              </div>
+                              <div
+                                class="css-b8ldur-Input"
+                              >
+                                <div
+                                  class=""
+                                  style="display: inline-block;"
+                                >
+                                  <input
+                                    aria-autocomplete="list"
+                                    autocapitalize="none"
+                                    autocomplete="off"
+                                    autocorrect="off"
+                                    id="react-select-17-input"
+                                    spellcheck="false"
+                                    style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
+                                    tabindex="0"
+                                    type="text"
+                                    value=""
+                                  />
+                                  <div
+                                    style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class=" css-1hb7zxy-IndicatorsContainer"
+                            >
+                              <span
+                                class=" css-1okebmr-indicatorSeparator"
+                              />
+                              <div
+                                aria-hidden="true"
+                                class=" css-tlfecz-indicatorContainer"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class="css-tj5bde-Svg"
+                                  focusable="false"
+                                  height="20"
+                                  viewBox="0 0 20 20"
+                                  width="20"
+                                >
+                                  <path
+                                    d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="invalid-feedback"
+                          id="timeFeedback"
+                          style="display: none;"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <div
+                        class="form"
+                      >
+                        <button
+                          class="btn btn-success btn-block"
+                        >
+                          Book Inspection
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                  <div
+                    class="jsx-2955411730 toast-container"
+                    id="toast-container"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="jsx-2955411730 toast-container"
+      id="toast-container"
+    />
+  </div>
+  <div
+    class="footer-one"
+  >
+    <div
+      class="footer-section-one"
+    >
+      <div
+        class="container"
+      >
+        <div
+          class="row"
+        >
+          <div
+            class="col-12 col-md-4 col-lg-3"
+          >
+            <img
+              alt="logo"
+              class="logo"
+              src="/assets/icons/logo-white.svg"
+            />
+          </div>
+          <div
+            class="col-6 col-md-4 col-lg-3"
+          >
+            <ul>
+              <li>
+                <a
+                  href="/"
+                >
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/"
+                >
+                  Contact Us
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/"
+                >
+                  Our Services
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/"
+                >
+                  Careers
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/"
+                >
+                  Blog
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="col-6 col-md-4 col-lg-3"
+          >
+            <ul>
+              <li>
+                <a
+                  href="/"
+                >
+                  Inspection Centers
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/"
+                >
+                  Auction Locations
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/"
+                >
+                  Required Documents
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/"
+                >
+                  Common Questions
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/"
+                >
+                  Background Check
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="col-12 col-lg-3 align-self-center"
+          >
+            <div
+              class="socials"
+            >
+              <a
+                href="http://facebook.com/cars45.NG"
+                target="_blank"
+              >
+                <img
+                  alt="facebook"
+                  class="facebook"
+                  src="/assets/icons/facebook.svg"
+                />
+              </a>
+              <a
+                href="https://www.instagram.com/cars45ng/"
+                target="_blank"
+              >
+                <img
+                  alt="instagram"
+                  src="/assets/icons/instagram.svg"
+                />
+              </a>
+              <a
+                href="https://twitter.com/cars45ng"
+                target="_blank"
+              >
+                <img
+                  alt="twitter"
+                  src="/assets/icons/twitter.svg"
+                />
+              </a>
+              <a
+                href="/youtube.com"
+                target="_blank"
+              >
+                 
+                <img
+                  alt="youtube"
+                  src="/assets/icons/youtube.svg"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="footer-section-two"
+    >
+      <div
+        class="container"
+      >
+        <div
+          class="row"
+        >
+          <div
+            class="col-md-6"
+          >
+            <ul>
+              <li>
+                <a
+                  href="/"
+                >
+                  Terms & Conditions
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/"
+                >
+                  Privacy
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="col-md-6 text-center text-md-right"
+          >
+            <p>
+              2021Cars45.com. ©All rights reserved
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
