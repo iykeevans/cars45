@@ -16,10 +16,10 @@ const Home = (props) => {
                         <div className="col-6 col-md-4 col-lg-3">
                             <ul>
                                 <li>
-                                    <Link href="/"><a>About Us</a></Link>
+                                    <Link href="/about"><a>About Us</a></Link>
                                 </li>
                                 <li>
-                                    <Link href="/"><a>Contact Us</a></Link>
+                                    <Link href="/corporate"><a>Contact Us</a></Link>
                                 </li>
                                 <li>
                                     <Link href="/"><a>Our Services</a></Link>
@@ -36,7 +36,7 @@ const Home = (props) => {
                         <div className="col-6 col-md-4 col-lg-3">
                             <ul>
                                 <li>
-                                    <Link href="/"><a>Inspection Centers</a></Link>
+                                    <Link href="/premium-inspection"><a>Inspection Centers</a></Link>
                                 </li>
                                 <li>
                                     <Link href="/"><a>Auction Locations</a></Link>
@@ -48,7 +48,7 @@ const Home = (props) => {
                                     <Link href="/"><a>Common Questions</a></Link>
                                 </li>
                                 <li>
-                                    <Link href="/"><a>Background Check</a></Link>
+                                    <Link href="/check"><a>Background Check</a></Link>
                                 </li>
                             </ul>
                         </div>

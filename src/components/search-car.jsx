@@ -12,6 +12,7 @@ import InputRange from "react-input-range";
 
 const Search = ({ setSearchResultData, setPage, getSearchParams }) => {
   const router = useRouter();
+  const path = router?.pathname;
   useEffect(() => {
     getTypes();
     getMakes();
@@ -216,6 +217,7 @@ const Search = ({ setSearchResultData, setPage, getSearchParams }) => {
       }
       const resDataArr = Object.values(resData)
       if (resDataArr.length < 1) {
+        if (setSearchResultData) setSearchResultData([])
         return toast.notify(
           "No Available cars in our repository fits your filter.",
           {
@@ -226,12 +228,13 @@ const Search = ({ setSearchResultData, setPage, getSearchParams }) => {
         );
       }
       if (setSearchResultData) setSearchResultData(resDataArr)
-      router.push({ pathname: "/all-cars" }, "/all-cars", {
-        carData: resDataArr,
-        searchParam: { type },
-        pagination: resData.totalCars[0] || null
-      });
-
+      if (path !== '/all-cars') {
+        router.push({ pathname: "/all-cars" }, "/all-cars", {
+          carData: resDataArr,
+          searchParam: { type },
+          pagination: resData.totalCars[0] || null
+        });
+      }
     } else {
       setLoading(false);
       toast.notify("Oops! something went wrong. keep calm and try again.", {
@@ -277,6 +280,7 @@ const Search = ({ setSearchResultData, setPage, getSearchParams }) => {
         setLoading(false);
         if (response.status === 200) {
           if (typeof resData === "string") {
+            if (setSearchResultData) setSearchResultData([])
             toast.notify("No cars in our repository fits your filter.", {
               duration: 5,
               title: "Success",
@@ -288,11 +292,13 @@ const Search = ({ setSearchResultData, setPage, getSearchParams }) => {
             (item) => item.status
           );
           if (setSearchResultData) setSearchResultData(resDataArr)
-          router.push({ pathname: "/all-cars" }, "/all-cars", {
-            carData: resDataArr,
-            searchParam,
-            pagination: resData.totalCars[0] || null
-          });
+          if (path !== '/all-cars') {
+            router.push({ pathname: "/all-cars" }, "/all-cars", {
+              carData: resDataArr,
+              searchParam,
+              pagination: resData.totalCars[0] || null
+            });
+          }
 
         } else {
           setLoading(false);
@@ -445,12 +451,12 @@ const Search = ({ setSearchResultData, setPage, getSearchParams }) => {
                   <option value="local">Local Used</option>
                 </select>
               </div>
-              <div className="form-group col-12 col-md-12 text-md-right">
+              <div className="form-group col-12 col-md-12">
                 <div className="row ">
-                  <p className="col-7 text-left text-md-right advance">
-                    {/* ADVANCE SEARCH */}
-                  </p>
-                  <div className="col-sm-5">
+                  {/* <p className="col-7 text-left text-md-right advance"> */}
+                  {/* ADVANCE SEARCH */}
+                  {/* </p> */}
+                  <div className="col-sm-12 text-center">
                     {/* <input type="range" class="form-control-range" id="formControlRange" /> */}
                     <button type="submit" className="btn btn-primary">
                       SEARCH THE VEHICLE{" "}

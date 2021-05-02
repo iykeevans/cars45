@@ -1,6 +1,7 @@
 @import "./variable.scss";
 
 .brandnew {
+    overflow-x: hidden;
     .jumbotron {
         background-image: url("/assets/images/brandnew-bg.png");
         background-repeat: no-repeat;

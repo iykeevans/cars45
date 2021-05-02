@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import Search from "../../components/search-car"
@@ -18,20 +18,30 @@ import { toast, ToastContainer } from "react-nextjs-toast";
 const AllCars = (props) => {
   const router = useRouter();
   const [page, setPage] = useState(typeof window !== "undefined" ? window?.history?.state?.options?.pagination : {})
+  const [searchResultData, setSearchResultData] = useState(
+    typeof window !== "undefined" ? window?.history?.state?.options?.carData : []
+  );
 
   useEffect(() => {
     if (page?.total) getPagination()
   }, [page]);
 
+  useEffect(() => {
+    if (searchResultData?.length) goToCars()
+  }, [searchResultData]);
+
+
   const [carData, setCarData] = useState({});
   const [searchParams, setSearchParams] = useState(typeof window !== "undefined" ? window?.history?.state?.options?.searchParams : {})
-  const [searchResultData, setSearchResultData] = useState(
-    typeof window !== "undefined" ? window?.history?.state?.options?.carData : []
-  );
   const [loading, setLoading] = useState(false);
   const [pagination, setPagination] = useState({ currentPage: 1, pages: [], limit: 50, total: 0, paginationLimit: [0, 5], count: 1 })
 
 
+  let carsRef = useRef()
+
+  const goToCars = () => {
+    window.scrollTo({ behavior: 'smooth', top: carsRef.current.offsetTop })
+  }
   const getPagination = () => {
     console.log('getting parameters')
     if (page.total) {
@@ -258,12 +268,12 @@ const AllCars = (props) => {
 
         <div className="container my-5">
           {/* <div className="row d-none d-md-flex"> */}
-          <div className="row">
+          <div className="row" ref={carsRef}>
 
             {searchResultData?.map((car, index) => (
-              <div className="col-lg-4 col-xl-3">
+              <div className="col-md-6 col-lg-4 col-xl-3" key={index}>
                 {car.make && <div>
-                  <CarList car={car} key={index} />
+                  <CarList car={car} />
                 </div>}
 
               </div>

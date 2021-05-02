@@ -483,6 +483,7 @@ const Buy = (props) => {
             </div>
           </div>
 
+          {/* MOBILE   */}
           <div className="row banner-bottom d-flex d-md-none">
             <div className="col-12">
               <div className="banner-bottom-container mr-0 mr-md-4 ml-4 ml-md-5">
@@ -553,7 +554,7 @@ const Buy = (props) => {
                       ))}
                     </select>
                   </div>
-                  <div className="col-6 d-none text-center">
+                  <div className="col-6 ml-3 text-center">
                     {/* <Dropdown name={'Grade'} /> */}
                     <select
                       className="form-control"

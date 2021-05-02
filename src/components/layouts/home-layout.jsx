@@ -4,31 +4,31 @@ import HeaderTwo from '../header-two';
 import Footer from '../footer-one';
 import FooterTwo from '../footer-two';
 
-export default function (props) {
-   
-            return (
-                <>
+export default function HomeLayout(props) {
 
-                
-                {props.header==="two"?<HeaderTwo />: <Header />}
-                 {props.children} 
-                {props.footer==="two"?<FooterTwo />:<Footer />}
-                </>
-                
-            )
-            // return (
-            //     <div>
-            //         {this.props.location.pathname === '/buy' ? <HeaderTwo /> : <Header />}
-
-            //         <div>
-            //             <ComposedComponent {...this.props} />
-            //         </div>
-
-            //         {this.props.location.pathname === '/buy' ? <FooterTwo /> : <Footer />}
-
-            //     </div >
+    return (
+        <>
 
 
-            // )
-       
+            {props.header === "two" ? <HeaderTwo /> : <Header />}
+            {props.children}
+            {props.footer === "two" ? <FooterTwo /> : <Footer />}
+        </>
+
+    )
+    // return (
+    //     <div>
+    //         {this.props.location.pathname === '/buy' ? <HeaderTwo /> : <Header />}
+
+    //         <div>
+    //             <ComposedComponent {...this.props} />
+    //         </div>
+
+    //         {this.props.location.pathname === '/buy' ? <FooterTwo /> : <Footer />}
+
+    //     </div >
+
+
+    // )
+
 }

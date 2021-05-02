@@ -44,7 +44,10 @@ export default function Autopreneur() {
         </div>
         <Link href="https://autopreneur.cars45.ng/">Get started</Link>
         <div className="autopreneneur-line"></div>
-        <Recommeneded />
+        <div className="d-none d-lg-flex mt-3 pb-5 mb-5">
+          <Recommeneded />
+
+        </div>
       </div>
     </HomeLayout>
   );

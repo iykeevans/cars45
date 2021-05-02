@@ -16,7 +16,7 @@ const FooterTwo = (props) => {
                             <div className="col-9 col-md-7">
                                 <div className="row">
                                     <div className="col col-md-2 d-none d-md-block">
-                                        <Link href="/">About Us</Link>
+                                        <Link href="/about">About Us</Link>
                                     </div>
                                     <div className=" col col-md-2">
                                         <Link href="/">Terms Of Use</Link>
@@ -28,10 +28,10 @@ const FooterTwo = (props) => {
                                         <Link href="/">FAQs</Link>
                                     </div>
                                     <div className="col col-md-2">
-                                        <Link href="/">Financing</Link>
+                                        <Link href="/loan">Financing</Link>
                                     </div>
                                     <div className="col col-md-3 d-none d-md-block">
-                                        <Link href="/">Become A Franchise</Link>
+                                        <Link href="/franchise">Become A Franchise</Link>
                                     </div>
                                 </div>
 
@@ -39,7 +39,7 @@ const FooterTwo = (props) => {
                             <div className="col-1 col-md-5">
                                 <div className="row">
                                     <div className="col-md-6 text-center">
-                                        <a href="/">help@car45.com</a>
+                                        <a href="mailto:help@car45.com">help@car45.com</a>
                                     </div>
                                     <div className="col-md-6 text-right d-none d-md-block">
                                         <div className="socials">

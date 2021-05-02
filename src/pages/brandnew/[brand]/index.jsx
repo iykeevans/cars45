@@ -336,8 +336,8 @@ const Brandnewbrand = (props) => {
                                 <div className="col-md-10">
                                     <div className="row">
                                         {cars.map((car, index) => (
-                                            <div className="col-md-3 mb-5" style={{ cursor: 'pointer' }}>
-                                                <div key={i} className="col-12 col-md-6 mb-md-3 mb-lg-0" key={index}>
+                                            <div key={index} className="col-md-6 col-lg-4 col-xl-3 mb-5" style={{ cursor: 'pointer' }}>
+                                                <div className="col-12 col-md-6 mb-md-3 mb-lg-0">
                                                     <Link href="/brandnew/toyota/details">
                                                         <Carlist {...props} car={car} />
                                                     </Link>

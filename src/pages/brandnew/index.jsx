@@ -110,7 +110,7 @@ const Brandnew = (props) => {
                       <div className="brand-container">
                         <div className="brand-content">
                           <img
-                            src="/assets/icons/brand-placeholder.png"
+                            src={`/assets/icons/${make?.toLowerCase()}.svg` || "/assets/icons/brand-placeholder.png"}
                             alt="brand"
                           />
                           <h4>{make}</h4>

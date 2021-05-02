@@ -77,10 +77,10 @@ const Home = (props) => {
         });
       });
   };
- 
+
   return (
     <>
-      {loading? <Loading />:
+      {loading ? <Loading /> :
         <div className="section3 grey-background">
           <div className="container">
             <div className="row">
@@ -103,11 +103,11 @@ const Home = (props) => {
                     '<img src="/assets/icons/caretRight.svg" />',
                   ]}
                 >
-                  { carData.map((item, index)=>(<div className="item">
+                  {carData.map((item, index) => (<div key={index} className="item">
                     <div className="row btn" onClick={() => handleRoute(`${item.make}_${item.sku}`)}>
                       <div className="col-md-12">
                         <div className="featured-img h-100">
-                        <img src={!item.image ? "/assets/images/carlistimg-demo@2x.png" : `https://buy.cars45.com/image/${item.image}`} className="card-img-top h-100" alt="..." />
+                          <img src={!item.image ? "/assets/images/carlistimg-demo@2x.png" : `https://buy.cars45.com/image/${item.image}`} className="card-img-top h-100" alt="..." />
                         </div>
                         <div className="row mt-2">
                           <div className="col-9 col-md-9">
@@ -118,7 +118,7 @@ const Home = (props) => {
                           <div className="col-3 col-md-3">
                             <img
                               className="badge"
-                              src={`/assets/icons/badge-${item.grade}.svg`}
+                              src={`/assets/icons/badge-${item.grade?.toLowerCase()}.svg`}
                               alt="Badge"
                             />
                           </div>
@@ -151,7 +151,7 @@ const Home = (props) => {
                         <div className="row">
                           <div className="col-md-12 others">
                             <p>
-                            {item.sellingCondition?item.sellingCondition:"Used"}<strong>.</strong>{item.year}<strong>.</strong>
+                              {item.sellingCondition ? item.sellingCondition : "Used"}<strong>.</strong>{item.year}<strong>.</strong>
                               {item.trim}<strong>.</strong>{item.sku}
                             </p>
                           </div>
@@ -159,7 +159,7 @@ const Home = (props) => {
                       </div>
                     </div>
                   </div>))
-    }
+                  }
                 </OwlCarousel>
               </div>
             </div>

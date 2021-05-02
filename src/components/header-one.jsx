@@ -3,8 +3,52 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 const HeaderOne = (props) => {
+  const [usedClass, setUsedClass] = React.useState('dropdown-menu used-menu')
+  const [inspectClass, setInspectClass] = React.useState('dropdown-menu inspect')
+  const [otherClass, setOtherClass] = React.useState('dropdown-menu')
   const router = useRouter();
   const path = router?.pathname;
+  const hoverUsed = () => {
+    if (window.innerWidth >= 1200) {
+      setInspectClass('dropdown-menu inspect')
+      setOtherClass('dropdown-menu')
+      setUsedClass('dropdown-menu used-menu show')
+    }
+
+  }
+  const hoverUsedOut = () => {
+    if (window.innerWidth >= 1200) {
+      setUsedClass('dropdown-menu used-menu')
+    }
+  }
+  const hoverInspect = () => {
+    if (window.innerWidth >= 1200) {
+      setUsedClass('dropdown-menu used-menu')
+      setOtherClass('dropdown-menu')
+
+      setInspectClass('dropdown-menu inspect show')
+
+    }
+
+  }
+  const hoverInspectOut = () => {
+    if (window.innerWidth >= 1200) {
+      setInspectClass('dropdown-menu inspect')
+    }
+  }
+  const hoverOther = () => {
+    if (window.innerWidth >= 1200) {
+      setInspectClass('dropdown-menu inspect')
+      setUsedClass('dropdown-menu used-menu')
+
+      setOtherClass('dropdown-menu show')
+    }
+  }
+  const hoverOtherOut = () => {
+    if (window.innerWidth >= 1200) {
+      setOtherClass('dropdown-menu')
+    }
+  }
   return (
     <div className="header-one">
       <div className="container">
@@ -71,8 +115,8 @@ const HeaderOne = (props) => {
                   <a
                     className={
                       path === "/brandnew" ||
-                      path === "/brandnew/[brand]" ||
-                      path === "/brandnew/[brand]/details"
+                        path === "/brandnew/[brand]" ||
+                        path === "/brandnew/[brand]/details"
                         ? "nav-active nav-link"
                         : "nav-link"
                     }
@@ -93,12 +137,15 @@ const HeaderOne = (props) => {
                   data-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
+                  onMouseEnter={hoverUsed}
+
                 >
                   Used Cars
                 </button>
                 <div
-                  className="dropdown-menu used-menu"
+                  className={usedClass}
                   aria-labelledby="navbarDropdownMenuLink"
+                  onMouseLeave={hoverUsedOut}
                 >
                   <Link href="/buy">
                     <a
@@ -141,11 +188,11 @@ const HeaderOne = (props) => {
                 <button
                   className={
                     path === "/ride-hailing" ||
-                    path === "/private-individual" ||
-                    path === "/premium-inspection" ||
-                    path === "/valuation" ||
-                    path === "/due-dilligence" ||
-                    path === "/all-in-one"
+                      path === "/private-individual" ||
+                      path === "/premium-inspection" ||
+                      path === "/valuation" ||
+                      path === "/due-dilligence" ||
+                      path === "/all-in-one"
                       ? "nav-link dropdown-toggle btn btn-outline-secondary current inspection"
                       : "nav-link dropdown-toggle btn btn-outline-secondary inspection"
                   }
@@ -154,12 +201,14 @@ const HeaderOne = (props) => {
                   data-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
+                  onMouseEnter={hoverInspect}
                 >
                   Inspection Services
                 </button>
                 <div
-                  className="dropdown-menu inspect"
+                  className={inspectClass}
                   aria-labelledby="navbarDropdownMenuLink"
+                  onMouseLeave={hoverInspectOut}
                 >
                   <Link className="dropdown-item" href="/ride-hailing">
                     <a
@@ -304,9 +353,9 @@ const HeaderOne = (props) => {
                 <button
                   className={
                     path === "/about" ||
-                    path === "/check" ||
-                    path === "/dealer" ||
-                    path === "/about"
+                      path === "/check" ||
+                      path === "/dealer" ||
+                      path === "/about"
                       ? "nav-link dropdown-toggle btn btn-outline-secondary current"
                       : "nav-link dropdown-toggle btn btn-outline-secondary"
                   }
@@ -315,12 +364,14 @@ const HeaderOne = (props) => {
                   data-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
+                  onMouseEnter={hoverOther}
                 >
                   Other Services
                 </button>
                 <div
-                  className="dropdown-menu"
+                  className={otherClass}
                   aria-labelledby="navbarDropdownMenuLink"
+                  onMouseLeave={hoverOtherOut}
                 >
                   <Link className="dropdown-item" href="/about">
                     <a

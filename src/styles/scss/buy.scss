@@ -259,6 +259,9 @@
     /* Extra small devices (phones, 600px and down) */
     @media screen and (max-width: 576px) {
         overflow-x: hidden;
+        .car-list {
+            margin-top: 180px;
+        }
         .jumbotron .owl-theme .owl-nav.disabled + .owl-dots {
             bottom: 20px;
         }
