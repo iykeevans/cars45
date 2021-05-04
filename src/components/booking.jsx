@@ -309,7 +309,6 @@ const Booking = () => {
       createBooking();
       submitInspectionExponea();
     } catch (error) {
-      console.log(error);
       if (error.statusCode && error.statusCode === 400) {
         toast.notify(error.message, {
           duration: 5,

@@ -60,7 +60,6 @@ const Budget = () => {
             })
             .catch((error) => {
                 setLoading(false);
-                console.log(error)
                 toast.notify('Oops! something went wrong. keep calm and try again.', {
                     duration: 5,
                     title: "An error occured",

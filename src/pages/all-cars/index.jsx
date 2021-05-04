@@ -43,7 +43,6 @@ const AllCars = (props) => {
     window.scrollTo({ behavior: 'smooth', top: carsRef.current.offsetTop })
   }
   const getPagination = () => {
-    console.log('getting parameters')
     if (page.total) {
       let total = page.total
       let pages = Math.ceil(total / pagination.limit)
@@ -77,7 +76,6 @@ const AllCars = (props) => {
   }
 
   const resetSearch = () => {
-    console.log('resetting')
     setLoading(true);
     getCall(`${endpoints.getSearch({ ...searchParams, page: 0 })}`)
       .then((response) => {

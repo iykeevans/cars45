@@ -19,7 +19,6 @@ const Carinspection = (props) => {
                 if (index == 0) {
                     keyys = [...keyys, k + '/active']
                     setSingleData(props.inspection[k])
-                    console.log(props.inspection[k])
                 } else {
                     keyys = [...keyys, k + '/notActive']
                 }

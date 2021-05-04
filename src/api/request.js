@@ -1,7 +1,7 @@
 import axios from "axios"
 import cookie from "js-cookie"
 
-const apikey = "b1028a8c-182c-44d2-b27d-6713e692803f";
+const apikey = process.env.API_KEY;
 
 export async function postCall(endpoint, data, headers) {
   // const apikey = cookie.get('__exponea_etc__');
@@ -31,7 +31,7 @@ export async function getCall(endpoint, headers) {
     url: endpoint,
     headers: {
       'Content-Type': 'application/json',
-      apikey: "b1028a8c-182c-44d2-b27d-6713e692803f",
+      apikey: process.env.API_KEY,
       Accept: "*/*",
       ...headers,
     },
