@@ -36,11 +36,11 @@ export async function getCall(endpoint, headers) {
       ...headers,
     },
   })
-    .then((response) => response)
-    .catch((error) => {
-      // logOut(error)
-      return error.response;
-    });
+  // .then((response) => response)
+  // .catch((error) => {
+  //   // logOut(error)
+  //   return error.response;
+  // });
 }
 
 export async function patchCall(endpoint, data, headers) {
@@ -56,11 +56,11 @@ export async function patchCall(endpoint, data, headers) {
     },
     data,
   })
-    .then((response) => response)
-    .catch((error) => {
-      // logOut(error)
-      return error.response
-    });
+  // .then((response) => response)
+  // .catch((error) => {
+  //   // logOut(error)
+  //   return error.response
+  // });
 }
 
 export async function putCall(endpoint, data, headers) {
@@ -76,9 +76,9 @@ export async function putCall(endpoint, data, headers) {
     },
     data,
   })
-    .then((response) => response)
-    .catch((error) => {
-      // logOut(error)
-      return error.response;
-    });
+  // .then((response) => response)
+  // .catch((error) => {
+  //   // logOut(error)
+  //   return error.response;
+  // });
 }

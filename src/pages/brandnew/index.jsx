@@ -110,8 +110,8 @@ const Brandnew = (props) => {
                       <div className="brand-container">
                         <div className="brand-content">
                           <img
-                            src={`/assets/icons/${make?.toLowerCase()}.svg` || "/assets/icons/brand-placeholder.png"}
-                            alt="brand"
+                            src={`/assets/icons/${make?.trim().toLowerCase()}.svg` || "/assets/icons/brand-placeholder.png"}
+                            alt={make}
                           />
                           <h4>{make}</h4>
                         </div>
@@ -142,7 +142,7 @@ const Brandnew = (props) => {
         ) : null}
 
         <div className="type mt-5">
-          {types.length ? (
+          {types && types.length ?
             <div className="container">
               <div className="row">
                 <div className="col-md-12">
@@ -171,8 +171,7 @@ const Brandnew = (props) => {
               <button onClick={() => next()} className="btn btn-link">
                 <img src="/assets/icons/arrow-right.svg" alt="..." />
               </button>
-            </div>
-          ) : null}
+            </div> : null}
         </div>
 
         <div className="price">
