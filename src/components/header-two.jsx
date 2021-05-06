@@ -10,7 +10,6 @@ const HeaderTwo = (props) => {
     const router = useRouter();
     const path = router?.pathname;
     const hoverUsed = () => {
-        //console.log(window.innerWidth)
         if (window.innerWidth >= 1200) {
             setInspectClass('dropdown-menu inspect')
             setOtherClass('dropdown-menu')

@@ -127,7 +127,6 @@ const LoanableCarFinancialInformation = (props) => {
         let res = await postCall(api, financeData, headers);
         setLoading(false);
         if (financeData.preferredBank === "Guaranty Trust Bank") {
-          //console.log(res.data.data);
           let resp = res.data.data;
           let formdata = new FormData();
           Object.keys(resp).map((item) => {

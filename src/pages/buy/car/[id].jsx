@@ -20,8 +20,6 @@ import cookie from "js-cookie";
 const Cardetails = (props) => {
     useEffect(() => {
         const id = props.id.split("_")[1]
-        //  const id = "NG-196632"
-        //console.log(window)
         getSingleCar(id)
         getCities()
     }, [])
@@ -73,7 +71,6 @@ const Cardetails = (props) => {
                             router.back()
                         }, 5100);
                     } else {
-                        //console.log(response.data.data.report)
                         let detail = response.data.data.report
                         let initialKey = Object.keys(detail)
                         let inspection = {}
@@ -98,8 +95,6 @@ const Cardetails = (props) => {
                         }
                         setFeatures(features)
                         setInspection(inspection)
-                        // //console.log(value)
-                        // console.(initialKey)
                         return setCarData(response.data.data)
                     }
                 } else {
@@ -164,14 +159,14 @@ const Cardetails = (props) => {
         setLoading(true);
         getCall(`${endpoints.getCities}`)
             .then(({ data: response }) => setCities(response.data))
-            .catch((error) => //console.log(error))
+            .catch((error) => setLoading(false))
             .finally(() => setLoading(false));
     };
     const getCityLocations = (city) => {
         setLoading(true);
         getCall(`${endpoints.getCenters(city)}`)
             .then(({ data: response }) => setCityLocations(response.data))
-            .catch((error) => //console.log(error))
+            .catch((error) => setLoading(false))
             .finally(() => setLoading(false));
     };
     const getslot = (placeId) => {
@@ -181,7 +176,7 @@ const Cardetails = (props) => {
                 let theDates = Object.values(response.data)
                 setDates(theDates)
             })
-            .catch((error) => //console.log(error))
+            .catch((error) => setLoading(false))
             .finally(() => setLoading(false));
     };
     const getTime = (e) => {

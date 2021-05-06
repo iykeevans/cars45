@@ -125,7 +125,7 @@ const Service = (props) => {
         setCarMakes(response.data);
       })
       .catch((error) => {
-        //console.log(error);
+        setLoading(false)
       })
       .finally(() => {
         setLoading(false);
@@ -139,7 +139,7 @@ const Service = (props) => {
         setCarModels(response.data);
       })
       .catch((error) => {
-        //console.log(error);
+        setLoading(false)
       })
       .finally(() => {
         setLoading(false);

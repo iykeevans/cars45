@@ -46,7 +46,6 @@ const AllCars = (props) => {
     if (page.total) {
       let total = page.total
       let pages = Math.ceil(total / pagination.limit)
-      //console.log(pages)
       let pageNumber = []
       let count = 0
       for (let i = 1; i <= pages; i++) {
@@ -109,7 +108,6 @@ const AllCars = (props) => {
           if (resData.totalCars[0]) {
             let total = resData.totalCars[0].total
             let pages = Math.ceil(total / pagination.limit)
-            //console.log(pages)
             let pageNumber = []
             let count = 0
             for (let i = 1; i <= pages; i++) {
@@ -131,7 +129,6 @@ const AllCars = (props) => {
         }
       })
       .catch((error) => {
-        //console.log(error)
         setLoading(false);
         toast.notify("No Available cars in our repository fits your filter.", {
           duration: 5,
@@ -185,7 +182,6 @@ const AllCars = (props) => {
       })
       .catch((error) => {
         setLoading(false);
-        //console.log(error)
         toast.notify("No Available cars in our repository fits your filter.", {
           duration: 5,
           title: "Success",
@@ -195,7 +191,6 @@ const AllCars = (props) => {
   }
   const prev = () => {
     if (pagination.currentPage === 2) {
-      //console.log(pagination.currentPage)
       return resetSearch()
     }
     let currentPage = pagination.currentPage - 1
@@ -241,7 +236,6 @@ const AllCars = (props) => {
       })
       .catch((error) => {
         setLoading(false);
-        //console.log(error)
         toast.notify("No Available cars in our repository fits your filter.", {
           duration: 5,
           title: "Success",

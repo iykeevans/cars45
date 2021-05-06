@@ -72,7 +72,6 @@ const Swap_car = (props) => {
       let makeName = "make";
       const modelLastChar = name[name.length - 1];
       if (!isNaN(modelLastChar * 1)) {
-        //console.log(typeof modelLastChar * 1);
         makeName = `make${modelLastChar}`;
       }
       getYear(data[makeName], selectedOption[name]);

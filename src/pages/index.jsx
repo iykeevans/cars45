@@ -74,7 +74,6 @@ const Home = (props) => {
         let now = moment();
         time = new moment(time)
         let hours = now.diff(time, 'hours')
-        //console.log(hours)
         if (hours >= 24) {
           localStorage.setItem('survey', false)
           document.getElementById("open-modal").click();
