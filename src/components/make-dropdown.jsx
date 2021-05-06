@@ -9,7 +9,7 @@ const Dropdown = (props) => {
 
     const data = props.data
     const dataDisplay = Math.floor(data.length / 6)
-    console.log(Math.floor(data.length / 6))
+    //console.log(Math.floor(data.length / 6))
     const getSelectedMake = (make) => {
         props.getSelectedMake(make)
     }

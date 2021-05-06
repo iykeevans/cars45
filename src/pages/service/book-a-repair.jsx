@@ -182,7 +182,7 @@ export default function BookARepair() {
   const getMakes = () => {
     getCall(`${endPoints.getMake}`)
       .then(({ data: response }) => setCarMakes(response.data))
-      .catch((error) => console.log(error))
+      .catch((error) => //console.log(error))
       .finally(() => setLoading(false));
   };
 
@@ -190,20 +190,20 @@ export default function BookARepair() {
     setLoading(true);
     getCall(`${endPoints.getModel(make)}`)
       .then(({ data: response }) => setCarModels(response.data))
-      .catch((error) => console.log(error))
+      .catch((error) => //console.log(error))
       .finally(() => setLoading(false));
   };
   const getYear = (make, model) => {
     getCall(`${endPoints.getYear(make, model)}`)
       .then(({ data: response }) => setCarYear(response.data))
-      .catch((error) => console.log(error))
+      .catch((error) => //console.log(error))
       .finally(() => setLoading(false));
   };
   const getCities = () => {
     setLoading(true);
     getCall(`${endPoints.getCities}`)
       .then(({ data: response }) => setCities(response.data))
-      .catch((error) => console.log(error))
+      .catch((error) => //console.log(error))
       .finally(() => setLoading(false));
   };
 
@@ -211,7 +211,7 @@ export default function BookARepair() {
     setLoading(true);
     getCall(`${endPoints.getCenters(city)}`)
       .then(({ data: response }) => setCityLocations(response.data))
-      .catch((error) => console.log(error))
+      .catch((error) => //console.log(error))
       .finally(() => setLoading(false));
   };
 
@@ -222,7 +222,7 @@ export default function BookARepair() {
         let theDates = Object.values(response.data);
         setDates(theDates);
       })
-      .catch((error) => console.log(error))
+      .catch((error) => //console.log(error))
       .finally(() => setLoading(false));
   };
   const getTime = (e) => {
@@ -329,7 +329,7 @@ export default function BookARepair() {
               onChange={(e) => {
                 formik.handleChange(e);
                 getYear(formik.values.make, e.target.value);
-                console.log(formik.values.make, e.target.value);
+                //console.log(formik.values.make, e.target.value);
               }}
             >
               <option disabled value="">

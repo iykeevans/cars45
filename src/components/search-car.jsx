@@ -311,7 +311,7 @@ const Search = ({ setSearchResultData, setPage, getSearchParams }) => {
       })
       .catch((error) => {
         setLoading(false);
-        console.log(error)
+        //console.log(error)
         toast.notify("No Available cars in our repository fits your filter.", {
           duration: 5,
           title: "Success",

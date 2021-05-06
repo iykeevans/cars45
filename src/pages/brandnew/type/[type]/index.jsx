@@ -26,12 +26,12 @@ const Brandnewtype = (props) => {
 
     const getMakes = async () => {
         try {
-            console.log(endpoints)
+            //console.log(endpoints)
             let response = await getCall(`${endpoints.getMake}`, {})
             setMakes(response.data.data);
         } catch (error) {
             setLoading(false);
-            console.log(error)
+            //console.log(error)
         }
     }
 
@@ -41,7 +41,7 @@ const Brandnewtype = (props) => {
             setModels(response.data.data);
         } catch (error) {
             setLoading(false);
-            console.log(error)
+            //console.log(error)
             toast.notify('Can not load models', {
                 duration: 5,
                 title: "An error occured",
@@ -83,7 +83,7 @@ const Brandnewtype = (props) => {
             getRelatedCars(Object.values(response.data.data))
         } catch (error) {
             setLoading(false);
-            console.log(error)
+            //console.log(error)
             toast.notify('Oops! something went wrong. keep calm and try again.', {
                 duration: 5,
                 title: "An error occured",
@@ -125,7 +125,7 @@ const Brandnewtype = (props) => {
 
         } catch (error) {
             setLoading(false);
-            console.log(error)
+            //console.log(error)
             toast.notify('Oops! something went wrong. keep calm and try again.', {
                 duration: 5,
                 title: "An error occured",
@@ -176,7 +176,7 @@ const Brandnewtype = (props) => {
             })
             .catch((error) => {
                 setLoading(false);
-                console.log(error)
+                //console.log(error)
                 toast.notify("No Available cars in our repository fits your filter.", {
                     duration: 5,
                     title: "Success",
@@ -186,7 +186,7 @@ const Brandnewtype = (props) => {
     }
     const prev = () => {
         if (pagination.currentPage === 2) {
-            console.log(pagination.currentPage)
+            //console.log(pagination.currentPage)
             return search(searchParams)
         }
         let currentPage = pagination.currentPage - 1
@@ -232,7 +232,7 @@ const Brandnewtype = (props) => {
             })
             .catch((error) => {
                 setLoading(false);
-                console.log(error)
+                //console.log(error)
                 toast.notify("No Available cars in our repository fits your filter.", {
                     duration: 5,
                     title: "Success",

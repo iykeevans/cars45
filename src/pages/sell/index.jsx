@@ -81,14 +81,14 @@ const Sell_car = (props) => {
     setLoading(true);
     getCall(`${endpoints.getCities}`)
       .then(({ data: response }) => setCities(response.data))
-      .catch((error) => console.log(error))
+      .catch((error) => //console.log(error))
       .finally(() => setLoading(false));
   };
   const getCityLocations = (city) => {
     setLoading(true);
     getCall(`${endpoints.getCenters(city)}`)
       .then(({ data: response }) => setCityLocations(response.data))
-      .catch((error) => console.log(error))
+      .catch((error) => //console.log(error))
       .finally(() => setLoading(false));
   };
   const getslot = (placeId) => {
@@ -98,7 +98,7 @@ const Sell_car = (props) => {
         let theDates = Object.values(response.data)
         setDates(theDates)
       })
-      .catch((error) => console.log(error))
+      .catch((error) => //console.log(error))
       .finally(() => setLoading(false));
   };
   const getTime = (e) => {

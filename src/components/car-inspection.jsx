@@ -43,12 +43,12 @@ const Carinspection = (props) => {
                 keyys = [...keyys, ti.split('/')[0] + '/active']
             } else {
                 keyys = [...keyys, ti.split('/')[0] + '/notActive']
-                console.log(ti)
+                //console.log(ti)
             }
             count += 1
             if (count === titles.length) {
                 setTitle(keyys)
-                console.log(keyys)
+                //console.log(keyys)
                 return title
             }
         })

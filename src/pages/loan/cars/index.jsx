@@ -78,7 +78,7 @@ const AllLoanableCars = (props) => {
       setCars(Object.values(response.data.data));
     } catch (error) {
       setLoading(false);
-      console.log(error);
+      //console.log(error);
       toast.notify("Oops! something went wrong. keep calm and try again.", {
         duration: 5,
         title: "An error occured",
@@ -130,7 +130,7 @@ const AllLoanableCars = (props) => {
       })
       .catch((error) => {
         setLoading(false);
-        console.log(error)
+        //console.log(error)
         toast.notify("No Available cars in our repository fits your filter.", {
           duration: 5,
           title: "Success",
@@ -140,7 +140,7 @@ const AllLoanableCars = (props) => {
   }
   const prev = () => {
     if (pagination.currentPage === 2) {
-      console.log(pagination.currentPage)
+      //console.log(pagination.currentPage)
       return searchModels()
     }
     let currentPage = pagination.currentPage - 1
@@ -186,7 +186,7 @@ const AllLoanableCars = (props) => {
       })
       .catch((error) => {
         setLoading(false);
-        console.log(error)
+        //console.log(error)
         toast.notify("No Available cars in our repository fits your filter.", {
           duration: 5,
           title: "Success",

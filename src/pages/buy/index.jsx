@@ -201,7 +201,7 @@ const Buy = (props) => {
       searchParams.grade = searchParams.grade.toLowerCase();
     }
     if (searchParams && searchParams.trim) {
-      console.log(searchParams);
+      //console.log(searchParams);
       searchParams.transmission = searchParams.trim;
     }
     setLoading(true);
