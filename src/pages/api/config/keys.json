@@ -1,0 +1,12 @@
+{
+    "type": "service_account",
+    "project_id": "cars45-corporate-site",
+    "private_key_id": "9e4906b07fa7a7cb63552e56520f004d254e04d0",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEuwIBADANBgkqhkiG9w0BAQEFAASCBKUwggShAgEAAoIBAQDJFgZQUpWjtwKc\nwEzOJzK1pOtpcj/62AUnSlfk6qM7K6EpZTkPZPX0IJQod2lOfTDEePA9rFTdSsbr\nswMjOscO7Giz/g4MnWqg0Mn5PHyscRvxnWfhKYChodR7HCKSgINLQA8iCHhZaeke\npWxaTX/QZA9CS7Wpm1NXlPA2kgZQrm7yWrnxtPjN97SA1ahm6XqPI9D/Sva/dGC1\n2semFgh2IHsNbVgfWhQWC54wXYqYxliWO0uRaq6Wh8Nhkfc/b+9tiFgmIn3kgNnU\nfgoitWskyheTC5MpZHOLHjZSGPmYkiaNgYz0llka6Fuz6jLcEGnX5ZX6eMfQCEnP\nnln4aLL/AgMBAAECgf8wKuQTvNHr3yyAq2Wps2YV5524j4PyDBsqUmnWDMBqs2Z+\ngSxxPDvSmvnNcyar7GjXHNQu+MIT/PAZRTKCNBAUjNr0565lETyB2pPF4QtDldG+\nCRELb+yWnlGO3X+UhhbRMXThPgBlJLkzb+7QDxiDk5BMG/Vc1Uw2bMPFjZFbz8eO\nvBpIVjuUoIQrW6Wk1eDgn0LDgJdKj/WWIQ7NtMSskaRq2FAGn118Wpu1Qg5eBvL2\nrbtMDiGMFNPAfn6ZJ2nY+o0KjV9TmPk/Wm1oG8+YmD0ynhfWp2OSxnNpxJzdaHW6\nAqKOf4SG8mAMgIAiwvN54AnTndDhq7RorFvTVnECgYEA/SAhNip0j00qEB0WAoU0\njPWPeAHZx/KtCEueG86de50pPi8na6dD71gSkpJaSput9uW110oKQknZr+mFg8u+\nn9RFEUmPIgQfM+AkaqL23Z2AFrzIoJuI77PbF+AYc6W3duqhfFTQHSI4uUR5k4Qo\nvP0aqynkKMgs4wbQRj+VWp0CgYEAy16b7mYyt8ZZt1RxErYg3N41SCnjeY0EU3Wj\njqBcXMTInJ+O7sPMN//6YwDkY3Ow7heufQx/jc4wRv2kcn74KafG1lBIUD8QakNI\n9W5/Bkw+3/D68laivmMOI5cYAMY83E+b/TGa/b9+4bZUL6NYqsSLysyjQNXli+jx\nj/lrk0sCgYEAmRtLG3FYqak6DR8axhF+dNi/nA46hafzI7Zhf15dgXzRioyJIqO9\nAtPaABBITyKVemb9s6hURj5XTwFIQi0GM7T4xfkhe6jUmtM0E9BY1DnFVXuBOyx5\nCsxWdL2W7LTLIUHQxdyjOUwO1XlmtGTXI2FRNUEUgdp61CO17Rfepj0CgYB/MBU/\nXMUdcDyNzo7FEAiveX1DO4dbbpklBS6cNahuEFgStCt1IhkncL0Mi/NKS4F89myX\nImjnq+s/isP9I3Faw+Y0BJOlNDu06Y3IiSmCK88qyRB43Tv87ABcu9M0MMbBVjyN\ndiejyM62pQwzmuoKKs/urlrvYpakELR6wZfIzwKBgA/NMGET/vrBcAXoIIby7fp/\nD+m3DC06Fs3I1rsqiZ17fbwXt5APewhLODP0HCKN7QwrApYpsksvc3ZEuuVEW1DS\nG8NX+c88eKliLKHdtEq4wZi1m+mi8hAoypJ77/8aaA7XE52W+lW/rPTv2o0e0U5g\nBnQ6jJKQqBCHkD9lI5Qt\n-----END PRIVATE KEY-----\n",
+    "client_email": "c45webcon@cars45-corporate-site.iam.gserviceaccount.com",
+    "client_id": "109022010109285000672",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/c45webcon%40cars45-corporate-site.iam.gserviceaccount.com"
+}

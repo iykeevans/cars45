@@ -10,12 +10,15 @@ import Loading from "../components/loadingScreen";
 import Search from "../components/search-car";
 import FeaturedCar from "../components/featured-car";
 import moment from 'moment';
+// import fs from 'fs';
+// import path from 'path';
+// import { uploadImage } from '../api/uploadStaticImages'
 
 const OwlCarousel = dynamic(() => import("react-owl-carousel"), { ssr: false });
 import InputRange from "react-input-range";
 import HomeLayout from "../components/layouts/home-layout";
 
-const Home = (props) => {
+const Home = ({ ...props }) => {
   const router = useRouter();
   useEffect(() => {
     // document.getElementById("open-modal").click();
@@ -532,3 +535,20 @@ const Home = (props) => {
 };
 
 export default Home;
+
+
+// export async function getStaticProps() {
+//   const folder = path.resolve('public/assets/icons');
+//   const allfiles = fs.readdirSync(folder, 'utf8')
+//   let filedir = folder + '/' + allfiles[0]
+//   let data = fs.readFileSync(filedir, 'utf8');
+//   uploadImage(data, allfiles[0])
+//   // allfiles.forEach(file => {
+//   //   let filedir = folder + '/' + file
+//   //   // console.log(file, filedir)
+//   //   let data = fs.readFileSync(filedir, 'utf8');
+
+//   // })
+
+//   return { props: { ...allfiles } }
+// }

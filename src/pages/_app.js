@@ -45,6 +45,8 @@ import "../styles/scss/usedcar.scss";
 import "../styles/scss/forms.scss";
 import "../styles/globals.css";
 
+// import { getImage } from '../api/uploadStaticImages';
+
 // import { useRouter } from "next/router";
 import React from "react";
 
