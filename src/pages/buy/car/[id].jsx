@@ -306,12 +306,15 @@ const Cardetails = (props) => {
     }
     const payOnline = () => {
         const { customerName, customerEmail, phone } = payData
+        let ref = `pay-online-${phone}${Date.now()}`
+        setReference(ref)
         payWithPaystack({
             email: customerEmail,
             amount: carData.payNow,
             name: customerName,
             phone,
-            setIsPaymentSuccessfull
+            setIsPaymentSuccessfull,
+            ref
         })
     }
     const payMoneyDown = async () => {
@@ -341,6 +344,7 @@ const Cardetails = (props) => {
     const confirmPayment = async () => {
         setLoading(true)
         try {
+            await payMoneyDown()
             let res = await postCall(endpoints.validateCarPayment, { ref: reference, url: window.location.href }, {})
             setLoading(false)
             if (res.data.data.message && res.data.data.message === 'Invalid Payment.') {
@@ -762,7 +766,7 @@ const Cardetails = (props) => {
                                                     </div>
 
                                                     <div className="col-md-6 mt-4">
-                                                        <button className="btn btn-success" onClick={() => payMoneyDown()}>Pay Via Bank</button>
+                                                        {/* <button className="btn btn-success" onClick={() => payMoneyDown()}>Pay Via Bank</button> */}
                                                     </div>
                                                     <div className="col-md-6 mt-4">
                                                         <button className="btn btn-outline-secondary" onClick={() => payOnline()}>Pay Online</button>
