@@ -3,7 +3,7 @@ function loadingScreen() {
   return (
     <div className="inspection-bg">
       <div>
-        <img src="/assets/icons/logo-white.svg" alt="logo" />
+        <img src="https://storage.googleapis.com/cars45-web-bucket/logo-white.svg" alt="logo" />
       </div>
     </div>
   );

@@ -99,15 +99,15 @@ const Home = (props) => {
                   // loop
                   autoplayTimeout={5000}
                   navText={[
-                    '<img src="/assets/icons/caretLeft.svg" />',
-                    '<img src="/assets/icons/caretRight.svg" />',
+                    '<img src="https://storage.googleapis.com/cars45-web-bucket/caretLeft.svg" />',
+                    '<img src="https://storage.googleapis.com/cars45-web-bucket/caretRight.svg" />',
                   ]}
                 >
                   {carData.map((item, index) => (<div key={index} className="item">
                     <div className="row btn" onClick={() => handleRoute(`${item.make}_${item.sku}`)}>
                       <div className="col-md-12">
                         <div className="featured-img h-100">
-                          <img src={!item.image ? "/assets/images/carlistimg-demo@2x.png" : `https://buy.cars45.com/image/${item.image}`} className="card-img-top h-100" alt="..." />
+                          <img src={!item.image ? "https://storage.googleapis.com/cars45-web-bucket/carlistimg-demo@2x.png" : `https://buy.cars45.com/image/${item.image}`} className="card-img-top h-100" alt="..." />
                         </div>
                         <div className="row mt-2">
                           <div className="col-9 col-md-9">
@@ -118,7 +118,7 @@ const Home = (props) => {
                           <div className="col-3 col-md-3">
                             <img
                               className="badge"
-                              src={`/assets/icons/badge-${item.grade?.toLowerCase()}.svg`}
+                              src={`https://storage.googleapis.com/cars45-web-bucket/badge-${item.grade?.toLowerCase()}.svg`}
                               alt="Badge"
                             />
                           </div>
@@ -134,13 +134,13 @@ const Home = (props) => {
                             </div>
                           </div>
                           <div className="col-md-12">
-                            <img src="/assets/images/pulse.svg" alt="..." />
+                            <img src="https://storage.googleapis.com/cars45-web-bucket/pulse.svg" alt="..." />
                           </div>
                         </div>
                         <div className="row">
                           <div className="col-3 col-md-2 speedometer">
                             <img
-                              src="/assets/icons/speedometer.svg"
+                              src="https://storage.googleapis.com/cars45-web-bucket/speedometer.svg"
                               alt="speedometer"
                             />
                           </div>

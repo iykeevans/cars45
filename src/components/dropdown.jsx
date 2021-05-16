@@ -11,7 +11,7 @@ const Dropdown = (props) => {
     return (
         <div className="dropdown-component">
             <div className="dropdown">
-                <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{props.name} <img src="/assets/icons/caretdown-withbackground@2x.png" alt=".." /></button>
+                <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{props.name} <img src="https://storage.googleapis.com/cars45-web-bucket/caretdown-withbackground@2x.png" alt=".." /></button>
                 <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <div className="row">
                         <div className="col-6 col-md-2">

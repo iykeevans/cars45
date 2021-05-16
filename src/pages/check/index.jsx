@@ -12,7 +12,7 @@ const mockedData = {
 export default function BuyUsedCar() {
   const [state, setState] = useState();
 
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
 
   return (
     <HomeLayout footer="two">
@@ -31,7 +31,7 @@ export default function BuyUsedCar() {
             <input />
             <button>
               <img
-                src={"/assets/icons/search-icon.svg"}
+                src={"https://storage.googleapis.com/cars45-web-bucket/search-icon.svg"}
                 className=""
                 alt="search icon"
               />

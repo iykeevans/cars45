@@ -347,7 +347,7 @@ const Search = ({ setSearchResultData, setPage, getSearchParams }) => {
                 {types.map((type, index) => (
                   <div key={index} className="col-4 mb-3 mb-md-0 col-md-3 col-lg-3 col-xl-2 mt-3" onClick={() => searchByType(type.filter_id)}>
                     <div className="car-option">
-                      <img src={`/assets/icons/${type.name}.svg`} alt={type.name} />
+                      <img src={`https://storage.googleapis.com/cars45-web-bucket/${type.name}.svg`} alt={type.name} />
                       <p className="text-center dark-color"><span>{type.name}</span></p>
                     </div>
                   </div>
@@ -459,7 +459,7 @@ const Search = ({ setSearchResultData, setPage, getSearchParams }) => {
                     {/* <input type="range" class="form-control-range" id="formControlRange" /> */}
                     <button type="submit" className="btn btn-primary">
                       SEARCH THE VEHICLE{" "}
-                      <img src="/assets/icons/caret-right.svg" alt="go" />
+                      <img src="https://storage.googleapis.com/cars45-web-bucket/caret-right.svg" alt="go" />
                     </button>
                   </div>
                 </div>

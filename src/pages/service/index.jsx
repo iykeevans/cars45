@@ -35,7 +35,7 @@ const mockData = {
   },
   brands: {
     title: "We service most makes and models",
-    image: "/assets/images/car-logo.svg",
+    image: "https://storage.googleapis.com/cars45-web-bucket/car-logo.svg",
   },
   faq: {
     title: "Frequently Asked Questions",
@@ -47,7 +47,7 @@ const mockData = {
       paragraph2: "Let our experts tailor a plan for you.",
     },
     phone: {
-      image: "/assets/images/phone-call.svg",
+      image: "https://storage.googleapis.com/cars45-web-bucket/phone-call.svg",
       data: "+234 818 984 0160",
     },
   },
@@ -257,7 +257,7 @@ const Service = (props) => {
 
                     <div className="ing">
                       <img
-                        src="/assets/images/service-car.svg"
+                        src="https://storage.googleapis.com/cars45-web-bucket/service-car.svg"
                         alt="check box"
                         className="mr-2"
                       />

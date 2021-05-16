@@ -19,7 +19,7 @@ exports[`About Page About page matches snapshot 1`] = `
           >
             <img
               alt="phone"
-              src="/assets/icons/phone.svg"
+              src="https://storage.googleapis.com/cars45-web-bucket/phone.svg"
             />
             <p
               class="darkgrey-color"
@@ -51,7 +51,7 @@ exports[`About Page About page matches snapshot 1`] = `
             >
               <img
                 alt="profile"
-                src="/assets/icons/profile-icon.svg"
+                src="https://storage.googleapis.com/cars45-web-bucket/profile-icon.svg"
               />
             </button>
             <div
@@ -84,7 +84,7 @@ exports[`About Page About page matches snapshot 1`] = `
           <img
             alt="logo"
             class="logo"
-            src="/assets/icons/logo.svg"
+            src="https://storage.googleapis.com/cars45-web-bucket/logo.svg"
           />
         </a>
         <button
@@ -343,7 +343,7 @@ exports[`About Page About page matches snapshot 1`] = `
   >
     <div
       class="hero"
-      style="background: url(/assets/images/become-a-dealer.webp) no-repeat center;"
+      style="background: url(https://storage.googleapis.com/cars45-web-bucket/become-a-dealer.webp) no-repeat center;"
     />
     <div
       class="text-area container pb-5  "
@@ -388,7 +388,7 @@ exports[`About Page About page matches snapshot 1`] = `
                     <img
                       alt="check mark"
                       class="mr-3"
-                      src="/assets/images/checkmark-circle.svg"
+                      src="https://storage.googleapis.com/cars45-web-bucket/checkmark-circle.svg"
                     />
                   </div>
                    All car inspected and document checked
@@ -400,7 +400,7 @@ exports[`About Page About page matches snapshot 1`] = `
                     <img
                       alt="check mark"
                       class="mr-3"
-                      src="/assets/images/checkmark-circle.svg"
+                      src="https://storage.googleapis.com/cars45-web-bucket/checkmark-circle.svg"
                     />
                   </div>
                    No-fuss actions-bid or buy with one click
@@ -412,7 +412,7 @@ exports[`About Page About page matches snapshot 1`] = `
                     <img
                       alt="check mark"
                       class="mr-3"
-                      src="/assets/images/checkmark-circle.svg"
+                      src="https://storage.googleapis.com/cars45-web-bucket/checkmark-circle.svg"
                     />
                   </div>
                    Full support team available to answer your questions
@@ -426,7 +426,7 @@ exports[`About Page About page matches snapshot 1`] = `
               <img
                 alt="mobile phone"
                 class="mx-auto"
-                src="/assets/images/phone.svg"
+                src="https://storage.googleapis.com/cars45-web-bucket/phone.svg"
               />
               <div
                 class="d-flex flex-column flex-lg-row mx-auto mb-2 mt-2"
@@ -439,7 +439,7 @@ exports[`About Page About page matches snapshot 1`] = `
                   <img
                     alt="google play store"
                     class="mr-3 mb-4 mb-lg-0 mt-3 mt-lg-0"
-                    src="/assets/images/google-play.svg"
+                    src="https://storage.googleapis.com/cars45-web-bucket/google-play.svg"
                   />
                 </a>
                 <a
@@ -450,7 +450,7 @@ exports[`About Page About page matches snapshot 1`] = `
                   <img
                     alt="app store"
                     class="mr-3"
-                    src="/assets/images/app-store.svg"
+                    src="https://storage.googleapis.com/cars45-web-bucket/app-store.svg"
                   />
                 </a>
               </div>
@@ -480,7 +480,7 @@ exports[`About Page About page matches snapshot 1`] = `
                 <img
                   alt="sign up"
                   class="mr-3"
-                  src="/assets/images/sign-up.svg"
+                  src="https://storage.googleapis.com/cars45-web-bucket/sign-up.svg"
                 />
               </div>
               <div
@@ -502,7 +502,7 @@ exports[`About Page About page matches snapshot 1`] = `
                 <img
                   alt="download the app"
                   class="mr-3"
-                  src="/assets/images/download.svg"
+                  src="https://storage.googleapis.com/cars45-web-bucket/download.svg"
                 />
               </div>
               <div
@@ -523,7 +523,7 @@ exports[`About Page About page matches snapshot 1`] = `
                 <img
                   alt="browse and bid"
                   class="mr-3"
-                  src="/assets/images/browses.svg"
+                  src="https://storage.googleapis.com/cars45-web-bucket/browses.svg"
                 />
               </div>
               <div
@@ -544,7 +544,7 @@ exports[`About Page About page matches snapshot 1`] = `
                 <img
                   alt="done"
                   class="mr-3"
-                  src="/assets/images/done.svg"
+                  src="https://storage.googleapis.com/cars45-web-bucket/done.svg"
                 />
               </div>
               <div
@@ -667,7 +667,7 @@ exports[`About Page About page matches snapshot 1`] = `
             <img
               alt="app store"
               class="mr-3"
-              src="/assets/images/telephone.svg"
+              src="https://storage.googleapis.com/cars45-web-bucket/telephone.svg"
             />
           </span>
           +234 813 984 0160
@@ -779,7 +779,7 @@ exports[`About Page About page matches snapshot 1`] = `
                       <img
                         alt="facebook"
                         class="facebook"
-                        src="/assets/icons/fb.svg"
+                        src="https://storage.googleapis.com/cars45-web-bucket/fb.svg"
                       />
                     </a>
                     <a
@@ -788,7 +788,7 @@ exports[`About Page About page matches snapshot 1`] = `
                     >
                       <img
                         alt="instagram"
-                        src="/assets/icons/insta.svg"
+                        src="https://storage.googleapis.com/cars45-web-bucket/insta.svg"
                       />
                     </a>
                     <a
@@ -797,7 +797,7 @@ exports[`About Page About page matches snapshot 1`] = `
                     >
                       <img
                         alt="twitter"
-                        src="/assets/icons/tw.svg"
+                        src="https://storage.googleapis.com/cars45-web-bucket/tw.svg"
                       />
                     </a>
                     <a
@@ -807,7 +807,7 @@ exports[`About Page About page matches snapshot 1`] = `
                        
                       <img
                         alt="youtube"
-                        src="/assets/icons/yt.svg"
+                        src="https://storage.googleapis.com/cars45-web-bucket/yt.svg"
                       />
                     </a>
                   </div>
@@ -889,7 +889,7 @@ exports[`About Page About page matches snapshot 1`] = `
                   <img
                     alt="facebook"
                     class="facebook"
-                    src="/assets/icons/facebook.svg"
+                    src="https://storage.googleapis.com/cars45-web-bucket/facebook.svg"
                   />
                 </a>
                 <a
@@ -897,7 +897,7 @@ exports[`About Page About page matches snapshot 1`] = `
                 >
                   <img
                     alt="instagram"
-                    src="/assets/icons/instagram.svg"
+                    src="https://storage.googleapis.com/cars45-web-bucket/instagram.svg"
                   />
                 </a>
                 <a
@@ -905,7 +905,7 @@ exports[`About Page About page matches snapshot 1`] = `
                 >
                   <img
                     alt="twitter"
-                    src="/assets/icons/twitter.svg"
+                    src="https://storage.googleapis.com/cars45-web-bucket/twitter.svg"
                   />
                 </a>
                 <a
@@ -914,7 +914,7 @@ exports[`About Page About page matches snapshot 1`] = `
                    
                   <img
                     alt="youtube"
-                    src="/assets/icons/youtube.svg"
+                    src="https://storage.googleapis.com/cars45-web-bucket/youtube.svg"
                   />
                 </a>
               </div>

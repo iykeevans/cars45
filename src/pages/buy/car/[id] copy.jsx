@@ -32,7 +32,7 @@ const Cardetails = (props) => {
         customPaging: function (i) {
             return (
                 <a>
-                    <img className={`slideClass${i}`} style={{ width: '70px', height: '50px' }} src={`/assets/images/car${i + 1}.jpeg`} />
+                    <img className={`slideClass${i}`} style={{ width: '70px', height: '50px' }} src={`https://storage.googleapis.com/cars45-web-bucket/car${i + 1}.jpeg`} />
                 </a>
             );
         },
@@ -71,39 +71,39 @@ const Cardetails = (props) => {
                                     <div className="col-md-7">
                                         <Slider {...settings} ref={c => (slider = c)}>
                                             <div>
-                                                <img src="/assets/images/car1.jpeg" />
+                                                <img src="https://storage.googleapis.com/cars45-web-bucket/car1.jpeg" />
                                             </div>
                                             <div>
-                                                <img src="/assets/images/car2.jpeg" />
+                                                <img src="https://storage.googleapis.com/cars45-web-bucket/car2.jpeg" />
                                             </div>
                                             <div>
-                                                <img src="/assets/images/car3.jpeg" />
+                                                <img src="https://storage.googleapis.com/cars45-web-bucket/car3.jpeg" />
                                             </div>
                                             <div>
-                                                <img src="/assets/images/car4.jpeg" />
+                                                <img src="https://storage.googleapis.com/cars45-web-bucket/car4.jpeg" />
                                             </div>
                                             <div>
-                                                <img src="/assets/images/car5.jpeg" />
+                                                <img src="https://storage.googleapis.com/cars45-web-bucket/car5.jpeg" />
                                             </div>
                                             <div>
-                                                <img src="/assets/images/car6.jpeg" />
+                                                <img src="https://storage.googleapis.com/cars45-web-bucket/car6.jpeg" />
                                             </div>
                                             <div>
-                                                <img src="/assets/images/car7.jpeg" />
+                                                <img src="https://storage.googleapis.com/cars45-web-bucket/car7.jpeg" />
                                             </div>
                                             <div>
-                                                <img src="/assets/images/car8.jpeg" />
+                                                <img src="https://storage.googleapis.com/cars45-web-bucket/car8.jpeg" />
                                             </div>
                                             <div>
-                                                <img src="/assets/images/car8.jpeg" />
+                                                <img src="https://storage.googleapis.com/cars45-web-bucket/car8.jpeg" />
                                             </div>
 
                                         </Slider>
                                         <div className="prev-button-container">
-                                            <button type="button" data-role="none" className="btn btn-link prev-button" onClick={() => slider.slickPrev()}><img src="/assets/icons/prev.svg" alt="prev" /></button>
+                                            <button type="button" data-role="none" className="btn btn-link prev-button" onClick={() => slider.slickPrev()}><img src="https://storage.googleapis.com/cars45-web-bucket/prev.svg" alt="prev" /></button>
                                         </div>
                                         <div className="next-button-container">
-                                            <button type="button" data-role="none" className="btn btn-link  next-button" onClick={() => next()}><img src="/assets/icons/next.svg" alt="next" /></button>
+                                            <button type="button" data-role="none" className="btn btn-link  next-button" onClick={() => next()}><img src="https://storage.googleapis.com/cars45-web-bucket/next.svg" alt="next" /></button>
                                         </div>
 
                                     </div>

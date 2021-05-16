@@ -11,7 +11,7 @@ const Feedback = (props) => {
                     <div className="col-md-12 mx-auto my-auto bordered" >
 
                         <div className="text-center">
-                            <img className="logo-img" src="/assets/icons/Cars45logo.svg" alt="logo" />
+                            <img className="logo-img" src="https://storage.googleapis.com/cars45-web-bucket/Cars45logo.svg" alt="logo" />
                         </div>
                         <p>Select a category</p>
                         <Link href="/feedback/website">
@@ -27,7 +27,7 @@ const Feedback = (props) => {
                         </Link>
 
                         <div className="text-right">
-                            <button className="btn btn-link"><img src="/assets/icons/forward.svg" alt="forward" /></button>
+                            <button className="btn btn-link"><img src="https://storage.googleapis.com/cars45-web-bucket/forward.svg" alt="forward" /></button>
                         </div>
 
                     </div>

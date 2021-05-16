@@ -82,7 +82,7 @@ const Budget = () => {
                                             <p>₦2m - ₦5m</p>
                                         </div>
                                         <div className="col-4 text-right">
-                                            <img src="/assets/icons/budget-arrow.svg" alt="continue" />
+                                            <img src="https://storage.googleapis.com/cars45-web-bucket/budget-arrow.svg" alt="continue" />
                                         </div>
                                     </div>
                                 </div>
@@ -93,7 +93,7 @@ const Budget = () => {
                                             <p>₦5m - ₦10m</p>
                                         </div>
                                         <div className="col-4 text-right">
-                                            <img src="/assets/icons/budget-arrow.svg" alt="continue" />
+                                            <img src="https://storage.googleapis.com/cars45-web-bucket/budget-arrow.svg" alt="continue" />
                                         </div>
                                     </div>
                                 </div>
@@ -104,7 +104,7 @@ const Budget = () => {
                                             <p>₦10m - ₦15m</p>
                                         </div>
                                         <div className="col-4 text-right">
-                                            <img src="/assets/icons/budget-arrow.svg" alt="continue" />
+                                            <img src="https://storage.googleapis.com/cars45-web-bucket/budget-arrow.svg" alt="continue" />
                                         </div>
                                     </div>
                                 </div>
@@ -115,7 +115,7 @@ const Budget = () => {
                                             <p>₦15m - ₦30m</p>
                                         </div>
                                         <div className="col-4 text-right">
-                                            <img src="/assets/icons/budget-arrow.svg" alt="continue" />
+                                            <img src="https://storage.googleapis.com/cars45-web-bucket/budget-arrow.svg" alt="continue" />
                                         </div>
                                     </div>
                                 </div>
@@ -126,7 +126,7 @@ const Budget = () => {
                                             <p>₦30m - ₦50m</p>
                                         </div>
                                         <div className="col-4 text-right">
-                                            <img src="/assets/icons/budget-arrow.svg" alt="continue" />
+                                            <img src="https://storage.googleapis.com/cars45-web-bucket/budget-arrow.svg" alt="continue" />
                                         </div>
                                     </div>
                                 </div>
@@ -137,7 +137,7 @@ const Budget = () => {
                                             <p>₦50m and above</p>
                                         </div>
                                         <div className="col-4 col-md-4 text-right">
-                                            <img src="/assets/icons/budget-arrow.svg" alt="continue" />
+                                            <img src="https://storage.googleapis.com/cars45-web-bucket/budget-arrow.svg" alt="continue" />
                                         </div>
                                     </div>
                                 </div>

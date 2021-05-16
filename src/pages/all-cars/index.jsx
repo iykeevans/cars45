@@ -303,7 +303,7 @@ const AllCars = (props) => {
                           <div className="col-3 col-md-2 align-self-center">
                             <div>
                               <img
-                                src="/assets/icons/searching.svg"
+                                src="https://storage.googleapis.com/cars45-web-bucket/searching.svg"
                                 alt="search"
                               />
                             </div>
@@ -326,7 +326,7 @@ const AllCars = (props) => {
                         <div className="row">
                           <div className="col-3 col-md-2 align-self-center">
                             <div>
-                              <img src="/assets/icons/naira.svg" alt="search" />
+                              <img src="https://storage.googleapis.com/cars45-web-bucket/naira.svg" alt="search" />
                             </div>
                           </div>
                           <div className="col-9 col-md-10 align-self-center mt-3">
@@ -347,7 +347,7 @@ const AllCars = (props) => {
                         <div className="row">
                           <div className="col-3 col-md-2 align-self-center">
                             <div>
-                              <img src="/assets/icons/cycle.svg" alt="search" />
+                              <img src="https://storage.googleapis.com/cars45-web-bucket/cycle.svg" alt="search" />
                             </div>
                           </div>
                           <div className="col-9 col-md-10 align-self-center mt-3">

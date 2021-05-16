@@ -20,7 +20,7 @@ const WebsiteFeedback = () => {
                 <div className="row">
                     <div className="col-md-12" >
                         <div className="text-center mb-5">
-                            <img className="logo-img" src="/assets/icons/Cars45logo.svg" alt="logo" />
+                            <img className="logo-img" src="https://storage.googleapis.com/cars45-web-bucket/Cars45logo.svg" alt="logo" />
                         </div>
 
                         <div className="col-md-10 p-text">
@@ -90,7 +90,7 @@ const WebsiteFeedback = () => {
                                 </div>
 
                                 <div className="text-right">
-                                    <button className="btn btn-link"><img src="/assets/icons/forward.svg" alt="forward" /></button>
+                                    <button className="btn btn-link"><img src="https://storage.googleapis.com/cars45-web-bucket/forward.svg" alt="forward" /></button>
                                 </div>
 
                             </form>

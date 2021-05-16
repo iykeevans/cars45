@@ -413,10 +413,10 @@ const Cardetails = (props) => {
 
                                         </Slider>
                                         <div className="prev-button-container">
-                                            <button type="button" data-role="none" className="btn btn-link prev-button" onClick={() => slider.slickPrev()}><img src="/assets/icons/prev.svg" alt="prev" /></button>
+                                            <button type="button" data-role="none" className="btn btn-link prev-button" onClick={() => slider.slickPrev()}><img src="https://storage.googleapis.com/cars45-web-bucket/prev.svg" alt="prev" /></button>
                                         </div>
                                         <div className="next-button-container">
-                                            <button type="button" data-role="none" className="btn btn-link  next-button" onClick={() => next()}><img src="/assets/icons/next.svg" alt="next" /></button>
+                                            <button type="button" data-role="none" className="btn btn-link  next-button" onClick={() => next()}><img src="https://storage.googleapis.com/cars45-web-bucket/next.svg" alt="next" /></button>
                                         </div>
 
                                     </div>
@@ -722,7 +722,7 @@ const Cardetails = (props) => {
                             <div className="modal-dialog modal-dialog-centered">
                                 <div className="modal-content">
                                     {/* <div className="modal-header">
-                                <h5 className="modal-title" id="popup"><img src="/assets/icons/Cars45logo.svg" alt="logo" /></h5>
+                                <h5 className="modal-title" id="popup"><img src="https://storage.googleapis.com/cars45-web-bucket/Cars45logo.svg" alt="logo" /></h5>
                                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">×</span>
                                 </button>
@@ -732,7 +732,7 @@ const Cardetails = (props) => {
                                             <div className="col-9 col-md-10 text-center">
                                                 <img
                                                     className="logo"
-                                                    src="/assets/icons/Cars45logo.svg"
+                                                    src="https://storage.googleapis.com/cars45-web-bucket/Cars45logo.svg"
                                                     alt="logo"
                                                 />
                                             </div>
@@ -740,7 +740,7 @@ const Cardetails = (props) => {
                                                 <button data-dismiss="modal" id="closeFeedback" className="btn btn-link">
                                                     <img
                                                         className="close"
-                                                        src="/assets/icons/close.svg"
+                                                        src="https://storage.googleapis.com/cars45-web-bucket/close.svg"
                                                         alt="close"
                                                     />
                                                 </button>

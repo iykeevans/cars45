@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   .hero2 {
-    background-image: url("/assets/images/car_swap.webp");
+    background-image: url("https://storage.googleapis.com/cars45-web-bucket/car_swap.webp");
     background-repeat: no-repeat;
     height: 55vh;
     width: 100%;
@@ -17,7 +17,7 @@
       color: #ffffff;
       text-shadow: 0px 3px 6px #00000029;
     }
-    .step2-text{
+    .step2-text {
       color: #ffffff;
       font-size: 40px;
       text-align: center;
@@ -31,7 +31,8 @@
       margin: 0 auto;
       margin-bottom: 5em;
 
-      button,.btn {
+      button,
+      .btn {
         background: var(--unnamed-color-ff9101) 0% 0% no-repeat padding-box;
         background: #ff9101 0% 0% no-repeat padding-box;
         box-shadow: 0px 3px 6px #00000029;
@@ -55,19 +56,19 @@
           }
         }
       }
-      .prev{
+      .prev {
         background-color: #000;
         color: #ffffff;
       }
-      .next{
+      .next {
         width: 100px;
         text-align: center;
       }
-      .big-text{
+      .big-text {
         font-size: 30px;
         font-weight: 600;
       }
-      .write-up{
+      .write-up {
         font-size: 20px;
         margin-top: -1em;
         font-weight: 600;

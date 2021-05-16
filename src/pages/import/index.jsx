@@ -9,21 +9,21 @@ const mockedData = {
   },
   carTypes: [
     {
-      image: "/assets/images/clean-car.webp",
+      image: "https://storage.googleapis.com/cars45-web-bucket/clean-car.webp",
       title: "Clean cars",
       paragraph: "New or Foreign New cars without damages",
       button: {
         text: "Go there",
-        image: "/assets/images/arrow-right.svg",
+        image: "https://storage.googleapis.com/cars45-web-bucket/arrow-right.svg",
       },
     },
     {
-      image: "/assets/images/salvage-car.webp",
+      image: "https://storage.googleapis.com/cars45-web-bucket/salvage-car.webp",
       title: "Salvaged Cars",
       paragraph: "Cars with repairable damages",
       button: {
         text: "Go there",
-        image: "/assets/images/arrow-right.svg",
+        image: "https://storage.googleapis.com/cars45-web-bucket/arrow-right.svg",
       },
     },
   ],
@@ -58,9 +58,8 @@ const Import_car = () => {
               >
                 {index == 1 && <span> </span>}
                 <div
-                  className={`card   ${
-                    index == 0 ? "ml-lg-auto mr-lg-5" : "ml-lg-5"
-                  } `}
+                  className={`card   ${index == 0 ? "ml-lg-auto mr-lg-5" : "ml-lg-5"
+                    } `}
                 >
                   <div className="top">
                     <img

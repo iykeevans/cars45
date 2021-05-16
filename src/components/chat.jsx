@@ -6,7 +6,7 @@ const Chat = (props) => {
     <div>
       {process.env.chatbot ? <div className="chat ">
         <button className="btn btn-link message rounded-circle teal-button d-flex align-items-center justify-content-center">
-          <img src="/assets/icons/message.svg" />
+          <img src="https://storage.googleapis.com/cars45-web-bucket/message.svg" />
         </button>
       </div> : null}
     </div>

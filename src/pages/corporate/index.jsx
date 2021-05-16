@@ -12,7 +12,7 @@ const mockedData = {
   },
   additionalInfo: {
     title: "For enquires, please contact:",
-    image: "./assets/images/picture.svg",
+    image: ".https://storage.googleapis.com/cars45-web-bucket/picture.svg",
     name: "Felicia Afiemo",
     email: "felicia.a@cars45.com",
   },

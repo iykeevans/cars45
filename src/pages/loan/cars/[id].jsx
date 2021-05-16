@@ -112,7 +112,7 @@ const Cardetails = (props) => {
     slidesToScroll: 1,
   };
   var slider = React.useRef();
-  const getNext = (val) => {};
+  const getNext = (val) => { };
   const next = () => {
     slider.slickNext();
   };
@@ -152,7 +152,7 @@ const Cardetails = (props) => {
                           className="btn btn-link prev-button"
                           onClick={() => slider.slickPrev()}
                         >
-                          <img src="/assets/icons/prev.svg" alt="prev" />
+                          <img src="https://storage.googleapis.com/cars45-web-bucket/prev.svg" alt="prev" />
                         </button>
                       </div>
                       <div className="next-button-container">
@@ -162,7 +162,7 @@ const Cardetails = (props) => {
                           className="btn btn-link  next-button"
                           onClick={() => next()}
                         >
-                          <img src="/assets/icons/next.svg" alt="next" />
+                          <img src="https://storage.googleapis.com/cars45-web-bucket/next.svg" alt="next" />
                         </button>
                       </div>
                     </div>

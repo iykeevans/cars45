@@ -7,6 +7,6 @@ module.exports = {
         chatbot: false
     },
     images: {
-        domains: ['buy.cars45.com'],
+        domains: ['buy.cars45.com', 'storage.googleapis.com'],
     }
 }

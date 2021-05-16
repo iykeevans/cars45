@@ -557,7 +557,7 @@ const Swap_car = (props) => {
                       Next{" "}
                       <div className="arrow">
                         <img
-                          src="/assets/icons/arrow-right.svg"
+                          src="https://storage.googleapis.com/cars45-web-bucket/arrow-right.svg"
                           alt="arrow right"
                         />
                       </div>

@@ -60,16 +60,16 @@ const HeaderTwo = (props) => {
                             <div className="input-group mb-3">
                                 <input type="text" className="form-control" placeholder="Search brands, model, year and much more" aria-label="Recipient's username" aria-describedby="button-addon2" />
                                 <div className="input-group-append">
-                                    <button className="btn btn-link" type="button" id="button-addon2"><img src="/assets/icons/search.svg" alt="search" /> </button>
+                                    <button className="btn btn-link" type="button" id="button-addon2"><img src="https://storage.googleapis.com/cars45-web-bucket/search.svg" alt="search" /> </button>
                                 </div>
                             </div>
                         </div>
                         <div className="col-2 col-md-1 hot">
-                            <img src="/assets/icons/hotdeals.svg" alt="hot" />
+                            <img src="https://storage.googleapis.com/cars45-web-bucket/hotdeals.svg" alt="hot" />
                         </div>
                         <div className="col-3 col-md-1 profile">
                             <div className="btn-group">
-                                <button type="button" className="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="/assets/icons/profile-icon.svg" alt="profile" /></button>
+                                <button type="button" className="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="https://storage.googleapis.com/cars45-web-bucket/profile-icon.svg" alt="profile" /></button>
                                 <div className="dropdown-menu">
                                     <button className="dropdown-item btn btn-link darkgrey-color" >Sign In</button>
                                     <div className="dropdown-divider" />
@@ -88,8 +88,8 @@ const HeaderTwo = (props) => {
                                 className="logo"
                                 src={
                                     path === "/service"
-                                        ? "/assets/icons/fixitlogo.svg"
-                                        : "/assets/icons/logo.svg"
+                                        ? "https://storage.googleapis.com/cars45-web-bucket/fixitlogo.svg"
+                                        : "https://storage.googleapis.com/cars45-web-bucket/logo.svg"
                                 }
                                 alt="logo"
                             />

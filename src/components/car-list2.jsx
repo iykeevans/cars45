@@ -17,7 +17,7 @@ const Carlist = ({ car }) => {
         className="card card2"
         onClick={() => handleRoute(`${car.make}_${car.sku}`)}
       >
-        <img src={!car.image ? "/assets/images/carlistimg-demo@2x.png" : `https://buy.cars45.com/image/${car.image}`} className="card-img-top" alt="..." />
+        <img src={!car.image ? "https://storage.googleapis.com/cars45-web-bucket/carlistimg-demo@2x.png" : `https://buy.cars45.com/image/${car.image}`} className="card-img-top" alt="..." />
         <div className="card-body">
           <div className="row border-bottom">
             <div className="col-8 col-md-8">
@@ -28,7 +28,7 @@ const Carlist = ({ car }) => {
             <div className="col-4 col-md-4 text-right">
               {car.grade && <img
                 className="inspection-badge"
-                src={`/assets/icons/badge-${car.grade.toLowerCase()}.svg`}
+                src={`https://storage.googleapis.com/cars45-web-bucket/badge-${car.grade.toLowerCase()}.svg`}
                 alt={car.grade}
               />}
             </div>
@@ -73,7 +73,7 @@ const Carlist = ({ car }) => {
             </div>
           </div>
           {car?.financeable ? <img
-            src="/assets/icons/car-badge.svg"
+            src="https://storage.googleapis.com/cars45-web-bucket/car-badge.svg"
             className="car-badge"
             alt="car-badge"
           /> : null}

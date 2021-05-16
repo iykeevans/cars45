@@ -10,7 +10,7 @@ const Home = (props) => {
                 <div className="container">
                     <div className="row">
                         <div className="col-12 col-md-4 col-lg-3">
-                            <img className="logo" src="/assets/icons/logo-white.svg" alt="logo" />
+                            <img className="logo" src="https://storage.googleapis.com/cars45-web-bucket/logo-white.svg" alt="logo" />
                         </div>
 
                         <div className="col-6 col-md-4 col-lg-3">
@@ -55,10 +55,10 @@ const Home = (props) => {
 
                         <div className="col-12 col-lg-3 align-self-center">
                             <div className="socials">
-                                <a href="http://facebook.com/cars45.NG" target="_blank"><img className="facebook" src="/assets/icons/facebook.svg" alt="facebook" /></a>
-                                <a href="https://www.instagram.com/cars45ng/" target="_blank"><img src="/assets/icons/instagram.svg" alt="instagram" /></a>
-                                <a href="https://twitter.com/cars45ng" target="_blank"><img src="/assets/icons/twitter.svg" alt="twitter" /></a>
-                                <a href="/youtube.com" target="_blank"> <img src="/assets/icons/youtube.svg" alt="youtube" /></a>
+                                <a href="http://facebook.com/cars45.NG" target="_blank"><img className="facebook" src="https://storage.googleapis.com/cars45-web-bucket/facebook.svg" alt="facebook" /></a>
+                                <a href="https://www.instagram.com/cars45ng/" target="_blank"><img src="https://storage.googleapis.com/cars45-web-bucket/instagram.svg" alt="instagram" /></a>
+                                <a href="https://twitter.com/cars45ng" target="_blank"><img src="https://storage.googleapis.com/cars45-web-bucket/twitter.svg" alt="twitter" /></a>
+                                <a href="/youtube.com" target="_blank"> <img src="https://storage.googleapis.com/cars45-web-bucket/youtube.svg" alt="youtube" /></a>
                             </div>
                         </div>
                     </div>

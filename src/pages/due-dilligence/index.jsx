@@ -10,22 +10,22 @@ const mockedData = {
     title2: "Get your car inspected",
     items: [
       {
-        image: "/assets/icons/book.svg",
+        image: "https://storage.googleapis.com/cars45-web-bucket/book.svg",
         alt: "book",
         text: "Book an inspection right here or walk into any of our centers",
       },
       {
-        image: "/assets/icons/money.svg",
+        image: "https://storage.googleapis.com/cars45-web-bucket/money.svg",
         alt: "money",
         text: "Make a deposit of ₦10,000 at your inspection center of choice.",
       },
       {
-        image: "/assets/icons/inspect-done.svg",
+        image: "https://storage.googleapis.com/cars45-web-bucket/inspect-done.svg",
         alt: "inspect info",
         text: "The inspection is carried within an hour.",
       },
       {
-        image: "/assets/icons/inspection-report.svg",
+        image: "https://storage.googleapis.com/cars45-web-bucket/inspection-report.svg",
         alt: "inspection-report",
         text: "Receive your inspection result within 30 minutes later!",
       },
@@ -52,7 +52,7 @@ const DueDilligence = (props) => {
               {/* <div className="col-md-12"> */}
               <div className="col-md-4 inspect-img d-none d-lg-block">
                 <img
-                  src="/assets/images/inspection.png"
+                  src="https://storage.googleapis.com/cars45-web-bucket/inspection.png"
                   alt="inspect"
                   alt="inspect"
                 />
@@ -85,7 +85,7 @@ const DueDilligence = (props) => {
 
           <div className="col-md-12">
             <div className="bottom-div">
-              <img src="/assets/icons/security.svg" alt="security" />
+              <img src="https://storage.googleapis.com/cars45-web-bucket/security.svg" alt="security" />
               <p>Cars45 is commited to keeping your information safe</p>
             </div>
           </div>

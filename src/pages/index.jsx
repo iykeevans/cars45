@@ -138,7 +138,7 @@ const Home = ({ ...props }) => {
                   </div>
                 </div>
               </div>
-              <img src="/assets/images/banner.svg" alt="banner" />
+              <img src="https://storage.googleapis.com/cars45-web-bucket/banner.svg" alt="banner" />
             </div>
             <div className="item">
               <div className="banner-text">
@@ -150,7 +150,7 @@ const Home = ({ ...props }) => {
                   </div>
                 </div>
               </div>
-              <img src="/assets/images/banner.png" alt="banner" />
+              <img src="https://storage.googleapis.com/cars45-web-bucket/banner.png" alt="banner" />
             </div>
             <div className="item">
               <div className="banner-text">
@@ -162,7 +162,7 @@ const Home = ({ ...props }) => {
                   </div>
                 </div>
               </div>
-              <img src="/assets/images/banner3.png" alt="banner" />
+              <img src="https://storage.googleapis.com/cars45-web-bucket/banner3.png" alt="banner" />
             </div>
             <div className="item">
               <div className="banner-text">
@@ -174,7 +174,7 @@ const Home = ({ ...props }) => {
                   </div>
                 </div>
               </div>
-              <img src="/assets/images/banner4.png" alt="banner" />
+              <img src="https://storage.googleapis.com/cars45-web-bucket/banner4.png" alt="banner" />
             </div>
           </OwlCarousel>
           <div className="row banner-bottom">
@@ -227,8 +227,8 @@ const Home = ({ ...props }) => {
                   // loop
                   autoplayTimeout={5000}
                   navText={[
-                    '<img src="/assets/icons/caretLeft.svg" />',
-                    '<img src="/assets/icons/caretRight.svg" />',
+                    '<img src="https://storage.googleapis.com/cars45-web-bucket/caretLeft.svg" />',
+                    '<img src="https://storage.googleapis.com/cars45-web-bucket/caretRight.svg" />',
                   ]}
                 >
                   <div className="item">
@@ -236,14 +236,14 @@ const Home = ({ ...props }) => {
                       <div className="col-md-3">
                         <div className="img-cont">
                           <div className="img">
-                            <img src="/assets/images/user.svg" alt="user" />
+                            <img src="https://storage.googleapis.com/cars45-web-bucket/user.svg" alt="user" />
                           </div>
                         </div>
                       </div>
 
                       <div className="col-md-9 user-details text-center">
                         <p className="name">Adebayo Oyewole</p>
-                        <img src="/assets/images/quote.svg" alt="..." />
+                        <img src="https://storage.googleapis.com/cars45-web-bucket/quote.svg" alt="..." />
                         <p className="detail">
                           Excellent Customer service. I had a great experience
                           selling my car on Cars45
@@ -257,14 +257,14 @@ const Home = ({ ...props }) => {
                       <div className="col-md-3">
                         <div className="img-cont">
                           <div className="img">
-                            <img src="/assets/images/Adeoya-Temitope-Earned-50k.png" alt="user" />
+                            <img src="https://storage.googleapis.com/cars45-web-bucket/Adeoya-Temitope-Earned-50k.png" alt="user" />
                           </div>
                         </div>
                       </div>
 
                       <div className="col-md-9 user-details text-center">
                         <p className="name">Adeoya Temitope</p>
-                        <img src="/assets/images/quote.svg" alt="..." />
+                        <img src="https://storage.googleapis.com/cars45-web-bucket/quote.svg" alt="..." />
                         <p className="detail">
                           I earned a commision of 50k on cars45
                         </p>
@@ -277,14 +277,14 @@ const Home = ({ ...props }) => {
                       <div className="col-md-3">
                         <div className="img-cont">
                           <div className="img">
-                            <img src="/assets/images/AKINSOTO-OLUWATOYOSI-COMMISSION-EARNED-50K.jpeg" alt="user" />
+                            <img src="https://storage.googleapis.com/cars45-web-bucket/AKINSOTO-OLUWATOYOSI-COMMISSION-EARNED-50K.jpeg" alt="user" />
                           </div>
                         </div>
                       </div>
 
                       <div className="col-md-9 user-details text-center">
                         <p className="name">Akinsoto Oluwatoyosi</p>
-                        <img src="/assets/images/quote.svg" alt="..." />
+                        <img src="https://storage.googleapis.com/cars45-web-bucket/quote.svg" alt="..." />
                         <p className="detail">
                           I earned a commision of 50k on cars45
                         </p>
@@ -297,14 +297,14 @@ const Home = ({ ...props }) => {
                       <div className="col-md-3">
                         <div className="img-cont">
                           <div className="img">
-                            <img src="/assets/images/CHIAWA-KELLY-AMECHI-COMMISSION-EARNED-50K.jpeg" alt="user" />
+                            <img src="https://storage.googleapis.com/cars45-web-bucket/CHIAWA-KELLY-AMECHI-COMMISSION-EARNED-50K.jpeg" alt="user" />
                           </div>
                         </div>
                       </div>
 
                       <div className="col-md-9 user-details text-center">
                         <p className="name">Chiawa Kelly</p>
-                        <img src="/assets/images/quote.svg" alt="..." />
+                        <img src="https://storage.googleapis.com/cars45-web-bucket/quote.svg" alt="..." />
                         <p className="detail">
                           I earned a commision of 50k on cars45
                         </p>
@@ -317,14 +317,14 @@ const Home = ({ ...props }) => {
                       <div className="col-md-3">
                         <div className="img-cont">
                           <div className="img">
-                            <img src="/assets/images/EGBEOLA-PAUL-COMMISSION-EARNED-100K.jpeg" alt="user" />
+                            <img src="https://storage.googleapis.com/cars45-web-bucket/EGBEOLA-PAUL-COMMISSION-EARNED-100K.jpeg" alt="user" />
                           </div>
                         </div>
                       </div>
 
                       <div className="col-md-9 user-details text-center">
                         <p className="name">Egbeola Paul</p>
-                        <img src="/assets/images/quote.svg" alt="..." />
+                        <img src="https://storage.googleapis.com/cars45-web-bucket/quote.svg" alt="..." />
                         <p className="detail">
                           I earned a commision of 100k on cars45
                         </p>
@@ -338,14 +338,14 @@ const Home = ({ ...props }) => {
                       <div className="col-md-3">
                         <div className="img-cont">
                           <div className="img">
-                            <img src="/assets/images/James-John-Adoyi-Commission-Earned-80k.jpeg" alt="user" />
+                            <img src="https://storage.googleapis.com/cars45-web-bucket/James-John-Adoyi-Commission-Earned-80k.jpeg" alt="user" />
                           </div>
                         </div>
                       </div>
 
                       <div className="col-md-9 user-details text-center">
                         <p className="name">James John</p>
-                        <img src="/assets/images/quote.svg" alt="..." />
+                        <img src="https://storage.googleapis.com/cars45-web-bucket/quote.svg" alt="..." />
                         <p className="detail">
                           I earned a commision of 80k on cars45
                         </p>
@@ -359,14 +359,14 @@ const Home = ({ ...props }) => {
                       <div className="col-md-3">
                         <div className="img-cont">
                           <div className="img">
-                            <img src="/assets/images/NDU-COLLINS-CHIMAOBI-COMMISSION-EARNED-80K.jpeg" alt="user" />
+                            <img src="https://storage.googleapis.com/cars45-web-bucket/NDU-COLLINS-CHIMAOBI-COMMISSION-EARNED-80K.jpeg" alt="user" />
                           </div>
                         </div>
                       </div>
 
                       <div className="col-md-9 user-details text-center">
                         <p className="name">Ndu Collins</p>
-                        <img src="/assets/images/quote.svg" alt="..." />
+                        <img src="https://storage.googleapis.com/cars45-web-bucket/quote.svg" alt="..." />
                         <p className="detail">
                           I earned a commision of 80k on cars45
                         </p>
@@ -391,7 +391,7 @@ const Home = ({ ...props }) => {
                           <div className="col-3 col-md-2 align-self-center">
                             <div>
                               <img
-                                src="/assets/icons/searching.svg"
+                                src="https://storage.googleapis.com/cars45-web-bucket/searching.svg"
                                 alt="search"
                               />
                             </div>
@@ -414,7 +414,7 @@ const Home = ({ ...props }) => {
                         <div className="row">
                           <div className="col-3 col-md-2 align-self-center">
                             <div>
-                              <img src="/assets/icons/naira.svg" alt="search" />
+                              <img src="https://storage.googleapis.com/cars45-web-bucket/naira.svg" alt="search" />
                             </div>
                           </div>
                           <div className="col-9 col-md-10 align-self-center mt-3">
@@ -435,7 +435,7 @@ const Home = ({ ...props }) => {
                         <div className="row">
                           <div className="col-3 col-md-2 align-self-center">
                             <div>
-                              <img src="/assets/icons/cycle.svg" alt="search" />
+                              <img src="https://storage.googleapis.com/cars45-web-bucket/cycle.svg" alt="search" />
                             </div>
                           </div>
                           <div className="col-9 col-md-10 align-self-center mt-3">
@@ -471,7 +471,7 @@ const Home = ({ ...props }) => {
             <div className="modal-dialog modal-dialog-centered">
               <div className="modal-content">
                 {/* <div className="modal-header">
-                                <h5 className="modal-title" id="popup"><img src="/assets/icons/Cars45logo.svg" alt="logo" /></h5>
+                                <h5 className="modal-title" id="popup"><img src="https://storage.googleapis.com/cars45-web-bucket/Cars45logo.svg" alt="logo" /></h5>
                                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">×</span>
                                 </button>
@@ -481,7 +481,7 @@ const Home = ({ ...props }) => {
                     <div className="col-9 col-md-10 text-center">
                       <img
                         className="logo"
-                        src="/assets/icons/Cars45logo.svg"
+                        src="https://storage.googleapis.com/cars45-web-bucket/Cars45logo.svg"
                         alt="logo"
                       />
                     </div>
@@ -489,7 +489,7 @@ const Home = ({ ...props }) => {
                       <button data-dismiss="modal" onClick={closeFeedback} id="closeFeedback" className="btn btn-link">
                         <img
                           className="close"
-                          src="/assets/icons/close.svg"
+                          src="https://storage.googleapis.com/cars45-web-bucket/close.svg"
                           alt="close"
                         />
                       </button>
@@ -535,20 +535,3 @@ const Home = ({ ...props }) => {
 };
 
 export default Home;
-
-
-// export async function getStaticProps() {
-//   const folder = path.resolve('public/assets/icons');
-//   const allfiles = fs.readdirSync(folder, 'utf8')
-//   let filedir = folder + '/' + allfiles[0]
-//   let data = fs.readFileSync(filedir, 'utf8');
-//   uploadImage(data, allfiles[0])
-//   // allfiles.forEach(file => {
-//   //   let filedir = folder + '/' + file
-//   //   // console.log(file, filedir)
-//   //   let data = fs.readFileSync(filedir, 'utf8');
-
-//   // })
-
-//   return { props: { ...allfiles } }
-// }

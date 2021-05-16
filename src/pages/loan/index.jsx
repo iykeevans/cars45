@@ -44,29 +44,29 @@ const mockedData = {
     title: "BENEFITS",
     items: [
       {
-        image: "/assets/images/purchase.svg",
+        image: "https://storage.googleapis.com/cars45-web-bucket/purchase.svg",
         alt: "purchase",
         text: "Purchase vehicles and pay over a period (usually 12 months)",
       },
       {
-        image: "/assets/images/car.svg",
+        image: "https://storage.googleapis.com/cars45-web-bucket/car.svg",
         alt: "car",
         text: "Walk away with your car from day 1",
       },
       {
-        image: "/assets/images/hand-key.svg",
+        image: "https://storage.googleapis.com/cars45-web-bucket/hand-key.svg",
         alt: "hand-key",
         text: "Own your car at the end of payment",
       },
       {
-        image: "/assets/images/low-interest.svg",
+        image: "https://storage.googleapis.com/cars45-web-bucket/low-interest.svg",
         alt: "low-interest",
         text: "check Low interest rates on your payment",
       },
     ],
   },
   highlight: {
-    image: "/assets/images/loan/card.jpg",
+    image: "https://storage.googleapis.com/cars45-web-bucket/loan/card.jpg",
     title: "Look for the Badge/ Button",
     description:
       "Find this badge on any car and be confident that we can provide financing!",
@@ -76,7 +76,7 @@ const mockedData = {
   },
   footer: {
     title: "Financing Partner:",
-    image: "/assets/images/loan/bank-logos.jpg",
+    image: "https://storage.googleapis.com/cars45-web-bucket/loan/bank-logos.jpg",
   },
 };
 
@@ -146,7 +146,7 @@ const Loan = (props) => {
                       <div className="benefit-container">
                         <img
                           className="purchase-check"
-                          src="/assets/icons/purchase-check.svg"
+                          src="https://storage.googleapis.com/cars45-web-bucket/purchase-check.svg"
                           alt="check"
                         />
                         <p>{item.text}</p>

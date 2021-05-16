@@ -24,25 +24,25 @@ const Caroverview = ({ car, interestedInCar }) => {
               </div>
               <div className="col-6 mb-3 mb-sm-0 col-md-2">
                 <div className="d-flex car-type">
-                  <img src="/assets/icons/car-type.svg" alt="type" />
+                  <img src="https://storage.googleapis.com/cars45-web-bucket/car-type.svg" alt="type" />
                   <p>{car.make}</p>
                 </div>
               </div>
               <div className="col-6 mb-3 mb-sm-0 col-md-2">
                 <div className="d-flex fuel">
-                  <img src="/assets/icons/fuel.svg" alt="type" />
+                  <img src="https://storage.googleapis.com/cars45-web-bucket/fuel.svg" alt="type" />
                   <p>{car.fuel}</p>
                 </div>
               </div>
               <div className="col-6 mb-3 mb-sm-0 col-md-2">
                 <div className="d-flex transmission">
-                  <img src="/assets/icons/transmission.svg" alt="type" />
+                  <img src="https://storage.googleapis.com/cars45-web-bucket/transmission.svg" alt="type" />
                   <p>{car.fuel}</p>
                 </div>
               </div>
               {/* <div className="col-12 mb-3 mb-sm-0 col-md-3">
                 <div className="d-flex stars">
-                  <img src="/assets/icons/stars.svg" alt="type" />
+                  <img src="https://storage.googleapis.com/cars45-web-bucket/stars.svg" alt="type" />
                 </div>
               </div> */}
             </div>

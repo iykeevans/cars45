@@ -13,7 +13,7 @@ const Brandnewdetails = () => {
                 <ol className="breadcrumb">
                   <li className="breadcrumb-item">
                     <a href="#">
-                      <img src="/assets/icons/home.png" alt="home" />
+                      <img src="https://storage.googleapis.com/cars45-web-bucket/home.png" alt="home" />
                     </a>
                   </li>
                   <li className="breadcrumb-item">
@@ -56,7 +56,7 @@ const Brandnewdetails = () => {
                   <div className="col-sm-3 text-right text-md-left">
                     <button className="btn btn-secondary teal-button">
                       GO{" "}
-                      <img src="/assets/icons/arrow-right-white.svg" alt="go" />
+                      <img src="https://storage.googleapis.com/cars45-web-bucket/arrow-right-white.svg" alt="go" />
                     </button>
                   </div>
                 </div>
@@ -82,7 +82,7 @@ const Brandnewdetails = () => {
                     <div>
                       <p className="partnership">Partnership</p>
 
-                      <img src="/assets/icons/partner.png" alt="partner" />
+                      <img src="https://storage.googleapis.com/cars45-web-bucket/partner.png" alt="partner" />
                     </div>
                   </div>
                   <button className="btn btn-secondary teal-button btn-block">
@@ -96,7 +96,7 @@ const Brandnewdetails = () => {
                   <h1>2020 Toyota Highlander</h1>
                   <p>
                     <span>Style: </span>LE 4dr Front-wheel Drive{" "}
-                    <img src="/assets/icons/arrow-down.png" alt="arrow-down" />{" "}
+                    <img src="https://storage.googleapis.com/cars45-web-bucket/arrow-down.png" alt="arrow-down" />{" "}
                   </p>
                 </div>
 
@@ -249,7 +249,7 @@ const Brandnewdetails = () => {
                           </p>
 
                           <img
-                            src="/assets/images/interior1.svg"
+                            src="https://storage.googleapis.com/cars45-web-bucket/interior1.svg"
                             alt="interior"
                           />
                         </div>
@@ -272,7 +272,7 @@ const Brandnewdetails = () => {
                           </p>
 
                           <img
-                            src="/assets/images/interior1.svg"
+                            src="https://storage.googleapis.com/cars45-web-bucket/interior1.svg"
                             alt="interior"
                           />
                         </div>
@@ -366,7 +366,7 @@ const Brandnewdetails = () => {
                                   <p className="styles">
                                     L 4dr Front-wheel Drive - MSRP $36,085{" "}
                                     <img
-                                      src="/assets/icons/teal-caret-down.svg"
+                                      src="https://storage.googleapis.com/cars45-web-bucket/teal-caret-down.svg"
                                       alt="select"
                                     />
                                   </p>
@@ -418,7 +418,7 @@ const Brandnewdetails = () => {
                                   <p className="styles">
                                     L 4dr Front-wheel Drive - MSRP $36,085{" "}
                                     <img
-                                      src="/assets/icons/teal-caret-down.svg"
+                                      src="https://storage.googleapis.com/cars45-web-bucket/teal-caret-down.svg"
                                       alt="select"
                                     />
                                   </p>
@@ -487,7 +487,7 @@ const Brandnewdetails = () => {
                             2021 TOYOTA HIGHLANDER COLOURS
                           </h2>
                           <img
-                            src="/assets/images/highlander-color.svg"
+                            src="https://storage.googleapis.com/cars45-web-bucket/highlander-color.svg"
                             alt="..."
                           />
 

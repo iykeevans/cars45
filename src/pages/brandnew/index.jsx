@@ -110,7 +110,7 @@ const Brandnew = (props) => {
                       <div className="brand-container">
                         <div className="brand-content">
                           <img
-                            src={`/assets/icons/${make?.trim().toLowerCase()}.svg` || "/assets/icons/brand-placeholder.png"}
+                            src={`https://storage.googleapis.com/cars45-web-bucket/${make === 'Rolls-Royce' ? make : make?.trim().toLowerCase()}.svg` || "https://storage.googleapis.com/cars45-web-bucket/brand-placeholder.png"}
                             alt={make}
                           />
                           <h4>{make}</h4>
@@ -127,7 +127,7 @@ const Brandnew = (props) => {
                         <h4>SEE ALL BRANDS</h4>
 
                         <img
-                          src="/assets/icons/teal-arrow-down.svg"
+                          src="https://storage.googleapis.com/cars45-web-bucket/teal-arrow-down.svg"
                           alt="..."
                         />
                       </div>
@@ -159,7 +159,7 @@ const Brandnew = (props) => {
                     >
                       <div className="align-self-center">
                         <img
-                          src={`/assets/icons/${type.name}.svg`}
+                          src={`https://storage.googleapis.com/cars45-web-bucket/${type.name}.svg`}
                           alt={type.name}
                         />
                         <p>{type.name.toUpperCase()}</p>
@@ -169,7 +169,7 @@ const Brandnew = (props) => {
                 </div>
               </div>
               <button onClick={() => next()} className="btn btn-link">
-                <img src="/assets/icons/arrow-right.svg" alt="..." />
+                <img src="https://storage.googleapis.com/cars45-web-bucket/arrow-right.svg" alt="..." />
               </button>
             </div> : null}
         </div>

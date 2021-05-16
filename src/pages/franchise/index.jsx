@@ -77,7 +77,7 @@ export default function Dealer() {
       <div className="dealer-container">
         <div className="dealer-banner">
           {/* <div className="cover"></div>
-        <img src="./assets/images/dealer.jpg" /> */}
+        <img src=".https://storage.googleapis.com/cars45-web-bucket/dealer.jpg" /> */}
           <h1 className="header">{mockData.hero.text}</h1>
         </div>
         <div className="dealer-intro">
@@ -133,7 +133,7 @@ export default function Dealer() {
         <div className="deal-contact-details">
           <div className="deal-contact-security">
             <img
-              src="/assets/icons/security.svg"
+              src="https://storage.googleapis.com/cars45-web-bucket/security.svg"
               alt="security"
               className="mr-2"
             />

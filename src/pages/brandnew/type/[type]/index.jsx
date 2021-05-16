@@ -346,7 +346,7 @@ const Brandnewtype = (props) => {
                                         <Link href="/brandnew/toyota/details">
                                             <div className="list-container text-center">
                                                 <p className="name">86</p>
-                                                <img src="/assets/images/Toyota-86.svg" alt="86" />
+                                                <img src="https://storage.googleapis.com/cars45-web-bucket/Toyota-86.svg" alt="86" />
                                                 <p className="price"><span>From</span> ₦ 15,000,000</p>
                                             </div>
                                         </Link>
@@ -356,7 +356,7 @@ const Brandnewtype = (props) => {
                                     <div className="col-md-4 mb-5">
                                         <div className="list-container text-center">
                                             <p className="name">Avalon</p>
-                                            <img src="/assets/images/avalon.svg" alt="4-runner" />
+                                            <img src="https://storage.googleapis.com/cars45-web-bucket/avalon.svg" alt="4-runner" />
                                             <p className="price"><span>From</span> ₦ 15,000,000</p>
                                         </div>
                                     </div>
@@ -364,7 +364,7 @@ const Brandnewtype = (props) => {
                                     <div className="col-md-4 mb-5">
                                         <div className="list-container text-center">
                                             <p className="name">Camry</p>
-                                            <img src="/assets/images/camry.svg" alt="Camry" />
+                                            <img src="https://storage.googleapis.com/cars45-web-bucket/camry.svg" alt="Camry" />
                                             <p className="price"><span>From</span> ₦ 15,000,000</p>
                                         </div>
                                     </div>
@@ -372,7 +372,7 @@ const Brandnewtype = (props) => {
                                     <div className="col-md-4 mb-5">
                                         <div className="list-container text-center">
                                             <p className="name">Corolla</p>
-                                            <img src="/assets/images/corolla.svg" alt="Corolla" />
+                                            <img src="https://storage.googleapis.com/cars45-web-bucket/corolla.svg" alt="Corolla" />
                                             <p className="price"><span>From</span> ₦ 15,000,000</p>
                                         </div>
                                     </div>
@@ -380,7 +380,7 @@ const Brandnewtype = (props) => {
                                     <div className="col-md-4 mb-5">
                                         <div className="list-container text-center">
                                             <p className="name">Highlander</p>
-                                            <img src="/assets/images/highlander.svg" alt="Highlander" />
+                                            <img src="https://storage.googleapis.com/cars45-web-bucket/highlander.svg" alt="Highlander" />
                                             <p className="price"><span>From</span> ₦ 15,000,000</p>
                                         </div>
                                     </div>
@@ -388,7 +388,7 @@ const Brandnewtype = (props) => {
                                     <div className="col-md-4 mb-5">
                                         <div className="list-container text-center">
                                             <p className="name">Land Cruiser</p>
-                                            <img src="/assets/images/landcruiser.svg" alt="Land Cruiser" />
+                                            <img src="https://storage.googleapis.com/cars45-web-bucket/landcruiser.svg" alt="Land Cruiser" />
                                             <p className="price"><span>From</span> ₦ 15,000,000</p>
                                         </div>
                                     </div>
@@ -396,7 +396,7 @@ const Brandnewtype = (props) => {
                                     <div className="col-md-4 mb-5">
                                         <div className="list-container text-center">
                                             <p className="name">Mirai</p>
-                                            <img src="/assets/images/mirai.svg" alt="Mirai" />
+                                            <img src="https://storage.googleapis.com/cars45-web-bucket/mirai.svg" alt="Mirai" />
                                             <p className="price"><span>From</span> ₦ 15,000,000</p>
                                         </div>
                                     </div>
@@ -404,7 +404,7 @@ const Brandnewtype = (props) => {
                                     <div className="col-md-4 mb-5">
                                         <div className="list-container text-center">
                                             <p className="name">Prius</p>
-                                            <img src="/assets/images/prius.svg" alt="Prius" />
+                                            <img src="https://storage.googleapis.com/cars45-web-bucket/prius.svg" alt="Prius" />
                                             <p className="price"><span>From</span> ₦ 15,000,000</p>
                                         </div>
                                     </div>
@@ -412,7 +412,7 @@ const Brandnewtype = (props) => {
                                     <div className="col-md-4 mb-5">
                                         <div className="list-container text-center">
                                             <p className="name">Rav 4</p>
-                                            <img src="/assets/images/rav4.svg" alt="Rav4" />
+                                            <img src="https://storage.googleapis.com/cars45-web-bucket/rav4.svg" alt="Rav4" />
                                             <p className="price"><span>From</span> ₦ 15,000,000</p>
                                         </div>
                                     </div>
@@ -420,7 +420,7 @@ const Brandnewtype = (props) => {
                                     <div className="col-md-4 mb-5">
                                         <div className="list-container text-center">
                                             <p className="name">Sequoia</p>
-                                            <img src="/assets/images/sequoia.svg" alt="Sequoia" />
+                                            <img src="https://storage.googleapis.com/cars45-web-bucket/sequoia.svg" alt="Sequoia" />
                                             <p className="price"><span>From</span> ₦ 15,000,000</p>
                                         </div>
                                     </div>
@@ -428,7 +428,7 @@ const Brandnewtype = (props) => {
                                     <div className="col-md-4 mb-5">
                                         <div className="list-container text-center">
                                             <p className="name">Sienna</p>
-                                            <img src="/assets/images/sienna.svg" alt="sienna" />
+                                            <img src="https://storage.googleapis.com/cars45-web-bucket/sienna.svg" alt="sienna" />
                                             <p className="price"><span>From</span> ₦ 15,000,000</p>
                                         </div>
                                     </div>
@@ -437,7 +437,7 @@ const Brandnewtype = (props) => {
                                     <div className="col-md-4 mb-5">
                                         <div className="list-container text-center">
                                             <p className="name">Tacoma</p>
-                                            <img src="/assets/images/tacoma.svg" alt="tacoma" />
+                                            <img src="https://storage.googleapis.com/cars45-web-bucket/tacoma.svg" alt="tacoma" />
                                             <p className="price"><span>From</span> ₦ 15,000,000</p>
                                         </div>
                                     </div>
@@ -445,7 +445,7 @@ const Brandnewtype = (props) => {
                                     <div className="col-md-4 mb-5">
                                         <div className="list-container text-center">
                                             <p className="name">Tundra</p>
-                                            <img src="/assets/images/tundra.svg" alt="tundra" />
+                                            <img src="https://storage.googleapis.com/cars45-web-bucket/tundra.svg" alt="tundra" />
                                             <p className="price"><span>From</span> ₦ 15,000,000</p>
                                         </div>
                                     </div>
@@ -453,7 +453,7 @@ const Brandnewtype = (props) => {
                                     <div className="col-md-4 mb-5">
                                         <div className="list-container text-center">
                                             <p className="name">Venza</p>
-                                            <img src="/assets/images/venza.svg" alt="Venza" />
+                                            <img src="https://storage.googleapis.com/cars45-web-bucket/venza.svg" alt="Venza" />
                                             <p className="price"><span>From</span> ₦ 15,000,000</p>
                                         </div>
                                     </div> */}

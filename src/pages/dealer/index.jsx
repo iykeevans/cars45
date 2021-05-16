@@ -14,20 +14,20 @@ const mockedData = {
     items: [
       {
         text: "All car inspected and document checked",
-        image: "/assets/images/checkmark-circle.svg",
+        image: "https://storage.googleapis.com/cars45-web-bucket/checkmark-circle.svg",
       },
       {
         text: "No-fuss actions-bid or buy with one click",
-        image: "/assets/images/checkmark-circle.svg",
+        image: "https://storage.googleapis.com/cars45-web-bucket/checkmark-circle.svg",
       },
       {
         text: "Full support team available to answer your questions",
-        image: "/assets/images/checkmark-circle.svg",
+        image: "https://storage.googleapis.com/cars45-web-bucket/checkmark-circle.svg",
       },
     ],
-    image: "/assets/images/phone.svg",
-    apple: "/assets/images/app-store.svg",
-    google: "/assets/images/google-play.svg",
+    image: "https://storage.googleapis.com/cars45-web-bucket/phone.svg",
+    apple: "https://storage.googleapis.com/cars45-web-bucket/app-store.svg",
+    google: "https://storage.googleapis.com/cars45-web-bucket/google-play.svg",
 
     button: {
       text: "sign up now",
@@ -41,23 +41,23 @@ const mockedData = {
     title: "How it works",
     items: [
       {
-        image: "/assets/images/sign-up.svg",
+        image: "https://storage.googleapis.com/cars45-web-bucket/sign-up.svg",
         text: "Sign up",
         summary: `Register your company! We verify every dealer to ensure our
     auctions stay secure and hassle-free.`,
       },
       {
-        image: "/assets/images/download.svg",
+        image: "https://storage.googleapis.com/cars45-web-bucket/download.svg",
         text: "Download the app",
         summary: `Have constant access to all auctions via our mobile app.`,
       },
       {
-        image: "/assets/images/browses.svg",
+        image: "https://storage.googleapis.com/cars45-web-bucket/browses.svg",
         text: "Browse and Bid",
         summary: `Browse our auction lists, find the ones that interest you and place a bid`,
       },
       {
-        image: "/assets/images/done.svg",
+        image: "https://storage.googleapis.com/cars45-web-bucket/done.svg",
         text: "Done",
         summary: `If you win an auction, the car is yours!`,
       },
@@ -99,7 +99,7 @@ const Dealer = (props) => {
   return (
     <HomeLayout footer="two">
       <div className="dealer">
-        <Hero_layout bg="/assets/images/become-a-dealer.webp" />
+        <Hero_layout bg="https://storage.googleapis.com/cars45-web-bucket/become-a-dealer.webp" />
         <div className="text-area container pb-5  ">
           <div className="heading mb-4 text-center">{mockedData.pageTitle}</div>
           <div className="text">{mockedData.pageTitleParagraph}</div>
@@ -237,7 +237,7 @@ const Dealer = (props) => {
               {" "}
               <span>
                 <img
-                  src="/assets/images/telephone.svg"
+                  src="https://storage.googleapis.com/cars45-web-bucket/telephone.svg"
                   alt="app store"
                   className="mr-3"
                 />

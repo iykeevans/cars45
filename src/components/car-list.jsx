@@ -9,14 +9,14 @@ const Carlist = ({ car }) => {
         <div className="listing">
             {car && <Link href={{ pathname: `/buy/car/${car?.make}_${car?.sku}` }}>
                 <div className="card">
-                    <img src={!car?.image ? "/assets/images/carlistimg-demo@2x.png" : `https://buy.cars45.com/image/${car?.image}`} className="card-img-top" alt="..." />
+                    <img src={!car?.image ? "https://storage.googleapis.com/cars45-web-bucket/carlistimg-demo@2x.png" : `https://buy.cars45.com/image/${car?.image}`} className="card-img-top" alt="..." />
                     <div className="card-body">
                         <div className="row border-bottom">
                             <div className="col-8 col-md-8">
                                 <p>{`${car?.year} ${car?.make} ${car?.model}`}</p>
                             </div>
                             <div className="col-4 col-md-4 text-right">
-                                <img className="inspection-badge" src={`/assets/icons/badge-${car?.grade?.toLowerCase()}.svg`} alt={car?.grade} />
+                                <img className="inspection-badge" src={`https://storage.googleapis.com/cars45-web-bucket/badge-${car?.grade?.toLowerCase()}.svg`} alt={car?.grade} />
                             </div>
                         </div>
 
@@ -52,7 +52,7 @@ const Carlist = ({ car }) => {
                             </div>
 
                         </div>
-                        {car?.financeable ? <img src="/assets/icons/car-badge.svg" className="car-badge" alt="car-badge" /> : null}
+                        {car?.financeable ? <img src="https://storage.googleapis.com/cars45-web-bucket/car-badge.svg" className="car-badge" alt="car-badge" /> : null}
                     </div>
                 </div>
             </Link>}

@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Image from 'next/image';
 
 const HeaderOne = (props) => {
   const [usedClass, setUsedClass] = React.useState('dropdown-menu used-menu')
@@ -70,7 +71,7 @@ const HeaderOne = (props) => {
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                <img src="/assets/icons/profile-icon.svg" alt="profile" />
+                <img src="https://storage.googleapis.com/cars45-web-bucket/profile-icon.svg" alt="profile" />
               </button>
               <div className="dropdown-menu">
                 <button className="dropdown-item btn btn-link darkgrey-color">
@@ -91,8 +92,8 @@ const HeaderOne = (props) => {
               className="logo"
               src={
                 path === "/service"
-                  ? "/assets/icons/fixitlogo.svg"
-                  : "/assets/icons/logo.svg"
+                  ? "https://storage.googleapis.com/cars45-web-bucket/fixitlogo.svg"
+                  : "https://storage.googleapis.com/cars45-web-bucket/logo.svg"
               }
               alt="logo"
             />
