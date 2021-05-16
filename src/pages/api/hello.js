@@ -30,7 +30,6 @@ const getImage = () => {
 
 
 const uploadImage = (file, filename) => new Promise((resolve, reject) => {
-  // const { originalname, buffer } = file
   let destination = path.relative(path.resolve('public/assets/images'), file);
   bucket.upload(file, { destination })
     .then(
@@ -41,34 +40,6 @@ const uploadImage = (file, filename) => new Promise((resolve, reject) => {
       },
       err => console.log({ fileName: destination, response: err }, 'An error occured')
     );
-  // .then(uploadResp => {
-  //   console.log({ fileName: destination, status: uploadResp[0] })
-  //   const publicUrl = `https://storage.googleapis.com/${bucket.name}/${filename}`
-  //   let data = {
-  //     name: filename,
-  //     url: publicUrl
-  //   };
-  //   console.log(publicUrl, 'final url')
-  // })
-  // .catch(err => console.log(err))
-
-  // const blob = bucket.file(filename.replace(/ /g, "_").split('.')[0])
-  // const blobStream = blob.createWriteStream({
-  //   resumable: true,
-  //   metadata: {
-  //     contentType: `image/${filename.replace(/ /g, "_").split('.')[1]}`
-  //   }
-  // })
-  // blobStream.on('finish', () => {
-  //   const publicUrl = `https://storage.googleapis.com/${bucket.name}/${blob.name}`
-  //   console.log(publicUrl, 'the url in return')
-  //   resolve(publicUrl)
-  // })
-  //   .on('error', (err) => {
-  //     console.log(err)
-  //     reject(`Unable to upload image, something went wrong`)
-  //   })
-  //   .end(file)
 })
 
 
