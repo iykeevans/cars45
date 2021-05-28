@@ -19,7 +19,7 @@ exports[`About Page About page matches snapshot 1`] = `
           >
             <img
               alt="phone"
-              src="https://storage.googleapis.com/cars45-web-bucket/phone.svg"
+              src="/assets/icons/phone.svg"
             />
             <p
               class="darkgrey-color"
@@ -699,7 +699,7 @@ exports[`About Page About page matches snapshot 1`] = `
                   class="col col-md-2 d-none d-md-block"
                 >
                   <a
-                    href="/"
+                    href="/about"
                   >
                     About Us
                   </a>
@@ -735,7 +735,7 @@ exports[`About Page About page matches snapshot 1`] = `
                   class="col col-md-2"
                 >
                   <a
-                    href="/"
+                    href="/loan"
                   >
                     Financing
                   </a>
@@ -744,7 +744,7 @@ exports[`About Page About page matches snapshot 1`] = `
                   class="col col-md-3 d-none d-md-block"
                 >
                   <a
-                    href="/"
+                    href="/franchise"
                   >
                     Become A Franchise
                   </a>
@@ -761,7 +761,7 @@ exports[`About Page About page matches snapshot 1`] = `
                   class="col-md-6 text-center"
                 >
                   <a
-                    href="/"
+                    href="mailto:help@car45.com"
                   >
                     help@car45.com
                   </a>

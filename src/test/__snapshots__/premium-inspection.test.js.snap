@@ -1422,14 +1422,14 @@ exports[`Premium inspection page About page matches snapshot 1`] = `
             <ul>
               <li>
                 <a
-                  href="/"
+                  href="/about"
                 >
                   About Us
                 </a>
               </li>
               <li>
                 <a
-                  href="/"
+                  href="/corporate"
                 >
                   Contact Us
                 </a>
@@ -1463,7 +1463,7 @@ exports[`Premium inspection page About page matches snapshot 1`] = `
             <ul>
               <li>
                 <a
-                  href="/"
+                  href="/premium-inspection"
                 >
                   Inspection Centers
                 </a>
@@ -1491,7 +1491,7 @@ exports[`Premium inspection page About page matches snapshot 1`] = `
               </li>
               <li>
                 <a
-                  href="/"
+                  href="/check"
                 >
                   Background Check
                 </a>

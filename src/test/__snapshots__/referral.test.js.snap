@@ -19,7 +19,7 @@ exports[`Referral page Referral page matches snapshot 1`] = `
           >
             <img
               alt="phone"
-              src="https://storage.googleapis.com/cars45-web-bucket/phone.svg"
+              src="/assets/icons/phone.svg"
             />
             <p
               class="darkgrey-color"
@@ -387,39 +387,43 @@ exports[`Referral page Referral page matches snapshot 1`] = `
       class="autopreneneur-line"
     />
     <div
-      class="splash-bg"
+      class="d-none d-lg-flex mt-3 pb-5 mb-5"
     >
-      <div>
-        <img
-          alt="logo"
-          src="https://storage.googleapis.com/cars45-web-bucket/logo-white.svg"
-        />
-      </div>
-    </div>
-    <div
-      class="autopreneneur-rec-carousel"
-    >
-      <h1>
-        ‹
-      </h1>
       <div
-        class="autopreneneur-suggestion"
+        class="splash-bg"
       >
-        <h4>
-          Recommended Marketplace Cars For You
-        </h4>
-        <div
-          class="autopreneneur-recommended"
-        />
+        <div>
+          <img
+            alt="logo"
+            src="https://storage.googleapis.com/cars45-web-bucket/logo-white.svg"
+          />
+        </div>
       </div>
-      <h1>
-        ›
-      </h1>
+      <div
+        class="autopreneneur-rec-carousel"
+      >
+        <h1>
+          ‹
+        </h1>
+        <div
+          class="autopreneneur-suggestion"
+        >
+          <h4>
+            Recommended Marketplace Cars For You
+          </h4>
+          <div
+            class="autopreneneur-recommended"
+          />
+        </div>
+        <h1>
+          ›
+        </h1>
+      </div>
+      <div
+        class="jsx-2955411730 toast-container"
+        id="toast-container"
+      />
     </div>
-    <div
-      class="jsx-2955411730 toast-container"
-      id="toast-container"
-    />
   </div>
   <div>
     <div
@@ -444,7 +448,7 @@ exports[`Referral page Referral page matches snapshot 1`] = `
                   class="col col-md-2 d-none d-md-block"
                 >
                   <a
-                    href="/"
+                    href="/about"
                   >
                     About Us
                   </a>
@@ -480,7 +484,7 @@ exports[`Referral page Referral page matches snapshot 1`] = `
                   class="col col-md-2"
                 >
                   <a
-                    href="/"
+                    href="/loan"
                   >
                     Financing
                   </a>
@@ -489,7 +493,7 @@ exports[`Referral page Referral page matches snapshot 1`] = `
                   class="col col-md-3 d-none d-md-block"
                 >
                   <a
-                    href="/"
+                    href="/franchise"
                   >
                     Become A Franchise
                   </a>
@@ -506,7 +510,7 @@ exports[`Referral page Referral page matches snapshot 1`] = `
                   class="col-md-6 text-center"
                 >
                   <a
-                    href="/"
+                    href="mailto:help@car45.com"
                   >
                     help@car45.com
                   </a>

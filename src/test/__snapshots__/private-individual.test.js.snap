@@ -19,7 +19,7 @@ exports[`Private individual page Private individual page matches snapshot 1`] = 
           >
             <img
               alt="phone"
-              src="https://storage.googleapis.com/cars45-web-bucket/phone.svg"
+              src="/assets/icons/phone.svg"
             />
             <p
               class="darkgrey-color"
@@ -1422,14 +1422,14 @@ exports[`Private individual page Private individual page matches snapshot 1`] = 
             <ul>
               <li>
                 <a
-                  href="/"
+                  href="/about"
                 >
                   About Us
                 </a>
               </li>
               <li>
                 <a
-                  href="/"
+                  href="/corporate"
                 >
                   Contact Us
                 </a>
@@ -1463,7 +1463,7 @@ exports[`Private individual page Private individual page matches snapshot 1`] = 
             <ul>
               <li>
                 <a
-                  href="/"
+                  href="/premium-inspection"
                 >
                   Inspection Centers
                 </a>
@@ -1491,7 +1491,7 @@ exports[`Private individual page Private individual page matches snapshot 1`] = 
               </li>
               <li>
                 <a
-                  href="/"
+                  href="/check"
                 >
                   Background Check
                 </a>

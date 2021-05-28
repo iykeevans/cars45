@@ -301,7 +301,7 @@ describe("test car45 endpoints", () => {
   });
 
   describe("test pay money down", () => {
-    test("should pay money down", () => {
+    test("should not pay money down because car does not exist for paydown", () => {
       const payload = {
         customerEmail: "iamkesington@gmail.com",
         phone: "07065350169",
@@ -316,7 +316,27 @@ describe("test car45 endpoints", () => {
       return $_payMoneyDown(payload).then((response) => {
         expect(response.status).toBe(200);
         expect(response.data.success).toBeTruthy();
+        expect(response.data.data).toHaveProperty("message", "Car not found");
+        // console.log(response.data.data)
+      });
+    });
+    test("should pay money down for a car", () => {
+      const payload = {
+        customerEmail: "lan@g.com",
+        customerName: "olanrewaju olanipekun",
+        make: "Toyota",
+        model: "4Runner",
+        phone: "08161702919",
+        sku: "NG-837261",
+        url: "http://localhost:3000/buy/car/Toyota_NG-837261",
+        year: "2004",
+      };
+
+      return $_payMoneyDown(payload).then((response) => {
+        expect(response.status).toBe(200);
+        expect(response.data.success).toBeTruthy();
         expect(response.data.data).toHaveProperty("reference");
+        // console.log(response.data.data)
       });
     });
   });

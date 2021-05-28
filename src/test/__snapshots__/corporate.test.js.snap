@@ -19,7 +19,7 @@ exports[`Corporate Page Corporate page matches snapshot 1`] = `
           >
             <img
               alt="phone"
-              src="https://storage.googleapis.com/cars45-web-bucket/phone.svg"
+              src="/assets/icons/phone.svg"
             />
             <p
               class="darkgrey-color"
@@ -368,7 +368,7 @@ exports[`Corporate Page Corporate page matches snapshot 1`] = `
             class="partnership-card-intro"
           >
             <img
-              src=".https://storage.googleapis.com/cars45-web-bucket/partner1.svg"
+              src="./assets/icons/partner1.svg"
             />
             <h5>
               Direct Selling
@@ -385,7 +385,7 @@ exports[`Corporate Page Corporate page matches snapshot 1`] = `
             class="partnership-card-intro"
           >
             <img
-              src=".https://storage.googleapis.com/cars45-web-bucket/partner2.svg"
+              src="./assets/icons/partner2.svg"
             />
             <h5>
               Trade in Your Car
@@ -402,7 +402,7 @@ exports[`Corporate Page Corporate page matches snapshot 1`] = `
             class="partnership-card-intro"
           >
             <img
-              src=".https://storage.googleapis.com/cars45-web-bucket/partner3.svg"
+              src="./assets/icons/partner3.svg"
             />
             <h5>
               Background Check
@@ -419,7 +419,7 @@ exports[`Corporate Page Corporate page matches snapshot 1`] = `
             class="partnership-card-intro"
           >
             <img
-              src=".https://storage.googleapis.com/cars45-web-bucket/partner4.svg"
+              src="./assets/icons/partner4.svg"
             />
             <h5>
               Vehicle Inspection/ Fleet Condition Analysis
@@ -436,7 +436,7 @@ exports[`Corporate Page Corporate page matches snapshot 1`] = `
             class="partnership-card-intro"
           >
             <img
-              src=".https://storage.googleapis.com/cars45-web-bucket/partner5.svg"
+              src="./assets/icons/partner5.svg"
             />
             <h5>
               Online or Offline Auction
@@ -453,7 +453,7 @@ exports[`Corporate Page Corporate page matches snapshot 1`] = `
             class="partnership-card-intro"
           >
             <img
-              src=".https://storage.googleapis.com/cars45-web-bucket/partner6.svg"
+              src="./assets/icons/partner6.svg"
             />
             <h5>
               Vehicle Valuation
@@ -521,7 +521,7 @@ exports[`Corporate Page Corporate page matches snapshot 1`] = `
                   class="col col-md-2 d-none d-md-block"
                 >
                   <a
-                    href="/"
+                    href="/about"
                   >
                     About Us
                   </a>
@@ -557,7 +557,7 @@ exports[`Corporate Page Corporate page matches snapshot 1`] = `
                   class="col col-md-2"
                 >
                   <a
-                    href="/"
+                    href="/loan"
                   >
                     Financing
                   </a>
@@ -566,7 +566,7 @@ exports[`Corporate Page Corporate page matches snapshot 1`] = `
                   class="col col-md-3 d-none d-md-block"
                 >
                   <a
-                    href="/"
+                    href="/franchise"
                   >
                     Become A Franchise
                   </a>
@@ -583,7 +583,7 @@ exports[`Corporate Page Corporate page matches snapshot 1`] = `
                   class="col-md-6 text-center"
                 >
                   <a
-                    href="/"
+                    href="mailto:help@car45.com"
                   >
                     help@car45.com
                   </a>
